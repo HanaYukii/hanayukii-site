@@ -14,11 +14,18 @@ export const metadata: Metadata = {
   },
 };
 
-function Heading({ children, id }: { children: React.ReactNode; id: string }) {
+function Heading({ date, children, id }: { date?: string; children: React.ReactNode; id: string }) {
   return (
-    <h2 id={id} className="mb-4 mt-12 text-2xl font-bold scroll-mt-20">
-      {children}
-    </h2>
+    <div className="mb-4 mt-12 scroll-mt-20 border-t border-border/30 pt-8" id={id}>
+      {date && (
+        <span className="mb-2 inline-block rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+          {date}
+        </span>
+      )}
+      <h2 className="text-2xl font-bold">
+        {children}
+      </h2>
+    </div>
   );
 }
 
@@ -47,14 +54,15 @@ export default function Idol2025() {
         <p className="mb-2 text-lg text-text-muted">
           意外回歸星塵的一年
         </p>
-        <p className="mb-8 text-sm text-text-muted">2025-12-18</p>
+        <p className="mb-8 text-sm text-text-muted">2026-04-08</p>
       </FadeIn>
 
       {/* ── 前言 ── */}
       <FadeIn>
         <div className="space-y-4">
           <p>
-            以為 2017 就退坑星塵了，沒想到 2025 又把桃草、虎魚、蝦中看了一遍，還認識了一堆新的偶像。
+            以為自己早在 2017 就退坑星塵，沒想到 2025 不只又把桃草、虎魚、蝦中看了一遍，
+            還因為一連串意外的契機，重新走進了偶像現場，也認識了很多新的團體與故事。
           </p>
           <p>
             今年跑了很多難忘的現場。最大亮點是 SASUKEアイドル予選会，如果明年還有一定要再去。
@@ -72,6 +80,7 @@ export default function Idol2025() {
       {/* ── 時間線 ── */}
       <FadeIn>
         <Heading id="timeline">2025 參戰時間線</Heading>
+
         <div className="space-y-1">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
@@ -102,6 +111,11 @@ export default function Idol2025() {
                   <td className="py-2.5 pr-4 whitespace-nowrap">11/29</td>
                   <td className="py-2.5 pr-4">夏川椎菜 as mona 2nd ワンマンライブ 君を幸せにするのはわたし</td>
                   <td className="py-2.5 whitespace-nowrap">TACHIKAWA STAGE GARDEN</td>
+                </tr>
+                <tr className="border-b border-border/50">
+                  <td className="py-2.5 pr-4 whitespace-nowrap">10/10-11</td>
+                  <td className="py-2.5 pr-4">IDOL KINGDOM TAIPEI 2025</td>
+                  <td className="py-2.5 whitespace-nowrap">統一時代百貨夢廣場</td>
                 </tr>
                 <tr className="border-b border-border/50">
                   <td className="py-2.5 pr-4 whitespace-nowrap">09/07</td>
@@ -161,7 +175,7 @@ export default function Idol2025() {
 
       {/* ── TrySail ── */}
       <FadeIn>
-        <Heading id="trysail">03/02 TrySail &quot;FlagShip&quot; @ 日本武道館</Heading>
+        <Heading id="trysail" date="03/02">TrySail &quot;FlagShip&quot; <span className="text-lg font-normal text-text/60">@ 日本武道館</span></Heading>
         <div className="space-y-4">
           <p>
             今年第一場，TrySail 十周年。沒有特別多的記憶，不過就是一場不錯的 live 吧。
@@ -172,19 +186,19 @@ export default function Idol2025() {
 
       {/* ── えびちゅう SSA ── */}
       <FadeIn>
-        <Heading id="ebichu-ssa">03/20 えびちゅう 大学芸会2025 ~LOVE&amp;BRAVE~ @ さいたまスーパーアリーナ</Heading>
+        <Heading id="ebichu-ssa" date="03/20">えびちゅう 大学芸会2025 ~LOVE&amp;BRAVE~ <span className="text-lg font-normal text-text/60">@ さいたまスーパーアリーナ</span></Heading>
         <div className="space-y-4">
           <p>
             開場的聲光效果還有 overture 就讓人鳥肌感動，最後時刻滿場真的很棒。
             睽違十年再上 SSA，很多畫面都跟當年對照起來，歌單整個很神，各種橋段非常精彩。
-            非常非常精彩的一場 live，本來出了點小意外差點放掉這場，慶幸最後還是有去。
+            從頭到尾情緒一直是拉滿的狀態，本來出了點小意外差點放掉這場，慶幸最後還是有去。
           </p>
         </div>
       </FadeIn>
 
       {/* ── えびちゅう 卒業式 ── */}
       <FadeIn>
-        <Heading id="ebichu-graduation">06/28-29 小林歌穂 卒業式「ぽ~EVER」/ 新体制始業式「GOLDEN EIGHT」@ 幕張メッセ</Heading>
+        <Heading id="ebichu-graduation" date="06/28-29">小林歌穂 卒業式「ぽ~EVER」/ 新体制始業式「GOLDEN EIGHT」<span className="text-lg font-normal text-text/60">@ 幕張メッセ</span></Heading>
         <div className="space-y-4">
           <p>
             超感動幸福的卒業 live，運營的用心和成員的愛都太真實了。
@@ -196,7 +210,7 @@ export default function Idol2025() {
             本來還覺得可能拿不到彩帶，沒想到出口直接有 staff 再發，彩帶好漂亮。
           </p>
           <p>
-            第二天的新體制也很棒，很愛金八，也有很多好聽的歌，整體是一場很不錯的 live。
+            第二天的新體制也令人期待，很愛金八的氛圍，歌單也有很多好聽的歌。
           </p>
           <p>
             雖然陸續推了不少，不過還是覺得現在推えびちゅう是最開心的一段。
@@ -207,7 +221,7 @@ export default function Idol2025() {
 
       {/* ── IDOL EXPO ── */}
       <FadeIn>
-        <Heading id="idol-expo">07/05-06 TAIPEI CITY IDOL EXPO 2025 @ Zepp New Taipei</Heading>
+        <Heading id="idol-expo" date="07/05-06">TAIPEI CITY IDOL EXPO 2025 <span className="text-lg font-normal text-text/60">@ Zepp New Taipei</span></Heading>
         <div className="space-y-4">
           <p>
             這種拼盤場距離真的近的不可思議，えま顏值實在太高了。
@@ -220,7 +234,7 @@ export default function Idol2025() {
 
       {/* ── ももクロ夏バカ ── */}
       <FadeIn>
-        <Heading id="momoclo">08/02-03 ももクロ夏のバカ騒ぎ2025 @ 横浜スタジアム</Heading>
+        <Heading id="momoclo" date="08/02-03">ももクロ夏のバカ騒ぎ2025 <span className="text-lg font-normal text-text/60">@ 横浜スタジアム</span></Heading>
         <div className="space-y-4">
           <p>
             日本夏日第一場。兩天前才決定要來的，心血來潮就來了。
@@ -244,7 +258,7 @@ export default function Idol2025() {
 
       {/* ── LuckyFes ── */}
       <FadeIn>
-        <Heading id="luckyfes">08/09 LuckyFes&apos;25 @ 国営ひたち海浜公園</Heading>
+        <Heading id="luckyfes" date="08/09">LuckyFes&apos;25 <span className="text-lg font-normal text-text/60">@ 国営ひたち海浜公園</span></Heading>
         <div className="space-y-4">
           <p>
             第一次來夏日野外拼盤 fes，大草原夏日感好愛。
@@ -260,7 +274,7 @@ export default function Idol2025() {
 
       {/* ── SASUKE ── */}
       <FadeIn>
-        <Heading id="sasuke">08/13 SASUKEアイドル予選会2025 @ LaLa arena TOKYO-BAY</Heading>
+        <Heading id="sasuke" date="08/13">SASUKEアイドル予選会2025 <span className="text-lg font-normal text-text/60">@ LaLa arena TOKYO-BAY</span></Heading>
         <div className="space-y-4">
           <p>
             整個節目很精彩，結局也很感動。坐在蝦中應援席，不過現在看來更推的應該是涼海すう跟結城りな。
@@ -280,20 +294,20 @@ export default function Idol2025() {
 
       {/* ── FAMIEN ── */}
       <FadeIn>
-        <Heading id="famien">08/16-17 FAMIEN 2025 @ 山中湖交流プラザ きらら</Heading>
+        <Heading id="famien" date="08/16-17">FAMIEN 2025 <span className="text-lg font-normal text-text/60">@ 山中湖交流プラザ きらら</span></Heading>
         <div className="space-y-4">
           <p>
             第二年來遠足，交通難度 S 級的 Fes。
             歌單好愛，煙火好美，えま好可愛。
             富士山山中湖的野外 live，夏天就是要這樣。
-            是一場不錯的 live，交通很累，但也沒有太多特別的記憶。
+            交通很累，但富士山下的夏日現場就是值得。
           </p>
         </div>
       </FadeIn>
 
       {/* ── えま生誕 ── */}
       <FadeIn>
-        <Heading id="ema-birthday">09/02 桜井えま 生誕ソロライブ「はにーえまいる~沼3~」@ KT Zepp Yokohama</Heading>
+        <Heading id="ema-birthday" date="09/02">桜井えま 生誕ソロライブ「はにーえまいる~沼3~」<span className="text-lg font-normal text-text/60">@ KT Zepp Yokohama</span></Heading>
         <div className="space-y-4">
           <p>
             えま的生誕祭，沒什麼特別記憶，不過えま很可愛。
@@ -304,7 +318,7 @@ export default function Idol2025() {
 
       {/* ── たかねこ ── */}
       <FadeIn>
-        <Heading id="takaneko">09/07 高嶺のなでしこ 3rd ANNIVERSARY「A Wonderful Encounter」@ 幕張メッセ</Heading>
+        <Heading id="takaneko" date="09/07">高嶺のなでしこ 3rd ANNIVERSARY「A Wonderful Encounter」<span className="text-lg font-normal text-text/60">@ 幕張メッセ</span></Heading>
         <div className="space-y-4">
           <p>
             因為 LuckyFes 和 SASUKE アイドル予選会，才有契機再次注意到たかねこ。
@@ -314,14 +328,28 @@ export default function Idol2025() {
           <p>
             剛好有搭到えま生誕可以第一次參加她們的 one-man live，各種氛圍都好可愛。
             我臉盲還不會認成員，這場只認得出 momona 跟すう。
-            整場都很棒很精彩，她們的曲風我很愛，後續加推東山又是另一個故事了。
+            整場氛圍很完整，曲風也正中我喜歡的那種可愛又帶點青春感的路線，結果回去後就一路加推到東山了。
+          </p>
+        </div>
+      </FadeIn>
+
+      {/* ── IDOL KINGDOM ── */}
+      <FadeIn>
+        <Heading id="idol-kingdom" date="10/10-11">IDOL KINGDOM TAIPEI 2025 <span className="text-lg font-normal text-text/60">@ 統一時代百貨夢廣場</span></Heading>
+        <div className="space-y-4">
+          <p>
+            第一天在後台拿著すう的扇子揮手，跟即將登場的高嶺のなでしこ打招呼，すう真的好小隻。
+          </p>
+          <p>
+            第二天進場繼續拿すう的扇子，也得到她好多飯撒，舞台上真的好可愛，魅力超高。
+            也看到了 ukka，蠻後悔沒有去 ukka 的特典會的。
           </p>
         </div>
       </FadeIn>
 
       {/* ── mona ── */}
       <FadeIn>
-        <Heading id="mona">11/29 夏川椎菜 as mona 2nd「君を幸せにするのはわたし」@ TACHIKAWA STAGE GARDEN</Heading>
+        <Heading id="mona" date="11/29">夏川椎菜 as mona 2nd「君を幸せにするのはわたし」<span className="text-lg font-normal text-text/60">@ TACHIKAWA STAGE GARDEN</span></Heading>
         <div className="space-y-4">
           <p>
             因為高嶺のなでしこ開始聽了很多 HoneyWorks，剛好可以搭到場來 mona 的現場。
@@ -333,7 +361,7 @@ export default function Idol2025() {
 
       {/* ── 俺のえびシャチ ── */}
       <FadeIn>
-        <Heading id="ebishachi">11/30 俺のえびシャチライブ ~THE FINAL~ @ パシフィコ横浜 国立大ホール</Heading>
+        <Heading id="ebishachi" date="11/30">俺のえびシャチライブ ~THE FINAL~ <span className="text-lg font-normal text-text/60">@ パシフィコ横浜 国立大ホール</span></Heading>
         <div className="space-y-4">
           <p>
             跟虎魚組的緣分，其實還是當年推桃草的時候，順帶也會關注到蝦中跟虎魚。
@@ -355,7 +383,7 @@ export default function Idol2025() {
 
       {/* ── えびちゅう Road to K ── */}
       <FadeIn>
-        <Heading id="ebichu-road">12/12 えびちゅう ~Magic 1 Hour~ in 愛知 @ COMTEC PORTBASE</Heading>
+        <Heading id="ebichu-road" date="12/12">えびちゅう ~Magic 1 Hour~ in 愛知 <span className="text-lg font-normal text-text/60">@ COMTEC PORTBASE</span></Heading>
         <div className="space-y-4">
           <p>
             剛好在跑半個日本旅遊，因為隔天有虎魚的 final live 也提早來名古屋，
@@ -371,15 +399,15 @@ export default function Idol2025() {
 
       {/* ── TEAM SHACHI Final ── */}
       <FadeIn>
-        <Heading id="shachi-final">12/13 TEAM SHACHI 最終SHOW ~晴れ晴れ~ @ 名古屋城 二之丸広場</Heading>
+        <Heading id="shachi-final" date="12/13">TEAM SHACHI 最終SHOW ~晴れ晴れ~ <span className="text-lg font-normal text-text/60">@ 名古屋城 二之丸広場</span></Heading>
         <div className="space-y-4">
           <p>
             名古屋城，虎魚組 TEAM SHACHI 的 Final Live。
             這麼冷的天氣的戶外 live，很難想像她們居然穿著那樣的偶像服表演。
           </p>
           <p>
-            開場，人生 50 年，偶像 13 年 8 個月。
-            足夠讓一個人度過一大半的青春，偶像團體經歷各種階段走過好多旅程，感時傷勢。
+            開場那句「人生50年、偶像13年8ヶ月」一下就把情緒拉滿。
+            13 年 8 個月，足夠讓一個偶像團體經歷各種階段，也足夠讓聽歌的人在人生裡走過好多旅程。
           </p>
           <p>
             雖然已經很久沒關注了，當年在 2016、17 年前後，她們的很多歌都是一直 loop 陪伴讀書等等時光的愛歌，
@@ -396,28 +424,32 @@ export default function Idol2025() {
             從第二排真的是超近距離看著她們，太難得了。
           </p>
           <p>
-            ほのか在恋人はスナイパー的手指金虎，超鳥肌，氣場全開。
+            ほのか在恋人はスナイパー的手指金鯱，超鳥肌，氣場全開。
           </p>
           <p>
             最終單曲的兩首歌晴れ晴れ還有翔け抜けてスターマイン，
             歌詞旋律都超有感，我超愛，可惜沒有更多機會流傳下去了。
           </p>
-          <p>
-            最後ほのか的 MC：如果曾經在某個人的人生裡，成為過某種存在，那就已經很滿足了。
-            當偶像一般認為要 CD 賣得好、可以上節目是很好的成就，
-            但是在最後大家這樣來送我，就是最幸福的。
-            希望大家多年後回到名古屋的時候，可以想起來當年在名古屋玩得很開心。感動落淚。
-          </p>
-          <p className="text-text-muted italic">
+          <blockquote className="border-l-2 border-warm/40 bg-surface/40 rounded-r-lg px-4 py-3 text-text-muted">
+            <p className="mb-2">
+              最後ほのか的 MC：如果曾經在某個人的人生裡，成為過某種存在，那就已經很滿足了。
+              當偶像一般認為要 CD 賣得好、可以上節目是很好的成就，
+              但是在最後大家這樣來送我，就是最幸福的。
+            </p>
+            <p>
+              希望大家多年後回到名古屋的時候，可以想起來當年在名古屋玩得很開心。感動落淚。
+            </p>
+          </blockquote>
+          <blockquote className="border-l-2 border-accent/40 bg-surface/40 rounded-r-lg px-4 py-3 italic text-text-muted">
             会えなくても 寂しくても<br />
             それでも地球は回ってゆく<br />
             君と僕の新しい物語をはじめよう
-          </p>
+          </blockquote>
           <p>
             最後的畫面，四個成員站在海島邊，化作虎鯨回到大海。
           </p>
           <p>
-            感謝在年尾得到了一份重要的禮物，我也要開始一段嶄新的人生旅程。
+            感謝在年尾收到這份重要的禮物。帶著這些歌、這些現場，還有那些告別與相遇的心情，我也要慢慢走向下一段旅程了。
           </p>
           <p>
             完整 live：<a href="https://www.youtube.com/watch?v=jBgRsToJGBM" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">YouTube</a>
@@ -438,6 +470,10 @@ export default function Idol2025() {
             也因為高嶺のなでしこ，開始聽了很多 HoneyWorks，最後去到 mona 的現場。
           </p>
           <p>
+            雖然很多偶像都很棒，但真的有特別情感的，還是那些跟了很多年的團。
+            那種從學生時代一路聽到現在的歌，現場響起來的時候，感受完全不一樣。
+          </p>
+          <p>
             人生也充滿各種有趣的契機，今年也遇到了不少不管是快樂的或痛苦的，
             不知道未來還有沒有這麼多的機會參與現場，希望新的挑戰一切順利。
           </p>
@@ -448,6 +484,9 @@ export default function Idol2025() {
       </FadeIn>
 
       <FadeIn>
+        <p className="mt-8 text-sm text-text-muted">
+          完整參戰紀錄：<a href="https://www.eventernote.com/users/HanaYukii/events" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">eventernote</a>
+        </p>
         <div className="mt-8 flex flex-wrap gap-2 text-xs">
           {["Idol", "Life", "えびちゅう", "TEAM SHACHI", "高嶺のなでしこ", "ももクロ", "Live"].map((tag) => (
             <span

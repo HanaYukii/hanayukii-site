@@ -5,7 +5,7 @@ export default function Blog() {
   const posts = [
     {
       title: "2025 偶像現場全紀錄",
-      date: "2025-12-18",
+      date: "2026-04-08",
       summary:
         "意外回歸星塵的一年，感謝各種現場的相遇與告別。從桃草到蝦中、從虎魚組到高嶺のなでしこ，2025 年的偶像現場紀錄。",
       tags: ["Life", "Idol"],
