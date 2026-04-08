@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import MouseGlow from "@/components/MouseGlow";
 import ParticleGrid from "@/components/ParticleGrid";
 import "./globals.css";
@@ -93,6 +95,8 @@ export default function RootLayout({
         <Navbar />
         <main className="relative z-10 flex-1">{children}</main>
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
