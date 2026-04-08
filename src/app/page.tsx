@@ -4,7 +4,7 @@ import FadeIn from "@/components/FadeIn";
 export default function Home() {
   const hotPosts = [
     {
-      title: "離開 Google 的轉職紀錄",
+      title: "離開 Google 半年後的轉職紀錄",
       date: "2026-04-06",
       tags: ["Career", "Personal"],
       tagStyle: "bg-warm/10 text-warm",

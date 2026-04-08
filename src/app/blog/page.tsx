@@ -31,7 +31,7 @@ export default function Blog() {
       href: "/blog/privacy-chain-midnight",
     },
     {
-      title: "離開 Google 的轉職紀錄",
+      title: "離開 Google 半年後的轉職紀錄",
       date: "2026-04-06",
       summary:
         "在 Google Cloud 待了三年，我最後選擇裸辭。不是因為壓力太大，而是因為太輕鬆。",
