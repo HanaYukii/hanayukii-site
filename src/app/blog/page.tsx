@@ -4,10 +4,10 @@ import FadeIn from "@/components/FadeIn";
 export default function Blog() {
   const posts = [
     {
-      title: "CF2217F — Nim, XOR 與 Digit DP",
+      title: "CF2217F — Interval Game",
       date: "2026-04-08",
       summary:
-        "把區間博弈轉成 Nim，再用 XOR + 加法恆等式拆解 counting，最後用 Digit DP 收尾。",
+        "Nim + XOR 加法恆等式 + Digit DP。把區間博弈轉成 Nim，再用代數轉換拆解 counting。",
       tags: ["Competitive Programming", "Game Theory"],
       tagStyle: "bg-accent/10 text-accent",
       href: "/blog/cf2217f",

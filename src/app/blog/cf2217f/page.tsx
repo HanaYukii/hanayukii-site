@@ -5,13 +5,13 @@ import Code from "@/components/CodeBlock";
 import { InlineMath, BlockMath } from "@/components/Math";
 
 export const metadata: Metadata = {
-  title: "CF2217F — Nim, XOR 與 Digit DP 的一次融合 | 花雪 HanaYukii",
+  title: "CF2217F — Interval Game | 花雪 HanaYukii",
   description:
-    "Codeforces 2217F 題解。把區間博弈轉成 Nim，再用 XOR + 加法恆等式拆解 counting，最後用 Digit DP 收尾。",
+    "Codeforces 2217F Interval Game 題解。Nim + XOR 加法恆等式 + Digit DP。",
   openGraph: {
-    title: "CF2217F — Nim, XOR 與 Digit DP 的一次融合",
+    title: "CF2217F — Interval Game",
     description:
-      "把區間博弈轉成 Nim，再用 XOR + 加法恆等式拆解 counting，最後用 Digit DP 收尾。",
+      "Codeforces 2217F Interval Game 題解。Nim + XOR 加法恆等式 + Digit DP。",
     type: "article",
   },
 };
@@ -58,11 +58,14 @@ export default function CF2217F() {
             Digit DP
           </span>
         </div>
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight">
-          CF2217F — Nim, XOR 與 Digit DP
+        <h1 className="mb-2 text-4xl font-extrabold tracking-tight">
+          CF2217F — Interval Game
         </h1>
-        <p className="mb-2 text-text-muted">
-          這題一開始看起來像是「機率 + 區間」問題，但核心其實是把遊戲轉成 Nim，然後做 XOR 分佈的 counting。
+        <p className="mb-2 text-lg text-text-muted">
+          Nim + XOR 加法恆等式 + Digit DP
+        </p>
+        <p className="mb-2 text-sm text-text-muted">
+          看起來像機率 + 區間問題，核心是把遊戲轉成 Nim，再做 XOR 分佈的 counting。
         </p>
         <p className="mb-8 text-sm text-text-muted">
           2026-04-08 ·{" "}
@@ -92,7 +95,7 @@ export default function CF2217F() {
               { id: "digitdp", title: "Step 4：Digit DP" },
               { id: "merge", title: "Step 5：合併與枚舉" },
               { id: "code", title: "完整 Code" },
-              { id: "takeaway", title: "Takeaway" },
+              { id: "flow", title: "解法 Flow" },
             ].map((item, i) => (
               <a
                 key={item.id}
@@ -113,25 +116,30 @@ export default function CF2217F() {
         <FadeIn>
           <Heading id="problem">問題重述</Heading>
           <p>
-            Alice 和 Bob 各自有一個區間：
+            <strong>Input</strong>：多組測資，每組給兩個整數 <InlineMath math="x_1, x_2" />（<InlineMath math="1 \le x_1, x_2 \le 5 \times 10^5" />）。
           </p>
-          <ul className="ml-6 list-disc space-y-1 mt-2">
-            <li>Alice 選 <InlineMath math="[l_1, r_1] \subseteq [1, x_1]" /></li>
-            <li>Bob 的 <InlineMath math="[l_2, r_2] \subseteq [1, x_2]" /> 是<strong>均勻隨機</strong></li>
-          </ul>
           <p className="mt-4">
-            每回合選一個區間，把 <InlineMath math="l" /> 縮小或把 <InlineMath math="r" /> 放大，不能動的人輸。Alice 先手。
+            遊戲流程：
+          </p>
+          <ol className="ml-6 list-decimal space-y-1 mt-2">
+            <li>Alice 選一個區間 <InlineMath math="[l_1, r_1] \subseteq [1, x_1]" /></li>
+            <li>Bob 均勻隨機選一個區間 <InlineMath math="[l_2, r_2] \subseteq [1, x_2]" /></li>
+            <li>兩人用這兩個區間玩 Nim：每回合可以選一個區間，把 <InlineMath math="l" /> 縮小或把 <InlineMath math="r" /> 放大，不能動的人輸。Alice 先手。</li>
+          </ol>
+          <p className="mt-4">
+            <strong>Output</strong>：輸出 Alice 應該選的 <InlineMath math="l_1, r_1" />，使她的勝率最高。
           </p>
 
           <Callout>
-            觀察：這其實是 4 堆 Nim。堆的大小分別是 <InlineMath math="l_1-1,\ x_1-r_1,\ l_2-1,\ x_2-r_2" />，每堆代表「這個方向還能擴展多少次」。
+            觀察：這是 4 堆 Nim。堆的大小分別是 <InlineMath math="l_1-1,\ x_1-r_1,\ l_2-1,\ x_2-r_2" />，每堆代表這個方向還能擴展多少次。
           </Callout>
 
           <p>
-            Nim 的結論：<strong>先手贏 ⟺ 四堆 XOR ≠ 0</strong>。
+            Nim 的結論：<strong>先手贏 ⟺ 四堆 XOR ≠ 0</strong>。Alice 是先手，所以 XOR = 0 時 Alice 輸。
           </p>
           <p>
-            Alice 要選 <InlineMath math="[l_1, r_1]" /> 來最大化贏的機率。
+            Alice 要選一組 <InlineMath math="[l_1, r_1]" />，讓 Bob 隨機選完之後，四堆 XOR = 0（Alice 輸）的機率盡量小。
+            而 Bob 的可選範圍不受 Alice 的選擇影響，所以最小化機率等價於最小化滿足條件的組合數。
           </p>
         </FadeIn>
 
@@ -169,7 +177,10 @@ export default function CF2217F() {
           <p>
             令 <InlineMath math="t = c \mathbin{\&} d" />，則 <InlineMath math="c + d = s + 2t" />，條件變成：
           </p>
-          <BlockMath math="t \le \frac{x_2 - 1 - s}{2} = M, \qquad t \mathbin{\&} s = 0" />
+          <BlockMath math="t \le \frac{x_2 - 1 - s}{2} \quad \text{且} \quad t \mathbin{\&} s = 0" />
+          <p>
+            把 <InlineMath math="t" /> 的上界記作 <InlineMath math="M = \lfloor(x_2 - 1 - s) / 2\rfloor" />，也就是在固定 <InlineMath math="s" /> 之後，<InlineMath math="t" /> 最大能取到多少。
+          </p>
           <p>
             第二個條件的原因：XOR 為 1 的 bit 代表 c 和 d 恰好一個是 1，AND 不可能同時也是 1。
           </p>
@@ -212,13 +223,16 @@ export default function CF2217F() {
             <InlineMath math="s" /> 中有 <InlineMath math="\text{popcount}(s)" /> 個 1-bit，每個貢獻 2 種選擇，所以：
           </p>
           <BlockMath math="\text{每個 } t \text{ 對應的 } (c,d) \text{ 數} = 2^{\text{popcount}(s)}" />
+          <Code lang="cpp">{`// 對每個 s (= i):
+int mx = (x2 - i - 1) / 2;  // M: t 的上界
+long long sum = digit(i, mx) * (1LL << __builtin_popcount(i));`}</Code>
         </FadeIn>
 
         {/* ── Step 4 ── */}
         <FadeIn>
           <Heading id="digitdp">Step 4：Digit DP</Heading>
           <p>
-            現在需要數「只用 <InlineMath math="s" /> 的 0-bits 組成的數字中，<InlineMath math="\le M" /> 的有幾個」：
+            現在需要數：只用 <InlineMath math="s" /> 的 0-bits 組成的數字中，<InlineMath math="\le M" /> 的有幾個：
           </p>
           <BlockMath math="g(s) = \left|\{t \ge 0 : t \mathbin{\&} s = 0,\; t \le M\}\right|" />
           <p>這就是標準的 Digit DP。從最高位到最低位掃：</p>
@@ -233,6 +247,24 @@ export default function CF2217F() {
             </li>
           </ul>
           <p className="mt-4">每個 <InlineMath math="s" /> 花 <InlineMath math="O(20)" /> 時間。</p>
+          <Code lang="cpp">{`long long digit(int mask, int lim) {
+    if (lim < 0) return 0;
+    long long res = 0;
+    bool flag = 1;
+    for (int b = 19; b >= 0; b--) {
+        bool m = (mask >> b) & 1;
+        bool l = (lim >> b) & 1;
+        if (flag && l) {
+            int cnt = 0;
+            for (int i = b - 1; i >= 0; i--)
+                if (!((mask >> i) & 1)) cnt++;
+            res += 1LL << cnt;
+            if (m) flag = 0;
+        }
+    }
+    if (flag) res++;
+    return res;
+}`}</Code>
         </FadeIn>
 
         {/* ── Step 5 ── */}
@@ -249,8 +281,12 @@ export default function CF2217F() {
           <p>
             如果 <InlineMath math="x_1 > x_2" />，可以選 <InlineMath math="s \ge x_2" />。
             此時 <InlineMath math="c \oplus d \le c + d \le x_2 - 1 < s" />，
-            Bob 不可能匹配 → <strong>Alice 必勝</strong>，直接輸出 <InlineMath math="[x_2 + 1, x_1]" />。
+            Bob 不可能匹配 → <strong>Alice 必勝</strong>。
           </p>
+          <Code lang="cpp">{`if (x1 > x2) {
+    cout << x2 + 1 << " " << x1 << "\\n";
+    return;
+}`}</Code>
 
           <SubHeading>複雜度</SubHeading>
           <BlockMath math="O\!\left(\min(x_1, x_2) \cdot \log x_2\right)" />
@@ -259,7 +295,7 @@ export default function CF2217F() {
         {/* ── Code ── */}
         <FadeIn>
           <Heading id="code">完整 Code</Heading>
-          <Code language="cpp">{`#include <bits/stdc++.h>
+          <Code lang="cpp">{`#include <bits/stdc++.h>
 using namespace std;
 
 long long digit(int mask, int lim) {
@@ -327,18 +363,30 @@ int main() {
 }`}</Code>
         </FadeIn>
 
-        {/* ── Takeaway ── */}
+        {/* ── 解法 Flow ── */}
         <FadeIn>
-          <Heading id="takeaway">Takeaway</Heading>
-          <p>這題融合了三個經典技巧：</p>
-          <ol className="ml-6 list-decimal space-y-1 mt-2">
-            <li><strong>Nim 遊戲</strong> → XOR 決定勝負</li>
-            <li><strong>XOR + 加法轉換</strong>：<InlineMath math="a + b = (a \oplus b) + 2(a \mathbin{\&} b)" /></li>
-            <li><strong>Digit DP</strong>：在 bitmask 限制下做 counting</li>
-          </ol>
-          <Callout>
-            看到 XOR + sum constraint + pair counting 的組合，優先嘗試把 <InlineMath math="(c, d)" /> 拆成 <InlineMath math="(c \oplus d,\; c \mathbin{\&} d)" />。這個轉換讓 sum 和 XOR 的耦合被解開，剩下的就是標準的 counting 問題。
-          </Callout>
+          <Heading id="flow">解法 Flow</Heading>
+          <div className="my-4 flex flex-col items-center gap-2 text-sm">
+            <div className="rounded-lg border border-border bg-surface/60 px-4 py-2 text-center">
+              區間博弈 → 4 堆 <strong>Nim</strong>
+            </div>
+            <span className="text-text-muted">↓</span>
+            <div className="rounded-lg border border-border bg-surface/60 px-4 py-2 text-center">
+              先手輸 ⟺ <InlineMath math="c \oplus d = s" />，找 <InlineMath math="f(s)" /> 最小的 <InlineMath math="s" />
+            </div>
+            <span className="text-text-muted">↓</span>
+            <div className="rounded-lg border border-border bg-surface/60 px-4 py-2 text-center">
+              <InlineMath math="c + d = (c \oplus d) + 2(c \mathbin{\&} d)" />，令 <InlineMath math="t = c \mathbin{\&} d" />
+            </div>
+            <span className="text-text-muted">↓</span>
+            <div className="rounded-lg border border-border bg-surface/60 px-4 py-2 text-center">
+              數 <InlineMath math="t \le M" /> 且 <InlineMath math="t \mathbin{\&} s = 0" /> → <strong>Digit DP</strong>
+            </div>
+            <span className="text-text-muted">↓</span>
+            <div className="rounded-lg border border-border bg-surface/60 px-4 py-2 text-center">
+              <InlineMath math="f(s) = 2^{\text{popcount}(s)} \cdot g(s)" />，枚舉 <InlineMath math="s" /> 取最小
+            </div>
+          </div>
         </FadeIn>
       </div>
 
