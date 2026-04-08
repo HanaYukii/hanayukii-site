@@ -109,7 +109,7 @@ export default function LeavingGoogle() {
             <p>
               會有這麼多感受，也是因為這是 new grad 的第一份工作，而且是在世界頂級企業。
               我相信類似的故事在很多地方都在發生，甚至可能是大企業的常態。
-              但也缺乏實際的比較對象，不知道在其他地方的情況可能該是如何。也許只是自己太任性、太多 ego。
+              但也缺乏實際的比較對象，不知道在其他地方的情況可能該是如何。也許只是自己想太多。
             </p>
           </div>
         </FadeIn>
@@ -121,13 +121,11 @@ export default function LeavingGoogle() {
             <p>
               我離開不是因為公司不好。
               部門做的事情很重要，和大規模基礎設施高度相關，在 AI 時代更是如此。
-              但對當時的我來說，這樣的工作型態跟期待有很大的落差。
-              認識了很厲害的同事，也學到了大公司的工程文化，這些在其他地方不一定學得到，
-              只是成長的方向跟速度都不是自己想要的。
             </p>
             <p>
-              我待的 team 本質上是維護型的。日常工作大部分是 toil、on-call debug、處理 ticket，
-              就算是 project 很多也是 config 的調整，真正在寫 code 的時間非常少，更不可能用到任何演算法。
+              我待的 team 本質上是維護型的，屬於 feature 的 task 非常少。日常工作大部分是 toil、on-call debug、處理 ticket，
+              就算是 project 很多也是 config 的調整，真正在寫 code 的時間非常少，就算寫也幾乎都是些 infra 的小型測試，更不可能用到任何演算法。
+              而這些 closing issue 常常是 comment 轉走，真正的實際貢獻非常沒有成就感。
               而且需要不少 domain knowledge，很多東西需要長期累積的職場經驗才能處理，
               當年又沒有 AI 可以幫忙，對當時還是 new grad 的我來說，適應成本很高。
             </p>
@@ -210,7 +208,7 @@ export default function LeavingGoogle() {
             </p>
             <p className="my-4 text-lg font-semibold text-text">
               一直以來都這麼認為：自己的技能背景，跟工作內容很不匹配。
-              如果不是頂級企業的待遇和光環，應該早就離開了。
+              如果不是頂級企業的光環，應該早就離開了。
             </p>
             <p>
               我需要的是能用到所長、持續成長的環境，而這個位置給不了。
@@ -262,7 +260,7 @@ export default function LeavingGoogle() {
                 move semantics、memory layout、lambda capture 這些。
               </p>
               <p className="mt-2 text-sm">
-                HFT 的都沒有拿到，有拿到一些 Web3 小型團隊的 offer，但待遇和方向都不太符合預期。
+                HFT 的都沒有拿到，有拿到一些 Web3 小型團隊的 offer，但方向不太符合預期。
                 C++ low-level 知識當時確實有不足的地方，這也是後來花時間補強的方向。
               </p>
               <p className="mt-2 text-sm">
@@ -291,7 +289,7 @@ export default function LeavingGoogle() {
               <p className="text-sm">
                 在離開 Google 之前就有一家 AI 新創主動找上我，
                 看中我的演算法背景，邀請我加入帶技術團隊。
-                給的條件和 title 都比 Google 好不少。
+                給的角色和空間都很吸引人。
               </p>
               <p className="mt-2 text-sm">
                 最重要的是：工作內容是真的在寫 code、做研發、解演算法問題。
@@ -314,13 +312,13 @@ export default function LeavingGoogle() {
             <p>
               新加坡的量化沒拿到，出國這條路暫時沒走成。
               但 AI 新創的 offer 當時本來就是我比較想去的方向，
-              就算有拿到量化，我覺得待遇跟機會都不一定比較好：
+              就算有拿到量化，我覺得機會不一定比較好：
             </p>
             <ul className="list-inside list-disc space-y-2 text-sm">
               <li>能用到演算法背景</li>
               <li>有實際的開發工作，不是維護 toil</li>
               <li>新創節奏快，能學到更多東西</li>
-              <li>待遇可能略贏或略輸，但成長空間和主導權完全不同</li>
+              <li>成長空間和主導權完全不同</li>
             </ul>
             <p>
               所以就去了這家 AI 新創，現在做 Tech Lead，
@@ -339,7 +337,7 @@ export default function LeavingGoogle() {
             </ul>
             <p>
               當然還是有可能遇到無法解決的技術瓶頸、最後失敗收場。
-              但這是一家資金充足的新創，能得到這樣的機會和待遇，
+              但這是一家資金充足的新創，能得到這樣的機會，
               一定是一段很難得的經驗。
               我也會在這段時間全面性地增進自己、多方發展，迎接下一階段的挑戰。
             </p>
@@ -365,8 +363,7 @@ export default function LeavingGoogle() {
               也歸功於 AI 的爆發，讓學習曲線整個拉上去，能做到的事情比以前多很多。
             </p>
             <p>
-              這幾個月也剛好離開後 RSU 大爆噴、遇到 crypto 大回調，不過這就是人生考驗吧。
-              我相信這段經驗讓我學到很多課，準備好迎向未來的 upswing。
+              市場起伏本來就是常態，重要的是自己持續在進步。
             </p>
           </div>
         </FadeIn>
@@ -378,10 +375,9 @@ export default function LeavingGoogle() {
             </p>
             <ul className="list-inside list-disc space-y-3 text-sm">
               <li>
-                <strong>Team 比公司重要</strong>：Google 很大，有很多 team 很好，
-                但你到哪個 team 很大程度是緣分。我運氣不好，
-                team match 沒有很好，可能也跟自己當時的選擇有關。
-                以前也聽過一些類似的情境，有點像選系沒選好辛苦轉系的感覺吧。
+                <strong>Team 比公司重要</strong>：Google 很大，有好 team 也有不適合的 team，
+                分到哪裡很大程度是緣分。我的 match 結果不太理想，跟自己當時的判斷也有關。
+                有點像選系沒選好、之後要轉系的那種感覺。
               </li>
               <li>
                 <strong>面試失敗不虧</strong>：量化公司的面試雖然沒過，
@@ -393,6 +389,10 @@ export default function LeavingGoogle() {
                 同儕有人覺得不適合，早早跳去微軟，我也很佩服這樣的果斷。
                 而心理狀態也還在持續調適中，長期缺乏成就感和成長感對心理的影響是很深的，
                 希望能持續調整，找到自己舒適的狀態。
+              </li>
+              <li>
+                <strong>少比較</strong>：這個圈子有不少比較的氛圍：股價、TC、升遷，永遠比不完。
+                待久了確實深受影響，徒增很多不必要的焦慮。離開之後也在慢慢調整，試著把注意力放回自己身上。
               </li>
             </ul>
           </div>
@@ -417,7 +417,7 @@ export default function LeavingGoogle() {
               只是可能會更早走，更認真找 next step。
               也深深認知到，對自己的整體都該更積極。
               也是有看到他人的經驗，勇於放棄沉沒成本，為了自己積極努力，不管是轉 team 或換公司。
-              在內部慢慢等不確定的升遷，不如跳槽爭取更好的機會，而我又不缺面試的能力。
+              在內部慢慢等不確定的升遷，不如跳槽爭取更好的機會，反正面試本來就是自己相對有把握的部分。
               相信這也是很多大科技公司人的想法。
             </p>
             <p>
@@ -428,10 +428,13 @@ export default function LeavingGoogle() {
               回頭看，這段經歷不是繞路，而是讓我更快找到適合自己的方向，也是非常好的更認識自己的契機。
             </p>
             <p>
-              留下來的話，還有待遇成長的空間，內部也許也會有更好的機會。
+              留下來的話，內部也許也會有更好的機會。
               但不走的話，可能就不會有這段進步和轉變。
-              也慶幸離開後能獲得待遇不錯的選項，不至於在這部分過度糾結，但福利肯定是沒得比的。
+              也慶幸離開後的發展還算不錯，不至於在這部分過度糾結。
               說不清哪個比較好。
+            </p>
+            <p>
+              不過依然感謝這一路上遇到的人，以及各種受到的幫助。
             </p>
             <p>
               相信自己可以持續保持競爭力，應對未來的挑戰。
