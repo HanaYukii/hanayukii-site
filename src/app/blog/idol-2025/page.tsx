@@ -22,7 +22,7 @@ function Heading({ date, children, id }: { date?: string; children: React.ReactN
           {date}
         </span>
       )}
-      <h2 className="text-2xl font-bold">
+      <h2 className="text-2xl font-bold text-warm">
         {children}
       </h2>
     </div>

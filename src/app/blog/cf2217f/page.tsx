@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
-    <h2 id={id} className="mb-4 mt-12 text-2xl font-bold scroll-mt-20">
+    <h2 id={id} className="mb-4 mt-12 text-2xl font-bold text-warm scroll-mt-20">
       {children}
     </h2>
   );
