@@ -4,6 +4,15 @@ import FadeIn from "@/components/FadeIn";
 export default function Blog() {
   const posts = [
     {
+      title: "CF2217F — Nim, XOR 與 Digit DP",
+      date: "2026-04-08",
+      summary:
+        "把區間博弈轉成 Nim，再用 XOR + 加法恆等式拆解 counting，最後用 Digit DP 收尾。",
+      tags: ["Competitive Programming", "Game Theory"],
+      tagStyle: "bg-accent/10 text-accent",
+      href: "/blog/cf2217f",
+    },
+    {
       title: "2025 偶像現場全紀錄",
       date: "2026-04-08",
       summary:
@@ -13,7 +22,7 @@ export default function Blog() {
       href: "/blog/idol-2025",
     },
     {
-      title: "Midnight 到底在做什麼？順便聊聊隱私鏈",
+      title: "從 Midnight 看隱私鏈技術",
       date: "2026-04-06",
       summary:
         "從零開始理解隱私鏈的核心技術：ZK-SNARKs、雙狀態架構、可程式化隱私，以 Midnight Network (NIGHT) 為例拆解。",
@@ -22,7 +31,7 @@ export default function Blog() {
       href: "/blog/privacy-chain-midnight",
     },
     {
-      title: "我離開 Google 之後，怎麼找下一份工作",
+      title: "離開 Google 的轉職紀錄",
       date: "2026-04-06",
       summary:
         "在 Google Cloud 待了三年，我最後選擇裸辭。不是因為壓力太大，而是因為太輕鬆。",
@@ -31,7 +40,7 @@ export default function Blog() {
       href: "/blog/leaving-google",
     },
     {
-      title: "Dependency Injection 其實在解什麼",
+      title: "搞懂 Dependency Injection",
       date: "2026-04-06",
       summary:
         "我想把這個很常被講得很玄的主題講清楚，所以直接用例子拆到夠細。",
@@ -40,7 +49,7 @@ export default function Blog() {
       href: "/blog/dependency-injection",
     },
     {
-      title: "哪些事可以在 C++ 編譯期先做掉",
+      title: "C++ 編譯期可以做的五件事",
       date: "2026-03-31",
       summary:
         "從 constexpr 到 LUT 生成 - 五個實用的編譯期技巧，把能在編譯期做的事移到編譯期。",
@@ -49,7 +58,7 @@ export default function Blog() {
       href: "/blog/cpp-compile-time-optimization",
     },
     {
-      title: "C++ 小優化筆記：SSO 跟 Copy Elision",
+      title: "SSO 跟 Copy Elision：C++ 背後在偷做什麼",
       date: "2026-03-31",
       summary:
         "std::string 不一定用 heap？return 時加 std::move 反而更慢？拆解編譯器與標準庫在背後做的事。",
@@ -58,7 +67,7 @@ export default function Blog() {
       href: "/blog/cpp-secret-optimizations-1",
     },
     {
-      title: "C++ 小優化筆記：Padding、Vtable 跟 Smart Pointer",
+      title: "Padding、Vtable、Smart Pointer：C++ 的隱藏成本",
       date: "2026-03-31",
       summary:
         "sizeof 不是你想的那樣、virtual 讓物件膨脹 4 倍、shared_ptr 的隱藏原子操作代價。",
@@ -67,7 +76,7 @@ export default function Blog() {
       href: "/blog/cpp-secret-optimizations-2",
     },
     {
-      title: "那場要我手寫 C++26 inplace_vector 的面試",
+      title: "手寫 inplace_vector：一場硬核 C++ 面試",
       date: "2026-03-31",
       summary:
         "世界頂級量化交易公司的面試，面試官劍橋畢業，從零實作 inplace_vector：aligned storage、placement new、Rule of Five。",
@@ -76,7 +85,7 @@ export default function Blog() {
       href: "/blog/cpp-inplace-vector",
     },
     {
-      title: "那場 Crypto/HFT C++ 面試在考什麼",
+      title: "HFT 面試的六道 C++ 效能題",
       date: "2026-03-31",
       summary:
         "我親身參與的某知名 Crypto / HFT 公司 C++ 面試，涵蓋 string 傳遞、lambda 捕獲、Order Book 設計等六道效能分析題。",
