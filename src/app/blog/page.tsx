@@ -4,7 +4,7 @@ import FadeIn from "@/components/FadeIn";
 export default function Blog() {
   const posts = [
     {
-      title: "2025 偶像活動參戰總結",
+      title: "2025 偶像現場全紀錄",
       date: "2025-12-18",
       summary:
         "意外回歸星塵的一年，感謝各種現場的相遇與告別。從桃草到蝦中、從虎魚組到高嶺のなでしこ，2025 年的偶像現場紀錄。",
@@ -13,7 +13,7 @@ export default function Blog() {
       href: "/blog/idol-2025",
     },
     {
-      title: "隱私鏈技術入門 — 以 Midnight Network 為例",
+      title: "Midnight 到底在做什麼？順便聊聊隱私鏈",
       date: "2026-04-06",
       summary:
         "從零開始理解隱私鏈的核心技術：ZK-SNARKs、雙狀態架構、可程式化隱私，以 Midnight Network (NIGHT) 為例拆解。",
@@ -22,7 +22,7 @@ export default function Blog() {
       href: "/blog/privacy-chain-midnight",
     },
     {
-      title: "離開 Google 的轉職紀錄",
+      title: "我離開 Google 之後，怎麼找下一份工作",
       date: "2026-04-06",
       summary:
         "在 Google Cloud 待了三年，我最後選擇裸辭。不是因為壓力太大，而是因為太輕鬆。",
@@ -31,7 +31,7 @@ export default function Blog() {
       href: "/blog/leaving-google",
     },
     {
-      title: "搞懂 Dependency Injection",
+      title: "Dependency Injection 其實在解什麼",
       date: "2026-04-06",
       summary:
         "我想把這個很常被講得很玄的主題講清楚，所以直接用例子拆到夠細。",
@@ -40,7 +40,7 @@ export default function Blog() {
       href: "/blog/dependency-injection",
     },
     {
-      title: "聊聊 C++ 編譯期能做的事",
+      title: "哪些事可以在 C++ 編譯期先做掉",
       date: "2026-03-31",
       summary:
         "從 constexpr 到 LUT 生成 - 五個實用的編譯期技巧，把能在編譯期做的事移到編譯期。",
@@ -49,7 +49,7 @@ export default function Blog() {
       href: "/blog/cpp-compile-time-optimization",
     },
     {
-      title: "C++ 你不知道的優化（上）：SSO 與 Copy Elision",
+      title: "C++ 小優化筆記：SSO 跟 Copy Elision",
       date: "2026-03-31",
       summary:
         "std::string 不一定用 heap？return 時加 std::move 反而更慢？拆解編譯器與標準庫在背後做的事。",
@@ -58,7 +58,7 @@ export default function Blog() {
       href: "/blog/cpp-secret-optimizations-1",
     },
     {
-      title: "C++ 你不知道的優化（下）：Struct Padding、Vtable 與 Smart Pointer",
+      title: "C++ 小優化筆記：Padding、Vtable 跟 Smart Pointer",
       date: "2026-03-31",
       summary:
         "sizeof 不是你想的那樣、virtual 讓物件膨脹 4 倍、shared_ptr 的隱藏原子操作代價。",
@@ -67,7 +67,7 @@ export default function Blog() {
       href: "/blog/cpp-secret-optimizations-2",
     },
     {
-      title: "面試被要求手寫 C++26 inplace_vector",
+      title: "那場要我手寫 C++26 inplace_vector 的面試",
       date: "2026-03-31",
       summary:
         "世界頂級量化交易公司的面試，面試官劍橋畢業，從零實作 inplace_vector：aligned storage、placement new、Rule of Five。",
@@ -76,7 +76,7 @@ export default function Blog() {
       href: "/blog/cpp-inplace-vector",
     },
     {
-      title: "我在 Crypto/HFT 公司的 C++ 效能面試",
+      title: "那場 Crypto/HFT C++ 面試在考什麼",
       date: "2026-03-31",
       summary:
         "我親身參與的某知名 Crypto / HFT 公司 C++ 面試，涵蓋 string 傳遞、lambda 捕獲、Order Book 設計等六道效能分析題。",
@@ -85,7 +85,7 @@ export default function Blog() {
       href: "/blog/cpp-interview-performance-analysis",
     },
     {
-      title: "Understanding System Design Fundamentals",
+      title: "我怎麼想 System Design",
       date: "Draft",
       summary:
         "Still writing. Probably a practical note on how I think about system design interviews, not a giant textbook.",
@@ -94,7 +94,7 @@ export default function Blog() {
       href: null,
     },
     {
-      title: "ICPC Preparation Guide: From Zero to Gold",
+      title: "ICPC 要怎麼練比較有用",
       date: "Draft",
       summary:
         "Still writing. Mostly the kind of training advice I wish I had heard earlier.",
@@ -103,7 +103,7 @@ export default function Blog() {
       href: null,
     },
     {
-      title: "Getting Started with Polkadot JAM Protocol",
+      title: "JAM Protocol 到底在幹嘛",
       date: "Draft",
       summary:
         "Still writing. This one will probably end up being a gentle intro to JAM from an implementer&apos;s point of view.",
