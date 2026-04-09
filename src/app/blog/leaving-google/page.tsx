@@ -63,6 +63,7 @@ export default function LeavingGoogle() {
             {[
               { id: "background", title: "背景" },
               { id: "why-leave", title: "為什麼離開" },
+              { id: "rest", title: "短暫的休息" },
               { id: "interviews", title: "Next Step" },
               { id: "decision", title: "最後的選擇" },
               { id: "reflection", title: "回頭看" },
@@ -151,7 +152,7 @@ export default function LeavingGoogle() {
             <ul className="list-inside list-disc space-y-3 text-sm">
               <li>
                 <strong>升遷不順</strong>：累積的 task 量非常多，但 promote 單看量不夠，需要 impact story。
-                維護型的 team 很難有 impact story 可以講，升不上去就更不想努力，惡性循環。
+                維護型的 team 相對較難累積明確的 impact story，升遷不順也會影響投入的動力，惡性循環。
               </li>
               <li>
                 <strong>主管一直換</strong>：因應組織調整，三年出頭換了三任，每次都要重新建立信任，升遷支持也不穩定。
@@ -165,7 +166,7 @@ export default function LeavingGoogle() {
               </li>
               <li>
                 <strong>心理狀態</strong>：長期做不喜歡也不適合的事情，覺得沒有成就感、沒有 impact、沒有學到東西。
-                自信被消磨了很多，到後期我開始覺得自己不像一個工程師了。
+                自信被消磨了很多，到後期甚至會開始懷疑，自己還有沒有在做一個工程師該做的事情。
               </li>
             </ul>
           </div>
@@ -205,21 +206,39 @@ export default function LeavingGoogle() {
             <p>
               不是 team 對不起我，是我跟這個位置不適合。
               面試的門檻很高，但進來之後日常做的事情跟那個門檻完全不成比例。
-            </p>
-            <p className="my-4 text-lg font-semibold text-text">
-              一直以來都這麼認為：自己的技能背景，跟工作內容很不匹配。
-              如果不是頂級企業的光環，應該早就離開了。
+              面試時展現的是極限的 Problem Solving，但入職後面對的是無窮的 Config 與 Toil。
+              對我來說，這不只是工作內容的落差，而是技能與靈魂的閒置。
             </p>
             <p>
-              我需要的是能用到所長、持續成長的環境，而這個位置給不了。
-              加上心理狀態確實需要休息，我想喘口氣、轉換跑道、看看不同的世界。
-              最後決定裸辭，雖然手上有選項，但沒有確定 next step 就離開了。
+              加上心理狀態確實需要休息，最後決定裸辭，雖然手上有選項，但沒有確定 next step 就離開了。
             </p>
-            <p className="my-4 text-lg font-semibold text-text">
-              不是不努力，而是努力的方向不對。
-              後半年的經歷也證明，離開之後整個人完全動起來了。
-              現在已經能以 tech lead 的角色獨立做決策與帶團隊，用腦袋搭配 AI 做高效率的產出。
-            </p>
+          </div>
+        </FadeIn>
+
+        {/* ============ 短暫的休息 ============ */}
+        <FadeIn>
+          <Heading id="rest">短暫的休息</Heading>
+          <div className="space-y-4">
+          <p>
+            裸辭之後決定年初再上班，中間在日本玩了一個多月，
+            除了旅遊也看了多場 live，去了不少沒去過的地方，累積了不少嶄新的體驗。
+            說是休息，但真的不算好好完整休息。
+            多場面試在跑、side project 也持續在做、還有一些課程助教的工作，壓力有點大，心中也還有不少不確定性。
+            客觀來說真的沒必要，但就是狀態不好。也期待未來真的調整好的時候，能再得到一段徹底休息的時間。
+          </p>
+          <p>
+            其中最深刻的是{" "}
+            <Link href="/blog/idol-2025" className="text-primary hover:underline">
+              TEAM SHACHI 的 final live
+            </Link>
+            。
+          </p>
+          <p>
+            演出非常精彩無庸置疑，但情緒連結是演出之外更深的東西。
+            那場我一路在回想自己這幾年的狀態。
+            台上是她們的終點，台下的我也剛好在跟過去的一個階段告別。
+            很多不甘心、很多卡住的情緒，那陣子想來想去持續爆發，至今每次回想起來也總是讓我眼眶濕潤。
+          </p>
           </div>
         </FadeIn>
 
@@ -228,24 +247,8 @@ export default function LeavingGoogle() {
           <Heading id="interviews">Next Step</Heading>
           <div className="space-y-4">
           <p>
-            裸辭之後不到一個月就決定了 next step，同時也還在進行多個 HFT 面試。
-            決定年初再上班，確認好之後去日本晃了蠻久，見證了很多 live。
-          </p>
-          <p>
-            尤其是 TEAM SHACHI 的 final live。
-          </p>
-          <p>
-            那場我其實不是單純在看演出，而是一路在回想自己這幾年的狀態。
-            台上是她們的終點，台下的我也剛好在跟過去的自己告別。
-            很多不甘心、很多卡住的情緒，好像就在那幾個小時裡強烈的爆發了，至今每次回想起來也總是讓我眼眶濕潤。
-          </p>
-          <p>
-            那段時間剛離開 Google，很多事情還沒完全落定，
-            但在那個現場，我第一次很明確地感覺到，這一段真的結束了。
-          </p>
-          <p>
-            從 Google 出來之後，如果沒有明顯成長空間的選項，我暫時不會考慮。
-            選項有 Web3 也有 HFT，HFT 一定是一大選項。
+            找 next step 的方向很明確：要有成長空間、能發揮技術的中小型團隊。
+            手上已經有 AI 新創的選項，同時也陸續面了 Web3 和 HFT。
           </p>
 
           <div className="my-6 space-y-4">
@@ -256,7 +259,7 @@ export default function LeavingGoogle() {
               </div>
               <p className="text-sm">
                 我對出國有一些憧憬，所以陸續面了幾家新加坡的 Crypto / HFT 量化公司。
-                面試內容跟一般 backend 面試不太一樣，更著重 C++ low-level：
+                面試內容跟一般 backend 面試不太一樣，有算法題但也有更多 low-level 的東西：
                 move semantics、memory layout、lambda capture 這些。
               </p>
               <p className="mt-2 text-sm">
@@ -266,7 +269,7 @@ export default function LeavingGoogle() {
               <p className="mt-2 text-sm">
                 其實面了不只這些，還有很多場沒紀錄上去的。
                 也有一些覺得總體都答得很好，但就無聲了的。
-                當時也在調整心態，面試狀態不算最佳。
+                當時也在調整心態，面試狀態不算最佳，有些也是確定 next step 後隨性面的。
               </p>
               <p className="mt-2 text-sm">
                 不過其中兩場後來整理成了{" "}
@@ -277,7 +280,7 @@ export default function LeavingGoogle() {
                 <Link href="/blog/cpp-inplace-vector" className="text-primary hover:underline">
                   手寫 inplace_vector
                 </Link>
-                ，算是把當初不會的東西補回來了。
+                。這段準備的經驗讓我對 C++ 的理解加深很多，更認識 modern C++。
               </p>
             </div>
 
@@ -294,11 +297,7 @@ export default function LeavingGoogle() {
               <p className="mt-2 text-sm">
                 最重要的是：工作內容是真的在寫 code、做研發、解演算法問題。
                 同時換了一個角色也要學會開 ticket、寫文件、做 project planning，
-                這些以前在 Google 都是 tech lead 在做的事。
-              </p>
-              <p className="mt-2 text-sm">
-                說到 tech lead，之前 team 上的 TL 我其實很敬重，
-                也是我在的期間 team 上唯一 promote 成功的案例。
+                這些以前在 Google 都是更資深的人在做的事。
               </p>
             </div>
           </div>
@@ -321,25 +320,22 @@ export default function LeavingGoogle() {
               <li>成長空間和主導權完全不同</li>
             </ul>
             <p>
-              所以就去了這家 AI 新創，現在做 Tech Lead，
+              所以就去了這家 AI 新創，擔任重要的技術職位，
               做的事情跟演算法和 AI 都有關，終於在工作中能用到自己的背景了。
             </p>
             <p>
               事後半年回頭看，這份工作完全給了我當時想要的東西：
             </p>
             <ul className="list-inside list-disc space-y-2 text-sm">
-              <li>有巨大的 impact，帶團隊做事</li>
-              <li>持續學到大量技術，成長速度跟過去完全不同</li>
-              <li>每天都在用演算法、寫非常多 code</li>
-              <li>非常多的空間可以發揮，不會改點小東西一直被 block</li>
-              <li>有無限制的 AI 使用空間</li>
-              <li>職位上去了，做事也可以更有自己的主張</li>
+              <li>從零打造了多套系統，主導程式碼庫的現代化重構</li>
+              <li>每天都在寫 code、解演算法問題，產出密度跟過去完全不同</li>
+              <li>從基礎設施、測試、工具鏈到研究方向都有空間主導</li>
+              <li>負責 code review、制定開發流程與工程標準</li>
+              <li>有無限制的 AI 使用空間，不會被關在 Gemini 裡</li>
             </ul>
             <p>
               當然還是有可能遇到無法解決的技術瓶頸、最後失敗收場。
-              但這是一家資金充足的新創，能得到這樣的機會，
-              一定是一段很難得的經驗。
-              我也會在這段時間全面性地增進自己、多方發展，迎接下一階段的挑戰。
+              但還算是一家資金充足的新創，能得到這樣的機會作為早期員工，也確實是很稀有、不是人人都會遇上的。
             </p>
           </div>
         </FadeIn>
@@ -351,9 +347,6 @@ export default function LeavingGoogle() {
             <p>
               離開 Google 這個決定，不能說完全沒有懷疑，也許多年後才會知道答案。
             </p>
-            <p>
-              離開半年回頭看，我覺得正走在人生重啟的路上。
-            </p>
             <p className="my-6 text-lg font-semibold text-text">
               在新創半年，累積了大量的 code、決策經驗和實際 impact，
               加上自己的各種 side project，
@@ -361,9 +354,6 @@ export default function LeavingGoogle() {
             </p>
             <p>
               也歸功於 AI 的爆發，讓學習曲線整個拉上去，能做到的事情比以前多很多。
-            </p>
-            <p>
-              市場起伏本來就是常態，重要的是自己持續在進步。
             </p>
           </div>
         </FadeIn>
@@ -401,43 +391,40 @@ export default function LeavingGoogle() {
         <FadeIn>
           <div className="space-y-4">
             <p>
-              大公司或多或少都有這樣的情況，人都會看到自己沒有的。
-              只是我還在職涯初期，需要的是成長跟成就感，不想這麼早進入養老模式。
-              福利和穩定性確實是新創比不上的，但重點還是 team 和做的事情。
-            </p>
-            <p>
               離開之後，同時也參與了 Web3 project，重啟演算法競賽把 Codeforces 撿回來打，
               紅名不只是期待，是我認真努力的目標。
               也用 AI 寫各種小工具和 side project，這個時代能做的事情比以前多太多了。
             </p>
             <p className="mt-8 text-lg font-semibold text-text">
-              如果再讓我選一次，我還是會離開，但回去大企業也完全可能是未來的選項。
+              如果再讓我選一次，我還是會離開大公司的舒適圈，去迎接屬於我的挑戰。但回去大企業也完全可能是未來的選項。
             </p>
             <p>
-              只是可能會更早走，更認真找 next step。
-              也深深認知到，對自己的整體都該更積極。
-              也是有看到他人的經驗，勇於放棄沉沒成本，為了自己積極努力，不管是轉 team 或換公司。
-              在內部慢慢等不確定的升遷，不如跳槽爭取更好的機會，反正面試本來就是自己相對有把握的部分。
-              相信這也是很多大科技公司人的想法。
+              只是可能會更早走。
+              也是有看到他人的經驗，勇於放棄沉沒成本，不管是轉 team 或換公司，
+              反正面試本來就是自己相對有把握的部分。
             </p>
             <p>
               這段經驗雖然有很多不美滿的地方，總體來說還是有不少不錯的經歷：
               到灣區出差、使用各國頂級辦公室跟福利、跟頂尖的人合作、
               跨公司跟 vendor 的溝通經驗，也大幅提升了英文能力。
               未來也可能還有新的合作機會。
-              回頭看，這段經歷不是繞路，而是讓我更快找到適合自己的方向，也是非常好的更認識自己的契機。
+              回頭看，這段經歷讓我更認識自己，也更清楚自己要什麼。
+            </p>
+            <p>
+              雖然離開後確實得到了很好的機會，但離開的時候有一段對失去大公司光環的衝擊，好像少了什麼能證明自己的東西。
+              後來慢慢意識到，自己過去太習慣用外在標籤來確認價值——公司名、title、升遷進度。
+              但回頭看，就算待在像 Jane Street 這樣的頂級企業，大多數人也未必了解它代表什麼。
+              該回到的還是離開的初衷：為了變強、導正自己的發展方向。
+              比較心態不會一天消失，但至少現在會先問自己：是不是比半年前更強了一點。
             </p>
             <p>
               留下來的話，內部也許也會有更好的機會。
               但不走的話，可能就不會有這段進步和轉變。
               也慶幸離開後的發展還算不錯，不至於在這部分過度糾結。
-              說不清哪個比較好。
             </p>
             <p>
               不過依然感謝這一路上遇到的人，以及各種受到的幫助。
-            </p>
-            <p>
-              相信自己可以持續保持競爭力，應對未來的挑戰。
+              尤其是前 team 的 TL，很敬重也覺得是很好的工作夥伴，從他身上學到很多 soft skill。
             </p>
           </div>
         </FadeIn>
