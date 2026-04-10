@@ -423,8 +423,9 @@ export default function Idol2025() {
             ほのか在恋人はスナイパー的手指金鯱，超鳥肌，氣場全開。
           </p>
           <p>
-            最終單曲的兩首歌晴れ晴れ還有翔け抜けてスターマイン，
-            歌詞旋律都超有感，我超愛，可惜沒有更多機會流傳下去了。
+            最終單曲的兩首歌晴れ晴れ還有翔け抜けてスターマイン都超級好，
+            歌詞旋律都深深留在腦海裡，某種程度上也成為了自己現在的心境寫照。
+            可惜沒有更多機會流傳下去了。
           </p>
           <blockquote className="border-l-2 border-warm/40 bg-surface/40 rounded-r-lg px-4 py-3 text-text-muted">
             <p className="mb-2">
