@@ -88,9 +88,6 @@ export default function LeavingGoogle() {
           <Heading id="background">背景</Heading>
           <div className="space-y-4">
             <p>
-              我在 Google Cloud 做了大概三年出頭。
-            </p>
-            <p>
               當時主要的優勢在演算法與 problem solving，
               ICPC Gold、Codeforces IM、LeetCode rating 台灣前幾名，
               也因為 Kick Start 成績被 Google 邀請參加 101 線下活動並面試，打進過兩次 Code Jam Round 3。
@@ -108,7 +105,7 @@ export default function LeavingGoogle() {
               現在回頭看，應該更堅持自己的選擇。離畢業根本還有很充裕的時間，完全有資本繼續等。
             </p>
             <p>
-              會有這麼多感受，也是因為這是 new grad 的第一份工作，而且是在世界頂級企業。
+              在 Google Cloud 做了大概三年出頭，會有這麼多感受，也是因為這是 new grad 的第一份工作，而且是在世界頂級企業。
               我相信類似的故事在很多地方都在發生，甚至可能是大企業的常態。
               但也缺乏實際的比較對象，不知道在其他地方的情況可能該是如何。也許只是自己想太多。
             </p>
