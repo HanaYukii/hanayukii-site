@@ -8,37 +8,36 @@ export default function Tutoring() {
           Algorithm Tutoring
         </h1>
         <p className="mb-10 text-lg text-text-muted">
-          I help students get better at algorithms, contests, and interviews
-          without turning the whole process into pure suffering.
+          演算法、競賽、面試準備，有多年教學跟實戰經驗。
         </p>
       </FadeIn>
 
       {/* Why Me */}
       <section className="mb-12">
         <FadeIn>
-          <h2 className="mb-4 text-2xl font-bold">Why Learn From Me?</h2>
+          <h2 className="mb-4 text-2xl font-bold">Why Me</h2>
         </FadeIn>
         <div className="grid gap-4 sm:grid-cols-2">
           {[
             {
               icon: "🏅",
               title: "ICPC Gold Medalist",
-              desc: "I have been through the contest grind myself, so I know what usually helps and what is just noise.",
+              desc: "ICPC 金牌、Codeforces IM (2350)、LeetCode ~2800。",
             },
             {
               icon: "🏢",
-              title: "3.5 Years at Google",
-              desc: "I can explain the textbook version, but I also care about how these ideas show up in real engineering work.",
-            },
-            {
-              icon: "🎓",
-              title: "NCTU CS Master's",
-              desc: "My background is solid enough that I can usually explain the same idea from more than one angle.",
+              title: "Ex-Google · 3 yr",
+              desc: "Google Cloud Infrastructure，C++ backend，有業界實戰經驗。",
             },
             {
               icon: "📊",
-              title: "Active Competitor",
-              desc: "I still do contests, so I am not teaching from old notes or half-remembered patterns.",
+              title: "現役選手",
+              desc: "到現在還在打比賽，題目跟趨勢都有在跟。",
+            },
+            {
+              icon: "🎓",
+              title: "多年教學經驗",
+              desc: "教過的學生拿過 TOI 選訓營、特殊選才、Google / Microsoft offer。",
             },
           ].map((item, i) => (
             <FadeIn key={item.title} delay={i * 0.08}>
@@ -55,25 +54,25 @@ export default function Tutoring() {
       {/* What I Teach */}
       <section className="mb-12">
         <FadeIn>
-          <h2 className="mb-4 text-2xl font-bold">What I Teach</h2>
+          <h2 className="mb-4 text-2xl font-bold">教學內容</h2>
           <div className="rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm">
             <ul className="space-y-3 text-text-muted">
               {[
                 {
-                  title: "Data Structures & Algorithms",
-                  desc: "from fundamentals to topics like segment trees, graph algorithms, and DP optimization",
+                  title: "資料結構 & 演算法",
+                  desc: "基礎到進階，segment tree、graph、DP optimization 等",
                 },
                 {
-                  title: "ICPC / Contest Prep",
-                  desc: "how to practice, how to read problems, and how to avoid wasting effort",
+                  title: "ICPC / 競賽準備",
+                  desc: "練習方法、讀題技巧、時間分配",
                 },
                 {
-                  title: "Coding Interview Prep",
-                  desc: "LeetCode patterns, common interview traps, and the thinking process behind good solutions",
+                  title: "面試準備",
+                  desc: "LeetCode 常見題型、面試陷阱、解題思路",
                 },
                 {
                   title: "C++ for CP",
-                  desc: "STL, implementation habits, and the small things that make contest code cleaner and faster",
+                  desc: "STL、實作習慣、讓 contest code 更快更乾淨的細節",
                 },
               ].map((item) => (
                 <li key={item.title} className="flex items-start gap-2">
@@ -92,24 +91,24 @@ export default function Tutoring() {
       {/* Student Achievements */}
       <section className="mb-12">
         <FadeIn>
-          <h2 className="mb-4 text-2xl font-bold">Student Achievements</h2>
+          <h2 className="mb-4 text-2xl font-bold">學生成果</h2>
           <div className="rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm">
             <div className="space-y-4">
               {[
                 {
                   icon: "🏆",
-                  title: "National Selection Training Camp",
-                  desc: "Students selected into TOI national training camp (TOI 選訓營)",
+                  title: "TOI 選訓營",
+                  desc: "學生入選國手選訓營",
                 },
                 {
                   icon: "🎓",
-                  title: "Top University Special Admissions",
-                  desc: "Multiple students admitted to NTHU & NCTU through special talent admissions (特殊選才)",
+                  title: "特殊選才",
+                  desc: "多位學生透過特殊選才錄取清大、交大",
                 },
                 {
                   icon: "💼",
                   title: "Big Tech Offers",
-                  desc: "Multiple students landed offers at Google, Microsoft, and other top tech companies",
+                  desc: "學生拿到 Google、Microsoft 等公司 offer",
                 },
               ].map((item) => (
                 <div key={item.title} className="flex items-start gap-3">
@@ -128,11 +127,9 @@ export default function Tutoring() {
       {/* CTA */}
       <FadeIn>
         <section className="rounded-xl bg-gradient-to-r from-sky via-primary to-accent p-8 text-center text-white">
-          <h2 className="mb-3 text-2xl font-bold">Ready to Get Started?</h2>
+          <h2 className="mb-3 text-2xl font-bold">有興趣的話</h2>
           <p className="mb-6 text-white/80">
-            Send me your current level and what you are aiming for. I can
-            usually tell pretty quickly whether I&apos;m the right fit and how
-            we should approach it.
+            跟我說你目前的程度跟目標，我可以很快判斷適不適合、怎麼安排。
           </p>
           <a
             href="mailto:islu245777@gmail.com"
