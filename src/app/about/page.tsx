@@ -27,6 +27,45 @@ export default function About() {
         </section>
       </FadeIn>
 
+      {/* Get in Touch */}
+      <FadeIn>
+        <section className="mb-14">
+          <h2 className="mb-4 text-2xl font-bold">Get in Touch</h2>
+          <p className="mb-4 text-text-muted">
+            I&apos;m always up for interesting work, side projects, or just a
+            good conversation. If you want to talk about backend systems,
+            competitive programming, idols, or Japan travel, feel free to
+            reach out.
+          </p>
+          <div className="flex gap-3">
+            <a
+              href="https://www.linkedin.com/in/erh-hsuan-lu-a9b0681ba/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium transition-all hover:border-primary hover:text-primary"
+            >
+              LinkedIn
+              <svg className="h-3 w-3 opacity-40" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l6-6m0 0H4m5 0v5"/></svg>
+            </a>
+            <a
+              href="https://github.com/HanaYukii"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium transition-all hover:border-primary hover:text-primary"
+            >
+              GitHub
+              <svg className="h-3 w-3 opacity-40" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l6-6m0 0H4m5 0v5"/></svg>
+            </a>
+            <Link
+              href="/tutoring"
+              className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-dark"
+            >
+              Tutoring →
+            </Link>
+          </div>
+        </section>
+      </FadeIn>
+
       {/* Quick Facts */}
       <FadeIn>
         <section className="mb-14">
@@ -178,44 +217,6 @@ export default function About() {
         </section>
       </FadeIn>
 
-      {/* Get in Touch */}
-      <FadeIn>
-        <section>
-          <h2 className="mb-4 text-2xl font-bold">Get in Touch</h2>
-          <p className="mb-4 text-text-muted">
-            I&apos;m always up for interesting work, side projects, or just a
-            good conversation. If you want to talk about backend systems,
-            competitive programming, idols, or Japan travel, feel free to
-            reach out.
-          </p>
-          <div className="flex gap-3">
-            <a
-              href="https://www.linkedin.com/in/erh-hsuan-lu-a9b0681ba/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium transition-all hover:border-primary hover:text-primary"
-            >
-              LinkedIn
-              <svg className="h-3 w-3 opacity-40" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l6-6m0 0H4m5 0v5"/></svg>
-            </a>
-            <a
-              href="https://github.com/HanaYukii"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium transition-all hover:border-primary hover:text-primary"
-            >
-              GitHub
-              <svg className="h-3 w-3 opacity-40" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l6-6m0 0H4m5 0v5"/></svg>
-            </a>
-            <Link
-              href="/tutoring"
-              className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-dark"
-            >
-              Tutoring →
-            </Link>
-          </div>
-        </section>
-      </FadeIn>
     </div>
   );
 }
