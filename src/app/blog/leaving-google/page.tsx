@@ -88,15 +88,15 @@ export default function LeavingGoogle() {
           <Heading id="background">背景</Heading>
           <div className="space-y-4">
             <p>
+              當初拿到 Google offer 的時候是真的當 dream job 在看的，
+              完全沒想到會只待三年，而且還是用裸辭的方式離開。
+            </p>
+            <p>
               當時主要的優勢在演算法與 problem solving，
               ICPC Gold、Codeforces IM、LeetCode rating 台灣前幾名，
               也因為 Kick Start 成績被 Google 邀請參加 101 線下活動並面試，打進過兩次 Code Jam Round 3。
               面試過程相對順利，大多數題目都能在第一時間找到解法，
               甚至有一題還和面試官討論了解答外更簡潔的 0-1 BFS 作法，他也說學到新東西了。
-            </p>
-            <p>
-              當初拿到 Google offer 的時候是真的當 dream job 在看的，
-              完全沒想到會只待三年，而且還是用裸辭的方式離開。
             </p>
             <p>
               當時 team match 沒有很順利，拖了很久，也讓人有點恐慌。
