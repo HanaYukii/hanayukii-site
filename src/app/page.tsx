@@ -87,7 +87,7 @@ export default function Home() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-text-muted">
-              Algorithms, code, mindset, and the occasional life update.
+              A starmine yet to peak — each burst brighter than the last.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
