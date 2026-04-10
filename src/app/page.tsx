@@ -87,7 +87,7 @@ export default function Home() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-text-muted">
-              A starmine yet to peak, each burst brighter than the last.
+              Starmine. Learning to burn brighter.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
