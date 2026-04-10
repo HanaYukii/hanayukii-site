@@ -33,7 +33,7 @@ export default function About() {
           <h2 className="mb-5 text-2xl font-bold">At a Glance</h2>
           <div className="grid gap-3 sm:grid-cols-2">
             {[
-              { label: "Current Role", value: "Tech Lead, Software Engineer @ AI Startup" },
+              { label: "Current Role", value: "Tech Lead @ AI Startup (under NDA)" },
               { label: "Previous", value: "Software Engineer @ Google (3 yrs)" },
               { label: "Education", value: "M.S. CS, NCTU" },
               { label: "Languages", value: "中文 · English · 日本語 (N2)" },

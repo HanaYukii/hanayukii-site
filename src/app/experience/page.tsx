@@ -23,7 +23,7 @@ export default function Experience() {
             {
               period: "Dec 2025 – Present",
               title: "Tech Lead, Software Engineer",
-              company: "AI Startup",
+              company: "AI Startup (under NDA)",
               desc: "Working close to both product and engineering. A lot of my time goes into turning vague AI ideas into something the team can actually build and iterate on.",
               current: true,
             },
