@@ -18,11 +18,11 @@ export default function About() {
         <section className="mb-14">
           <p className="text-lg leading-relaxed text-text-muted">
             I&apos;m{" "}
-            <strong className="text-text">花雪 (HanaYukii)</strong>. I write
-            backend systems for work, still do competitive programming for fun,
-            and tend to go pretty deep on anything I get interested in. Over
-            the last few years that has included Google, open-source Web3 work,
-            C++, algorithms, idols, F1, and planning way too many Japan trips.
+            <strong className="text-text">花雪 (HanaYukii)</strong>.
+            Competitive programming background, into algorithms and math.
+            Worked at Google, now building at an AI startup and contributing to a Web3 protocol.
+            I write about topics I find interesting here, from C++ and system design
+            to idols, F1, and Japan trips.
           </p>
         </section>
       </FadeIn>
