@@ -88,7 +88,7 @@ export default function LeavingGoogle() {
           <Heading id="background">背景</Heading>
           <div className="space-y-4">
             <p>
-              我在 Google Cloud 做了大概三年出頭，工作內容偏 infra。
+              我在 Google Cloud 做了大概三年出頭。
             </p>
             <p>
               當時主要的優勢在演算法與 problem solving，
