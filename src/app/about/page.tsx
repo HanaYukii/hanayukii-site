@@ -203,13 +203,6 @@ export default function About() {
                 Google Kick Start 2020 - Invited to Google Visit Program
               </span>
             </div>
-            <p className="mb-4 text-sm leading-relaxed text-text-muted">
-              I still do contests even after working full-time for years. It is
-              partly habit, partly fun, and partly because I just like hard
-              problems. I have also mentored students who later became national
-              team members, ICPC medalists, and engineers at Google and
-              Microsoft.
-            </p>
             <div className="flex flex-wrap gap-3">
               {[
                 {
@@ -310,8 +303,6 @@ export default function About() {
                   "Backend / Infrastructure",
                   "System Design",
                   "Algorithms",
-                  "EDA / Routing",
-                  "Reinforcement Learning",
                   "Web3 / Blockchain",
                 ],
               },
