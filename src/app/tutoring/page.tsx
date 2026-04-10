@@ -8,7 +8,7 @@ export default function Tutoring() {
           Algorithm Tutoring
         </h1>
         <p className="mb-10 text-lg text-text-muted">
-          演算法、競賽、面試準備，有多年教學跟實戰經驗。
+          演算法、競賽、面試準備，有多年教學跟實戰經驗。教學相長，也希望認識更多厲害的人。
         </p>
       </FadeIn>
 
@@ -32,7 +32,7 @@ export default function Tutoring() {
             {
               icon: "📊",
               title: "現役選手",
-              desc: "到現在還在打比賽，題目跟趨勢都有在跟。",
+              desc: "積極參與主流 OJ online contest，題目跟趨勢都有在跟。",
             },
             {
               icon: "🎓",
