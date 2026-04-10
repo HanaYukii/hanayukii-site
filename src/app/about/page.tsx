@@ -27,153 +27,29 @@ export default function About() {
         </section>
       </FadeIn>
 
-      {/* Get in Touch */}
+      {/* Work & Education */}
       <FadeIn>
         <section className="mb-14">
-          <h2 className="mb-4 text-2xl font-bold">Get in Touch</h2>
-          <p className="mb-4 text-text-muted">
-            I&apos;m always open to interesting work, side projects, or just a
-            good coffee chat. Feel free to reach out.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <a
-              href="https://www.linkedin.com/in/erh-hsuan-lu-a9b0681ba/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium transition-all hover:border-primary hover:text-primary"
-            >
-              LinkedIn
-              <svg className="h-3 w-3 opacity-40" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l6-6m0 0H4m5 0v5"/></svg>
-            </a>
-            <a
-              href="https://github.com/HanaYukii"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium transition-all hover:border-primary hover:text-primary"
-            >
-              GitHub
-              <svg className="h-3 w-3 opacity-40" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l6-6m0 0H4m5 0v5"/></svg>
-            </a>
-            <a
-              href="https://codeforces.com/profile/HanaYukii"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium transition-all hover:border-primary hover:text-primary"
-            >
-              Codeforces
-              <svg className="h-3 w-3 opacity-40" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l6-6m0 0H4m5 0v5"/></svg>
-            </a>
-            <a
-              href="https://leetcode.com/u/HanaYukii/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium transition-all hover:border-primary hover:text-primary"
-            >
-              LeetCode
-              <svg className="h-3 w-3 opacity-40" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l6-6m0 0H4m5 0v5"/></svg>
-            </a>
-            <Link
-              href="/tutoring"
-              className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-dark"
-            >
-              Tutoring →
-            </Link>
+          <h2 className="mb-5 text-2xl font-bold">Background</h2>
+          <div className="space-y-3">
+            {[
+              { period: "2025 –", role: "Tech Lead, Software Engineer", place: "AI Startup (under NDA)", current: true },
+              { period: "2022 – 2025", role: "Software Engineer", place: "Google · Cloud Infrastructure" },
+              { period: "2020", role: "Software Engineer Intern", place: "Synopsys" },
+              { period: "2020 – 2022", role: "M.S. Computer Science", place: "NCTU / NYCU" },
+              { period: "2016 – 2020", role: "B.S. Computer Science", place: "NCTU / NYCU" },
+            ].map((item, i) => (
+              <div key={i} className="flex items-baseline gap-4">
+                <span className="shrink-0 w-24 text-xs font-medium text-text-muted">{item.period}</span>
+                <div className="min-w-0">
+                  <span className="font-semibold">{item.role}</span>
+                  <span className="text-text-muted"> · {item.place}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       </FadeIn>
-
-      {/* Work Experience */}
-      <section className="mb-14">
-        <FadeIn>
-          <h2 className="mb-6 text-2xl font-bold">Work</h2>
-        </FadeIn>
-        <div className="space-y-8">
-          {[
-            {
-              period: "Dec 2025 – Present",
-              title: "Tech Lead, Software Engineer",
-              company: "AI Startup (under NDA)",
-              desc: "",
-              current: true,
-            },
-            {
-              period: "Sep 2022 – Nov 2025 · 3 yr 3 mo",
-              title: "Software Engineer",
-              company: "Google - Cloud Infrastructure",
-              desc: "Built backend telemetry infrastructure for Google Cloud. Most of the work was C++, reliability, performance, and making large systems behave predictably.",
-              current: false,
-            },
-            {
-              period: "Jul 2020 – Sep 2020 · 3 mo",
-              title: "Software Engineer Intern",
-              company: "Synopsys",
-              desc: "Worked on C++ and CUDA for IC layout rule validation. It was one of the first times I got to seriously care about runtime and low-level performance.",
-              current: false,
-            },
-          ].map((job, i) => (
-            <FadeIn key={job.company} delay={i * 0.1}>
-              <div
-                className={`relative border-l-2 pl-6 ${
-                  job.current ? "border-primary/50" : "border-border"
-                }`}
-              >
-                <div
-                  className={`absolute -left-[7px] top-1 h-3 w-3 rounded-full ${
-                    job.current ? "bg-primary shadow-lg shadow-primary/50" : "bg-border"
-                  }`}
-                />
-                <p className="text-xs font-medium text-text-muted">
-                  {job.period}
-                </p>
-                <h3 className="text-lg font-bold">{job.title}</h3>
-                <p className="text-sm text-text-muted">{job.company}</p>
-                {job.desc && (
-                  <p className="mt-2 text-sm leading-relaxed text-text-muted">
-                    {job.desc}
-                  </p>
-                )}
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-      </section>
-
-      {/* Education */}
-      <section className="mb-14">
-        <FadeIn>
-          <h2 className="mb-6 text-2xl font-bold">Education</h2>
-        </FadeIn>
-        <div className="space-y-6">
-          {[
-            {
-              period: "2020 – 2022",
-              degree: "M.S. in Computer Science",
-              school: "National Chiao Tung University (NCTU / NYCU)",
-              details: "EDA Lab - Routing & Graph Theory. Collaborated with MediaTek on NCTUGR.",
-            },
-            {
-              period: "2016 – 2020",
-              degree: "B.S. in Computer Science",
-              school: "National Chiao Tung University (NCTU / NYCU)",
-              details: "Top of class · Academic Achievement Award (x2) · CP Team top member · TA: Algorithms, CP, Computer Organization.",
-            },
-          ].map((edu, i) => (
-            <FadeIn key={edu.degree} delay={i * 0.1}>
-              <div className="relative border-l-2 border-border pl-6">
-                <div className="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-border" />
-                <p className="text-xs font-medium text-text-muted">
-                  {edu.period}
-                </p>
-                <h3 className="text-lg font-bold">{edu.degree}</h3>
-                <p className="text-sm text-text-muted">{edu.school}</p>
-                <p className="mt-1 text-sm leading-relaxed text-text-muted">
-                  {edu.details}
-                </p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-      </section>
 
       {/* Competitive Programming */}
       <section className="mb-14">
@@ -300,7 +176,7 @@ export default function About() {
               {
                 label: "Domains",
                 items: [
-                  "Backend / Infrastructure",
+                  "Software Engineering",
                   "System Design",
                   "Algorithms",
                   "Web3 / Blockchain",
@@ -436,7 +312,7 @@ export default function About() {
               "日本旅遊",
               "日本語 N2",
               "Competitive Programming",
-              "Backend Engineer",
+              "Software Engineer",
             ].map((tag, i) => (
               <span
                 key={tag}
@@ -456,6 +332,61 @@ export default function About() {
                 {tag}
               </span>
             ))}
+          </div>
+        </section>
+      </FadeIn>
+
+      {/* Get in Touch */}
+      <FadeIn>
+        <section className="mb-14">
+          <h2 className="mb-4 text-2xl font-bold">Get in Touch</h2>
+          <p className="mb-4 text-text-muted">
+            I&apos;m always open to interesting work, side projects, or just a
+            good coffee chat. Feel free to reach out.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="https://www.linkedin.com/in/erh-hsuan-lu-a9b0681ba/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium transition-all hover:border-primary hover:text-primary"
+            >
+              LinkedIn
+              <svg className="h-3 w-3 opacity-40" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l6-6m0 0H4m5 0v5"/></svg>
+            </a>
+            <a
+              href="https://github.com/HanaYukii"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium transition-all hover:border-primary hover:text-primary"
+            >
+              GitHub
+              <svg className="h-3 w-3 opacity-40" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l6-6m0 0H4m5 0v5"/></svg>
+            </a>
+            <a
+              href="https://codeforces.com/profile/HanaYukii"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium transition-all hover:border-primary hover:text-primary"
+            >
+              Codeforces
+              <svg className="h-3 w-3 opacity-40" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l6-6m0 0H4m5 0v5"/></svg>
+            </a>
+            <a
+              href="https://leetcode.com/u/HanaYukii/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium transition-all hover:border-primary hover:text-primary"
+            >
+              LeetCode
+              <svg className="h-3 w-3 opacity-40" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l6-6m0 0H4m5 0v5"/></svg>
+            </a>
+            <Link
+              href="/tutoring"
+              className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-dark"
+            >
+              Tutoring →
+            </Link>
           </div>
         </section>
       </FadeIn>
