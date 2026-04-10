@@ -204,7 +204,8 @@ export default function LeavingGoogle() {
           <Heading id="final-decision">最後的掙扎</Heading>
           <div className="space-y-4">
             <p>
-              長期累積的東西到這時候已經爆發了，夏天在日本 WFA 了一陣子想調整，但整個人狀態很差。
+              長期累積的東西到這時候已經爆發了。不是累，但確實進入了 burnout 的狀態。
+              夏天在日本 WFA 了一陣子想調整，但整個人狀態很差。
               從 GitHub 的 contribution graph 也看得出來，那段時間連開源都幾乎沒有動力碰。
             </p>
             <p className="my-4">
