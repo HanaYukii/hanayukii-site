@@ -89,6 +89,42 @@ export default function Tutoring() {
         </FadeIn>
       </section>
 
+      {/* Student Achievements */}
+      <section className="mb-12">
+        <FadeIn>
+          <h2 className="mb-4 text-2xl font-bold">Student Achievements</h2>
+          <div className="rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm">
+            <div className="space-y-4">
+              {[
+                {
+                  icon: "🏆",
+                  title: "National Selection Training Camp",
+                  desc: "Students selected into TOI national training camp (TOI 選訓營)",
+                },
+                {
+                  icon: "🎓",
+                  title: "Top University Special Admissions",
+                  desc: "Multiple students admitted to NTHU & NCTU through special talent admissions (特殊選才)",
+                },
+                {
+                  icon: "💼",
+                  title: "Big Tech Offers",
+                  desc: "Multiple students landed offers at Google, Microsoft, and other top tech companies",
+                },
+              ].map((item) => (
+                <div key={item.title} className="flex items-start gap-3">
+                  <span className="mt-0.5 text-lg">{item.icon}</span>
+                  <div>
+                    <p className="font-bold">{item.title}</p>
+                    <p className="text-sm text-text-muted">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
       {/* CTA */}
       <FadeIn>
         <section className="rounded-xl bg-gradient-to-r from-sky via-primary to-accent p-8 text-center text-white">
