@@ -94,6 +94,15 @@ export default function Blog() {
       href: "/blog/cpp-interview-performance-analysis",
     },
     {
+      title: "區塊鏈日報 RESET 活動心得",
+      date: "2026-04-12",
+      summary:
+        "去年我是粉絲，今年我換了角度。一場心理成長活動背後的包裝、銷售設計，以及我自己的反思。",
+      tags: ["Life", "觀察"],
+      tagStyle: "bg-warm/10 text-warm",
+      href: "/blog/reset-influence-analysis",
+    },
+    {
       title: "系統設計面試的經典注意事項",
       date: "2026-04-11",
       summary:
