@@ -94,13 +94,13 @@ export default function Blog() {
       href: "/blog/cpp-interview-performance-analysis",
     },
     {
-      title: "我怎麼想 System Design",
-      date: "Draft",
+      title: "系統設計面試的經典注意事項",
+      date: "2026-04-11",
       summary:
-        "Still writing. Probably a practical note on how I think about system design interviews, not a giant textbook.",
-      tags: ["System Design", "Backend"],
+        "以 Auto-complete 為案例，整理系統設計面試中常見的思路：需求分析、狀態設計、Debounce、快取策略、Accessibility。",
+      tags: ["System Design", "Interview"],
       tagStyle: "bg-primary/10 text-primary",
-      href: null,
+      href: "/blog/system-design-fundamentals",
     },
     {
       title: "ICPC 要怎麼練比較有用",
