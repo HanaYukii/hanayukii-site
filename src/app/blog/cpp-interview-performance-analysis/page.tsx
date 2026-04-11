@@ -411,7 +411,14 @@ public:
 
         <VerdictBox verdict="fastest">
           <strong>寫法 2：static constexpr + string_view</strong> - 最快且最安全。
-          Stateless lambda，不依賴任何 instance。<code>string_view</code> 傳遞只是 pointer + size，零 copy。
+          <br />
+          Stateless lambda（no capture），不依賴任何 instance，compiler 直接 inline。
+          <br />
+          比寫法 0/1 快的原因：
+          不需要建構 lambda 物件來存 captured pointer（寫法 1 每次呼叫都要把 <code>this</code> 寫進 lambda 物件），
+          也不存在 <code>this-&gt;</code> 間接存取（寫法 1 要先讀 <code>this</code>，再讀 <code>this-&gt;data</code>，多一次 indirection）。
+          <br />
+          <code>string_view</code> 傳遞只是 pointer + size（16 bytes on stack），零 copy，零 heap allocation。
         </VerdictBox>
 
         <VerdictBox verdict="good">
