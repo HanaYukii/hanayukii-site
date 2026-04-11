@@ -101,8 +101,8 @@ export default function CppInterviewPerformanceAnalysis() {
         </h1>
         <p className="mb-2 text-sm text-text-muted">2026-03-31</p>
         <p className="mb-8 text-text-muted">
-          這場面試最有意思的地方，是它幾乎不問演算法，
-          而是一直追問每一種寫法背後到底會發生幾次 copy、move、allocation。
+          在 HFT 場景效能是最優先的，掌握最好的寫法非常重要。
+          這些都是很深度的 domain knowledge，也讓我更發現 C++ 的深奧。
           題目經過改寫，分析是我事後整理的。
         </p>
       </FadeIn>
@@ -151,7 +151,11 @@ export default function CppInterviewPerformanceAnalysis() {
         <Heading id="q1">第一題：建構子參數怎麼接</Heading>
         <p className="mb-4 text-text-muted">
           有一個 struct，成員是 <code className="text-primary">std::string</code>，建構子需要把外部傳入的字串存下來。
-          比較以下三種寫法的效能差異：
+          比較以下三種寫法的效能差異。
+        </p>
+        <p className="mb-4 text-text-muted">
+          其中 <code className="text-primary">std::string_view</code> (C++17) 是一個輕量的唯讀字串參考，
+          內部只存 pointer + length，本身不擁有資料也不做任何 allocation，建構成本接近零。
         </p>
 
         <Code lang="cpp">{`// 寫法 A：pass by value + move
@@ -178,6 +182,13 @@ struct Widget {
           三種寫法各有不同的 copy / move 成本，且會因 caller 傳的是 lvalue 還是 rvalue 而改變：
         </p>
 
+        <Code lang="cpp">{`std::string s = "hello";
+
+Widget w1(s);                // lvalue：s 是有名字的變數
+Widget w2(std::move(s));     // rvalue：std::move 把 s 轉成 rvalue
+Widget w3("hello");          // string literal：直接傳字串常量
+Widget w4(ptr);              // const char*：傳 C-style 字串指標`}</Code>
+
         <div className="my-6 overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
@@ -191,27 +202,27 @@ struct Widget {
             <tbody className="text-text-muted">
               <tr className="border-b border-border/50">
                 <td className="py-2 pr-4 font-medium">lvalue string</td>
-                <td className="py-2 pr-4">1 copy + 1 move</td>
-                <td className="py-2 pr-4">1 copy</td>
-                <td className="py-2">1 copy</td>
+                <td className="py-2 pr-4">1 copy (參數 n) + 1 move (into name)</td>
+                <td className="py-2 pr-4">1 copy (view → name 建構)</td>
+                <td className="py-2">1 copy (ref → name 建構)</td>
               </tr>
               <tr className="border-b border-border/50">
                 <td className="py-2 pr-4 font-medium">rvalue string</td>
-                <td className="py-2 pr-4">2 moves</td>
-                <td className="py-2 pr-4">1 copy</td>
-                <td className="py-2">1 copy</td>
+                <td className="py-2 pr-4">1 move (參數 n) + 1 move (into name)</td>
+                <td className="py-2 pr-4">1 copy (view → name 建構)</td>
+                <td className="py-2">1 copy (ref → name 建構)</td>
               </tr>
               <tr className="border-b border-border/50">
                 <td className="py-2 pr-4 font-medium">string literal</td>
-                <td className="py-2 pr-4">1 construct + 1 move</td>
-                <td className="py-2 pr-4">1 construct</td>
-                <td className="py-2">1 construct (temp) + 1 copy</td>
+                <td className="py-2 pr-4">1 construct (literal → 參數 n) + 1 move (into name)</td>
+                <td className="py-2 pr-4">1 construct (view → name 建構)</td>
+                <td className="py-2">1 construct (literal → temp) + 1 copy (temp → name)</td>
               </tr>
               <tr>
                 <td className="py-2 pr-4 font-medium">const char*</td>
-                <td className="py-2 pr-4">1 construct + 1 move</td>
-                <td className="py-2 pr-4">1 construct</td>
-                <td className="py-2">1 construct (temp) + 1 copy</td>
+                <td className="py-2 pr-4">1 construct (char* → 參數 n) + 1 move (into name)</td>
+                <td className="py-2 pr-4">1 construct (view → name 建構)</td>
+                <td className="py-2">1 construct (char* → temp) + 1 copy (temp → name)</td>
               </tr>
             </tbody>
           </table>
@@ -661,36 +672,7 @@ void applyDelta(
         </Callout>
       </FadeIn>
 
-      {/* ======================== Summary ======================== */}
       <FadeIn delay={0.45}>
-        <Heading id="summary">這場面試到底在篩什麼</Heading>
-
-        <div className="space-y-4">
-          <p>
-            表面上是六題 C++ 小題，實際上它在看三件事：
-            你能不能把抽象語法還原成 copy、move、allocation 的真實成本；
-            你能不能分清楚 correctness 和 performance 的 trade-off；
-            還有遇到系統題時，有沒有 latency-aware 的直覺。
-          </p>
-          <ul className="list-inside list-disc space-y-2 text-sm text-text-muted">
-            <li>不是背語法，而是要把每一種寫法拆成成本模型。</li>
-            <li>不是只追最快，而是要知道什麼情境下哪種寫法比較合理。</li>
-            <li>到了 Order Book 這種題目，已經是在看你有沒有系統感。</li>
-          </ul>
-        </div>
-
-        <div className="my-8 rounded-lg border border-primary/20 bg-primary/5 p-6">
-          <p className="font-bold text-text mb-2">我自己的收穫</p>
-          <p className="text-sm text-text-muted mb-2">
-            Crypto / HFT 的 C++ 面試跟一般 backend 面試真的差很多，不考 LeetCode，
-            而是一直問「這樣寫到底會多幾次 copy / move / allocation」。
-          </p>
-          <p className="text-sm text-text-muted">
-            我自己主要背景還是競賽和演算法，low-level 和 modern C++ 還有不少地方要補。
-            這次面試最大的提醒是：move semantics、lambda capture、memory layout 這些在 HFT 場景不是細節，是基本功。
-          </p>
-        </div>
-
         <div className="mt-8 flex flex-wrap gap-2 text-xs">
           {["C++", "Performance", "Interview", "HFT", "Move Semantics", "Lambda", "Order Book"].map((tag) => (
             <span
