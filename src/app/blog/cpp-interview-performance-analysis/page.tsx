@@ -191,7 +191,12 @@ Widget w4(ptr);              // const char*：傳 C-style 字串指標
 
 // 以上四種都可以隱式轉成 string_view，
 // 這也是為什麼寫法 B (string_view) 在下表中表現最好，
-// 但 string_view 不擁有資料，caller 要確保原始字串的 lifetime 夠長。`}</Code>
+// 但 string_view 不擁有資料，caller 要確保原始字串的 lifetime 夠長。
+
+// 不能隱式轉 string_view 的常見例子：
+// std::vector<char>  → 要手動 string_view(v.data(), v.size())
+// std::stringstream  → 要先 .str() 拿到 string
+// 單個 char           → 要 string_view(&c, 1)`}</Code>
 
         <div className="my-6 overflow-x-auto">
           <table className="w-full text-sm">
@@ -503,11 +508,6 @@ void transform(std::string x, std::string y) {
           如果函式需要修改自己的副本，或 caller 傳的是 rvalue（move 進來零成本），B 更合理。
         </VerdictBox>
 
-        <Callout>
-          面試的重點不是選哪個 &ldquo;對&rdquo;，而是能不能完整列出差異：
-          copy cost、null safety、aliasing、side effects、optimizer freedom。
-          在 HFT context 下，答案傾向 pointer（或 reference） - 因為 zero-copy 至上。
-        </Callout>
       </FadeIn>
 
       {/* ======================== Q5 ======================== */}
@@ -564,11 +564,6 @@ SSO 閾值（常見 64-bit 實作）：
           因為 union 要容納 inline buffer。這是用「更大的物件」換「更少的 heap allocation」。
         </p>
 
-        <Callout>
-          這題是前面 Q1 的延伸 - 如果你知道 SSO，就能更精確地分析 string 傳遞的成本：
-          短字串（≤ 15 bytes）的 copy 不走 heap，成本就是 memcpy 32 bytes（stack 上），
-          遠比長字串的 malloc + memcpy 便宜。
-        </Callout>
       </FadeIn>
 
       {/* ======================== Q6 ======================== */}
@@ -689,11 +684,6 @@ void applyDelta(
           </div>
         </div>
 
-        <Callout>
-          這題的核心考點：(1) 不用 double 當 key - fixed-point 或 tick index；
-          (2) snapshot vs delta 兩種模式的 trade-off；
-          (3) 對 HFT 場景的 latency-aware 思維。
-        </Callout>
       </FadeIn>
 
       <FadeIn delay={0.45}>
