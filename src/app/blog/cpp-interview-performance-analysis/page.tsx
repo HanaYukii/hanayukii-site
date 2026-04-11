@@ -329,7 +329,12 @@ void process(std::string_view msg) {
           前提是 lambda 只需要用到傳入的參數，不依賴外部變數。
           寫法 2/3 是 stateless lambda（沒有 capture），不會多捕捉到其他變數，
           compiler 可以直接 inline 成普通的 function call，不需要額外建構 lambda 物件，
-          也沒有任何 lifetime 風險。這在 hot path 上是最理想的寫法。
+          也沒有任何 lifetime 風險。
+          {"\n\n"}
+          Inline 的實際影響：省掉 function call 的開銷（push/pop stack frame、jump instruction），
+          lambda body 的指令直接展開在 call site，CPU 不需要做 branch prediction，
+          也讓 compiler 可以跨 lambda 邊界做進一步優化（例如 constant folding、dead code elimination）。
+          在 HFT 這種對 latency 極度敏感的場景，每一次多餘的 function call 都可能是幾十 ns 的差距。
         </Callout>
       </FadeIn>
 
