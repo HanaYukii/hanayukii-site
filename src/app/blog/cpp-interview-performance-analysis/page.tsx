@@ -187,7 +187,11 @@ struct Widget {
 Widget w1(s);                // lvalue：s 是有名字的變數
 Widget w2(std::move(s));     // rvalue：std::move 把 s 轉成 rvalue
 Widget w3("hello");          // string literal：直接傳字串常量
-Widget w4(ptr);              // const char*：傳 C-style 字串指標`}</Code>
+Widget w4(ptr);              // const char*：傳 C-style 字串指標
+
+// 以上四種都可以隱式轉成 string_view，
+// 這也是為什麼寫法 B (string_view) 在下表中表現最好，
+// 但 string_view 不擁有資料，caller 要確保原始字串的 lifetime 夠長。`}</Code>
 
         <div className="my-6 overflow-x-auto">
           <table className="w-full text-sm">
@@ -322,9 +326,10 @@ void process(std::string_view msg) {
         </VerdictBox>
 
         <Callout>
-          關鍵教訓：<code>static</code> + capture by reference 是一個非常隱蔽的 bug。
-          面試官特別想看你能不能一眼看出寫法 0 是 UB。
-          在 hot path 上，stateless lambda（寫法 2/3）是首選 - compiler 會完全 inline 成 function call。
+          前提是 lambda 只需要用到傳入的參數，不依賴外部變數。
+          寫法 2/3 是 stateless lambda（沒有 capture），不會多捕捉到其他變數，
+          compiler 可以直接 inline 成普通的 function call，不需要額外建構 lambda 物件，
+          也沒有任何 lifetime 風險。這在 hot path 上是最理想的寫法。
         </Callout>
       </FadeIn>
 
