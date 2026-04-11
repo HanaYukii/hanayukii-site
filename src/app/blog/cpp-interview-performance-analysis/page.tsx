@@ -599,6 +599,19 @@ price      quantity
       ask: [ { price: 90, qty: 0 }, { price: 108, qty: 100 } ]
       （qty = 0 代表移除該 level）`}</Code>
 
+        <SubHeading>Price Precision 18 是什麼</SubHeading>
+
+        <p className="mb-3 text-text-muted">
+          在加密貨幣交易所（如 Binance、Coinbase），價格和數量通常用 18 位小數表示，
+          這是因為 Ethereum 的原生單位是 wei（1 ETH = 10<sup>18</sup> wei），
+          ERC-20 token 預設也是 18 decimals。交易所為了精確表示鏈上資產的最小單位，
+          API 回傳的價格就會帶到 18 位小數。
+        </p>
+        <p className="mb-3 text-text-muted">
+          傳統金融（股票、期貨）通常只需要 2-8 位小數，但 crypto 因為鏈上精度的關係，
+          18 位是常態。這也直接影響了資料結構的選擇。
+        </p>
+
         <SubHeading>為什麼不能用 double 當 key</SubHeading>
 
         <p className="mb-3 text-text-muted">
@@ -657,17 +670,42 @@ void applyDelta(
     }
 }`}</Code>
 
-        <SubHeading>進階考量</SubHeading>
+        <SubHeading>Best Bid/Ask 的頻繁更新優化</SubHeading>
+
+        <p className="mb-3 text-text-muted">
+          Order book 最前面幾層（best bid / best ask）是變動最頻繁的，
+          每一筆 market order 或 cancel 都可能改動 top of book。
+          常見的優化方式：
+        </p>
 
         <div className="my-4 space-y-3 text-sm text-text-muted">
           <div className="rounded-lg border border-border bg-surface p-4">
-            <p className="font-medium text-text mb-1">std::map vs 其他選擇</p>
+            <p className="font-medium text-text mb-1">快取 best bid/ask pointer</p>
             <p>
-              <code>std::map</code>（紅黑樹）O(log n) 查找/插入/刪除，cache locality 差。
-              如果 level 數量固定（如 top 20），sorted array + binary search 可能更快（cache friendly）。
-              如果需要極致效能，可用 flat sorted vector 或 B-tree variant。
+              不每次都從 map 的 <code>begin()</code> 取，而是額外維護一個指向 best level 的 pointer / iterator。
+              更新時只在 best level 被刪除或有新的更好價格時才重新定位，省掉 tree traversal。
             </p>
           </div>
+          <div className="rounded-lg border border-border bg-surface p-4">
+            <p className="font-medium text-text mb-1">Top-of-book 用 array，深層用 map</p>
+            <p>
+              前幾層（如 top 5）用固定大小的 sorted array，更新頻繁但數量少，cache friendly。
+              深層 level 變動少，用 <code>std::map</code> 或 flat sorted vector 處理。
+            </p>
+          </div>
+          <div className="rounded-lg border border-border bg-surface p-4">
+            <p className="font-medium text-text mb-1">Price level pooling</p>
+            <p>
+              頻繁的 insert/erase 會觸發大量 heap allocation。
+              用 memory pool（pre-allocate 一批 node）避免每次 new/delete，
+              減少 allocator contention 跟 latency spike。
+            </p>
+          </div>
+        </div>
+
+        <SubHeading>其他進階考量</SubHeading>
+
+        <div className="my-4 space-y-3 text-sm text-text-muted">
           <div className="rounded-lg border border-border bg-surface p-4">
             <p className="font-medium text-text mb-1">Sequence number / 防亂序</p>
             <p>
