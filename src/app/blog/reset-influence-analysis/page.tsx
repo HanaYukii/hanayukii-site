@@ -50,8 +50,8 @@ export default function ResetInfluenceAnalysis() {
 
         <div className="mb-8 overflow-hidden rounded-xl">
           <Image
-            src="/images/reset/stage.jpg"
-            alt="RESET 從心啟動 活動現場"
+            src="/images/reset/card.jpg"
+            alt="RESET 從心啟動 活動卡片"
             width={800}
             height={600}
             className="w-full object-cover"
@@ -92,6 +92,7 @@ export default function ResetInfluenceAnalysis() {
           <Heading id="context">背景</Heading>
           <div className="space-y-4">
             <p>
+              朋友剛好有多搶到票，想說來看看應該會有收穫。
               2026 還是來參加了區塊鏈日報 D大的見面會，
               今年包裝成比較偏個人成長、心靈課程方向的活動 RESET 從心啟動。
               我自己對幾個大的幣圈頻道都有持續收看，區塊鏈日報算是蠻熟悉的創作者。
@@ -168,7 +169,7 @@ export default function ResetInfluenceAnalysis() {
           <div className="space-y-4">
             <p>
               有些觀點比較偏行動導向的詮釋，像是可以透過自己的選擇決定很多事，
-              但現實還有家庭背景、運氣、行業差異這些變數，可能被忽略了一些。
+              但現實還有家庭背景、運氣、行業差異、或自己的個人基本面這些變數，可能被忽略了一些。
               整體比較像是一種觀點框架，說服方式也偏個人經歷，較少引用外部資料或失敗案例的分析。
             </p>
             <p>
@@ -192,21 +193,12 @@ export default function ResetInfluenceAnalysis() {
         <FadeIn>
           <Heading id="reflection">我的反思</Heading>
           <div className="space-y-4">
-            <div className="overflow-hidden rounded-xl">
-              <Image
-                src="/images/reset/card.jpg"
-                alt="RESET 從心啟動 活動卡片"
-                width={800}
-                height={600}
-                className="w-full object-cover"
-              />
-            </div>
             <p>
               現場接觸到不少背景跟銷售相關的人。
               以前我覺得技術能力、學歷才是比較正規、走正道、比較高級的路，
               可能也是工程師背景的偏見，對銷售一直有點距離。
               但現在越來越覺得能把東西賣出去就是本事，
-              而現實上，幾乎所有工作，本質上都在某種程度參與價值交換與說服。
+              而現實上，大部分人的工作本質上都是銷售的一環，只是不是自己站在前面賣而已，很多人沒意識到，不管做什麼，最後都跟把東西賣出去有關。
               很多人會在類似情況直接套負面標籤，
               但只要不是在害人，賣東西沒有那麼罪大惡極。
             </p>
@@ -222,7 +214,7 @@ export default function ResetInfluenceAnalysis() {
               <p className="mt-2 text-lg font-bold text-text">
                 弱者抱著舊地圖，找新大陸。              </p>
               <p className="mt-2 text-sm">
-                可能每個人都在用不同的地圖，甚至沒意識到自己正在用哪一張。
+                只是在這個時代，什麼是舊地圖，每個人的答案大概都不太一樣，也可能沒有標準答案。
               </p>
             </div>
           </div>
