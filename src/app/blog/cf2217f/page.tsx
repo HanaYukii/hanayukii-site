@@ -5,11 +5,11 @@ import Code from "@/components/CodeBlock";
 import { InlineMath, BlockMath } from "@/components/Math";
 
 export const metadata: Metadata = {
-  title: "CF2217F — Interval Game | 花雪 HanaYukii",
+  title: "CF2217F Interval Game | 花雪 HanaYukii",
   description:
     "Codeforces 2217F Interval Game 題解。Nim + XOR 加法恆等式 + Digit DP。",
   openGraph: {
-    title: "CF2217F — Interval Game",
+    title: "CF2217F Interval Game",
     description:
       "Codeforces 2217F Interval Game 題解。Nim + XOR 加法恆等式 + Digit DP。",
     type: "article",
@@ -59,7 +59,7 @@ export default function CF2217F() {
           </span>
         </div>
         <h1 className="mb-2 text-4xl font-extrabold tracking-tight">
-          CF2217F — Interval Game
+          CF2217F Interval Game
         </h1>
         <p className="mb-2 text-lg text-text-muted">
           Nim + XOR 加法恆等式 + Digit DP

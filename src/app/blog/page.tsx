@@ -4,7 +4,16 @@ import FadeIn from "@/components/FadeIn";
 export default function Blog() {
   const posts = [
     {
-      title: "CF2217F — Interval Game",
+      title: "LeetCode Weekly Contest 497 Q4 Good Subsequence Queries",
+      date: "2026-04-12",
+      summary:
+        "Segment Tree 維護 GCD，分 case 討論。值域限制讓拿掉誰 GCD 都不為 1 只在很小的 n 才可能。",
+      tags: ["Competitive Programming", "Number Theory"],
+      tagStyle: "bg-accent/10 text-accent",
+      href: "/blog/lc-wc497-q4",
+    },
+    {
+      title: "CF2217F Interval Game",
       date: "2026-04-08",
       summary:
         "Nim + XOR 加法恆等式 + Digit DP。把區間博弈轉成 Nim，再用代數轉換拆解 counting。",
