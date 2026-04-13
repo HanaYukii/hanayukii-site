@@ -52,6 +52,11 @@ export default function LeavingGoogle() {
           <br />
           畢竟是第一份工作、又是頂級企業，感受特別多。也許類似的故事在科技業到處都在發生吧。
         </p>
+        <blockquote className="mb-8 border-l-2 border-primary pl-4 text-text-muted italic">
+          這篇無意批評公司、團隊或任何人，遇到的人幾乎都非常好。純粹是回顧這幾年的經歷，核心想表達的是這個環境不適合當時的我。
+          <br />
+          會想寫這篇主要是：希望能給類似背景的人一些啟發、剛好最近弄了這個個人網站、也有很多新的體會想給自己留個紀錄。
+        </blockquote>
       </FadeIn>
 
       <FadeIn delay={0.1}>
@@ -173,11 +178,12 @@ export default function LeavingGoogle() {
           <Heading id="jam-protocol">Side Story: JAM Protocol</Heading>
           <div className="space-y-4">
             <p>
-              越來越覺得工作上沒在成長的那段時間，因緣際會接觸到開源的 Web3 protocol project，
-              跟一群很強的人合作至今，也有從頂級大企業出來的，也有在海外小公司領高薪的，技術成長比在 team 內多太多了，也才發現自己還有很大的成長空間，不該繼續原地踏步。
+              越來越覺得工作上沒在成長的那段時間，因緣際會接觸到 Web3 開源生態，
+              特別是 JAM Protocol 這個方向，前後參與了一段時間。
+              過程中跟一群很強的人合作過，也有從頂級大企業出來的，也有在海外小公司領高薪的，技術成長比之前多太多了，也才發現自己還有很大的成長空間，不該繼續原地踏步。
             </p>
             <p>
-              厲害的人跟好的機會不是只有大公司裡才有。這段經歷慢慢讓我想往外走。
+              厲害的人跟好的機會不是只有大公司裡才有。這段經歷讓我更確定往外走的方向。
             </p>
           </div>
         </FadeIn>
@@ -329,6 +335,9 @@ export default function LeavingGoogle() {
           <Heading id="reflection">走過之後的體會</Heading>
           <div className="space-y-4">
             <p>
+              從結果看確實蠻失敗的，也有很多不甘心。但走過之後才知道，那些不甘心反而是推自己往前走的力量。
+            </p>
+            <p>
               離開 Google 這個決定，不能說完全沒有懷疑，也許多年後才會知道答案。
             </p>
           </div>
@@ -355,6 +364,9 @@ export default function LeavingGoogle() {
                 <strong>少比較</strong>：這個圈子有不少比較的氛圍：股價、TC、升遷，永遠比不完。
                 待久了確實深受影響，徒增很多不必要的焦慮。離開之後也在慢慢調整，試著把注意力放回自己身上。
               </li>
+              <li>
+                <strong>職場現實</strong>：大公司人來人往，升完再走根本沒人會多想，這也完全是非常多人在做的事。當時太在乎人情世故反而虧了自己，該拿的東西還是要先拿，尤其是在一切準備完成只需要多等幾個月的情況下。
+              </li>
             </ul>
           </div>
         </FadeIn>
@@ -362,10 +374,13 @@ export default function LeavingGoogle() {
         <FadeIn>
           <div className="space-y-4">
             <p>
-              離開之後的日子很充實 — 同時在跑演算法、C++、家教、AI、Web3、學日文報名了 N1、多運動，也做了這個個人網站。
+              離開之後的日子很充實 — 同時在跑演算法、C++、家教、AI、學日文報名了 N1、多運動，也做了這個個人網站。
             </p>
             <p>
               Codeforces 也撿回來認真打了，紅名是學生時期沒能達成的目標，現在重新給自己設的。
+            </p>
+            <p>
+              對我來說多線發展不是分心，是在能應付的範圍內盡可能探索更多可能。演算法、AI、Web3、教學，每條線都讓我從不同角度理解問題。這也正是在 AI 時代才做得到的 leverage。也一直 open to 有趣的 side project 跟合作。
             </p>
             <p>
               也在導正自己長期以來的缺點，讓自己的生活跟心態都慢慢走向更好的地方。
