@@ -1,69 +1,8 @@
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import { hotPosts, recentPosts } from "@/data/posts";
 
 export default function Home() {
-  const hotPosts = [
-    {
-      title: "離開 Google 半年後的轉職紀錄",
-      date: "2026-04-06",
-      tags: ["Career", "Personal"],
-      tagStyle: "bg-warm/10 text-warm",
-      href: "/blog/leaving-google",
-    },
-    {
-      title: "從 Midnight 看隱私鏈技術",
-      date: "2026-04-06",
-      tags: ["Web3", "Privacy"],
-      tagStyle: "bg-primary/10 text-primary",
-      href: "/blog/privacy-chain-midnight",
-    },
-  ];
-
-  const recentPosts = [
-    {
-      title: "搞懂 Dependency Injection",
-      date: "04-06",
-      tags: ["Design Pattern"],
-      tagStyle: "bg-primary/10 text-primary",
-      href: "/blog/dependency-injection",
-    },
-    {
-      title: "C++ 編譯期可以做的五件事",
-      date: "03-31",
-      tags: ["C++"],
-      tagStyle: "bg-sky/10 text-sky",
-      href: "/blog/cpp-compile-time-optimization",
-    },
-    {
-      title: "SSO 跟 Copy Elision：C++ 背後在偷做什麼",
-      date: "03-31",
-      tags: ["C++"],
-      tagStyle: "bg-sky/10 text-sky",
-      href: "/blog/cpp-secret-optimizations-1",
-    },
-    {
-      title: "Padding、Vtable、Smart Pointer：C++ 的隱藏成本",
-      date: "03-31",
-      tags: ["C++"],
-      tagStyle: "bg-sky/10 text-sky",
-      href: "/blog/cpp-secret-optimizations-2",
-    },
-    {
-      title: "手寫 inplace_vector：一場硬核 C++ 面試",
-      date: "03-31",
-      tags: ["C++"],
-      tagStyle: "bg-accent/10 text-accent",
-      href: "/blog/cpp-inplace-vector",
-    },
-    {
-      title: "HFT 面試的六道 C++ 效能題",
-      date: "03-31",
-      tags: ["Interview"],
-      tagStyle: "bg-warm/10 text-warm",
-      href: "/blog/cpp-interview-performance-analysis",
-    },
-  ];
-
   return (
     <>
       {/* Hero */}
@@ -143,7 +82,7 @@ export default function Home() {
         <div className="grid gap-6 sm:grid-cols-2">
           {hotPosts.map((post, i) => (
             <FadeIn key={post.title} delay={i * 0.1}>
-              <Link href={post.href}>
+              <Link href={post.href!}>
                 <article className="rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm transition-all hover:border-primary/30 hover:bg-surface-hover cursor-pointer">
                   <div className="mb-3 flex flex-wrap gap-2">
                     {post.tags.map((tag) => (
@@ -168,7 +107,7 @@ export default function Home() {
           <h3 className="mb-3 mt-10 text-sm font-semibold text-text-muted uppercase tracking-wider">Recent Posts</h3>
           <div className="space-y-0 divide-y divide-border/30">
             {recentPosts.map((post) => (
-              <Link key={post.title} href={post.href}>
+              <Link key={post.title} href={post.href!}>
                 <div className="flex items-center justify-between py-2 transition-colors hover:text-primary">
                   <div className="flex items-center gap-2 min-w-0">
                     <span className={`shrink-0 rounded-full px-1.5 py-0.5 text-[10px] font-medium ${post.tagStyle}`}>
