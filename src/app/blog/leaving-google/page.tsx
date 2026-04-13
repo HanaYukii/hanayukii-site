@@ -409,6 +409,9 @@ export default function LeavingGoogle() {
               走過之後，這段經歷讓我更認識自己，也更清楚自己要什麼。
             </p>
             <p>
+              近期聽說原本的 org 在台灣擴編，發展得不錯。有種倒在黎明前的感覺，難免會想如果做了不同選擇結果會不會不一樣。但人生很多經驗就是差那麼一點，既然做了決定就對它負責。
+            </p>
+            <p>
               感謝這一路上遇到的人。聽我訴苦的、給我方向的、一直以來的 role model，都謝謝你們。
             </p>
             <p className="mt-6 text-center text-lg font-medium text-primary/80 italic">
