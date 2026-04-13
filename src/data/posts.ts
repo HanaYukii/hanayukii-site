@@ -128,24 +128,6 @@ export const posts: Post[] = [
     tagStyle: "bg-warm/10 text-warm",
     href: "/blog/cpp-interview-performance-analysis",
   },
-  {
-    title: "ICPC 要怎麼練比較有用",
-    date: "Draft",
-    summary:
-      "Still writing. Mostly the kind of training advice I wish I had heard earlier.",
-    tags: ["Competitive Programming", "ICPC"],
-    tagStyle: "bg-accent/10 text-accent",
-    href: null,
-  },
-  {
-    title: "JAM Protocol 到底在幹嘛",
-    date: "Draft",
-    summary:
-      "Still writing. This one will probably end up being a gentle intro to JAM from an implementer\u0027s point of view.",
-    tags: ["Web3", "Polkadot"],
-    tagStyle: "bg-warm/10 text-warm",
-    href: null,
-  },
 ];
 
 export const hotPosts = posts.filter((p) => p.hot);

@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   title: "花雪 HanaYukii",
   description:
     "Personal site of 花雪 (HanaYukii) — backend engineer, competitive programmer, and writer.",
+  alternates: {
+    types: {
+      "application/rss+xml": "/feed.xml",
+    },
+  },
 };
 
 function Navbar() {

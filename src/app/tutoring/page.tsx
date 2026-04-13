@@ -8,47 +8,25 @@ export default function Tutoring() {
           Algorithm Tutoring
         </h1>
         <p className="mb-10 text-lg text-text-muted">
-          演算法、競賽、面試準備，有多年教學跟實戰經驗。教學相長，也希望認識更多厲害的人。
+          演算法、競賽、面試準備。教學相長，也希望認識更多厲害的人。
         </p>
       </FadeIn>
 
-      {/* Why Me */}
+      {/* Background */}
       <section className="mb-12">
         <FadeIn>
-          <h2 className="mb-4 text-2xl font-bold">Why Me</h2>
+          <h2 className="mb-4 text-2xl font-bold">背景</h2>
         </FadeIn>
-        <div className="grid gap-4 sm:grid-cols-2">
-          {[
-            {
-              icon: "🏅",
-              title: "ICPC Gold Medalist",
-              desc: "ICPC 金牌、Codeforces IM (2350)、LeetCode ~2800。",
-            },
-            {
-              icon: "🏢",
-              title: "Ex-Google · 3 yr",
-              desc: "Google Cloud Infrastructure，C++ backend，有業界實戰經驗。",
-            },
-            {
-              icon: "📊",
-              title: "現役選手",
-              desc: "積極參與主流 OJ online contest，題目跟趨勢都有在跟。",
-            },
-            {
-              icon: "🎓",
-              title: "多年教學經驗",
-              desc: "教過的學生拿過 TOI 選訓營、特殊選才、Google / Microsoft offer。",
-            },
-          ].map((item, i) => (
-            <FadeIn key={item.title} delay={i * 0.08}>
-              <div className="rounded-xl border border-border bg-surface/40 p-5 backdrop-blur-sm transition-all hover:border-primary/30 hover:bg-surface-hover">
-                <div className="mb-2 text-2xl">{item.icon}</div>
-                <h3 className="mb-1 font-bold">{item.title}</h3>
-                <p className="text-sm text-text-muted">{item.desc}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
+        <FadeIn delay={0.08}>
+          <div className="rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm">
+            <ul className="space-y-2 text-sm text-text-muted">
+              <li>ICPC Gold、Codeforces IM、LeetCode ~2800</li>
+              <li>Ex-Google Cloud Infrastructure，3 年 C++ backend 經驗</li>
+              <li>現役選手，持續參與主流 OJ contest</li>
+              <li>有幾年教學經驗，教過從高中競賽到業界面試準備</li>
+            </ul>
+          </div>
+        </FadeIn>
       </section>
 
       {/* What I Teach */}
@@ -91,49 +69,26 @@ export default function Tutoring() {
       {/* Student Achievements */}
       <section className="mb-12">
         <FadeIn>
-          <h2 className="mb-4 text-2xl font-bold">學生成果</h2>
+          <h2 className="mb-4 text-2xl font-bold">過去學生成果</h2>
           <div className="rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm">
-            <div className="space-y-4">
-              {[
-                {
-                  icon: "🏆",
-                  title: "TOI 選訓營",
-                  desc: "學生入選國手選訓營",
-                },
-                {
-                  icon: "🎓",
-                  title: "特殊選才",
-                  desc: "多位學生透過特殊選才錄取清大、交大",
-                },
-                {
-                  icon: "💼",
-                  title: "Big Tech Offers",
-                  desc: "學生拿到 Google、Microsoft 等公司 offer",
-                },
-              ].map((item) => (
-                <div key={item.title} className="flex items-start gap-3">
-                  <span className="mt-0.5 text-lg">{item.icon}</span>
-                  <div>
-                    <p className="font-bold">{item.title}</p>
-                    <p className="text-sm text-text-muted">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <ul className="space-y-2 text-sm text-text-muted">
+              <li>學生入選 TOI 國手選訓營</li>
+              <li>多位學生透過特殊選才錄取清大、交大</li>
+              <li>學生拿到 Google、Microsoft 等公司 offer</li>
+            </ul>
           </div>
         </FadeIn>
       </section>
 
-      {/* CTA */}
+      {/* Contact */}
       <FadeIn>
-        <section className="rounded-xl bg-gradient-to-r from-sky via-primary to-accent p-8 text-center text-white">
-          <h2 className="mb-3 text-2xl font-bold">有興趣的話</h2>
-          <p className="mb-6 text-white/80">
-            跟我說你目前的程度跟目標，我可以很快判斷適不適合、怎麼安排。
+        <section className="rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm text-center">
+          <p className="mb-4 text-text-muted">
+            有興趣的話跟我聊聊你目前的程度跟目標，我可以很快判斷適不適合、怎麼安排。
           </p>
           <a
             href="mailto:islu245777@gmail.com"
-            className="inline-block rounded-lg bg-white px-6 py-3 text-sm font-semibold text-bg shadow-md transition-colors hover:bg-white/90"
+            className="inline-block rounded-lg border border-primary px-5 py-2.5 text-sm font-medium text-primary transition-colors hover:bg-primary/10"
           >
             Contact Me
           </a>
