@@ -61,6 +61,7 @@ export default function Idol2025() {
       <FadeIn>
         <div className="space-y-4">
           <p>
+            2025 是很低潮的一年，也從偶像那邊獲得很多能量。
             以為自己早在 2017 就退坑偶像了，沒想到 2025 因為一連串意外的契機，變成了特別精彩的一年。
           </p>
           <p>
