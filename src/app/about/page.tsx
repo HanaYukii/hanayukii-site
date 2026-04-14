@@ -1,3 +1,4 @@
+import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 
 const ExternalLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
@@ -29,7 +30,7 @@ export default function About() {
         <section className="mb-14">
           <p className="text-lg leading-relaxed text-text-muted">
             我是<strong className="text-text">花雪 (HanaYukii)</strong>。
-            程式競賽出身，喜歡演算法跟數學。在 Google 待了三年，現在在 AI 新創當 Tech Lead，也有在做 Web3。
+            <Link href="/blog/cp-career-memoir" className="text-primary hover:underline">程式競賽</Link>出身，喜歡演算法跟數學。在 <Link href="/blog/leaving-google" className="text-primary hover:underline">Google 待了三年</Link>，現在在 AI 新創當 Tech Lead，也有在做 Web3。
             這邊隨興寫自己喜歡的 topic，想寫啥寫啥。
           </p>
         </section>
@@ -78,7 +79,7 @@ export default function About() {
                 </div>
                 <p className="mt-1 text-sm text-text-muted">Sep 2024 – Present</p>
                 <p className="mt-1 text-sm leading-relaxed text-text-muted">
-                  Web3 Foundation JAM contest 參賽團隊 New-JAMneration 的成員，主要寫核心協議的 code 跟文件。
+                  Web3 Foundation JAM contest 參賽團隊，repo 核心成員，大量參與實作跟文件。
                 </p>
               </div>
               <a
@@ -133,7 +134,7 @@ export default function About() {
             {
               icon: "🎤",
               title: "日系偶像",
-              text: "在追私立恵比寿中学、高嶺のなでしこ、=LOVE、ukka、TPE48 等等。看現場十幾年了，順便拿來練日文。",
+              text: "目前主要追私立恵比寿中学、高嶺のなでしこ、=LOVE、ukka、TPE48 等等。長年也累積了不少日文軟實力。",
             },
             {
               icon: "🏎️⚾",
@@ -148,7 +149,7 @@ export default function About() {
             {
               icon: "📈",
               title: "投資",
-              text: "有在投資加密貨幣跟股票，本身也在做 Web3 開發，所以不只是看投資面。",
+              text: "有在投資加密貨幣跟股票，本身也在做 Web3 開發，也是在科技業參與時代趨勢。",
             },
             {
               icon: "✈️",
