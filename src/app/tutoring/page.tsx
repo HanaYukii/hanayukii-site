@@ -20,7 +20,7 @@ export default function Tutoring() {
           <ul className="space-y-1.5 text-sm text-text-muted">
             <li>交大資工學士 (2016–2020)</li>
             <li>交大資工碩士 (2020–2022)</li>
-            <li>Google 軟體工程師 (2022–2025)</li>
+            <li>Google 軟體工程師 (2022–2025)，在職期間有豐富的面試官及模擬面試經驗</li>
             <li>AI 新創 Tech Lead (2025–)</li>
           </ul>
         </section>
@@ -64,7 +64,7 @@ export default function Tutoring() {
       <FadeIn>
         <section className="rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm text-center">
           <p className="mb-4 text-sm text-text-muted">
-            有興趣的話聊聊你目前的程度跟目標，我可以很快判斷適不適合、怎麼安排。
+            比較適合已經有基礎、目標是頂級外商面試或程式競賽的人。有興趣可以先聊。
           </p>
           <a
             href="mailto:islu245777@gmail.com"
