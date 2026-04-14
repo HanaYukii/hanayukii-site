@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 
@@ -105,6 +106,11 @@ export default function LeavingGoogle() {
               當時主要的優勢在演算法與 problem solving，
               ICPC Gold、Codeforces IM、LeetCode rating 台灣前幾名，
               也因為 Kick Start 成績被 Google 邀請參加 101 線下活動並面試，打進過兩次 Code Jam Round 3。
+              更多資訊可以參考
+              <Link href="/blog/cp-career-memoir" className="text-primary underline underline-offset-2 hover:text-primary/80">
+                程式競賽生涯回憶錄
+              </Link>
+              。
             </p>
             <p>
               面試時間大概是離畢業還有 8 個月以上，過程相對順利，大多數題目都能在第一時間找到解法，
@@ -116,6 +122,13 @@ export default function LeavingGoogle() {
               當時 recruiter 表示這是目前唯一的選項，不接的話可能要等很久，很難判斷該不該堅持，最後就接了。
               現在走過之後的體會，應該更堅持自己的選擇。離畢業根本還有很充裕的時間，完全有資本繼續等。
             </p>
+          </div>
+        </FadeIn>
+
+        <FadeIn>
+          <div className="my-4 grid gap-4 sm:grid-cols-2">
+            <Image src="/images/google-bayview.jpg" alt="Google Bay View campus" width={600} height={400} className="rounded-lg border border-border" />
+            <Image src="/images/google-g-night.jpg" alt="Google G logo at night" width={600} height={400} className="rounded-lg border border-border" />
           </div>
         </FadeIn>
 
@@ -146,6 +159,13 @@ export default function LeavingGoogle() {
         </FadeIn>
 
         <FadeIn>
+          <div className="my-4 grid gap-4 sm:grid-cols-2">
+            <Image src="/images/google-halloween.jpg" alt="Google office Halloween decoration" width={600} height={400} className="rounded-lg border border-border" />
+            <Image src="/images/google-celebration.jpg" alt="Google office celebration" width={600} height={400} className="rounded-lg border border-border" />
+          </div>
+        </FadeIn>
+
+        <FadeIn>
           <Heading id="accumulated">一路上遇到的大坎</Heading>
           <div className="space-y-4">
             <ul className="list-inside list-disc space-y-3 text-sm">
@@ -171,6 +191,13 @@ export default function LeavingGoogle() {
                 自信被消磨了很多，到後期甚至會開始懷疑，自己還有沒有在做一個工程師該做的事情。
               </li>
             </ul>
+          </div>
+        </FadeIn>
+
+        <FadeIn>
+          <div className="my-4 grid gap-4 sm:grid-cols-2">
+            <Image src="/images/google-dino-runner.jpg" alt="Google Dino Runner board game" width={600} height={400} className="rounded-lg border border-border" />
+            <Image src="/images/google-domino.jpg" alt="Google logo domino art" width={600} height={400} className="rounded-lg border border-border" />
           </div>
         </FadeIn>
 
@@ -276,6 +303,20 @@ export default function LeavingGoogle() {
             </Link>
             。這段準備的經驗讓我對 C++ 的理解加深很多，更認識 modern C++。這些我相信未來都還有機會用上。
           </p>
+          </div>
+        </FadeIn>
+
+        <FadeIn>
+          <div className="my-4 grid gap-4 sm:grid-cols-2">
+            <Image src="/images/google-city-view.jpg" alt="City view" width={600} height={400} className="rounded-lg border border-border" />
+            <Image src="/images/google-singapore.jpg" alt="Google Singapore entrance" width={600} height={400} className="rounded-lg border border-border" />
+          </div>
+        </FadeIn>
+
+        <FadeIn>
+          <div className="my-4 grid gap-4 sm:grid-cols-2">
+            <Image src="/images/google-japan-food.jpg" alt="Google Japan office food" width={600} height={400} className="rounded-lg border border-border" />
+            <Image src="/images/google-japan-cielo.jpg" alt="Google Japan CIELO cafe" width={600} height={400} className="rounded-lg border border-border" />
           </div>
         </FadeIn>
 

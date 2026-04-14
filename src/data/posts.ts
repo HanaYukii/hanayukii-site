@@ -10,6 +10,16 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    title: "多年後的程式競賽選手生涯回憶錄",
+    date: "2026-04-14",
+    summary:
+      "從計概作業太難開始刷題，到 ICPC Gold。你永遠不知道，你的興趣可以把你帶得多遠。",
+    tags: ["Competitive Programming", "Personal"],
+    tagStyle: "bg-accent/10 text-accent",
+    href: "/blog/cp-career-memoir",
+    hot: true,
+  },
+  {
     title: "LeetCode Weekly Contest 497 Q4 Good Subsequence Queries",
     date: "2026-04-12",
     summary:
