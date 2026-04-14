@@ -10,6 +10,15 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    title: "LeetCode 2463 Minimum Total Distance Traveled",
+    date: "2026-04-15",
+    summary:
+      "直觀的二維匹配 DP，但轉移的實作不太直觀。每日一題的好題。",
+    tags: ["Competitive Programming", "DP"],
+    tagStyle: "bg-accent/10 text-accent",
+    href: "/blog/lc-2463",
+  },
+  {
     title: "多年後的程式競賽選手生涯回憶錄",
     date: "2026-04-14",
     summary:
