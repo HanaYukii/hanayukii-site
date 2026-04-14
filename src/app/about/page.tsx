@@ -228,7 +228,6 @@ export default function About() {
               title: "日系偶像",
               text: [
                 <>
-                  2025 是很低潮的一年，也從偶像那邊獲得很多能量。
                   平時有在關注 <strong className="text-text">私立恵比寿中学</strong>、
                   <strong className="text-text">高嶺のなでしこ</strong>、=LOVE、
                   <strong className="text-text">ukka</strong> 以及{" "}
