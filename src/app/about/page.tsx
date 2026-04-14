@@ -381,13 +381,21 @@ export default function About() {
               LeetCode
               <svg className="h-3 w-3 opacity-40" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l6-6m0 0H4m5 0v5"/></svg>
             </a>
-            <Link
-              href="/tutoring"
-              className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-dark"
-            >
-              Tutoring →
-            </Link>
           </div>
+        </section>
+      </FadeIn>
+
+      {/* Teaching */}
+      <FadeIn>
+        <section className="mb-14">
+          <h2 className="mb-4 text-2xl font-bold">Teaching</h2>
+          <p className="mb-3 text-sm text-text-muted">
+            有幾年演算法教學經驗，教過從高中競賽到業界面試準備。過去學生有入選 TOI 選訓營、透過特殊選才錄取清交、拿到 Google / Microsoft offer 等。
+          </p>
+          <p className="text-sm text-text-muted">
+            有興趣可以聊聊：
+            <a href="mailto:islu245777@gmail.com" className="text-primary hover:underline ml-1">islu245777@gmail.com</a>
+          </p>
         </section>
       </FadeIn>
 
