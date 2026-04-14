@@ -20,7 +20,7 @@ export default function Tutoring() {
           <ul className="space-y-1.5 text-sm text-text-muted">
             <li>交大資工學士 (2016–2020)</li>
             <li>交大資工碩士 (2020–2022)</li>
-            <li>Google 軟體工程師 (2022–2025)，在職期間有豐富的面試官及模擬面試經驗</li>
+            <li>Google 軟體工程師 (2022–2025)</li>
             <li>AI 新創 Tech Lead (2025–)</li>
           </ul>
         </section>
@@ -37,6 +37,7 @@ export default function Tutoring() {
             <li>110 競技程式設計助教、圖論助教</li>
             <li>2020 PCCA Winter Camp 總召 / 講師</li>
             <li>演算法海牛助教 (2021–2024)</li>
+            <li>頂級外商豐富模擬面試經驗</li>
           </ul>
         </section>
       </FadeIn>
