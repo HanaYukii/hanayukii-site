@@ -1,3 +1,4 @@
+import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 
 export default function Tutoring() {
@@ -8,7 +9,7 @@ export default function Tutoring() {
           演算法家教簡歷
         </h1>
         <p className="mb-12 text-text-muted">
-          程式競賽 · 演算法 · APCS · 面試準備
+          程式競賽 · 演算法 · APCS · 面試準備（<Link href="/blog/cp-career-memoir" className="text-primary hover:underline">競賽經歷</Link>）
         </p>
       </FadeIn>
 
@@ -30,12 +31,12 @@ export default function Tutoring() {
         <section className="mb-12">
           <h2 className="mb-4 text-2xl font-bold">教學經歷</h2>
           <ul className="space-y-1.5 text-sm text-text-muted">
-            <li>4 年以上程式競賽家教經驗，指導過數十位學生</li>
+            <li>7 年以上程式競賽家教經驗，指導過數十位學生</li>
             <li>涵蓋高中競賽 (TOI、NPSC、學科能力競賽)、程式檢定 (APCS、CPE)、面試準備</li>
             <li>108 演算法概論助教</li>
             <li>110 競技程式設計助教、圖論助教</li>
             <li>2020 PCCA Winter Camp 總召 / 講師</li>
-            <li>演算法海牛助教 (2021–)</li>
+            <li>演算法海牛助教 (2021–2024)</li>
           </ul>
         </section>
       </FadeIn>
@@ -53,6 +54,9 @@ export default function Tutoring() {
             <li>Google intern / 正職 offer</li>
             <li>Microsoft 正職 offer</li>
           </ul>
+          <p className="mt-4 text-xs text-text-muted/60">
+            * 這些成績很大程度取決於學生本身的優秀，家教只是輔助。進步也需要大量時間練習。
+          </p>
         </section>
       </FadeIn>
 
