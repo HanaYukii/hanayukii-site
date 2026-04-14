@@ -30,49 +30,8 @@ export default function About() {
           <p className="text-lg leading-relaxed text-text-muted">
             我是<strong className="text-text">花雪 (HanaYukii)</strong>。
             程式競賽出身，喜歡演算法跟數學。在 Google 待了三年，現在在 AI 新創當 Tech Lead，也有在做 Web3。
-            這邊寫一些自己覺得有趣的東西，C++、系統設計、偶像、F1、日本旅遊都寫。
+            這邊隨興寫自己喜歡的 topic，想寫啥寫啥。
           </p>
-        </section>
-      </FadeIn>
-
-      {/* ── Background + Skills ── */}
-      <FadeIn>
-        <section className="mb-14">
-          <h2 className="mb-5 text-2xl font-bold">Background</h2>
-          <div className="space-y-3">
-            {[
-              { period: "2025 –", role: "Tech Lead, Software Engineer", place: "AI Startup (under NDA)" },
-              { period: "2022 – 2025", role: "Software Engineer", place: "Google · Cloud Infrastructure" },
-              { period: "2020", role: "Software Engineer Intern", place: "Synopsys" },
-              { period: "2020 – 2022", role: "M.S. Computer Science", place: "NCTU / NYCU" },
-              { period: "2016 – 2020", role: "B.S. Computer Science", place: "NCTU / NYCU" },
-            ].map((item, i) => (
-              <div key={i} className="flex items-baseline gap-4">
-                <span className="w-24 shrink-0 text-xs font-medium text-text-muted">{item.period}</span>
-                <div className="min-w-0">
-                  <span className="font-semibold">{item.role}</span>
-                  <span className="text-text-muted"> · {item.place}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 space-y-3">
-            {[
-              { label: "Languages", items: ["C++", "Go", "Rust", "Python"] },
-              { label: "Domains", items: ["Software Engineering", "System Design", "Algorithms", "Web3 / Blockchain"] },
-              { label: "語言", items: ["中文 (Native)", "English", "日本語 (JLPT N2)"] },
-            ].map((group) => (
-              <div key={group.label}>
-                <p className="mb-1.5 text-sm font-semibold text-text-muted">{group.label}</p>
-                <div className="flex flex-wrap gap-2">
-                  {group.items.map((s) => (
-                    <span key={s} className="rounded-full border border-border bg-surface/40 px-3 py-1 text-sm">{s}</span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
         </section>
       </FadeIn>
 
@@ -137,6 +96,33 @@ export default function About() {
         </section>
       </FadeIn>
 
+      {/* ── Background ── */}
+      <FadeIn>
+        <section className="mb-14">
+          <h2 className="mb-5 text-2xl font-bold">Background</h2>
+          <div className="space-y-3">
+            {[
+              { period: "2025 –", role: "Tech Lead", place: "AI Startup (under NDA)" },
+              { period: "2022 – 2025", role: "Software Engineer", place: "Google · Cloud" },
+              { period: "2016 – 2022", role: "B.S. + M.S. CS", place: "NCTU / NYCU" },
+            ].map((item, i) => (
+              <div key={i} className="flex items-baseline gap-4">
+                <span className="w-24 shrink-0 text-xs font-medium text-text-muted">{item.period}</span>
+                <div className="min-w-0">
+                  <span className="font-semibold">{item.role}</span>
+                  <span className="text-text-muted"> · {item.place}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {["C++", "Go", "Rust", "Python", "System Design", "Web3", "日本語 N2"].map((s) => (
+              <span key={s} className="rounded-full border border-border bg-surface/40 px-3 py-1 text-sm">{s}</span>
+            ))}
+          </div>
+        </section>
+      </FadeIn>
+
       {/* ── Beyond Code ── */}
       <section className="mb-14">
         <FadeIn>
@@ -193,12 +179,8 @@ export default function About() {
             <ExternalLink href="https://github.com/HanaYukii">GitHub</ExternalLink>
           </div>
 
-          <p className="mb-3 text-sm leading-relaxed text-text-muted">
-            教過幾年演算法，從高中競賽到面試準備都有。學生有進 TOI 選訓營、特殊選才上清交、拿到 Google / Microsoft offer 的。
-          </p>
-
           <p className="mb-5 text-sm leading-relaxed text-text-muted">
-            不限主題——程式競賽、工作經驗、面試準備、人生方向都行。我喜歡跟人交流，聊天對我來說也是學習。
+            想聊的 topic 不限，希望 build up 好的 connection，經驗有機會幫上人，也從交流中學習。如果對演算法家教有興趣也歡迎聯絡。
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
