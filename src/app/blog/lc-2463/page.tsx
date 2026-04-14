@@ -37,7 +37,7 @@ export default function Lc2463() {
 
         <div className="mb-4 flex flex-wrap gap-2">
           <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
-            Competitive Programming
+            Algorithm
           </span>
           <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
             DP
@@ -157,7 +157,7 @@ public:
 
       <FadeIn>
         <div className="mt-12 flex flex-wrap gap-2 text-xs">
-          {["Competitive Programming", "DP", "Greedy", "LeetCode Daily"].map((tag) => (
+          {["Algorithm", "DP", "Greedy", "LeetCode Daily"].map((tag) => (
             <span
               key={tag}
               className="rounded-full bg-surface px-3 py-1 text-text-muted"
