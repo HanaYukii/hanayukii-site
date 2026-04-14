@@ -181,7 +181,7 @@ export default function About() {
           </div>
 
           <p className="mb-5 text-sm leading-relaxed text-text-muted">
-            想聊的 topic 不限，希望 build up 好的 connection，經驗有機會幫上人，也從交流中學習。如果對演算法家教有興趣也歡迎聯絡。
+            想聊的 topic 不限，希望 build up 好的 connection，經驗有機會幫上人，也從交流中學習。如果對<Link href="/tutoring" className="text-primary hover:underline">演算法家教</Link>有興趣也歡迎聯絡。
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
