@@ -14,7 +14,7 @@ export const posts: Post[] = [
     date: "2026-04-15",
     summary:
       "直觀的二維匹配 DP，但轉移的實作不太直觀。每日一題的好題。",
-    tags: ["Competitive Programming", "DP"],
+    tags: ["Algorithm", "DP"],
     tagStyle: "bg-accent/10 text-accent",
     href: "/blog/lc-2463",
   },
