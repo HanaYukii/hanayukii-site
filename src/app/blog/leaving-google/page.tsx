@@ -77,6 +77,7 @@ export default function LeavingGoogle() {
               { id: "rest", title: "Side Story: 短暫的休息" },
               { id: "decision", title: "近期發展" },
               { id: "reflection", title: "走過之後的體會" },
+              { id: "takeaways", title: "幾個體會" },
               { id: "final-words", title: "寫在最後" },
             ].map((item, i) => (
               <a
@@ -402,6 +403,21 @@ export default function LeavingGoogle() {
 
         <FadeIn>
           <div className="space-y-4">
+            <p>
+              離開之後的日子很充實 — 同時在跑演算法、C++、家教、AI、學日文報名了 N1、多運動，也做了這個個人網站。
+            </p>
+            <p>
+              Codeforces 也撿回來認真打了，紅名是學生時期沒能達成的目標，這次我要拿到。
+            </p>
+            <p>
+              對我來說多線發展不是分心，是在能應付的範圍內盡可能探索更多可能。演算法、AI、Web3、教學，每條線都讓我從不同角度理解問題。這也正是在 AI 時代才做得到的 leverage。也一直 open to 有趣的 side project 跟合作。
+            </p>
+          </div>
+        </FadeIn>
+
+        <FadeIn>
+          <Heading id="takeaways">幾個體會</Heading>
+          <div className="space-y-4">
             <ul className="list-inside list-disc space-y-3 text-sm">
               <li>
                 <strong>Team 比公司重要</strong>：MAG7 等頂級巨頭都很大，有好 team 也有不適合的 team，
@@ -428,20 +444,6 @@ export default function LeavingGoogle() {
                 人生沒有那麼多個不確定的半年可以消耗，不能接受自己就這樣繼續耗下去，要努力跳出來。
               </li>
             </ul>
-          </div>
-        </FadeIn>
-
-        <FadeIn>
-          <div className="space-y-4">
-            <p>
-              離開之後的日子很充實 — 同時在跑演算法、C++、家教、AI、學日文報名了 N1、多運動，也做了這個個人網站。
-            </p>
-            <p>
-              Codeforces 也撿回來認真打了，紅名是學生時期沒能達成的目標，這次我要拿到。
-            </p>
-            <p>
-              對我來說多線發展不是分心，是在能應付的範圍內盡可能探索更多可能。演算法、AI、Web3、教學，每條線都讓我從不同角度理解問題。這也正是在 AI 時代才做得到的 leverage。也一直 open to 有趣的 side project 跟合作。
-            </p>
           </div>
         </FadeIn>
 
