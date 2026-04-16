@@ -54,7 +54,7 @@ export default function LeavingGoogle() {
           畢竟是第一份工作、又是頂級企業，感受特別多。也許類似的故事在科技業到處都在發生吧。
         </p>
         <blockquote className="mb-8 border-l-2 border-primary pl-4 text-text-muted italic">
-          這篇無意批評公司、團隊或任何人，遇到的人幾乎都非常好。純粹是回顧這幾年的經歷，核心想表達的是這個環境不適合當時的我。
+          這篇無意批評公司、團隊或任何人，遇到的人幾乎都非常好。純粹是回顧這幾年的經歷，核心想表達的是這個環境不適合當時的我。部分段落帶有 aggressive 的 ego 觀點，請斟酌閱讀。
           <br />
           會想寫這篇主要是：希望能給類似背景的人一些啟發、剛好最近弄了這個個人網站、也有很多新的體會想給自己留個紀錄。
         </blockquote>
