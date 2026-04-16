@@ -145,6 +145,10 @@ export default function LeavingGoogle() {
               這類工作對系統穩定性很關鍵，但跟我想強化的工程能力方向不太一致。
             </p>
             <p>
+              什麼叫做強？我自認專長在 problem solving、邏輯跟程式設計，但在一個 domain 經驗為主、偏維運的環境裡，這些完全佔不到優勢。
+              如果五年前進這個組，我相信有很多舞台。不過我就是進在一個轉成維運、transfer 來台灣、資深人都在海外的時期。
+            </p>
+            <p>
               我不覺得一定要做演算法更相關的事情，但至少希望能多寫一些 code、
               學 C++ low-level、design pattern、參與更多實際開發。
               但在這個 team 裡這些機會很少。
@@ -172,6 +176,7 @@ export default function LeavingGoogle() {
               <li>
                 <strong>升遷不順</strong>：累積的 task 量非常多，但 promote 單看量不夠，需要 impact story。
                 維護型的 team 相對較難累積明確的 impact story，也沒有自己認可的 impact，升遷不順也會影響投入的動力。
+                以常聽到的標準，完成兩個主要 project 就有機會升，這個在第一次提的時候其實已經達成了——雖然也不是什麼多厲害的 project，但至少都是 data center 跑著不少機器的產品，我作為我們這產品的 POC 完整參與了兩代。
               </li>
               <li>
                 <strong>主管更換與空窗</strong>：三年出頭換了三任，
