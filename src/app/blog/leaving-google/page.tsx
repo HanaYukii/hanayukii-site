@@ -226,6 +226,9 @@ export default function LeavingGoogle() {
           <Heading id="explore-options">開始看外面的世界</Heading>
           <div className="space-y-4">
             <p>
+              其實早就計畫好，升上去之後馬上找內轉海外的機會。無奈被 block 沒辦法進行，但客觀來說，要發展得快還是得跳槽。
+            </p>
+            <p>
               同一時期也開始認真 explore 外面的圈子。
               首先是發現量化交易這個領域，原來還有這種高密度 CP 人才集中的地方，覺得自己的背景在這裡可能更能發揮。
               加上對 Web3 持續有興趣，也看了不少交易所和 protocol 相關的職缺。
