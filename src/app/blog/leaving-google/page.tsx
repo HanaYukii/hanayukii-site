@@ -161,6 +161,7 @@ export default function LeavingGoogle() {
               但一直以來都很少碰到 code 跟軟體技術，這點始終沒有改變，到離開都還拿不到 readability。
             </p>
             <p>
+              而且因為軟體技術碰得少，這裡累積到的技能延展性很差，幾乎要做同領域才帶得走。
               客觀來說，這三年我覺得是浪費的。
             </p>
           </div>
