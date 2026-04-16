@@ -181,7 +181,7 @@ export default function LeavingGoogle() {
               <li>
                 <strong>升遷不順</strong>：累積的 task 量非常多，但 promote 單看量不夠，需要 impact story。
                 維護型的 team 相對較難累積明確的 impact story，也沒有自己認可的 impact，升遷不順也會影響投入的動力。
-                以常聽到的標準，完成兩個主要 project 就有機會升，這個在第一次提的時候其實已經達成了——每一代 server 會有很多 team 參與，每個 team 會有負責 project 的 POC，而我就是我們這邊的，完整參與了兩代，data center 裡跑著不少機器。
+                以常聽到的標準，完成兩個主要 project 就有機會升，這個在第一次提的時候其實已經達成了，每一代 server 會有很多 team 參與，每個 team 會有負責 project 的 POC，而我就是我們這邊的，完整參與了兩代，data center 裡跑著不少機器。
                 而可惜的是，這兩個 project 的主要 owner 都在美國，對能見度是一個重傷。
                 另一個貢獻是一個目前仍 nightly 在跑的 test infra，也不只是默默地跟 project 而已。
               </li>
@@ -423,7 +423,7 @@ export default function LeavingGoogle() {
               </li>
               <li>
                 <strong>職場現實</strong>：大公司人來人往，升完再走根本沒人會多想，這也完全是非常多人在做的事。當時太在乎人情世故反而虧了自己，該拿的東西還是要先拿，尤其是在一切準備完成只需要多等幾個月的情況下。
-                這也似乎是當時申請沒過的原因之一——前幾個 cycle 太多人上去就跑，組上不想再放人了。但反過來說，人生沒有那麼多個不確定的半年可以消耗，不能接受自己就這樣繼續耗下去，要努力跳出來。
+                這也似乎是當時申請沒過的原因之一，前幾個 cycle 太多人上去就跑，組上不想再放人了。但反過來說，人生沒有那麼多個不確定的半年可以消耗，不能接受自己就這樣繼續耗下去，要努力跳出來。
               </li>
             </ul>
           </div>
