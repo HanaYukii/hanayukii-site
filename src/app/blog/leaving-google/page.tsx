@@ -176,7 +176,7 @@ export default function LeavingGoogle() {
               <li>
                 <strong>升遷不順</strong>：累積的 task 量非常多，但 promote 單看量不夠，需要 impact story。
                 維護型的 team 相對較難累積明確的 impact story，也沒有自己認可的 impact，升遷不順也會影響投入的動力。
-                以常聽到的標準，完成兩個主要 project 就有機會升，這個在第一次提的時候其實已經達成了——每一代 server 會有很多 team 參與，我作為我們產品的 POC 完整參與了兩代，data center 裡跑著不少機器。
+                以常聽到的標準，完成兩個主要 project 就有機會升，這個在第一次提的時候其實已經達成了——每一代 server 會有很多 team 參與，每個 team 會有負責 project 的 POC，而我就是我們這邊的，完整參與了兩代，data center 裡跑著不少機器。
               </li>
               <li>
                 <strong>主管更換與空窗</strong>：三年出頭換了三任，
