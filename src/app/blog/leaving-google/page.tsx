@@ -463,6 +463,9 @@ export default function LeavingGoogle() {
               近期從外界消息聽說原本的 org 在台灣擴編，發展得不錯。有種倒在黎明前的感覺，難免會想如果做了不同選擇結果會不會不一樣。當時 org 在台灣很多東西都還在發展初期，有不少這篇沒細提的問題，也許就是在不對的時機點進去了。但人生很多經驗就是差那麼一點，既然做了決定就對它負責。
             </p>
             <p>
+              我依然非常喜歡 Google 這家公司，期待有朝一日再度合作。
+            </p>
+            <p>
               感謝這一路上遇到的人。聽我訴苦的、給我方向的、一直以來的 role model，都謝謝你們。
             </p>
             <p className="mt-6 text-center text-lg font-medium text-primary/80 italic">
