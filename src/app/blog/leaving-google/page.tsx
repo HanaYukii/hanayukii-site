@@ -159,6 +159,9 @@ export default function LeavingGoogle() {
               經過了時間，工作也算是上手了，處理了很多 task 跟幾個 project，也算 team 上相對年資長的。
               但一直以來都很少碰到 code 跟軟體技術，這點始終沒有改變，到離開都還拿不到 readability。
             </p>
+            <p>
+              客觀來說，這三年我覺得是浪費的。
+            </p>
           </div>
         </FadeIn>
 
