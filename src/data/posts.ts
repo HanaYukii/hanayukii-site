@@ -10,6 +10,24 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    title: "各大 Online Judge 介紹",
+    date: "",
+    summary:
+      "Codeforces、LeetCode、AtCoder、TIOJ 等主流 OJ 的差異、適合誰、怎麼用。",
+    tags: ["Competitive Programming"],
+    tagStyle: "bg-accent/10 text-accent",
+    href: null,
+  },
+  {
+    title: "什麼叫做強",
+    date: "",
+    summary:
+      "CP 的強、工程的強、職場的強，不同維度的定義跟我自己的體會。",
+    tags: ["Career", "Personal"],
+    tagStyle: "bg-warm/10 text-warm",
+    href: null,
+  },
+  {
     title: "LeetCode 2463 Minimum Total Distance Traveled",
     date: "2026-04-15",
     summary:
