@@ -53,6 +53,12 @@ export default function LeavingGoogle() {
           <br />
           畢竟是第一份工作、又是頂級企業，感受特別多。也許類似的故事在科技業到處都在發生吧。
         </p>
+        <div className="mb-8 rounded-xl border border-primary/30 bg-primary/5 p-4">
+          <p className="text-sm text-text-muted">
+            <span className="font-bold text-primary">TL;DR：</span>
+            有不少人以為我還在待業，或是轉去量化了。實際上目前在一家 AI 新創擔任重要技術職位，做的事情跟演算法和 AI 都有關。公司細節因為還在 early stage 暫時先不公開，時機合適會再分享，也有機會公開招募。
+          </p>
+        </div>
         <blockquote className="mb-8 border-l-2 border-primary pl-4 text-text-muted italic">
           這篇無意批評公司、團隊或任何人，遇到的人幾乎都非常好。純粹是回顧這幾年的經歷，核心想表達的是這個環境不適合當時的我。部分段落帶有 aggressive 的 ego 觀點，請斟酌閱讀。
           <br />
@@ -138,6 +144,9 @@ export default function LeavingGoogle() {
         <FadeIn>
           <Heading id="why-leave">在 Google 的日子</Heading>
           <div className="space-y-4">
+            <p>
+              如果要總結這段經歷最大的核心，就是一句話：<strong>沒有好的舞台</strong>。
+            </p>
             <p>
               部門做的事情很重要，和大規模基礎設施高度相關，在 AI 時代更是如此。
             </p>
