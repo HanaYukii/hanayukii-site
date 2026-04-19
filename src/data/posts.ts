@@ -10,6 +10,33 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    title: "財務自由是不是假議題",
+    date: "",
+    summary:
+      "明知道這輩子不需要太擔心，卻停不下來想捲。科技圈的投資焦慮、亞洲文化的匱乏感，跟那個永遠不夠的數字。",
+    tags: ["Life", "Career"],
+    tagStyle: "bg-warm/10 text-warm",
+    href: null,
+  },
+  {
+    title: "如果人生可以 A/B Test",
+    date: "",
+    summary:
+      "人過度美化自己沒選的路，也過度合理化已選的路。但真相是你永遠跑不了對照組。",
+    tags: ["Life", "Personal"],
+    tagStyle: "bg-warm/10 text-warm",
+    href: null,
+  },
+  {
+    title: "寫文件為什麼在 AI 時代更重要",
+    date: "",
+    summary:
+      "大家都討厭寫文件，但 AI 時代文件的價值被放大了。你餵給 AI 的 context 越多，它能幫你的就越多。",
+    tags: ["Software Engineering", "AI"],
+    tagStyle: "bg-primary/10 text-primary",
+    href: null,
+  },
+  {
     title: "各大 Online Judge 介紹",
     date: "",
     summary:
