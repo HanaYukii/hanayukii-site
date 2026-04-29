@@ -124,13 +124,13 @@ export default function CursorBillingDispute() {
         <FadeIn>
           <Heading id="conclusion">結論</Heading>
           <p>
-            公司繳了一波學費。
+            公司繳了一波學費。雖然我們規模不大，這幾個月累積下來也付了破萬美金的訂閱費。受到這樣的對待，心裡真的不平衡。
           </p>
           <p>
             選 Cursor 年繳是完全錯誤的決定，既然 seat 設計這麼硬，就不應該綁一年。如果回到當下，會直接走月繳。
           </p>
           <p>
-            近期 Claude Code 直接打過來，個人感受是 Cursor 這種設計如果繼續硬，遲早會反噬。獨大時可以這樣搞，但這個產業沒人能獨大太久。
+            它們獨大就算了，現在看起來快被 Codex 跟 Claude Code 打趴，還要這樣對待客戶真的要確定耶。
           </p>
         </FadeIn>
 
