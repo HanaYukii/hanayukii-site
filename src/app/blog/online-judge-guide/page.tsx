@@ -229,11 +229,30 @@ export default function OnlineJudgeGuide() {
         <FadeIn>
           <SubHeading id="chinese-oj">中國 OJ</SubHeading>
           <p>
-            POJ（北京大學）跟 HDU（杭州電子科技大學）是 2000 年代到 2010 年代初中國 ACM 圈的兩大主流 OJ，當時很多經典訓練題都從這兩家來，台灣這邊 ICPC 訓練老一輩的人也常用。現在活躍度大幅下降，比較像 archive，但<strong>如果是競賽向</strong>，題庫深、經典題多，特定主題的硬訓練（圖論、字串、數論專題等）還是很值得刷。ZOJ（浙江大學）那時也很有名，後來常掛掉，狀態時好時壞。
+            2000 年代到 2010 初，POJ / HDU / ZOJ 是中國 ACM 圈三大主流，當時很多經典訓練題都從這幾家來，台灣老一輩 ICPC 訓練也常用。現在活躍度大幅下降，但<strong>如果是競賽向</strong>，題庫深、經典題多，特定主題的硬訓練（圖論、字串、數論專題等）還是很值得刷。
           </p>
+          <ul className="list-inside list-disc space-y-2 text-sm">
+            <li>
+              <strong>POJ</strong>（北京大學）— 圖論、數論題庫經典，但 server 經常掛、SSL 過期，現在多半透過 Vjudge 抓題
+            </li>
+            <li>
+              <strong>HDU</strong>（杭州電子科技大學）— 介面停在 2000 年代，但每年暑假的<strong>杭電多校</strong>仍是中國 / 台灣 ICPC 校隊集訓的重量級項目
+            </li>
+            <li>
+              <strong>ZOJ</strong>（浙江大學）— 中國最早的 OJ 之一，題風嚴謹偏冷門，後來維護不穩定，存在感已大幅下降
+            </li>
+          </ul>
           <p>
-            現在中國這邊比較活躍的是<strong>洛谷</strong>（中國 OI 主流訓練平台，題庫整理得不錯，偏中學競賽向，題解資源也豐富）跟<strong>牛客</strong>（CP + 面試題混合，類似中國版的 LeetCode + Codeforces）。
+            現在中國這邊比較活躍的是洛谷跟牛客：
           </p>
+          <ul className="list-inside list-disc space-y-2 text-sm">
+            <li>
+              <strong>洛谷</strong> — 中國 OI 主流訓練平台，題解質量高、社群活躍，整合了 Codeforces / AtCoder / UVa 等國際比賽題目並提供中文翻譯，是現在很強的刷題入口
+            </li>
+            <li>
+              <strong>牛客</strong> — CP + 面試題混合，類似中國版的 LeetCode + Codeforces。<strong>寒假 / 暑假多校集訓</strong>系列賽事質量很高，題風貼近現代 ICPC
+            </li>
+          </ul>
         </FadeIn>
 
         <FadeIn>
