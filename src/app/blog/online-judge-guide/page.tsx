@@ -66,15 +66,30 @@ export default function OnlineJudgeGuide() {
         <FadeIn>
           <Heading id="what-is-oj">什麼是 Online Judge</Heading>
           <p>
-            簡單講就是線上幫你執行程式、餵測資、判斷對錯的平台。送出一份 code 之後，OJ 會回一個 verdict：
+            簡單講就是線上幫你執行程式、餵測資、判斷對錯的平台。測試資料會有公開的範例跟隱藏的，公開的讓你知道輸入輸出長怎樣，隱藏的拿來真正評分，這樣你才不能寫死答案。
           </p>
-          <ul className="list-inside list-disc space-y-1 text-sm">
-            <li><strong>AC</strong> (Accepted) — 過了</li>
-            <li><strong>WA</strong> (Wrong Answer) — 答案錯</li>
-            <li><strong>TLE</strong> (Time Limit Exceeded) — 超時</li>
-            <li><strong>MLE</strong> (Memory Limit Exceeded) — 記憶體超用</li>
-            <li><strong>CE</strong> (Compile Error) — 編譯錯誤</li>
-            <li><strong>RE</strong> (Runtime Error) — 執行時錯誤</li>
+          <p>
+            送出一份 code 之後，OJ 會回一個 verdict。verdict 會隨著不同 OJ 有小差別，但主要就這幾種：
+          </p>
+          <ul className="list-inside list-disc space-y-2 text-sm">
+            <li>
+              <strong>AC</strong> (Accepted) — 過了。你的程式在所有測試資料都跑出正確答案、也沒超時、沒爆記憶體。
+            </li>
+            <li>
+              <strong>WA</strong> (Wrong Answer) — 答案錯。你的程式輸出在部分測試資料沒有對上平台預期的正確答案。
+            </li>
+            <li>
+              <strong>TLE</strong> (Time Limit Exceeded) — 超時。程式執行時間超過題目限制（常見是 1 ~ 2 秒），通常代表你的演算法複雜度不夠好。
+            </li>
+            <li>
+              <strong>MLE</strong> (Memory Limit Exceeded) — 記憶體超用。程式佔用的記憶體超過題目限制（常見 256 MB），通常是開了過大的陣列或無限遞迴。
+            </li>
+            <li>
+              <strong>CE</strong> (Compile Error) — 編譯錯誤。程式根本無法被編譯，通常是語法錯誤、忘記 include header 之類的。
+            </li>
+            <li>
+              <strong>RE</strong> (Runtime Error) — 執行時錯誤。程式跑到一半崩潰，常見原因是陣列 out of bound、除以零、stack overflow。
+            </li>
           </ul>
         </FadeIn>
 
