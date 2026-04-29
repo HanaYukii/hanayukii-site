@@ -141,6 +141,12 @@ export default function OnlineJudgeGuide() {
           <p>
             認真練 CP 就 Codeforces，沒什麼好挑。題目品質、editorial、社群活躍度都非常強，幾乎是現代 CP 最重要的主戰場。
           </p>
+          <p>
+            日常比賽偏構造題、思維題比較多，這類題目的缺點是技巧比較不容易直接套到其他題上，搭配 AtCoder ABC 後段題或 CSES 補經典技巧會比較平衡。
+          </p>
+          <p>
+            進階功能還有兩個值得知道：<strong>Gym</strong>（歷年訓練 contest、區域賽考古、各種題單，題庫量很大），跟 <strong>Virtual</strong>（可以模擬參賽歷史比賽，按當下排名計算你的表現，自己模擬 ICPC 或追進度都很適合）。
+          </p>
         </FadeIn>
 
         <FadeIn>
