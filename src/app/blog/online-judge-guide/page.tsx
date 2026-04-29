@@ -149,7 +149,7 @@ export default function OnlineJudgeGuide() {
             日本系，題目偏思維跟數學，品質非常高。三個主要比賽系列：
           </p>
           <ul className="list-inside list-disc space-y-1 text-sm">
-            <li><strong>ABC</strong> (Beginner Contest) — 適合入門到中階，通常約 7 題，從很簡單一路到需要完整演算法思考的題目</li>
+            <li><strong>ABC</strong> (Beginner Contest) — 適合入門到中階，通常約 7 題，從很簡單一路到需要完整演算法思考的題目。後段題（E/F/G 等）模板偏多、經典技巧覆蓋廣，學到的東西很容易套到其他題</li>
             <li><strong>ARC</strong> (Regular Contest) — 中階到高階，傳統上偏思維題；2026 起 ARC 主要回到 rated 1200–2799 的格式，另外也有 ARC++ / ARC-- 這類分級版本</li>
             <li><strong>AGC</strong> (Grand Contest) — AtCoder 最高難度系列，題目通常非常重思維與構造</li>
           </ul>
@@ -263,7 +263,7 @@ export default function OnlineJudgeGuide() {
           </p>
           <ul className="list-inside list-disc space-y-2 text-sm">
             <li><strong>剛學程式 / 高中生入門</strong>：GreenJudge → ZeroJudge → AtCoder ABC</li>
-            <li><strong>想認真練 CP / ICPC 方向</strong>：Codeforces 是核心，AtCoder ARC/AGC 補思維題，CSES 補基礎，TIOJ 練台灣競賽題</li>
+            <li><strong>想認真練 CP / ICPC 方向</strong>：Codeforces 是核心，AtCoder ABC 後段題模板多、技巧好套用，ARC/AGC 補思維深度，CSES 補基礎，TIOJ 練台灣競賽題</li>
             <li><strong>準備外商面試</strong>：LeetCode 為主，刷分類題 + 打 weekly 維持手感</li>
             <li><strong>純興趣 / 數學味</strong>：AtCoder + Project Euler</li>
           </ul>
