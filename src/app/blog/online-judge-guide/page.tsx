@@ -265,18 +265,18 @@ export default function OnlineJudgeGuide() {
           </p>
         </FadeIn>
 
-        {/* ── 已停辦的 ── */}
+        {/* ── 大廠程式競賽 ── */}
         <FadeIn>
-          <Heading id="discontinued">已停辦的線上賽</Heading>
+          <Heading id="discontinued">大廠程式競賽</Heading>
           <p>
-            這幾個比賽以前都很有名，但都已經沒了：
+            這些以前都是 Big Name 級的全球比賽，現在大部分已經沒了：
           </p>
-          <ul className="list-inside list-disc space-y-1 text-sm">
+          <ul className="list-inside list-disc space-y-2 text-sm">
             <li><strong>Google Code Jam / Kick Start / Hash Code</strong> — Google Coding Competitions 系列，2023 年正式收尾並停辦</li>
-            <li><strong>Meta Hacker Cup</strong> — 近年仍有舉辦紀錄，但聲量與穩定感已不如 Google Code Jam / Facebook Hacker Cup 黃金時期</li>
+            <li><strong>Meta Hacker Cup</strong> — Google 系列收掉之後，這幾乎是大廠裡僅存還在辦的全球性 CP 大賽。題目風格偏實作跟極端測資，門檻不低</li>
           </ul>
           <p>
-            提一下是因為這些比賽當年很多人靠它累積知名度跟拿到 offer，包括我自己也是因為 Kick Start 成績被 Google 邀請過。可惜現在這條路走不通了。
+            提一下是因為這些比賽當年很多人靠它累積知名度跟拿到 offer，包括我自己也是因為 Kick Start 成績被 Google 邀請過。可惜這條路現在大部分都走不通了。
           </p>
         </FadeIn>
 
