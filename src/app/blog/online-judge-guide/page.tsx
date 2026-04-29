@@ -220,10 +220,20 @@ export default function OnlineJudgeGuide() {
         <FadeIn>
           <SubHeading id="chinese-oj">中國 OJ</SubHeading>
           <p>
-            POJ（北京大學）跟 HDU（杭州電子科技大學）是 2000 年代到 2010 年代初中國 ACM 圈的兩大主流 OJ，當時很多經典訓練題都從這兩家來，台灣這邊 ICPC 訓練老一輩的人也常用。現在都還活著但活躍度大幅下降，比較像 archive。ZOJ（浙江大學）那時也很有名但後來經常掛掉，狀態時好時壞。
+            POJ（北京大學）跟 HDU（杭州電子科技大學）是 2000 年代到 2010 年代初中國 ACM 圈的兩大主流 OJ，當時很多經典訓練題都從這兩家來，台灣這邊 ICPC 訓練老一輩的人也常用。現在活躍度大幅下降，比較像 archive，但<strong>如果是競賽向</strong>，題庫深、經典題多，特定主題的硬訓練（圖論、字串、數論專題等）還是很值得刷。ZOJ（浙江大學）那時也很有名，後來常掛掉，狀態時好時壞。
           </p>
           <p>
-            現在中國這邊比較活躍的是<strong>洛谷</strong>（中國 OI 主流訓練平台，題庫整理得不錯，偏中學競賽向）跟<strong>牛客</strong>（CP + 面試題混合，類似中國版的 LeetCode + Codeforces）。需要的話再去用就好，台灣這邊不太需要主練。
+            現在中國這邊比較活躍的是<strong>洛谷</strong>（中國 OI 主流訓練平台，題庫整理得不錯，偏中學競賽向，題解資源也豐富）跟<strong>牛客</strong>（CP + 面試題混合，類似中國版的 LeetCode + Codeforces）。
+          </p>
+        </FadeIn>
+
+        <FadeIn>
+          <SubHeading id="vjudge">Vjudge</SubHeading>
+          <p>
+            嚴格說 Vjudge 不是 OJ，是一個 virtual judge，它把 POJ、HDU、Codeforces、AtCoder、UVa、SPOJ 等十幾個 OJ 的題目聚合在一起，你可以一個帳號就送題到所有平台。
+          </p>
+          <p>
+            最大的價值是組訓練 contest：可以混合不同 OJ 的題目開私人比賽，這在 ICPC team 訓練時超實用。我們以前也是用 Vjudge 開模擬賽。如果想刷中國系 OJ 的題目，從 Vjudge 進來體驗會比直接用 POJ 的網頁好太多。
           </p>
         </FadeIn>
 
