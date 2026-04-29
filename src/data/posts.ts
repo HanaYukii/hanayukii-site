@@ -37,15 +37,6 @@ export const posts: Post[] = [
     href: null,
   },
   {
-    title: "各大 Online Judge 介紹",
-    date: "",
-    summary:
-      "Codeforces、LeetCode、AtCoder、TIOJ 等主流 OJ 的差異、適合誰、怎麼用。",
-    tags: ["Competitive Programming"],
-    tagStyle: "bg-accent/10 text-accent",
-    href: null,
-  },
-  {
     title: "什麼叫做強",
     date: "",
     summary:
@@ -53,6 +44,15 @@ export const posts: Post[] = [
     tags: ["Career", "Personal"],
     tagStyle: "bg-warm/10 text-warm",
     href: null,
+  },
+  {
+    title: "各大 Online Judge 介紹",
+    date: "2026-04-29",
+    summary:
+      "從台灣的 ZeroJudge、TIOJ 到 Codeforces、AtCoder、LeetCode，主流 OJ 的特色、適合誰、怎麼用。給想入坑 CP 或不知道往哪邊練的人。",
+    tags: ["Competitive Programming"],
+    tagStyle: "bg-accent/10 text-accent",
+    href: "/blog/online-judge-guide",
   },
   {
     title: "Cursor Teams 年繳踩雷紀錄",
