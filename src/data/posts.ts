@@ -55,6 +55,15 @@ export const posts: Post[] = [
     href: null,
   },
   {
+    title: "Cursor Teams 年繳踩雷紀錄",
+    date: "2026-04-29",
+    summary:
+      "公司用 Cursor Teams 年繳遇到的 seat billing 爭議：email rotation 被當成新增 seat，已付費 seat 沒人能用卻繼續被收錢。簡短紀錄一下。",
+    tags: ["雜談", "SaaS"],
+    tagStyle: "bg-warm/10 text-warm",
+    href: "/blog/cursor-billing-dispute",
+  },
+  {
     title: "LeetCode 2463 Minimum Total Distance Traveled",
     date: "2026-04-15",
     summary:
