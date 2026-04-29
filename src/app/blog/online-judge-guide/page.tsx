@@ -136,7 +136,7 @@ export default function OnlineJudgeGuide() {
             全球 CP 社群最大、最重要的平台。每週都有比賽（Div. 1 / Div. 2 / Div. 3 / Educational Round），Rating 系統從綠到紅都有，從入門到頂尖都有題可以做。
           </p>
           <p>
-            如果你問我「想認真練 CP 該去哪」，答案就是 Codeforces。Editorial 品質穩定、題目品質高、社群活躍，幾乎是 CP 的代名詞。
+            認真練 CP 就 Codeforces，沒什麼好挑。題目品質、editorial、社群活躍度都遠勝其他 OJ，幾乎所有強者都在這裡。
           </p>
         </FadeIn>
 
@@ -185,7 +185,7 @@ export default function OnlineJudgeGuide() {
         <FadeIn>
           <SubHeading id="cses">CSES Problem Set</SubHeading>
           <p>
-            芬蘭出品的結構化題庫，200 多題分成 Introductory、Sorting、Graph、DP、Range Queries 等主題。如果你想系統性把基礎演算法過一遍，這個比 Codeforces 更適合，題目都是經典練習題型、沒比賽壓力。我自己會推薦給入門到中階學生當主練題庫。
+            芬蘭出品的結構化題庫，現在大概 350 題，分成 Introductory、Sorting、Graph、DP、Range Queries 等主題。裡面包含大量模板題跟經典技巧的硬用，強烈推薦認真練 CP 的人要刷過一輪，把基本工具吃進來。
           </p>
         </FadeIn>
 
