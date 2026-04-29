@@ -15,51 +15,45 @@ export default function Home() {
           <div className="absolute -bottom-20 right-1/4 h-56 w-56 rounded-full bg-rose/5 blur-[100px]" />
         </div>
 
-        <div className="relative mx-auto max-w-4xl px-6 py-32 text-center">
+        <div className="relative mx-auto max-w-4xl px-6 py-20 sm:py-24">
           <FadeIn>
-            <h1 className="mb-6 text-5xl font-extrabold tracking-tight sm:text-7xl">
-              Hi, I&apos;m{" "}
-              <span className="bg-gradient-to-r from-sky via-primary to-accent bg-clip-text text-transparent">
-                花雪
-              </span>
+            <h1 className="mb-2 text-4xl font-extrabold tracking-tight sm:text-5xl">
+              花雪{" "}
+              <span className="font-normal text-text/60">/ HanaYukii</span>
             </h1>
           </FadeIn>
-          <FadeIn delay={0.1}>
-            <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-text-muted">
+
+          <FadeIn delay={0.05}>
+            <p className="mb-5 text-sm italic text-accent/80">
               Starmine, still becoming.
             </p>
           </FadeIn>
-          <FadeIn delay={0.2}>
-            <div className="mb-10 flex flex-wrap justify-center gap-2">
-              {[
-                { label: "Ex-Google", style: "border-sky/30 text-sky" },
-                { label: "ICPC Gold", style: "border-accent/30 text-accent" },
-                { label: "CP Enthusiast", style: "border-rose-400/30 text-rose-400" },
-                { label: "Tech Lead", style: "border-emerald-400/30 text-emerald-400" },
-                { label: "Web3 Builder", style: "border-warm/30 text-warm" },
-              ].map((tag) => (
-                <span
-                  key={tag.label}
-                  className={`rounded-full border px-3 py-1 text-sm font-medium ${tag.style}`}
-                >
-                  {tag.label}
-                </span>
-              ))}
+
+          <FadeIn delay={0.08}>
+            <div className="mb-6 h-px w-12 bg-border" />
+          </FadeIn>
+
+          <FadeIn delay={0.1}>
+            <div className="mb-8 space-y-2 text-base leading-relaxed text-text-muted sm:text-lg">
+              <p>Ex-Google engineer, now Tech Lead at an AI startup.</p>
+              <p>Competitive programmer at heart, Web3 protocol contributor on the side.</p>
+              <p>這邊隨興寫自己喜歡的 topic — 演算法、C++、職涯、偶像、F1、日本旅遊。</p>
             </div>
           </FadeIn>
-          <FadeIn delay={0.3}>
-            <div className="flex justify-center gap-4">
+
+          <FadeIn delay={0.2}>
+            <div className="flex gap-6 text-sm">
               <Link
                 href="/blog"
-                className="rounded-lg bg-gradient-to-r from-primary to-sky px-6 py-3 text-sm font-semibold text-bg shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:shadow-primary/30"
+                className="font-medium text-primary transition-colors hover:text-primary/80"
               >
-                Read Blog
+                Read blog &rarr;
               </Link>
               <Link
                 href="/about"
-                className="rounded-lg border border-border bg-surface/40 px-6 py-3 text-sm font-semibold text-text backdrop-blur-sm transition-all hover:border-accent/60 hover:text-accent"
+                className="font-medium text-text-muted transition-colors hover:text-text"
               >
-                About Me
+                About &rarr;
               </Link>
             </div>
           </FadeIn>
