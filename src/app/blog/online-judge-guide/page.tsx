@@ -217,6 +217,16 @@ export default function OnlineJudgeGuide() {
           </p>
         </FadeIn>
 
+        <FadeIn>
+          <SubHeading id="chinese-oj">中國 OJ</SubHeading>
+          <p>
+            POJ（北京大學）跟 HDU（杭州電子科技大學）是 2000 年代到 2010 年代初中國 ACM 圈的兩大主流 OJ，當時很多經典訓練題都從這兩家來，台灣這邊 ICPC 訓練老一輩的人也常用。現在都還活著但活躍度大幅下降，比較像 archive。ZOJ（浙江大學）那時也很有名但後來經常掛掉，狀態時好時壞。
+          </p>
+          <p>
+            現在中國這邊比較活躍的是<strong>洛谷</strong>（中國 OI 主流訓練平台，題庫整理得不錯，偏中學競賽向）跟<strong>牛客</strong>（CP + 面試題混合，類似中國版的 LeetCode + Codeforces）。需要的話再去用就好，台灣這邊不太需要主練。
+          </p>
+        </FadeIn>
+
         {/* ── 已停辦的 ── */}
         <FadeIn>
           <Heading id="discontinued">已停辦的線上賽</Heading>
