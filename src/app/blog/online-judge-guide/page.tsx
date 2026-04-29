@@ -120,6 +120,9 @@ export default function OnlineJudgeGuide() {
           <p>
             難度跳一階，大多是競賽題，包含很多 TOI、北市賽、各高中校內賽的題目。比較適合已經有基礎、想往競賽方向練的人。
           </p>
+          <p>
+            TIOJ 偶爾會有系統狀態或 submission 速度不穩定的問題，當作競賽題庫使用會比當作新手主練場更適合。
+          </p>
         </FadeIn>
 
         {/* ── 國外 OJ ── */}
@@ -133,10 +136,10 @@ export default function OnlineJudgeGuide() {
         <FadeIn>
           <SubHeading id="codeforces">Codeforces</SubHeading>
           <p>
-            全球 CP 社群最大、最重要的平台。每週都有比賽（Div. 1 / Div. 2 / Div. 3 / Educational Round），Rating 系統從綠到紅都有，從入門到頂尖都有題可以做。
+            全球 CP 社群最大、最重要的平台。幾乎每週都有比賽，常見類型包含 Div. 1 / Div. 2 / Div. 3 / Div. 4 / Educational Round 等，Rating 系統從綠到紅都有，從入門到頂尖都有題可以做。
           </p>
           <p>
-            認真練 CP 就 Codeforces，沒什麼好挑。題目品質、editorial、社群活躍度都遠勝其他 OJ，幾乎所有強者都在這裡。
+            認真練 CP 就 Codeforces，沒什麼好挑。題目品質、editorial、社群活躍度都非常強，幾乎是現代 CP 最重要的主戰場。
           </p>
         </FadeIn>
 
@@ -146,9 +149,9 @@ export default function OnlineJudgeGuide() {
             日本系，題目偏思維跟數學，品質非常高。三個主要比賽系列：
           </p>
           <ul className="list-inside list-disc space-y-1 text-sm">
-            <li><strong>ABC</strong> (Beginner Contest) — 適合入門到中階，7 題從很簡單到很難</li>
-            <li><strong>ARC</strong> (Regular Contest) — 中階到高階，思維題為主</li>
-            <li><strong>AGC</strong> (Grand Contest) — 頂級，題目刁鑽，跑得動的人不多</li>
+            <li><strong>ABC</strong> (Beginner Contest) — 適合入門到中階，通常約 7 題，從很簡單一路到需要完整演算法思考的題目</li>
+            <li><strong>ARC</strong> (Regular Contest) — 中階到高階，傳統上偏思維題；2026 起 ARC 主要回到 rated 1200–2799 的格式，另外也有 ARC++ / ARC-- 這類分級版本</li>
+            <li><strong>AGC</strong> (Grand Contest) — AtCoder 最高難度系列，題目通常非常重思維與構造</li>
           </ul>
           <p>
             另外 AtCoder 有一個{" "}
@@ -167,10 +170,10 @@ export default function OnlineJudgeGuide() {
         <FadeIn>
           <SubHeading id="leetcode">LeetCode</SubHeading>
           <p>
-            面試導向。題目偏經典演算法，難度中等，分類清楚還可以按公司 tag 篩選。Weekly Contest + Biweekly Contest 兩場線上賽。
+            面試導向。題目偏經典演算法，難度中等，分類清楚，也有公司 tag、題單等面試導向資源（部分功能需要 Premium）。Weekly Contest + Biweekly Contest 兩場線上賽。
           </p>
           <p>
-            LeetCode 跟 CP 是不同方向。CP 重視思維深度跟比賽臨場，LeetCode 重視題型熟練跟手速。準備面試靠它沒問題，但別把它當 CP 在練。
+            LeetCode 跟 CP 是不同方向。CP 重視思維深度跟比賽臨場，LeetCode 重視題型熟練跟手速。當然 LeetCode Contest 高分段也很競技，但主流使用情境還是面試準備。
           </p>
         </FadeIn>
 
@@ -185,7 +188,7 @@ export default function OnlineJudgeGuide() {
         <FadeIn>
           <SubHeading id="cses">CSES Problem Set</SubHeading>
           <p>
-            芬蘭出品的結構化題庫，現在大概 350 題，分成 Introductory、Sorting、Graph、DP、Range Queries 等主題。裡面包含大量模板題跟經典技巧的硬用，強烈推薦認真練 CP 的人要刷過一輪，把基本工具吃進來。
+            芬蘭出品的結構化題庫，收錄數百題，分成 Introductory、Sorting and Searching、Graph Algorithms、DP、Range Queries、Tree Algorithms、Mathematics 等主題。裡面包含大量模板題跟經典技巧的硬用，強烈推薦認真練 CP 的人要刷過一輪，把基本工具吃進來。
           </p>
         </FadeIn>
 
@@ -199,21 +202,21 @@ export default function OnlineJudgeGuide() {
         <FadeIn>
           <SubHeading id="kattis">Kattis</SubHeading>
           <p>
-            ICPC 區域賽常用的 judge。題目風格偏 ICPC（題敘長、輸入輸出格式較複雜）。準備 ICPC 的話會接觸到，平常不太會主動去刷。
+            很多 ICPC 訓練、部分區域賽跟校內賽會使用或參考的平台。題目風格偏 ICPC：題敘較長、輸入輸出格式細節多、實作與邊界條件很重要。準備 ICPC 的話會接觸到，平常不太會主動去刷。
           </p>
         </FadeIn>
 
         <FadeIn>
           <SubHeading id="project-euler">Project Euler</SubHeading>
           <p>
-            數學導向題庫，跟一般 CP 風格差很多，更偏純數學跟暴力推導。喜歡數論、組合數學的人會很愛。
+            數學導向題庫，跟一般 CP 風格差很多，更偏數學觀察、公式推導與寫小程式驗證想法。喜歡數論、組合數學的人會很愛。
           </p>
         </FadeIn>
 
         <FadeIn>
           <SubHeading id="legacy">SPOJ / UVa（古典 OJ）</SubHeading>
           <p>
-            十幾年前的經典 OJ，現在比較少人主練。題目品質參差，但很多經典題跟教材上的解題範例還是會引用 UVa 編號。當作參考性質知道一下就好。
+            十幾年前的經典 OJ，題庫年代久、風格不一，現在比較不像主流日常練習場。但很多經典題跟教材上的解題範例還是會引用 UVa 編號。當作參考性質知道一下就好。
           </p>
         </FadeIn>
 
@@ -230,7 +233,7 @@ export default function OnlineJudgeGuide() {
         <FadeIn>
           <SubHeading id="vjudge">Vjudge</SubHeading>
           <p>
-            嚴格說 Vjudge 不是 OJ，是一個 virtual judge，它把 POJ、HDU、Codeforces、AtCoder、UVa、SPOJ 等十幾個 OJ 的題目聚合在一起，你可以一個帳號就送題到所有平台。
+            嚴格說 Vjudge 不是 OJ，是一個 virtual judge，它把 POJ、HDU、ZOJ、Codeforces、AtCoder、UVa、SPOJ 等十幾個 OJ 的題目聚合在一起，可以透過同一個介面整理跟提交多個 OJ 的題目。
           </p>
           <p>
             最大的價值是組訓練 contest：可以混合不同 OJ 的題目開私人比賽，這在 ICPC team 訓練時超實用。我們以前也是用 Vjudge 開模擬賽。如果想刷中國系 OJ 的題目，從 Vjudge 進來體驗會比直接用 POJ 的網頁好太多。
@@ -244,9 +247,8 @@ export default function OnlineJudgeGuide() {
             這幾個比賽以前都很有名，但都已經沒了：
           </p>
           <ul className="list-inside list-disc space-y-1 text-sm">
-            <li><strong>Google Code Jam</strong> — 每年一次的全球比賽，2023 停辦</li>
-            <li><strong>Google Kick Start</strong> — 入門到中階定期賽，2023 停辦</li>
-            <li><strong>Facebook / Meta Hacker Cup</strong> — 還在但聲量降低</li>
+            <li><strong>Google Code Jam / Kick Start / Hash Code</strong> — Google Coding Competitions 系列，2023 年正式收尾並停辦</li>
+            <li><strong>Meta Hacker Cup</strong> — 近年仍有舉辦紀錄，但聲量與穩定感已不如 Google Code Jam / Facebook Hacker Cup 黃金時期</li>
           </ul>
           <p>
             提一下是因為這些比賽當年很多人靠它累積知名度跟拿到 offer，包括我自己也是因為 Kick Start 成績被 Google 邀請過。可惜現在這條路走不通了。
