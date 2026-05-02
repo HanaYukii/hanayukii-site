@@ -2,7 +2,17 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { posts } from "@/data/posts";
 
-export default function Blog() {
+export default async function Blog({
+  searchParams,
+}: {
+  searchParams: Promise<{ tag?: string }>;
+}) {
+  const params = await searchParams;
+  const tag = params?.tag;
+  const filteredPosts = tag
+    ? posts.filter((p) => p.tags.includes(tag))
+    : posts;
+
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
       <FadeIn>
@@ -21,23 +31,42 @@ export default function Blog() {
             </svg>
           </a>
         </div>
-        <p className="mb-10 text-text-muted">
+        <p className="mb-6 text-text-muted">
           Mostly technical writing, with a few career posts and other things I
           ended up caring enough to write down.
         </p>
+
+        {tag && (
+          <div className="mb-8 flex items-center gap-3 rounded-lg border border-border bg-surface/40 px-4 py-3 text-sm">
+            <span className="text-text-muted">Filtered by tag:</span>
+            <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+              {tag}
+            </span>
+            <span className="text-text-muted">·</span>
+            <span className="text-text-muted">
+              {filteredPosts.length} post{filteredPosts.length === 1 ? "" : "s"}
+            </span>
+            <Link
+              href="/blog"
+              className="ml-auto text-text-muted transition-colors hover:text-text"
+            >
+              Clear &times;
+            </Link>
+          </div>
+        )}
       </FadeIn>
 
       <div className="space-y-4">
-        {posts.map((post, i) => {
+        {filteredPosts.map((post, i) => {
           const content = (
             <>
               <div className="mb-3 flex gap-2">
-                {post.tags.map((tag) => (
+                {post.tags.map((t) => (
                   <span
-                    key={tag}
+                    key={t}
                     className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${post.tagStyle}`}
                   >
-                    {tag}
+                    {t}
                   </span>
                 ))}
               </div>
@@ -65,6 +94,18 @@ export default function Blog() {
             </FadeIn>
           );
         })}
+
+        {filteredPosts.length === 0 && tag && (
+          <div className="rounded-xl border border-border bg-surface/40 p-8 text-center text-text-muted">
+            <p className="mb-3">這個標籤下還沒有文章。</p>
+            <Link
+              href="/blog"
+              className="text-sm text-primary hover:underline"
+            >
+              看所有文章 &rarr;
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
