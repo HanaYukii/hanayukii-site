@@ -63,6 +63,34 @@ export default function PrivacyChainMidnight() {
         <p className="mb-8 text-sm text-text-muted">2026-04-06</p>
       </FadeIn>
 
+      <FadeIn delay={0.05}>
+        <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm">
+          <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
+            Agenda
+          </p>
+          <div className="space-y-2">
+            {[
+              { id: "problem", title: "公鏈透明的問題" },
+              { id: "comparison", title: "隱私方案的三條路線" },
+              { id: "zk-snarks", title: "ZK-SNARKs：不揭露秘密就能證明真相" },
+              { id: "architecture", title: "Midnight 的架構拆解" },
+              { id: "selective-disclosure", title: "選擇性揭露：隱私和合規可以共存" },
+              { id: "consensus", title: "共識先知道這些就夠" },
+              { id: "tradeoff", title: "各方案的取捨" },
+            ].map((item, i) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="flex items-center rounded-lg px-3 py-2 text-sm transition-colors hover:bg-surface-hover"
+              >
+                <span className="text-text-muted mr-2">{i + 1}.</span>
+                <code className="text-primary">{item.title}</code>
+              </a>
+            ))}
+          </div>
+        </nav>
+      </FadeIn>
+
       {/* ── 前言 ── */}
       <FadeIn>
         <div className="space-y-4">

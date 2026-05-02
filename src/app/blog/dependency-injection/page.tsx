@@ -67,6 +67,36 @@ export default function DependencyInjection() {
         </p>
       </FadeIn>
 
+      <FadeIn delay={0.05}>
+        <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm">
+          <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
+            Agenda
+          </p>
+          <div className="space-y-2">
+            {[
+              { id: "item1", title: "DI 其實只是在處理依賴怎麼進來" },
+              { id: "item2", title: "沒有 DI 時，test 為什麼會越寫越痛苦" },
+              { id: "item3", title: "我最常用的做法：Constructor Injection" },
+              { id: "item4", title: "再往下一層：用 abstraction 隔開實作" },
+              { id: "item5", title: "不同語言其實差不多" },
+              { id: "item6", title: "Container 什麼時候才需要" },
+              { id: "item7", title: "DI 真正的回報通常在測試" },
+              { id: "item8", title: "幾個很常見的反模式" },
+              { id: "summary", title: "最後我自己的判斷方式" },
+            ].map((item, i) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="flex items-center rounded-lg px-3 py-2 text-sm transition-colors hover:bg-surface-hover"
+              >
+                <span className="text-text-muted mr-2">{i + 1}.</span>
+                <code className="text-primary">{item.title}</code>
+              </a>
+            ))}
+          </div>
+        </nav>
+      </FadeIn>
+
       <FadeIn delay={0.1}>
         <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm">
           <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">

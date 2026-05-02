@@ -52,6 +52,38 @@ export default function CpCareerMemoir() {
         </p>
       </FadeIn>
 
+      <FadeIn delay={0.1}>
+        <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm">
+          <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
+            Agenda
+          </p>
+          <div className="space-y-2">
+            {[
+              { id: "high-school", title: "高中：錯過的起跑線" },
+              { id: "start", title: "大一：啟蒙" },
+              { id: "training", title: "練習日常" },
+              { id: "sophomore", title: "大二到大三:持續練習" },
+              { id: "underdog", title: "素人起步" },
+              { id: "first-icpc", title: "大三：第一次 ICPC" },
+              { id: "senior", title: "大四：Silver" },
+              { id: "gold", title: "碩一：Gold 與最大的遺憾" },
+              { id: "codeforces", title: "Codeforces" },
+              { id: "post-grad", title: "研究所後期" },
+              { id: "epilogue", title: "結語" },
+            ].map((item, i) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="flex items-center rounded-lg px-3 py-2 text-sm transition-colors hover:bg-surface-hover"
+              >
+                <span className="text-text-muted mr-2">{i + 1}.</span>
+                <code className="text-primary">{item.title}</code>
+              </a>
+            ))}
+          </div>
+        </nav>
+      </FadeIn>
+
       <div className="prose-custom space-y-4 text-text-muted leading-relaxed [&_strong]:text-text">
 
         {/* ── 高中 ── */}

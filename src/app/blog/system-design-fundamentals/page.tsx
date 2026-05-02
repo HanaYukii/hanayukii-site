@@ -56,6 +56,35 @@ export default function SystemDesignFundamentals() {
         </p>
       </FadeIn>
 
+      <FadeIn delay={0.05}>
+        <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm">
+          <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
+            Agenda
+          </p>
+          <div className="space-y-2">
+            {[
+              { id: "framework", title: "不要直接寫 code" },
+              { id: "state", title: "狀態設計" },
+              { id: "debounce", title: "Debounce vs Throttle" },
+              { id: "performance", title: "渲染效能" },
+              { id: "cache", title: "快取" },
+              { id: "a11y", title: "Accessibility" },
+              { id: "race", title: "Race Condition" },
+              { id: "tips", title: "面試技巧" },
+            ].map((item, i) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="flex items-center rounded-lg px-3 py-2 text-sm transition-colors hover:bg-surface-hover"
+              >
+                <span className="text-text-muted mr-2">{i + 1}.</span>
+                <code className="text-primary">{item.title}</code>
+              </a>
+            ))}
+          </div>
+        </nav>
+      </FadeIn>
+
       {/* ======================== Framework ======================== */}
       <FadeIn delay={0.1}>
         <Heading id="framework">不要直接寫 code</Heading>

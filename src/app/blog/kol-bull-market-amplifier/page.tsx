@@ -51,6 +51,32 @@ export default function KolBullMarketAmplifier() {
         <p className="mb-8 text-sm text-text-muted">2026-04-29</p>
       </FadeIn>
 
+      <FadeIn delay={0.1}>
+        <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm">
+          <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
+            Agenda
+          </p>
+          <div className="space-y-2">
+            {[
+              { id: "d-as-case", title: "D 大：外部 KOL 的案例" },
+              { id: "web3-distance", title: "JAM Protocol" },
+              { id: "rsu", title: "Google RSU" },
+              { id: "bull-amplifier", title: "KOL 是牛市放大器，價格會幫人寫故事" },
+              { id: "diversify", title: "從信念回到配置" },
+            ].map((item, i) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="flex items-center rounded-lg px-3 py-2 text-sm transition-colors hover:bg-surface-hover"
+              >
+                <span className="text-text-muted mr-2">{i + 1}.</span>
+                <code className="text-primary">{item.title}</code>
+              </a>
+            ))}
+          </div>
+        </nav>
+      </FadeIn>
+
       <div className="prose-custom space-y-4 text-text-muted leading-relaxed [&_strong]:text-text">
 
         <FadeIn>

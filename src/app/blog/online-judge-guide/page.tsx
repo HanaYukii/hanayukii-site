@@ -52,6 +52,33 @@ export default function OnlineJudgeGuide() {
         <p className="mb-8 text-sm text-text-muted">2026-04-29</p>
       </FadeIn>
 
+      <FadeIn delay={0.05}>
+        <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm">
+          <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
+            Agenda
+          </p>
+          <div className="space-y-2">
+            {[
+              { id: "what-is-oj", title: "什麼是 Online Judge" },
+              { id: "domestic", title: "國內 OJ" },
+              { id: "international", title: "國外 OJ" },
+              { id: "others", title: "其他值得知道的" },
+              { id: "discontinued", title: "大廠程式競賽" },
+              { id: "how-to-choose", title: "怎麼選" },
+            ].map((item, i) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="flex items-center rounded-lg px-3 py-2 text-sm transition-colors hover:bg-surface-hover"
+              >
+                <span className="text-text-muted mr-2">{i + 1}.</span>
+                <code className="text-primary">{item.title}</code>
+              </a>
+            ))}
+          </div>
+        </nav>
+      </FadeIn>
+
       <div className="prose-custom space-y-4 text-text-muted leading-relaxed [&_strong]:text-text">
 
         <FadeIn>
