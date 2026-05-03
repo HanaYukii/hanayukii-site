@@ -35,6 +35,7 @@ export const posts: Post[] = [
     tags: ["Life", "投資"],
     tagStyle: "bg-warm/10 text-warm",
     href: "/blog/kol-bull-market-amplifier",
+    hot: true,
   },
   {
     title: "各大 Online Judge 介紹",
@@ -81,7 +82,6 @@ export const posts: Post[] = [
     tags: ["Competitive Programming", "Number Theory"],
     tagStyle: "bg-accent/10 text-accent",
     href: "/blog/lc-wc497-q4",
-    hot: true,
   },
   {
     title: "區塊鏈日報 RESET 活動心得",
