@@ -95,7 +95,7 @@ export default function CppSecretOptimizations1() {
             Memory
           </span>
         </div>
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight">
+        <h1 className="mb-4 text-4xl font-bold tracking-tight">
           C++ 你不知道的優化（上）：SSO 與 Copy Elision
         </h1>
         <p className="mb-2 text-sm text-text-muted">2026-03-31</p>

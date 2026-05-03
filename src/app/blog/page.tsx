@@ -17,7 +17,7 @@ export default async function Blog({
     <div className="mx-auto max-w-3xl px-6 py-16">
       <FadeIn>
         <div className="mb-2 flex items-center gap-3">
-          <h1 className="text-4xl font-extrabold tracking-tight">Blog</h1>
+          <h1 className="text-4xl font-bold tracking-tight">Blog</h1>
           <a
             href="/feed.xml"
             target="_blank"

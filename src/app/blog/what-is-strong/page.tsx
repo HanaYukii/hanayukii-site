@@ -41,7 +41,7 @@ export default function WhatIsStrong() {
             Personal
           </span>
         </div>
-        <h1 className="mb-2 text-4xl font-extrabold tracking-tight">
+        <h1 className="mb-2 text-4xl font-bold tracking-tight">
           什麼叫做強
         </h1>
         <p className="mb-8 text-sm text-text-muted">

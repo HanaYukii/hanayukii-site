@@ -129,7 +129,7 @@ export default function AboutContent() {
 
       {/* ── Header ── */}
       <FadeIn>
-        <h1 className="mb-3 text-4xl font-extrabold tracking-tight">About Me</h1>
+        <h1 className="mb-3 text-4xl font-bold tracking-tight">About Me</h1>
         <p className="mb-12 text-text-muted">継続は力なり</p>
       </FadeIn>
 

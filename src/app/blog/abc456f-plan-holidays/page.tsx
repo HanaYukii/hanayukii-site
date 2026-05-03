@@ -58,7 +58,7 @@ export default function Abc456fPlanHolidays() {
             DP
           </span>
         </div>
-        <h1 className="mb-2 text-4xl font-extrabold tracking-tight">
+        <h1 className="mb-2 text-4xl font-bold tracking-tight">
           AtCoder ABC 456 F Plan Holidays
         </h1>
         <p className="mb-8 text-sm text-text-muted">2026-05-03</p>

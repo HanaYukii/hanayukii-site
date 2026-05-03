@@ -58,7 +58,7 @@ export default function CF2217F() {
             Digit DP
           </span>
         </div>
-        <h1 className="mb-2 text-4xl font-extrabold tracking-tight">
+        <h1 className="mb-2 text-4xl font-bold tracking-tight">
           CF2217F Interval Game
         </h1>
         <p className="mb-2 text-lg text-text-muted">

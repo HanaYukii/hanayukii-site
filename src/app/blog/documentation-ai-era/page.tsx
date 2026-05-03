@@ -41,7 +41,7 @@ export default function DocumentationAiEra() {
             AI
           </span>
         </div>
-        <h1 className="mb-2 text-3xl font-extrabold leading-tight sm:text-4xl">
+        <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
           文件是 AI 時代的隱藏槓桿
         </h1>
         <p className="mb-2 text-base text-text-muted leading-relaxed">

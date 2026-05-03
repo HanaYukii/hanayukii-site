@@ -41,7 +41,7 @@ export default function MoneyAnxiety() {
             Career
           </span>
         </div>
-        <h1 className="mb-2 text-4xl font-extrabold tracking-tight">
+        <h1 className="mb-2 text-4xl font-bold tracking-tight">
           財務自由是不是假議題
         </h1>
         <p className="mb-8 text-sm text-text-muted">

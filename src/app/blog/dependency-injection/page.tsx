@@ -57,7 +57,7 @@ export default function DependencyInjection() {
             Testing
           </span>
         </div>
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight">
+        <h1 className="mb-4 text-4xl font-bold tracking-tight">
           搞懂 Dependency Injection
         </h1>
         <p className="mb-8 text-text-muted">

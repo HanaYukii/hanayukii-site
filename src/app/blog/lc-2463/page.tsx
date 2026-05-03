@@ -43,7 +43,7 @@ export default function Lc2463() {
             DP
           </span>
         </div>
-        <h1 className="mb-2 text-4xl font-extrabold tracking-tight">
+        <h1 className="mb-2 text-4xl font-bold tracking-tight">
           LeetCode 2463 Minimum Total Distance Traveled
         </h1>
         <p className="mb-8 text-sm text-text-muted">

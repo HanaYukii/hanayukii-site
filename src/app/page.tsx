@@ -9,7 +9,7 @@ export default function Home() {
       <section>
         <div className="mx-auto max-w-4xl px-6 py-20 sm:py-24">
           <FadeIn>
-            <h1 className="mb-2 text-4xl font-extrabold tracking-tight sm:text-5xl">
+            <h1 className="mb-2 text-4xl font-bold tracking-tight sm:text-5xl">
               花雪{" "}
               <span className="font-normal text-text/60">/ HanaYukii</span>
             </h1>

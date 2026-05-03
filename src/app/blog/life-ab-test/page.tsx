@@ -41,7 +41,7 @@ export default function LifeAbTest() {
             Personal
           </span>
         </div>
-        <h1 className="mb-2 text-4xl font-extrabold tracking-tight">
+        <h1 className="mb-2 text-4xl font-bold tracking-tight">
           如果人生可以 A/B Test
         </h1>
         <p className="mb-8 text-sm text-text-muted">

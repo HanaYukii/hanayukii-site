@@ -59,7 +59,7 @@ export default function CppCompileTimeOptimization() {
             Compile-time
           </span>
         </div>
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight">
+        <h1 className="mb-4 text-4xl font-bold tracking-tight">
           聊聊 C++ 編譯期能做的事
         </h1>
         <p className="mb-8 text-text-muted">

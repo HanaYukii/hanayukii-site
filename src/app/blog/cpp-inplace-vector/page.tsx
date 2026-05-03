@@ -88,7 +88,7 @@ export default function CppInplaceVector() {
           </span>
         </div>
 
-        <h1 className="mb-2 text-3xl font-extrabold leading-tight sm:text-4xl">
+        <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
           面試被要求手寫 C++26 inplace_vector
         </h1>
         <p className="mb-2 text-sm text-text-muted">2026-03-31</p>

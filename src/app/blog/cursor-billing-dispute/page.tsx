@@ -41,7 +41,7 @@ export default function CursorBillingDispute() {
             SaaS
           </span>
         </div>
-        <h1 className="mb-2 text-3xl font-extrabold leading-tight sm:text-4xl">
+        <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
           Cursor Teams 年繳踩雷紀錄
         </h1>
         <p className="mb-8 text-sm text-text-muted">2026-04-29</p>

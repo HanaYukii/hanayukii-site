@@ -48,7 +48,7 @@ export default function Idol2025() {
             Idol
           </span>
         </div>
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight">
+        <h1 className="mb-4 text-4xl font-bold tracking-tight">
           2025 偶像現場全紀錄
         </h1>
         <p className="mb-2 text-lg text-text-muted">

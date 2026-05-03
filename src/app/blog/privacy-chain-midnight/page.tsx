@@ -57,7 +57,7 @@ export default function PrivacyChainMidnight() {
             ZK-SNARKs
           </span>
         </div>
-        <h1 className="mb-2 text-4xl font-extrabold tracking-tight">
+        <h1 className="mb-2 text-4xl font-bold tracking-tight">
           隱私鏈技術入門：Midnight Network
         </h1>
         <p className="mb-8 text-sm text-text-muted">2026-04-06</p>

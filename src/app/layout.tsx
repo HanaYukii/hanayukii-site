@@ -2,7 +2,33 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Newsreader, Inter_Tight, JetBrains_Mono, Noto_Serif_TC } from "next/font/google";
 import "./globals.css";
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-newsreader",
+  display: "swap",
+});
+
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  variable: "--font-inter-tight",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
+
+const notoSerifTC = Noto_Serif_TC({
+  weight: ["400", "600", "700"],
+  variable: "--font-noto-serif-tc",
+  display: "swap",
+  preload: false,
+});
 
 export const metadata: Metadata = {
   title: "花雪 HanaYukii",
@@ -160,7 +186,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh-TW">
+    <html
+      lang="zh-TW"
+      className={`${newsreader.variable} ${interTight.variable} ${jetbrainsMono.variable} ${notoSerifTC.variable}`}
+    >
       <body className="flex min-h-screen flex-col antialiased">
         <Navbar />
         <main className="flex-1">{children}</main>

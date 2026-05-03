@@ -47,7 +47,7 @@ export default function SystemDesignFundamentals() {
           </span>
         </div>
 
-        <h1 className="mb-2 text-3xl font-extrabold leading-tight sm:text-4xl">
+        <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
           系統設計面試的經典注意事項
         </h1>
         <p className="mb-2 text-sm text-text-muted">2026-04-11</p>

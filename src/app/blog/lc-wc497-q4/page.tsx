@@ -58,7 +58,7 @@ export default function LcWc497Q4() {
             Segment Tree
           </span>
         </div>
-        <h1 className="mb-2 text-4xl font-extrabold tracking-tight">
+        <h1 className="mb-2 text-4xl font-bold tracking-tight">
           LeetCode Weekly Contest 497 Q4 Good Subsequence Queries
         </h1>
         <p className="mb-8 text-sm text-text-muted">

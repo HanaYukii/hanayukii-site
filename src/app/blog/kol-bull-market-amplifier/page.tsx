@@ -42,7 +42,7 @@ export default function KolBullMarketAmplifier() {
             投資
           </span>
         </div>
-        <h1 className="mb-2 text-3xl font-extrabold leading-tight sm:text-4xl">
+        <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
           KOL、牛市放大器，與投資裡的平行時空
         </h1>
         <p className="mb-2 text-base text-text-muted leading-relaxed">

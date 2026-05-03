@@ -93,7 +93,7 @@ export default function CppSecretOptimizations2() {
             Memory
           </span>
         </div>
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight">
+        <h1 className="mb-4 text-4xl font-bold tracking-tight">
           C++ 你不知道的優化（下）：Struct Padding、Vtable 與 Smart Pointer
         </h1>
         <p className="mb-4 text-text-muted">

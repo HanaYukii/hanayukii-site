@@ -46,7 +46,7 @@ export default function OnlineJudgeGuide() {
             Competitive Programming
           </span>
         </div>
-        <h1 className="mb-2 text-4xl font-extrabold tracking-tight">
+        <h1 className="mb-2 text-4xl font-bold tracking-tight">
           各大 Online Judge 介紹
         </h1>
         <p className="mb-8 text-sm text-text-muted">2026-04-29</p>

@@ -13,6 +13,13 @@
   --color-text: #e4e7ef;
   --color-text-muted: #9ba1b8;
   --color-border: #1e2235;
+
+  --font-serif: var(--font-newsreader), var(--font-noto-serif-tc), Georgia,
+    "Songti TC", "Source Han Serif TC", serif;
+  --font-sans: var(--font-inter-tight), -apple-system, BlinkMacSystemFont,
+    "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "SF Mono", Menlo, Consolas,
+    "Courier New", monospace;
 }
 
 html {
@@ -22,6 +29,24 @@ html {
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.02em;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--font-mono);
 }
 
 ::selection {

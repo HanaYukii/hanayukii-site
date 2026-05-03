@@ -43,7 +43,7 @@ export default function ResetInfluenceAnalysis() {
           </span>
         </div>
 
-        <h1 className="mb-2 text-3xl font-extrabold leading-tight sm:text-4xl">
+        <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
           區塊鏈日報 RESET 活動心得
         </h1>
         <p className="mb-8 text-sm text-text-muted">2026-04-12</p>

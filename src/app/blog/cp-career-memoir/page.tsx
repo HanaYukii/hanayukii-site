@@ -43,7 +43,7 @@ export default function CpCareerMemoir() {
             Personal
           </span>
         </div>
-        <h1 className="mb-2 text-3xl font-extrabold leading-tight sm:text-4xl">
+        <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
           多年後的程式競賽選手生涯回憶錄
         </h1>
         <p className="mb-2 text-sm text-text-muted">持續優化中</p>
