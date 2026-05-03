@@ -100,6 +100,7 @@ function Footer() {
       external: true,
     },
     { label: "Email", href: "mailto:islu245777@gmail.com", external: true },
+    { label: "Feedback", href: "/feedback", external: false },
     { label: "RSS", href: "/feed.xml", external: true },
   ];
 
