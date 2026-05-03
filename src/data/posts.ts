@@ -46,6 +46,15 @@ export const posts: Post[] = [
     href: null,
   },
   {
+    title: "AtCoder ABC 456 F Plan Holidays",
+    date: "2026-05-02",
+    summary:
+      "把買假日問題轉成最大不相鄰省略和，並用線段樹「左右端狀態相依」模式維護動態查詢。順便整理 max subarray sum 同模式的對照。",
+    tags: ["Competitive Programming", "Segment Tree"],
+    tagStyle: "bg-accent/10 text-accent",
+    href: "/blog/abc456f-plan-holidays",
+  },
+  {
     title: "KOL、牛市放大器，與投資裡的平行時空",
     date: "2026-04-29",
     summary:
