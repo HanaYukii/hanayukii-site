@@ -48,7 +48,7 @@ export default function KolBullMarketAmplifier() {
         <p className="mb-2 text-base text-text-muted leading-relaxed">
           從 D 大、JAM 到 Google RSU 的投資反思
         </p>
-        <p className="mb-8 text-sm text-text-muted">2026-04-29</p>
+        <p className="mb-8 text-sm text-text-muted">2026-05-02</p>
       </FadeIn>
 
       <FadeIn delay={0.1}>

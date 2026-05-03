@@ -47,7 +47,7 @@ export const posts: Post[] = [
   },
   {
     title: "AtCoder ABC 456 F Plan Holidays",
-    date: "2026-05-02",
+    date: "2026-05-03",
     summary:
       "把買假日問題轉成最大不相鄰省略和，並用線段樹「左右端狀態相依」模式維護動態查詢。順便整理 max subarray sum 同模式的對照。",
     tags: ["Competitive Programming", "Segment Tree"],
@@ -56,7 +56,7 @@ export const posts: Post[] = [
   },
   {
     title: "KOL、牛市放大器，與投資裡的平行時空",
-    date: "2026-04-29",
+    date: "2026-05-02",
     summary:
       "牛市會把一個人的魅力放大成神，熊市才會把同樣的特質放大成風險。從 D 大、反 D 大的人、其他 KOL 類型，到我自己對配置跟少賺的反思。",
     tags: ["Life", "投資"],
