@@ -88,7 +88,8 @@ export default function LeavingGoogle() {
           <Heading id="background">背景</Heading>
           <div className="space-y-4">
             <p>
-              我在 Google Cloud 做了大概三年出頭，工作內容偏 infra。
+              當初拿到 Google offer 的時候是真的當 dream job 在看的，
+              完全沒想到會只待三年，而且還是用裸辭的方式離開。
             </p>
             <p>
               當時主要的優勢在演算法與 problem solving，
@@ -98,17 +99,13 @@ export default function LeavingGoogle() {
               甚至有一題還和面試官討論了解答外更簡潔的 0-1 BFS 作法，他也說學到新東西了。
             </p>
             <p>
-              當初拿到 Google offer 的時候是真的當 dream job 在看的，
-              完全沒想到會只待三年，而且還是用裸辭的方式離開。
-            </p>
-            <p>
               當時 team match 沒有很順利，拖了很久，也讓人有點恐慌。
               對 new grad 來說，較難評估這類工作與自己長遠目標的契合度，但確實是幾個 match 過的選項中相對不喜歡的。
               當時 recruiter 表示這是目前唯一的選項，不接的話可能要等很久，很難判斷該不該堅持，最後就接了。
               現在回頭看，應該更堅持自己的選擇。離畢業根本還有很充裕的時間，完全有資本繼續等。
             </p>
             <p>
-              會有這麼多感受，也是因為這是 new grad 的第一份工作，而且是在世界頂級企業。
+              在 Google Cloud 做了大概三年出頭，會有這麼多感受，也是因為這是 new grad 的第一份工作，而且是在世界頂級企業。
               我相信類似的故事在很多地方都在發生，甚至可能是大企業的常態。
               但也缺乏實際的比較對象，不知道在其他地方的情況可能該是如何。也許只是自己想太多。
             </p>
