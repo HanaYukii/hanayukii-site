@@ -46,6 +46,15 @@ export const posts: Post[] = [
     href: null,
   },
   {
+    title: "KOL、牛市放大器，與投資裡的平行時空",
+    date: "2026-04-29",
+    summary:
+      "牛市會把一個人的魅力放大成神，熊市才會把同樣的特質放大成風險。從 D 大、反 D 大的人、其他 KOL 類型，到我自己對配置跟少賺的反思。",
+    tags: ["Life", "投資"],
+    tagStyle: "bg-warm/10 text-warm",
+    href: "/blog/kol-bull-market-amplifier",
+  },
+  {
     title: "各大 Online Judge 介紹",
     date: "2026-04-29",
     summary:
