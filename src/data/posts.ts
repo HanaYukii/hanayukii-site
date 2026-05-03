@@ -10,6 +10,15 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    title: "文件是 AI 時代的隱藏槓桿",
+    date: "2026-05-03",
+    summary:
+      "以前文件常常像成本；現在它可能是讓 AI、團隊、未來的自己都更快進入 context 的介面。AI 時代不是讓文件變得不重要，而是讓文件的價值被放大。",
+    tags: ["Software Engineering", "AI"],
+    tagStyle: "bg-primary/10 text-primary",
+    href: "/blog/documentation-ai-era",
+  },
+  {
     title: "AtCoder ABC 456 F Plan Holidays",
     date: "2026-05-03",
     summary:
@@ -200,15 +209,6 @@ export const posts: Post[] = [
       "人過度美化自己沒選的路，也過度合理化已選的路。但真相是你永遠跑不了對照組。",
     tags: ["Life", "Personal"],
     tagStyle: "bg-warm/10 text-warm",
-    href: null,
-  },
-  {
-    title: "寫文件為什麼在 AI 時代更重要",
-    date: "",
-    summary:
-      "大家都討厭寫文件，但 AI 時代文件的價值被放大了。你餵給 AI 的 context 越多，它能幫你的就越多。",
-    tags: ["Software Engineering", "AI"],
-    tagStyle: "bg-primary/10 text-primary",
     href: null,
   },
   {
