@@ -7,106 +7,99 @@ export default function Home() {
     <>
       {/* Hero */}
       <section>
-        <div className="mx-auto max-w-4xl px-6 py-20 sm:py-24">
+        <div className="mx-auto max-w-3xl px-6 pb-16 pt-24 sm:pt-28">
           <FadeIn>
-            <h1 className="mb-2 text-4xl font-bold tracking-tight sm:text-5xl">
+            <h1 className="text-5xl font-bold sm:text-6xl">
               花雪{" "}
-              <span className="font-normal text-text/60">/ HanaYukii</span>
+              <span className="font-normal italic text-text/50">
+                / HanaYukii
+              </span>
             </h1>
-          </FadeIn>
-
-          <FadeIn delay={0.05}>
-            <p className="mb-5 text-sm italic text-accent/80">
+            <p className="mt-3 text-sm italic text-accent/80">
               Starmine, still becoming.
             </p>
-          </FadeIn>
 
-          <FadeIn delay={0.08}>
-            <div className="mb-6 h-px w-12 bg-border" />
-          </FadeIn>
-
-          <FadeIn delay={0.1}>
-            <div className="mb-8 space-y-2 text-base leading-relaxed text-text-muted sm:text-lg">
+            <div className="mt-10 space-y-3 text-base leading-relaxed text-text-muted sm:text-lg">
               <p>Ex-Google engineer, now Tech Lead at an AI startup.</p>
-              <p>Competitive programmer at heart, Web3 protocol contributor on the side.</p>
-              <p>這邊隨興寫自己喜歡的 topic — 演算法、C++、職涯、偶像、F1、日本旅遊。</p>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.2}>
-            <div className="flex gap-6 text-sm">
-              <Link
-                href="/blog"
-                className="font-medium text-primary transition-colors hover:text-primary/80"
-              >
-                Read blog &rarr;
-              </Link>
-              <Link
-                href="/about"
-                className="font-medium text-text-muted transition-colors hover:text-text"
-              >
-                About &rarr;
-              </Link>
+              <p>
+                Competitive programmer at heart, Web3 protocol contributor on
+                the side.
+              </p>
+              <p>
+                這邊隨興寫自己喜歡的 topic — 演算法、C++、職涯、偶像、F1、日本旅遊。
+              </p>
             </div>
           </FadeIn>
         </div>
       </section>
 
-      {/* Hot Posts */}
-      <section className="mx-auto max-w-4xl px-6 py-20">
-        <FadeIn>
-          <div className="mb-8 flex items-center justify-between">
-            <h2 className="text-2xl font-bold">Hot Posts</h2>
+      {/* Featured */}
+      <section className="mx-auto max-w-3xl px-6 pb-16">
+        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
+          Featured
+        </p>
+        <div className="divide-y divide-border">
+          {hotPosts.map((post) => (
             <Link
-              href="/blog"
-              className="text-sm font-medium text-primary hover:underline"
+              key={post.title}
+              href={post.href!}
+              className="group block py-6"
             >
-              View all &rarr;
+              <div className="flex items-baseline justify-between gap-4">
+                <h2 className="text-xl font-semibold transition-colors group-hover:text-primary">
+                  {post.title}
+                </h2>
+                <span className="shrink-0 text-xs text-text-muted">
+                  {post.date}
+                </span>
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-text-muted">
+                {post.summary}
+              </p>
+              <div className="mt-3 flex flex-wrap gap-x-3 text-xs text-text-muted">
+                {post.tags.map((tag, i) => (
+                  <span key={tag} className="flex items-center">
+                    {tag}
+                    {i < post.tags.length - 1 && (
+                      <span className="ml-3 text-text/30">·</span>
+                    )}
+                  </span>
+                ))}
+              </div>
             </Link>
-          </div>
-        </FadeIn>
-        <div className="grid gap-6 sm:grid-cols-2">
-          {hotPosts.map((post, i) => (
-            <FadeIn key={post.title} delay={i * 0.1}>
-              <Link href={post.href!}>
-                <article className="rounded-xl border border-border bg-surface/40 p-6 transition-all hover:border-primary/30 hover:bg-surface-hover cursor-pointer">
-                  <div className="mb-3 flex flex-wrap gap-2">
-                    {post.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${post.tagStyle}`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <h3 className="mb-1 text-lg font-semibold">{post.title}</h3>
-                  <p className="text-sm text-text-muted">{post.date}</p>
-                </article>
-              </Link>
-            </FadeIn>
           ))}
         </div>
+      </section>
 
-        {/* Recent Posts compact list */}
-        <FadeIn delay={0.3}>
-          <h3 className="mb-3 mt-10 text-sm font-semibold text-text-muted uppercase tracking-wider">Recent Posts</h3>
-          <div className="space-y-0 divide-y divide-border/30">
-            {recentPosts.map((post) => (
-              <Link key={post.title} href={post.href!}>
-                <div className="flex items-center justify-between py-2 transition-colors hover:text-primary">
-                  <div className="flex items-center gap-2 min-w-0">
-                    <span className={`shrink-0 rounded-full px-1.5 py-0.5 text-[10px] font-medium ${post.tagStyle}`}>
-                      {post.tags[0]}
-                    </span>
-                    <span className="truncate text-xs font-medium">{post.title}</span>
-                  </div>
-                  <span className="shrink-0 pl-3 text-[10px] text-text-muted">{post.date}</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </FadeIn>
+      {/* Recent */}
+      <section className="mx-auto max-w-3xl px-6 pb-24">
+        <div className="mb-6 flex items-center justify-between">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
+            Recent
+          </p>
+          <Link
+            href="/blog"
+            className="text-sm text-text-muted transition-colors hover:text-primary"
+          >
+            View all &rarr;
+          </Link>
+        </div>
+        <div className="divide-y divide-border/50">
+          {recentPosts.map((post) => (
+            <Link
+              key={post.title}
+              href={post.href!}
+              className="group flex items-baseline justify-between gap-4 py-3 text-sm"
+            >
+              <span className="truncate text-text transition-colors group-hover:text-primary">
+                {post.title}
+              </span>
+              <span className="shrink-0 text-xs text-text-muted">
+                {post.date}
+              </span>
+            </Link>
+          ))}
+        </div>
       </section>
     </>
   );
