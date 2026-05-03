@@ -56,13 +56,13 @@ export default function Home() {
               <p className="mt-2 text-sm leading-relaxed text-text-muted">
                 {post.summary}
               </p>
-              <div className="mt-3 flex flex-wrap gap-x-3 text-xs text-text-muted">
-                {post.tags.map((tag, i) => (
-                  <span key={tag} className="flex items-center">
+              <div className="mt-3 flex flex-wrap gap-2">
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className={`rounded-full px-2 py-0.5 text-[11px] font-medium ${post.tagStyle}`}
+                  >
                     {tag}
-                    {i < post.tags.length - 1 && (
-                      <span className="ml-3 text-text/30">·</span>
-                    )}
                   </span>
                 ))}
               </div>
@@ -89,11 +89,18 @@ export default function Home() {
             <Link
               key={post.title}
               href={post.href!}
-              className="group flex items-baseline justify-between gap-4 py-3 text-sm"
+              className="group flex items-center justify-between gap-3 py-3 text-sm"
             >
-              <span className="truncate text-text transition-colors group-hover:text-primary">
-                {post.title}
-              </span>
+              <div className="flex min-w-0 items-center gap-2">
+                <span
+                  className={`shrink-0 rounded-full px-1.5 py-0.5 text-[10px] font-medium ${post.tagStyle}`}
+                >
+                  {post.tags[0]}
+                </span>
+                <span className="truncate text-text transition-colors group-hover:text-primary">
+                  {post.title}
+                </span>
+              </div>
               <span className="shrink-0 text-xs text-text-muted">
                 {post.date}
               </span>

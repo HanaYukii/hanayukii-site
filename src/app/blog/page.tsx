@@ -75,13 +75,13 @@ export default async function Blog({
               <p className="mt-2 text-sm leading-relaxed text-text-muted">
                 {post.summary}
               </p>
-              <div className="mt-3 flex flex-wrap gap-x-3 text-xs text-text-muted">
-                {post.tags.map((t, i) => (
-                  <span key={t} className="flex items-center">
+              <div className="mt-3 flex flex-wrap gap-2">
+                {post.tags.map((t) => (
+                  <span
+                    key={t}
+                    className={`rounded-full px-2 py-0.5 text-[11px] font-medium ${post.tagStyle}`}
+                  >
                     {t}
-                    {i < post.tags.length - 1 && (
-                      <span className="ml-3 text-text/30">·</span>
-                    )}
                   </span>
                 ))}
               </div>
