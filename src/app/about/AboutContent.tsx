@@ -263,15 +263,9 @@ export default function AboutContent() {
           </div>
 
           <p className="mb-5 text-sm leading-relaxed text-text-muted">
-            {lang === "zh" ? (
-              <>
-                想聊的 topic 不限，希望 build up 好的 connection，經驗有機會幫上人，也從交流中學習。如果對<Link href="/tutoring" className="text-primary hover:underline">演算法家教</Link>有興趣也歡迎聯絡。
-              </>
-            ) : (
-              <>
-                Open to chat about anything — looking to build good connections, share experience where useful, and learn from yours. Also reach out if you&apos;re interested in <Link href="/tutoring" className="text-primary hover:underline">algorithm tutoring</Link>.
-              </>
-            )}
+            {lang === "zh"
+              ? "想聊的 topic 不限，希望 build up 好的 connection，經驗有機會幫上人，也從交流中學習。"
+              : "Open to chat about anything — looking to build good connections, share experience where useful, and learn from yours."}
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
