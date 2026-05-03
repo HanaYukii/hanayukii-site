@@ -93,15 +93,6 @@ export const posts: Post[] = [
     href: "/blog/reset-influence-analysis",
   },
   {
-    title: "系統設計面試的經典注意事項",
-    date: "2026-04-11",
-    summary:
-      "以 Auto-complete 為案例，整理系統設計面試中常見的思路：需求分析、狀態設計、Debounce、快取策略、Accessibility。",
-    tags: ["System Design", "Interview"],
-    tagStyle: "bg-primary/10 text-primary",
-    href: "/blog/system-design-fundamentals",
-  },
-  {
     title: "CF2217F Interval Game",
     date: "2026-04-08",
     summary:
@@ -193,6 +184,15 @@ export const posts: Post[] = [
     href: "/blog/cpp-interview-performance-analysis",
   },
   // ───── Drafts ─────
+  {
+    title: "系統設計面試的經典注意事項",
+    date: "",
+    summary:
+      "以 Auto-complete 為案例，整理系統設計面試中常見的思路：需求分析、狀態設計、Debounce、快取策略、Accessibility。",
+    tags: ["System Design", "Interview"],
+    tagStyle: "bg-primary/10 text-primary",
+    href: null,
+  },
   {
     title: "財務自由是不是假議題",
     date: "",
