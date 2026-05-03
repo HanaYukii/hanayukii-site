@@ -82,12 +82,12 @@ export default async function Blog({
             <FadeIn key={post.title} delay={i * 0.1}>
               {post.href ? (
                 <Link href={post.href}>
-                  <article className="rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm transition-all hover:border-primary/40 hover:bg-surface-hover">
+                  <article className="rounded-xl border border-border bg-surface/40 p-6 transition-all hover:border-primary/40 hover:bg-surface-hover">
                     {content}
                   </article>
                 </Link>
               ) : (
-                <article className="rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm opacity-70">
+                <article className="rounded-xl border border-border bg-surface/40 p-6 opacity-70">
                   {content}
                 </article>
               )}

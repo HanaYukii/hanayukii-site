@@ -63,7 +63,7 @@ export default function Tutoring() {
 
       {/* Contact */}
       <FadeIn>
-        <section className="rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm text-center">
+        <section className="rounded-xl border border-border bg-surface/40 p-6 text-center">
           <p className="mb-4 text-sm text-text-muted">
             比較適合已經有基礎、目標是頂級外商面試或程式競賽的人。有興趣可以先聊。
           </p>

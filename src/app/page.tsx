@@ -6,16 +6,8 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        {/* Ambient color blobs */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-primary/8 blur-[120px]" />
-          <div className="absolute -right-20 top-20 h-72 w-72 rounded-full bg-sky/8 blur-[100px]" />
-          <div className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-accent/6 blur-[100px]" />
-          <div className="absolute -bottom-20 right-1/4 h-56 w-56 rounded-full bg-rose/5 blur-[100px]" />
-        </div>
-
-        <div className="relative mx-auto max-w-4xl px-6 py-20 sm:py-24">
+      <section>
+        <div className="mx-auto max-w-4xl px-6 py-20 sm:py-24">
           <FadeIn>
             <h1 className="mb-2 text-4xl font-extrabold tracking-tight sm:text-5xl">
               花雪{" "}
@@ -61,7 +53,7 @@ export default function Home() {
       </section>
 
       {/* Hot Posts */}
-      <section className="relative mx-auto max-w-4xl px-6 py-20">
+      <section className="mx-auto max-w-4xl px-6 py-20">
         <FadeIn>
           <div className="mb-8 flex items-center justify-between">
             <h2 className="text-2xl font-bold">Hot Posts</h2>
@@ -77,7 +69,7 @@ export default function Home() {
           {hotPosts.map((post, i) => (
             <FadeIn key={post.title} delay={i * 0.1}>
               <Link href={post.href!}>
-                <article className="rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm transition-all hover:border-primary/30 hover:bg-surface-hover cursor-pointer">
+                <article className="rounded-xl border border-border bg-surface/40 p-6 transition-all hover:border-primary/30 hover:bg-surface-hover cursor-pointer">
                   <div className="mb-3 flex flex-wrap gap-2">
                     {post.tags.map((tag) => (
                       <span

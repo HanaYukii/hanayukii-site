@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import MouseGlow from "@/components/MouseGlow";
-import ParticleGrid from "@/components/ParticleGrid";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -164,10 +162,8 @@ export default function RootLayout({
   return (
     <html lang="zh-TW">
       <body className="flex min-h-screen flex-col antialiased">
-        <ParticleGrid />
-        <MouseGlow />
         <Navbar />
-        <main className="relative z-10 flex-1">{children}</main>
+        <main className="flex-1">{children}</main>
         <Footer />
         <Analytics />
         <SpeedInsights />

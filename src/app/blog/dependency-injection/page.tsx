@@ -68,7 +68,7 @@ export default function DependencyInjection() {
       </FadeIn>
 
       <FadeIn delay={0.05}>
-        <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm">
+        <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
           <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
             Agenda
           </p>
@@ -98,7 +98,7 @@ export default function DependencyInjection() {
       </FadeIn>
 
       <FadeIn delay={0.1}>
-        <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm">
+        <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
           <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
             如果你只想抓重點
           </p>

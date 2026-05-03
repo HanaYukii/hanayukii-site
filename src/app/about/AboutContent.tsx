@@ -158,7 +158,7 @@ export default function AboutContent() {
       <FadeIn>
         <section className="mb-14">
           <h2 className="mb-6 text-2xl font-bold">Competitive Programming</h2>
-          <div className="rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm">
+          <div className="rounded-xl border border-border bg-surface/40 p-6">
             <div className="mb-4 flex flex-wrap gap-3">
               {cpBadges.map((badge) => (
                 <span key={badge.text} className={`rounded-full px-3 py-1 text-sm font-semibold ${badge.color}`}>
@@ -179,7 +179,7 @@ export default function AboutContent() {
       <FadeIn>
         <section className="mb-14">
           <h2 className="mb-6 text-2xl font-bold">Projects</h2>
-          <div className="rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm transition-all hover:border-primary/30 hover:bg-surface-hover">
+          <div className="rounded-xl border border-border bg-surface/40 p-6 transition-all hover:border-primary/30 hover:bg-surface-hover">
             <div className="flex items-center justify-between">
               <div>
                 <div className="flex items-center gap-3">
@@ -240,7 +240,7 @@ export default function AboutContent() {
         <div className="space-y-4">
           {beyondCode[lang].map((item, i) => (
             <FadeIn key={i} delay={i * 0.05}>
-              <div className="rounded-xl border border-border bg-surface/40 p-6 backdrop-blur-sm transition-all hover:border-primary/30 hover:bg-surface-hover">
+              <div className="rounded-xl border border-border bg-surface/40 p-6 transition-all hover:border-primary/30 hover:bg-surface-hover">
                 <div className="mb-2 flex items-center gap-2">
                   <span className="text-lg">{item.icon}</span>
                   <h3 className="text-lg font-bold">{item.title}</h3>
