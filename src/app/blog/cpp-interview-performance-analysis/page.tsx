@@ -101,8 +101,8 @@ export default function CppInterviewPerformanceAnalysis() {
         </h1>
         <p className="mb-2 text-sm text-text-muted">2026-03-31</p>
         <p className="mb-8 text-text-muted">
-          這場面試最有意思的地方，是它幾乎不問演算法，
-          而是一直追問每一種寫法背後到底會發生幾次 copy、move、allocation。
+          在 HFT 場景效能是最優先的，掌握最好的寫法非常重要。
+          這些都是很深度的 domain knowledge，也讓我更發現 C++ 的深奧。
           題目經過改寫，分析是我事後整理的。
         </p>
       </FadeIn>
@@ -151,7 +151,11 @@ export default function CppInterviewPerformanceAnalysis() {
         <Heading id="q1">第一題：建構子參數怎麼接</Heading>
         <p className="mb-4 text-text-muted">
           有一個 struct，成員是 <code className="text-primary">std::string</code>，建構子需要把外部傳入的字串存下來。
-          比較以下三種寫法的效能差異：
+          比較以下三種寫法的效能差異。
+        </p>
+        <p className="mb-4 text-text-muted">
+          其中 <code className="text-primary">std::string_view</code> (C++17) 是一個輕量的唯讀字串參考，
+          內部只存 pointer + length，本身不擁有資料也不做任何 allocation，建構成本接近零。
         </p>
 
         <Code lang="cpp">{`// 寫法 A：pass by value + move
@@ -178,6 +182,22 @@ struct Widget {
           三種寫法各有不同的 copy / move 成本，且會因 caller 傳的是 lvalue 還是 rvalue 而改變：
         </p>
 
+        <Code lang="cpp">{`std::string s = "hello";
+
+Widget w1(s);                // lvalue：s 是有名字的變數
+Widget w2(std::move(s));     // rvalue：std::move 把 s 轉成 rvalue
+Widget w3("hello");          // string literal：直接傳字串常量
+Widget w4(ptr);              // const char*：傳 C-style 字串指標
+
+// 以上四種都可以隱式轉成 string_view，
+// 這也是為什麼寫法 B (string_view) 在下表中表現最好，
+// 但 string_view 不擁有資料，caller 要確保原始字串的 lifetime 夠長。
+
+// 不能隱式轉 string_view 的常見例子：
+// std::vector<char>  → 要手動 string_view(v.data(), v.size())
+// std::stringstream  → 要先 .str() 拿到 string
+// 單個 char           → 要 string_view(&c, 1)`}</Code>
+
         <div className="my-6 overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
@@ -191,27 +211,27 @@ struct Widget {
             <tbody className="text-text-muted">
               <tr className="border-b border-border/50">
                 <td className="py-2 pr-4 font-medium">lvalue string</td>
-                <td className="py-2 pr-4">1 copy + 1 move</td>
-                <td className="py-2 pr-4">1 copy</td>
-                <td className="py-2">1 copy</td>
+                <td className="py-2 pr-4">1 copy (參數 n) + 1 move (into name)</td>
+                <td className="py-2 pr-4">1 copy (view → name 建構)</td>
+                <td className="py-2">1 copy (ref → name 建構)</td>
               </tr>
               <tr className="border-b border-border/50">
                 <td className="py-2 pr-4 font-medium">rvalue string</td>
-                <td className="py-2 pr-4">2 moves</td>
-                <td className="py-2 pr-4">1 copy</td>
-                <td className="py-2">1 copy</td>
+                <td className="py-2 pr-4">1 move (參數 n) + 1 move (into name)</td>
+                <td className="py-2 pr-4">1 copy (view → name 建構)</td>
+                <td className="py-2">1 copy (ref → name 建構)</td>
               </tr>
               <tr className="border-b border-border/50">
                 <td className="py-2 pr-4 font-medium">string literal</td>
-                <td className="py-2 pr-4">1 construct + 1 move</td>
-                <td className="py-2 pr-4">1 construct</td>
-                <td className="py-2">1 construct (temp) + 1 copy</td>
+                <td className="py-2 pr-4">1 construct (literal → 參數 n) + 1 move (into name)</td>
+                <td className="py-2 pr-4">1 construct (view → name 建構)</td>
+                <td className="py-2">1 construct (literal → temp) + 1 copy (temp → name)</td>
               </tr>
               <tr>
                 <td className="py-2 pr-4 font-medium">const char*</td>
-                <td className="py-2 pr-4">1 construct + 1 move</td>
-                <td className="py-2 pr-4">1 construct</td>
-                <td className="py-2">1 construct (temp) + 1 copy</td>
+                <td className="py-2 pr-4">1 construct (char* → 參數 n) + 1 move (into name)</td>
+                <td className="py-2 pr-4">1 construct (view → name 建構)</td>
+                <td className="py-2">1 construct (char* → temp) + 1 copy (temp → name)</td>
               </tr>
             </tbody>
           </table>
@@ -311,10 +331,23 @@ void process(std::string_view msg) {
         </VerdictBox>
 
         <Callout>
-          關鍵教訓：<code>static</code> + capture by reference 是一個非常隱蔽的 bug。
-          面試官特別想看你能不能一眼看出寫法 0 是 UB。
-          在 hot path 上，stateless lambda（寫法 2/3）是首選 - compiler 會完全 inline 成 function call。
+          前提是 lambda 只需要用到傳入的參數，不依賴外部變數。
+          寫法 2/3 是 stateless lambda（沒有 capture），不會多捕捉到其他變數，
+          compiler 可以直接 inline，不需要額外建構 lambda 物件，也沒有任何 lifetime 風險。
         </Callout>
+
+        <SubHeading>Inline 的實際影響</SubHeading>
+
+        <Code lang="cpp">{`// inline 前
+fn2(msg);          // call → jump → 執行 → return
+
+// inline 後：compiler 直接展開在 call site
+std::cout << msg << "\\n";  // 沒有 call/return，省掉 stack frame 開銷`}</Code>
+
+        <p className="mb-3 text-text-muted">
+          展開後 compiler 還能跨 lambda 邊界做 constant folding、dead code elimination 等優化。
+          在 HFT 場景，每一次多餘的 function call 都可能是幾十 ns 的差距。
+        </p>
       </FadeIn>
 
       {/* ======================== Q3 ======================== */}
@@ -383,7 +416,14 @@ public:
 
         <VerdictBox verdict="fastest">
           <strong>寫法 2：static constexpr + string_view</strong> - 最快且最安全。
-          Stateless lambda，不依賴任何 instance。<code>string_view</code> 傳遞只是 pointer + size，零 copy。
+          <br />
+          Stateless lambda（no capture），不依賴任何 instance，compiler 直接 inline。
+          <br />
+          比寫法 0/1 快的原因：
+          不需要建構 lambda 物件來存 captured pointer（寫法 1 每次呼叫都要把 <code>this</code> 寫進 lambda 物件），
+          也不存在 <code>this-&gt;</code> 間接存取（寫法 1 要先讀 <code>this</code>，再讀 <code>this-&gt;data</code>，多一次 indirection）。
+          <br />
+          <code>string_view</code> 傳遞只是 pointer + size（16 bytes on stack），零 copy，零 heap allocation。
         </VerdictBox>
 
         <VerdictBox verdict="good">
@@ -468,11 +508,6 @@ void transform(std::string x, std::string y) {
           如果函式需要修改自己的副本，或 caller 傳的是 rvalue（move 進來零成本），B 更合理。
         </VerdictBox>
 
-        <Callout>
-          面試的重點不是選哪個 &ldquo;對&rdquo;，而是能不能完整列出差異：
-          copy cost、null safety、aliasing、side effects、optimizer freedom。
-          在 HFT context 下，答案傾向 pointer（或 reference） - 因為 zero-copy 至上。
-        </Callout>
       </FadeIn>
 
       {/* ======================== Q5 ======================== */}
@@ -529,11 +564,6 @@ SSO 閾值（常見 64-bit 實作）：
           因為 union 要容納 inline buffer。這是用「更大的物件」換「更少的 heap allocation」。
         </p>
 
-        <Callout>
-          這題是前面 Q1 的延伸 - 如果你知道 SSO，就能更精確地分析 string 傳遞的成本：
-          短字串（≤ 15 bytes）的 copy 不走 heap，成本就是 memcpy 32 bytes（stack 上），
-          遠比長字串的 malloc + memcpy 便宜。
-        </Callout>
       </FadeIn>
 
       {/* ======================== Q6 ======================== */}
@@ -568,6 +598,19 @@ price      quantity
       bid: [ { price: 111, qty: 0 }, { price: 111.5, qty: 60 } ]
       ask: [ { price: 90, qty: 0 }, { price: 108, qty: 100 } ]
       （qty = 0 代表移除該 level）`}</Code>
+
+        <SubHeading>Price Precision 18 是什麼</SubHeading>
+
+        <p className="mb-3 text-text-muted">
+          在加密貨幣交易所（如 Binance、Coinbase），價格和數量通常用 18 位小數表示，
+          這是因為 Ethereum 的原生單位是 wei（1 ETH = 10<sup>18</sup> wei），
+          ERC-20 token 預設也是 18 decimals。交易所為了精確表示鏈上資產的最小單位，
+          API 回傳的價格就會帶到 18 位小數。
+        </p>
+        <p className="mb-3 text-text-muted">
+          傳統金融（股票、期貨）通常只需要 2-8 位小數，但 crypto 因為鏈上精度的關係，
+          18 位是常態。這也直接影響了資料結構的選擇。
+        </p>
 
         <SubHeading>為什麼不能用 double 當 key</SubHeading>
 
@@ -627,17 +670,42 @@ void applyDelta(
     }
 }`}</Code>
 
-        <SubHeading>進階考量</SubHeading>
+        <SubHeading>Best Bid/Ask 的頻繁更新優化</SubHeading>
+
+        <p className="mb-3 text-text-muted">
+          Order book 最前面幾層（best bid / best ask）是變動最頻繁的，
+          每一筆 market order 或 cancel 都可能改動 top of book。
+          常見的優化方式：
+        </p>
 
         <div className="my-4 space-y-3 text-sm text-text-muted">
           <div className="rounded-lg border border-border bg-surface p-4">
-            <p className="font-medium text-text mb-1">std::map vs 其他選擇</p>
+            <p className="font-medium text-text mb-1">快取 best bid/ask pointer</p>
             <p>
-              <code>std::map</code>（紅黑樹）O(log n) 查找/插入/刪除，cache locality 差。
-              如果 level 數量固定（如 top 20），sorted array + binary search 可能更快（cache friendly）。
-              如果需要極致效能，可用 flat sorted vector 或 B-tree variant。
+              不每次都從 map 的 <code>begin()</code> 取，而是額外維護一個指向 best level 的 pointer / iterator。
+              更新時只在 best level 被刪除或有新的更好價格時才重新定位，省掉 tree traversal。
             </p>
           </div>
+          <div className="rounded-lg border border-border bg-surface p-4">
+            <p className="font-medium text-text mb-1">Top-of-book 用 array，深層用 map</p>
+            <p>
+              前幾層（如 top 5）用固定大小的 sorted array，更新頻繁但數量少，cache friendly。
+              深層 level 變動少，用 <code>std::map</code> 或 flat sorted vector 處理。
+            </p>
+          </div>
+          <div className="rounded-lg border border-border bg-surface p-4">
+            <p className="font-medium text-text mb-1">Price level pooling</p>
+            <p>
+              頻繁的 insert/erase 會觸發大量 heap allocation。
+              用 memory pool（pre-allocate 一批 node）避免每次 new/delete，
+              減少 allocator contention 跟 latency spike。
+            </p>
+          </div>
+        </div>
+
+        <SubHeading>其他進階考量</SubHeading>
+
+        <div className="my-4 space-y-3 text-sm text-text-muted">
           <div className="rounded-lg border border-border bg-surface p-4">
             <p className="font-medium text-text mb-1">Sequence number / 防亂序</p>
             <p>
@@ -654,43 +722,9 @@ void applyDelta(
           </div>
         </div>
 
-        <Callout>
-          這題的核心考點：(1) 不用 double 當 key - fixed-point 或 tick index；
-          (2) snapshot vs delta 兩種模式的 trade-off；
-          (3) 對 HFT 場景的 latency-aware 思維。
-        </Callout>
       </FadeIn>
 
-      {/* ======================== Summary ======================== */}
       <FadeIn delay={0.45}>
-        <Heading id="summary">這場面試到底在篩什麼</Heading>
-
-        <div className="space-y-4">
-          <p>
-            表面上是六題 C++ 小題，實際上它在看三件事：
-            你能不能把抽象語法還原成 copy、move、allocation 的真實成本；
-            你能不能分清楚 correctness 和 performance 的 trade-off；
-            還有遇到系統題時，有沒有 latency-aware 的直覺。
-          </p>
-          <ul className="list-inside list-disc space-y-2 text-sm text-text-muted">
-            <li>不是背語法，而是要把每一種寫法拆成成本模型。</li>
-            <li>不是只追最快，而是要知道什麼情境下哪種寫法比較合理。</li>
-            <li>到了 Order Book 這種題目，已經是在看你有沒有系統感。</li>
-          </ul>
-        </div>
-
-        <div className="my-8 rounded-lg border border-primary/20 bg-primary/5 p-6">
-          <p className="font-bold text-text mb-2">我自己的收穫</p>
-          <p className="text-sm text-text-muted mb-2">
-            Crypto / HFT 的 C++ 面試跟一般 backend 面試真的差很多，不考 LeetCode，
-            而是一直問「這樣寫到底會多幾次 copy / move / allocation」。
-          </p>
-          <p className="text-sm text-text-muted">
-            我自己主要背景還是競賽和演算法，low-level 和 modern C++ 還有不少地方要補。
-            這次面試最大的提醒是：move semantics、lambda capture、memory layout 這些在 HFT 場景不是細節，是基本功。
-          </p>
-        </div>
-
         <div className="mt-8 flex flex-wrap gap-2 text-xs">
           {["C++", "Performance", "Interview", "HFT", "Move Semantics", "Lambda", "Order Book"].map((tag) => (
             <span

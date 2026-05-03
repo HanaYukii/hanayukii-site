@@ -68,7 +68,7 @@ export default function Tutoring() {
                 },
                 {
                   title: "面試準備",
-                  desc: "LeetCode 常見題型、面試陷阱、解題思路",
+                  desc: "LeetCode 常見題型、面試變化題 follow up、解題思路",
                 },
                 {
                   title: "C++ for CP",
