@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import ArticleIllustration from "@/components/ArticleIllustration";
 
 export const metadata: Metadata = {
   title: "文件是 AI 時代的隱藏槓桿 | 花雪 HanaYukii",
@@ -50,6 +51,10 @@ export default function DocumentationAiEra() {
         <p className="mb-8 text-sm text-text-muted">2026-05-03</p>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="docs" className="mb-12" />
+      </FadeIn>
+
       <FadeIn delay={0.1}>
         <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
           <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
@@ -79,6 +84,10 @@ export default function DocumentationAiEra() {
         </nav>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="docs" className="mb-12" />
+      </FadeIn>
+
       <div className="prose-custom space-y-4 text-text-muted leading-relaxed [&_strong]:text-text">
 
         <FadeIn>
@@ -86,6 +95,10 @@ export default function DocumentationAiEra() {
             最近又有好幾個場合討論到 Design Doc，把現在的看法整理一下。主要還是圍繞 AI 的場景。
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="docs" className="mb-12" />
+      </FadeIn>
 
         <FadeIn>
           <Heading id="why-hated">以前文件 ROI 很差，所以大家討厭寫</Heading>
@@ -100,6 +113,10 @@ export default function DocumentationAiEra() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="docs" className="mb-12" />
+      </FadeIn>
+
         <FadeIn>
           <Heading id="concretization">文件是想法的具象化</Heading>
           <p>
@@ -113,6 +130,10 @@ export default function DocumentationAiEra() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="docs" className="mb-12" />
+      </FadeIn>
+
         <FadeIn>
           <Heading id="for-ai">文件是給 AI 看的 context</Heading>
           <p>
@@ -125,6 +146,10 @@ export default function DocumentationAiEra() {
             很多時候，叫 AI 寫 code 不難；真正卡的是叫它在一個 codebase 裡正確地跑起來、測起來、改起來。README、build 指令、test command 這些看似平凡的文件，會直接影響 AI 能不能有效率地了解 codebase 並正確做事。沒寫清楚，它就會開始猜。猜對很神，猜錯就很浪費時間。
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="docs" className="mb-12" />
+      </FadeIn>
 
         <FadeIn>
           <Heading id="onboarding">Onboarding：給新人、給未來的自己、也給 AI</Heading>
@@ -142,6 +167,10 @@ export default function DocumentationAiEra() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="docs" className="mb-12" />
+      </FadeIn>
+
         <FadeIn>
           <Heading id="approval">文件作為 approval：讓事情有底氣往前走</Heading>
           <p>
@@ -157,6 +186,10 @@ export default function DocumentationAiEra() {
             以前寫 proposal、整理討論、回 reviewer comment 都很花時間。AI 之後，這些成本下降很多。在複雜組織裡，先把方向寫清楚、拿到 review 跟 approve，做事比較有底氣。
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="docs" className="mb-12" />
+      </FadeIn>
 
         <FadeIn>
           <Heading id="iteration">AI 讓文件快速迭代，但別什麼都怪 AI</Heading>
@@ -174,6 +207,10 @@ export default function DocumentationAiEra() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="docs" className="mb-12" />
+      </FadeIn>
+
         <FadeIn>
           <Heading id="review">AI review 跟測試：留個伏筆</Heading>
           <p>
@@ -190,6 +227,10 @@ export default function DocumentationAiEra() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="docs" className="mb-12" />
+      </FadeIn>
+
         <FadeIn>
           <Heading id="leverage">結語：隱藏槓桿</Heading>
           <p>
@@ -202,6 +243,10 @@ export default function DocumentationAiEra() {
             文件用得好、理解得好，現在能比過去發揮更大的槓桿，但也是大學問。<strong>寫得越清楚，人跟 AI 都越容易正確呼叫它。</strong>
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="docs" className="mb-12" />
+      </FadeIn>
 
       </div>
     </article>

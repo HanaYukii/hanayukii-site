@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { InlineMath, BlockMath } from "@/components/Math";
 
@@ -80,6 +81,10 @@ export default function CF2217F() {
         </p>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="contest" className="mb-12" />
+      </FadeIn>
+
       {/* TOC */}
       <FadeIn delay={0.1}>
         <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
@@ -108,6 +113,10 @@ export default function CF2217F() {
             ))}
           </div>
         </nav>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="contest" className="mb-12" />
       </FadeIn>
 
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-primary [&_code]:text-sm">
@@ -143,6 +152,10 @@ export default function CF2217F() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="contest" className="mb-12" />
+      </FadeIn>
+
         {/* ── Step 1 ── */}
         <FadeIn>
           <Heading id="nim">Step 1：轉成 XOR 問題</Heading>
@@ -157,6 +170,10 @@ export default function CF2217F() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="contest" className="mb-12" />
+      </FadeIn>
+
         {/* ── Step 2 ── */}
         <FadeIn>
           <Heading id="counting">Step 2：定義 counting 問題</Heading>
@@ -168,6 +185,10 @@ export default function CF2217F() {
             Alice 要在 <InlineMath math="s \in [0, x_1-1]" /> 中找到 <InlineMath math="f(s)" /> 最小的那個。
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="contest" className="mb-12" />
+      </FadeIn>
 
         {/* ── Step 3 ── */}
         <FadeIn>
@@ -228,6 +249,10 @@ int mx = (x2 - i - 1) / 2;  // M: t 的上界
 long long sum = digit(i, mx) * (1LL << __builtin_popcount(i));`}</Code>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="contest" className="mb-12" />
+      </FadeIn>
+
         {/* ── Step 4 ── */}
         <FadeIn>
           <Heading id="digitdp">Step 4：Digit DP</Heading>
@@ -267,6 +292,10 @@ long long sum = digit(i, mx) * (1LL << __builtin_popcount(i));`}</Code>
 }`}</Code>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="contest" className="mb-12" />
+      </FadeIn>
+
         {/* ── Step 5 ── */}
         <FadeIn>
           <Heading id="merge">Step 5：合併與枚舉</Heading>
@@ -291,6 +320,10 @@ long long sum = digit(i, mx) * (1LL << __builtin_popcount(i));`}</Code>
           <SubHeading>複雜度</SubHeading>
           <BlockMath math="O\!\left(\min(x_1, x_2) \cdot \log x_2\right)" />
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="contest" className="mb-12" />
+      </FadeIn>
 
         {/* ── Code ── */}
         <FadeIn>
@@ -362,6 +395,10 @@ int main() {
     }
 }`}</Code>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="contest" className="mb-12" />
+      </FadeIn>
 
         {/* ── 解法 Flow ── */}
         <FadeIn>

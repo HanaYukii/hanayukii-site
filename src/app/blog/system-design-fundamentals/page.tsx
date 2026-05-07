@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -54,6 +55,10 @@ export default function SystemDesignFundamentals() {
         <p className="mb-8 text-text-muted">
           以「Auto-complete」為案例，整理系統設計面試常見的思路跟技術細節。
         </p>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="system" className="mb-12" />
       </FadeIn>
 
       <FadeIn delay={0.05}>

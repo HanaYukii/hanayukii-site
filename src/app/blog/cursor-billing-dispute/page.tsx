@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import ArticleIllustration from "@/components/ArticleIllustration";
 
 export const metadata: Metadata = {
   title: "Cursor Teams 年繳踩雷紀錄 | 花雪 HanaYukii",
@@ -47,6 +48,10 @@ export default function CursorBillingDispute() {
         <p className="mb-8 text-sm text-text-muted">2026-04-29</p>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="billing" className="mb-12" />
+      </FadeIn>
+
       <div className="prose-custom space-y-4 text-text-muted leading-relaxed [&_strong]:text-text">
 
         <FadeIn>
@@ -54,6 +59,10 @@ export default function CursorBillingDispute() {
             公司用 Cursor Teams 年繳，最近遇到一個 seat billing 的爭議。簡短紀錄一下，也想請教有 SaaS team plan 經驗的人，這算正常嗎。
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="billing" className="mb-12" />
+      </FadeIn>
 
         <FadeIn>
           <Heading id="what-happened">事情經過</Heading>
@@ -64,6 +73,10 @@ export default function CursorBillingDispute() {
             結果系統當成新增 seat，多收了年度席位費。
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="billing" className="mb-12" />
+      </FadeIn>
 
         <FadeIn>
           <Heading id="stuck">卡住的點</Heading>
@@ -79,6 +92,10 @@ export default function CursorBillingDispute() {
             換句話說：那個已付費的 seat 沒有任何人能用，但會繼續被收錢到年底。我覺得很離譜。
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="billing" className="mb-12" />
+      </FadeIn>
 
         <FadeIn>
           <Heading id="forum-vs-support">論壇官方說法 vs 客服</Heading>
@@ -107,6 +124,10 @@ export default function CursorBillingDispute() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="billing" className="mb-12" />
+      </FadeIn>
+
         <FadeIn>
           <Heading id="my-take">我的看法</Heading>
           <p>
@@ -121,6 +142,10 @@ export default function CursorBillingDispute() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="billing" className="mb-12" />
+      </FadeIn>
+
         <FadeIn>
           <Heading id="conclusion">結論</Heading>
           <p>
@@ -133,6 +158,10 @@ export default function CursorBillingDispute() {
             它們獨大就算了，現在看起來快被 Codex 跟 Claude Code 打趴，還要這樣對待客戶真的要確定耶。
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="billing" className="mb-12" />
+      </FadeIn>
 
       </div>
     </article>

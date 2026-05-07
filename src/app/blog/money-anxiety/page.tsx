@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import ArticleIllustration from "@/components/ArticleIllustration";
 
 export const metadata: Metadata = {
   title: "財務自由是不是假議題 | 花雪 HanaYukii",
@@ -49,6 +50,10 @@ export default function MoneyAnxiety() {
         </p>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="balance" className="mb-12" />
+      </FadeIn>
+
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text">
 
         {/* ── 科技圈的投資焦慮 ── */}
@@ -61,6 +66,10 @@ export default function MoneyAnxiety() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="balance" className="mb-12" />
+      </FadeIn>
+
         {/* ── 客觀上不需要擔心 ── */}
         <FadeIn>
           <Heading id="enough">客觀上不需要擔心</Heading>
@@ -70,6 +79,10 @@ export default function MoneyAnxiety() {
             {/* 被動收入的迷思：大部分人追的是安全感不是錢 */}
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="balance" className="mb-12" />
+      </FadeIn>
 
         {/* ── 但還是想捲 ── */}
         <FadeIn>
@@ -82,6 +95,10 @@ export default function MoneyAnxiety() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="balance" className="mb-12" />
+      </FadeIn>
+
         {/* ── 亞洲文化的匱乏感 ── */}
         <FadeIn>
           <Heading id="culture">亞洲文化的匱乏感</Heading>
@@ -92,6 +109,10 @@ export default function MoneyAnxiety() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="balance" className="mb-12" />
+      </FadeIn>
+
         {/* ── 「財務自由」這個詞本身 ── */}
         <FadeIn>
           <Heading id="myth">「財務自由」這個詞本身</Heading>
@@ -101,6 +122,10 @@ export default function MoneyAnxiety() {
             {/* 不是要說「知足常樂」那種雞湯，而是承認這個矛盾 */}
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="balance" className="mb-12" />
+      </FadeIn>
 
       </div>
     </article>

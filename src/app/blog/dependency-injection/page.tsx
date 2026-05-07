@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -67,6 +68,10 @@ export default function DependencyInjection() {
         </p>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="dependency" className="mb-12" />
+      </FadeIn>
+
       <FadeIn delay={0.05}>
         <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
           <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
@@ -97,6 +102,10 @@ export default function DependencyInjection() {
         </nav>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="dependency" className="mb-12" />
+      </FadeIn>
+
       <FadeIn delay={0.1}>
         <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
           <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
@@ -124,6 +133,10 @@ export default function DependencyInjection() {
             ))}
           </div>
         </nav>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="dependency" className="mb-12" />
       </FadeIn>
 
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-primary [&_code]:text-sm">
@@ -226,6 +239,10 @@ auto service = OrderService(std::make_unique<FakeDatabase>());`}</Code>
           </div>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="dependency" className="mb-12" />
+      </FadeIn>
+
         {/* ============ Item 2 ============ */}
         <FadeIn>
           <Heading id="item2">沒有 DI 時，test 為什麼會越寫越痛苦</Heading>
@@ -283,6 +300,10 @@ struct OrderService {
             當一個 struct 自己管理所有 dependency 的 lifetime，它的職責就已經超出 business logic 的範圍了。
           </Callout>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="dependency" className="mb-12" />
+      </FadeIn>
 
         {/* ============ Item 3 ============ */}
         <FadeIn>
@@ -399,6 +420,10 @@ OrderService service(std::move(db));`}</Code>
             </table>
           </div>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="dependency" className="mb-12" />
+      </FadeIn>
 
         {/* ============ Item 4 ============ */}
         <FadeIn>
@@ -545,6 +570,10 @@ OrderService test_service(mock_db);  // OrderService<MockDatabase>`}</Code>
             大多數應用用 virtual 就好，HFT / 遊戲引擎等 hot path 才需要考慮 template。
           </Callout>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="dependency" className="mb-12" />
+      </FadeIn>
 
         {/* ============ Item 5 ============ */}
         <FadeIn>
@@ -710,6 +739,10 @@ async fn main() -> std::io::Result<()> {
           </Callout>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="dependency" className="mb-12" />
+      </FadeIn>
+
         {/* ============ Item 6 ============ */}
         <FadeIn>
           <Heading id="item6">Container 什麼時候才需要</Heading>
@@ -817,6 +850,10 @@ func InitializeApp(cfg Config) (*App, error) {
             </table>
           </div>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="dependency" className="mb-12" />
+      </FadeIn>
 
         {/* ============ Item 7 ============ */}
         <FadeIn>
@@ -947,6 +984,10 @@ func TestGetOrder(t *testing.T) {
           </Callout>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="dependency" className="mb-12" />
+      </FadeIn>
+
         {/* ============ Item 8 ============ */}
         <FadeIn>
           <Heading id="item8">幾個很常見的反模式</Heading>
@@ -1041,6 +1082,10 @@ struct OrderService {
             DI 會自然地暴露設計問題 - 這也是它的優點。
           </Callout>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="dependency" className="mb-12" />
+      </FadeIn>
 
         {/* ============ Summary ============ */}
         <FadeIn>

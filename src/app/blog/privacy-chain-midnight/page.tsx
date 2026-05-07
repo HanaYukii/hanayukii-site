@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -63,6 +64,10 @@ export default function PrivacyChainMidnight() {
         <p className="mb-8 text-sm text-text-muted">2026-04-06</p>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="privacy" className="mb-12" />
+      </FadeIn>
+
       <FadeIn delay={0.05}>
         <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
           <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
@@ -91,6 +96,10 @@ export default function PrivacyChainMidnight() {
         </nav>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="privacy" className="mb-12" />
+      </FadeIn>
+
       {/* ── 前言 ── */}
       <FadeIn>
         <div className="space-y-4">
@@ -106,6 +115,10 @@ export default function PrivacyChainMidnight() {
         </div>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="privacy" className="mb-12" />
+      </FadeIn>
+
       {/* ── 公鏈透明性的問題 ── */}
       <FadeIn>
         <Heading id="problem">公鏈透明的問題</Heading>
@@ -119,6 +132,10 @@ export default function PrivacyChainMidnight() {
             所以很多企業不是不想用區塊鏈，而是不想把營運細節直播給全世界看。
           </p>
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="privacy" className="mb-12" />
       </FadeIn>
 
       {/* ── 現有方案比較 ── */}
@@ -159,6 +176,10 @@ export default function PrivacyChainMidnight() {
             換句話說，Monero 和 Zcash 比較像在處理「交易隱私」，Midnight 想處理的是「合約邏輯裡的資料隱私」。
           </p>
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="privacy" className="mb-12" />
       </FadeIn>
 
       {/* ── ZK-SNARKs 原理 ── */}
@@ -215,6 +236,10 @@ export default function PrivacyChainMidnight() {
             合約驗的是「條件」，不是「文件」。
           </Callout>
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="privacy" className="mb-12" />
       </FadeIn>
 
       {/* ── Midnight 架構 ── */}
@@ -302,6 +327,10 @@ contract AgeVerification {
         </div>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="privacy" className="mb-12" />
+      </FadeIn>
+
       {/* ── Selective Disclosure ── */}
       <FadeIn>
         <Heading id="selective-disclosure">選擇性揭露：隱私和合規可以共存</Heading>
@@ -331,6 +360,10 @@ contract AgeVerification {
         </div>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="privacy" className="mb-12" />
+      </FadeIn>
+
       {/* ── 共識機制 ── */}
       <FadeIn>
         <Heading id="consensus">共識先知道這些就夠</Heading>
@@ -340,6 +373,10 @@ contract AgeVerification {
             Midnight 是獨立 L1，但和 Cardano 生態綁得很深；另外它現在還在很早期，驗證者開放程度也還在往外擴。
           </p>
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="privacy" className="mb-12" />
       </FadeIn>
 
       {/* ── 總結比較 ── */}
@@ -403,6 +440,10 @@ contract AgeVerification {
             但它也還很早，技術方向清楚，不代表生態和採用一定跟得上。
           </p>
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="privacy" className="mb-12" />
       </FadeIn>
 
       <FadeIn>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import ArticleIllustration from "@/components/ArticleIllustration";
 
 export const metadata: Metadata = {
   title: "什麼叫做強 | 花雪 HanaYukii",
@@ -49,6 +50,10 @@ export default function WhatIsStrong() {
         </p>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="strength" className="mb-12" />
+      </FadeIn>
+
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text">
 
         {/* ── 起點 ── */}
@@ -61,6 +66,10 @@ export default function WhatIsStrong() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="strength" className="mb-12" />
+      </FadeIn>
+
         {/* ── 計分牌 ── */}
         <FadeIn>
           <Heading id="scoreboard">把錢當計分牌</Heading>
@@ -71,6 +80,10 @@ export default function WhatIsStrong() {
             {/* 但計分牌會誤導：遊戲規則不同，分數就不同 */}
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="strength" className="mb-12" />
+      </FadeIn>
 
         {/* ── CP 的強 ── */}
         <FadeIn>
@@ -83,6 +96,10 @@ export default function WhatIsStrong() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="strength" className="mb-12" />
+      </FadeIn>
+
         {/* ── 工程的強 ── */}
         <FadeIn>
           <Heading id="engineering">工程的計分牌</Heading>
@@ -92,6 +109,10 @@ export default function WhatIsStrong() {
             {/* 在新創補回來的：從零建系統才真正看得出實力 */}
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="strength" className="mb-12" />
+      </FadeIn>
 
         {/* ── 職場的強 ── */}
         <FadeIn>
@@ -104,6 +125,10 @@ export default function WhatIsStrong() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="strength" className="mb-12" />
+      </FadeIn>
+
         {/* ── 影響力的計分牌 ── */}
         <FadeIn>
           <Heading id="influence">影響力的計分牌</Heading>
@@ -113,6 +138,10 @@ export default function WhatIsStrong() {
             {/* 不同遊戲的「強」看的東西完全不同 */}
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="strength" className="mb-12" />
+      </FadeIn>
 
         {/* ── 企業家的計分牌 ── */}
         <FadeIn>
@@ -124,6 +153,10 @@ export default function WhatIsStrong() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="strength" className="mb-12" />
+      </FadeIn>
+
         {/* ── 不只是技術 ── */}
         <FadeIn>
           <Heading id="beyond-tech">不只是技術</Heading>
@@ -133,6 +166,10 @@ export default function WhatIsStrong() {
             {/* 每個維度都有自己的計分方式，沒有哪個比較高級 */}
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="strength" className="mb-12" />
+      </FadeIn>
 
         {/* ── 當下的體會 ── */}
         <FadeIn>
@@ -144,6 +181,10 @@ export default function WhatIsStrong() {
             {/* 但也許，過得舒適、在一個自己很喜歡的狀態，才是在所有計分牌之上、更重要的計分牌 */}
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="strength" className="mb-12" />
+      </FadeIn>
 
       </div>
     </article>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -98,6 +99,10 @@ export default function CppInplaceVector() {
         </p>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="memory" className="mb-12" />
+      </FadeIn>
+
       <FadeIn delay={0.1}>
         {/* TOC */}
         <nav className="mb-12 rounded-lg border border-border bg-surface p-6">
@@ -140,6 +145,10 @@ export default function CppInplaceVector() {
             </li>
           </ol>
         </nav>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="memory" className="mb-12" />
       </FadeIn>
 
       {/* ======================== What ======================== */}
@@ -213,6 +222,10 @@ export default function CppInplaceVector() {
         </Callout>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="memory" className="mb-12" />
+      </FadeIn>
+
       {/* ======================== Storage ======================== */}
       <FadeIn delay={0.2}>
         <Heading id="storage">Step 1 - 記憶體 Layout：aligned storage</Heading>
@@ -268,6 +281,10 @@ class inplace_vector {
         </KeyPoint>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="memory" className="mb-12" />
+      </FadeIn>
+
       {/* ======================== Lifecycle ======================== */}
       <FadeIn delay={0.25}>
         <Heading id="lifecycle">Step 2 - 物件生命週期</Heading>
@@ -308,6 +325,10 @@ explicit destructor call：
           <code>std::destroy_at</code>（在 &lt;memory&gt; 裡）。面試時兩種寫法都可以，
           但手寫 placement new 展示你理解底層。
         </Callout>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="memory" className="mb-12" />
       </FadeIn>
 
       {/* ======================== Core ops ======================== */}
@@ -370,6 +391,10 @@ const T* end() const noexcept { return ptr(size_); }`}</Code>
           <strong>capacity() 是 static constexpr。</strong> 容量在編譯期就確定了，不是 runtime 值。
           這是面試小亮點 - 展示你理解 inplace_vector 和 vector 的本質區別。
         </PitfallBox>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="memory" className="mb-12" />
       </FadeIn>
 
       {/* ======================== Move/Copy ======================== */}
@@ -448,6 +473,10 @@ inplace_vector& operator=(inplace_vector&& other) noexcept(
           我們的 inplace_vector 的 move 也不能是 noexcept。
           這影響 <code>std::vector&lt;inplace_vector&gt;</code> 在 realloc 時會用 move 還是 copy。
         </KeyPoint>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="memory" className="mb-12" />
       </FadeIn>
 
       {/* ======================== Full impl ======================== */}
@@ -627,6 +656,10 @@ int main() {
         </Callout>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="memory" className="mb-12" />
+      </FadeIn>
+
       {/* ======================== Pitfalls ======================== */}
       <FadeIn delay={0.45}>
         <Heading id="pitfalls">面試常見踩坑點</Heading>
@@ -681,6 +714,10 @@ int main() {
           destructor 會嘗試銷毀不存在的物件 → UB。
           正確順序永遠是 construct first, then update size。
         </PitfallBox>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="memory" className="mb-12" />
       </FadeIn>
 
       {/* ======================== Summary ======================== */}

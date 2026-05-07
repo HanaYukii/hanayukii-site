@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -105,6 +106,10 @@ export default function CppSecretOptimizations1() {
         </p>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="memory" className="mb-12" />
+      </FadeIn>
+
       <FadeIn delay={0.1}>
         {/* TOC */}
         <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
@@ -129,6 +134,10 @@ export default function CppSecretOptimizations1() {
             ))}
           </div>
         </nav>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="memory" className="mb-12" />
       </FadeIn>
 
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-primary [&_code]:text-sm">
@@ -321,6 +330,10 @@ GCC:       SSO  SSO  SSO  SSO  heap heap heap
             }
           />
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="memory" className="mb-12" />
+      </FadeIn>
 
         {/* ============ Item 2: Copy Elision / NRVO ============ */}
         <FadeIn>
@@ -546,6 +559,10 @@ Obj x = make();     // 保證只有一次建構`}</Code>
             }
           />
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="memory" className="mb-12" />
+      </FadeIn>
 
         {/* ============ Summary ============ */}
         <FadeIn>

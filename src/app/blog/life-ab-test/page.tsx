@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import ArticleIllustration from "@/components/ArticleIllustration";
 
 export const metadata: Metadata = {
   title: "如果人生可以 A/B Test | 花雪 HanaYukii",
@@ -49,6 +50,10 @@ export default function LifeAbTest() {
         </p>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="abtest" className="mb-12" />
+      </FadeIn>
+
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text">
 
         {/* ── 沒有對照組 ── */}
@@ -60,6 +65,10 @@ export default function LifeAbTest() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="abtest" className="mb-12" />
+      </FadeIn>
+
         {/* ── 美化沒選的路 ── */}
         <FadeIn>
           <Heading id="glorify-unchosen">美化沒選的路</Heading>
@@ -69,6 +78,10 @@ export default function LifeAbTest() {
             {/* 但那條路的困難跟失望你也看不到 */}
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="abtest" className="mb-12" />
+      </FadeIn>
 
         {/* ── 合理化已選的路 ── */}
         <FadeIn>
@@ -80,6 +93,10 @@ export default function LifeAbTest() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="abtest" className="mb-12" />
+      </FadeIn>
+
         {/* ── 真正的大節點 ── */}
         <FadeIn>
           <Heading id="key-moments">真正的大節點</Heading>
@@ -89,6 +106,10 @@ export default function LifeAbTest() {
             {/* 但你在當下根本不知道是哪幾個 */}
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="abtest" className="mb-12" />
+      </FadeIn>
 
         {/* ── 自己的幾個假設 ── */}
         <FadeIn>
@@ -100,6 +121,10 @@ export default function LifeAbTest() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="abtest" className="mb-12" />
+      </FadeIn>
+
         {/* ── 那怎麼辦 ── */}
         <FadeIn>
           <Heading id="so-what">那怎麼辦</Heading>
@@ -109,6 +134,10 @@ export default function LifeAbTest() {
             {/* 不需要說服自己每個決定都是對的 */}
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="abtest" className="mb-12" />
+      </FadeIn>
 
       </div>
     </article>

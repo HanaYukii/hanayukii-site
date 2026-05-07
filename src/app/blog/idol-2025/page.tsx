@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import ArticleIllustration from "@/components/ArticleIllustration";
 
 export const metadata: Metadata = {
   title: "2025 偶像現場全紀錄 | 花雪 HanaYukii",
@@ -57,6 +58,10 @@ export default function Idol2025() {
         <p className="mb-8 text-sm text-text-muted">2026-04-08</p>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
+      </FadeIn>
+
       {/* ── 前言 ── */}
       <FadeIn>
         <div className="space-y-4">
@@ -73,6 +78,10 @@ export default function Idol2025() {
             感謝各種現場的相遇與告別，也期待未來會有更多更好的相遇。
           </p>
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
       </FadeIn>
 
       {/* ── 時間線 ── */}
@@ -171,6 +180,10 @@ export default function Idol2025() {
         </div>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
+      </FadeIn>
+
       {/* ── TrySail ── */}
       <FadeIn>
         <Heading id="trysail" date="03/02">TrySail &quot;FlagShip&quot; <span className="text-lg font-normal text-text/60">@ 日本武道館</span></Heading>
@@ -180,6 +193,10 @@ export default function Idol2025() {
             也是第一次去武道館，今年應該還會找機會去看她們。
           </p>
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
       </FadeIn>
 
       {/* ── えびちゅう SSA ── */}
@@ -192,6 +209,10 @@ export default function Idol2025() {
             從頭到尾情緒一直是拉滿的狀態，本來出了點小意外差點放掉這場，慶幸最後還是有去。
           </p>
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
       </FadeIn>
 
       {/* ── えびちゅう 卒業式 ── */}
@@ -217,6 +238,10 @@ export default function Idol2025() {
         </div>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
+      </FadeIn>
+
       {/* ── IDOL EXPO ── */}
       <FadeIn>
         <Heading id="idol-expo" date="07/05-06">TAIPEI CITY IDOL EXPO 2025 <span className="text-lg font-normal text-text/60">@ Zepp New Taipei</span></Heading>
@@ -228,6 +253,10 @@ export default function Idol2025() {
             後來也去找了えま曬的鴨子娃娃的同系列產品，可惜沒買到同一隻。
           </p>
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
       </FadeIn>
 
       {/* ── ももクロ夏バカ ── */}
@@ -254,6 +283,10 @@ export default function Idol2025() {
         </div>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
+      </FadeIn>
+
       {/* ── LuckyFes ── */}
       <FadeIn>
         <Heading id="luckyfes" date="08/09">LuckyFes&apos;25 <span className="text-lg font-normal text-text/60">@ 国営ひたち海浜公園</span></Heading>
@@ -268,6 +301,10 @@ export default function Idol2025() {
             另外也看到了 FRUITS ZIPPER、氣志團、Cutie Street 等等，難得的體驗。
           </p>
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
       </FadeIn>
 
       {/* ── SASUKE ── */}
@@ -290,6 +327,10 @@ export default function Idol2025() {
         </div>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
+      </FadeIn>
+
       {/* ── FAMIEN ── */}
       <FadeIn>
         <Heading id="famien" date="08/16-17">FAMIEN 2025 <span className="text-lg font-normal text-text/60">@ 山中湖交流プラザ きらら</span></Heading>
@@ -303,6 +344,10 @@ export default function Idol2025() {
         </div>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
+      </FadeIn>
+
       {/* ── えま生誕 ── */}
       <FadeIn>
         <Heading id="ema-birthday" date="09/02">桜井えま 生誕ソロライブ「はにーえまいる~沼3~」<span className="text-lg font-normal text-text/60">@ KT Zepp Yokohama</span></Heading>
@@ -312,6 +357,10 @@ export default function Idol2025() {
             出的周邊有えま的聲音，還有她自己畫的圓臉えま，很可愛。
           </p>
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
       </FadeIn>
 
       {/* ── たかねこ ── */}
@@ -331,6 +380,10 @@ export default function Idol2025() {
         </div>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
+      </FadeIn>
+
       {/* ── IDOL KINGDOM ── */}
       <FadeIn>
         <Heading id="idol-kingdom" date="10/10-11">IDOL KINGDOM TAIPEI 2025 <span className="text-lg font-normal text-text/60">@ 統一時代百貨夢廣場</span></Heading>
@@ -345,6 +398,10 @@ export default function Idol2025() {
         </div>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
+      </FadeIn>
+
       {/* ── mona ── */}
       <FadeIn>
         <Heading id="mona" date="11/29">夏川椎菜 as mona 2nd「君を幸せにするのはわたし」<span className="text-lg font-normal text-text/60">@ TACHIKAWA STAGE GARDEN</span></Heading>
@@ -355,6 +412,10 @@ export default function Idol2025() {
             各種有趣的契機串起來的結果，於是我在 TrySail 改主推夏川了。
           </p>
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
       </FadeIn>
 
       {/* ── 俺のえびシャチ ── */}
@@ -379,6 +440,10 @@ export default function Idol2025() {
         </div>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
+      </FadeIn>
+
       {/* ── えびちゅう Road to K ── */}
       <FadeIn>
         <Heading id="ebichu-road" date="12/12">えびちゅう ~Magic 1 Hour~ in 愛知 <span className="text-lg font-normal text-text/60">@ COMTEC PORTBASE</span></Heading>
@@ -393,6 +458,10 @@ export default function Idol2025() {
             聽到稀有的梅跟ハッピーエンドとそれから，還有攝可時間，蝦中有來真好。
           </p>
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
       </FadeIn>
 
       {/* ── TEAM SHACHI Final ── */}
@@ -456,6 +525,10 @@ export default function Idol2025() {
         </div>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
+      </FadeIn>
+
       {/* ── 回顧 ── */}
       <FadeIn>
         <Heading id="reflection">回頭看</Heading>
@@ -480,6 +553,10 @@ export default function Idol2025() {
             2026 もよろしく。
           </p>
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="tickets" className="mb-12" />
       </FadeIn>
 
       <FadeIn>

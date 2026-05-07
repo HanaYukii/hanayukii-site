@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { InlineMath } from "@/components/Math";
 
@@ -51,6 +52,10 @@ export default function Lc2463() {
         </p>
       </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="dp" className="mb-12" />
+      </FadeIn>
+
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-primary [&_code]:text-sm">
 
         {/* ── 題目 ── */}
@@ -65,6 +70,10 @@ export default function Lc2463() {
           </p>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="dp" className="mb-12" />
+      </FadeIn>
+
         {/* ── 做法 ── */}
         <FadeIn>
           <Heading id="approach">做法</Heading>
@@ -76,6 +85,10 @@ export default function Lc2463() {
             其實是直觀的二維匹配 DP，不過轉移的實作蠻不直觀的，是每日一題的實作練習好題。
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="dp" className="mb-12" />
+      </FadeIn>
 
         {/* ── Code ── */}
         <FadeIn>
@@ -111,6 +124,10 @@ public:
 };`}</Code>
         </FadeIn>
 
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="dp" className="mb-12" />
+      </FadeIn>
+
         {/* ── 複雜度 ── */}
         <FadeIn>
           <Heading id="complexity">複雜度</Heading>
@@ -118,6 +135,10 @@ public:
             時間 <InlineMath math="O(n \cdot m \cdot \text{max\_limit})" />，空間 <InlineMath math="O(n \cdot m)" />。
           </p>
         </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="dp" className="mb-12" />
+      </FadeIn>
 
         {/* ── Follow-up ── */}
         <FadeIn>
