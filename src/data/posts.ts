@@ -226,5 +226,5 @@ export const posts: Post[] = [
   },
 ];
 
-export const hotPosts = posts.filter((p) => p.hot);
+export const hotPosts = posts.filter((p) => p.hot).reverse();
 export const recentPosts = posts.filter((p) => !p.hot && p.href);
