@@ -67,10 +67,6 @@ export default function LcWc497Q4() {
         </p>
       </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="contest" className="mb-12" />
-      </FadeIn>
-
       {/* TOC */}
       <FadeIn delay={0.1}>
         <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
@@ -99,10 +95,6 @@ export default function LcWc497Q4() {
         </nav>
       </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="contest" className="mb-12" />
-      </FadeIn>
-
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-primary [&_code]:text-sm">
 
         {/* ── 問題重述 ── */}
@@ -122,10 +114,6 @@ export default function LcWc497Q4() {
           </p>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="contest" className="mb-12" />
-      </FadeIn>
-
         {/* ── Step 1：轉化 ── */}
         <FadeIn>
           <Heading id="transform">Step 1：轉化</Heading>
@@ -143,10 +131,6 @@ export default function LcWc497Q4() {
             問題就變成：<strong>vals 裡面有沒有大小 1 到 n-1 的子集 GCD = 1？</strong>
           </p>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="contest" className="mb-12" />
-      </FadeIn>
 
         {/* ── Step 2：五個 Case ── */}
         <FadeIn>
@@ -197,10 +181,6 @@ export default function LcWc497Q4() {
           </div>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="contest" className="mb-12" />
-      </FadeIn>
-
         {/* ── Step 3：Case 5 ── */}
         <FadeIn>
           <Heading id="case5">Step 3：Case 5 的處理</Heading>
@@ -216,10 +196,6 @@ export default function LcWc497Q4() {
             這樣前面幾個 case 都能 <InlineMath math="O(1)" /> 判掉。每次 query <InlineMath math="O(\log n)" />，總共 <InlineMath math="O(q \cdot \log n)" />。
           </p>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="contest" className="mb-12" />
-      </FadeIn>
 
         {/* ── Code ── */}
         <FadeIn>
@@ -333,10 +309,6 @@ public:
 };`}</Code>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="contest" className="mb-12" />
-      </FadeIn>
-
         {/* ── 解法 Flow ── */}
         <FadeIn>
           <Heading id="flow">解法 Flow</Heading>
@@ -371,6 +343,10 @@ public:
             </span>
           ))}
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="contest" className="mt-16" />
       </FadeIn>
     </article>
   );

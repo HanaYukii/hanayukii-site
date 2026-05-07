@@ -112,10 +112,6 @@ export default function CppSecretOptimizations2() {
         </Link>
       </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="object" className="mb-12" />
-      </FadeIn>
-
       <FadeIn delay={0.1}>
         {/* TOC */}
         <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
@@ -141,10 +137,6 @@ export default function CppSecretOptimizations2() {
             ))}
           </div>
         </nav>
-      </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="object" className="mb-12" />
       </FadeIn>
 
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-primary [&_code]:text-sm">
@@ -279,10 +271,6 @@ struct Packed {
             explanation="struct A：char(1) + pad(3) + int(4) + char(1) + pad(3) = 12。struct B：int(4) + char(1) + char(1) + pad(2) = 8。把 int 放前面省了 4 bytes。"
           />
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="object" className="mb-12" />
-      </FadeIn>
 
         {/* ============ Item 4 ============ */}
         <FadeIn>
@@ -434,10 +422,6 @@ public:
           />
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="object" className="mb-12" />
-      </FadeIn>
-
         {/* ============ Item 5 ============ */}
         <FadeIn>
           <Heading id="item5">
@@ -578,10 +562,6 @@ Heap allocation 1（連續記憶體）:
           />
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="object" className="mb-12" />
-      </FadeIn>
-
         {/* ============ Bonus Quiz ============ */}
         <FadeIn>
           <Heading id="bonus">Bonus - 綜合題</Heading>
@@ -609,10 +589,6 @@ Heap allocation 1（連續記憶體）:
             }
           />
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="object" className="mb-12" />
-      </FadeIn>
 
         {/* ============ Summary ============ */}
         <FadeIn>
@@ -687,6 +663,10 @@ Heap allocation 1（連續記憶體）:
           </div>
         </FadeIn>
       </div>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="object" className="mt-16" />
+      </FadeIn>
     </article>
   );
 }

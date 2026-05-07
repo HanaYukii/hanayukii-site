@@ -57,10 +57,6 @@ export default function SystemDesignFundamentals() {
         </p>
       </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="system" className="mb-12" />
-      </FadeIn>
-
       <FadeIn delay={0.05}>
         <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
           <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
@@ -235,6 +231,10 @@ async function fetchSuggestions(query: string) {
             </span>
           ))}
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="system" className="mt-16" />
       </FadeIn>
     </article>
   );

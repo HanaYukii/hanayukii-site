@@ -53,10 +53,6 @@ export default function OnlineJudgeGuide() {
         <p className="mb-8 text-sm text-text-muted">2026-04-29</p>
       </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
-
       <FadeIn delay={0.05}>
         <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
           <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
@@ -84,10 +80,6 @@ export default function OnlineJudgeGuide() {
         </nav>
       </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
-
       <div className="prose-custom space-y-4 text-text-muted leading-relaxed [&_strong]:text-text">
 
         <FadeIn>
@@ -98,10 +90,6 @@ export default function OnlineJudgeGuide() {
             適合想入坑 CP，或是已經在練但不知道下一步該去哪的人。
           </p>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
 
         <FadeIn>
           <Heading id="what-is-oj">什麼是 Online Judge</Heading>
@@ -133,10 +121,6 @@ export default function OnlineJudgeGuide() {
           </ul>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
-
         {/* ── 國內 OJ ── */}
         <FadeIn>
           <Heading id="domestic">國內 OJ</Heading>
@@ -145,10 +129,6 @@ export default function OnlineJudgeGuide() {
           </p>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
-
         <FadeIn>
           <SubHeading id="greenjudge">GreenJudge</SubHeading>
           <p>
@@ -156,20 +136,12 @@ export default function OnlineJudgeGuide() {
           </p>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
-
         <FadeIn>
           <SubHeading id="zerojudge">ZeroJudge</SubHeading>
           <p>
             題庫最豐富的台灣 OJ，題目從很簡單到中等都有。題目較雜亂，沒有特別整理的順序，但簡單題很多，適合練手感。APCS 考古題也在這邊。
           </p>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
 
         <FadeIn>
           <SubHeading id="tioj">TIOJ</SubHeading>
@@ -181,10 +153,6 @@ export default function OnlineJudgeGuide() {
           </p>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
-
         {/* ── 國外 OJ ── */}
         <FadeIn>
           <Heading id="international">國外 OJ</Heading>
@@ -192,10 +160,6 @@ export default function OnlineJudgeGuide() {
             真正想練 CP，這幾個是必備的。
           </p>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
 
         <FadeIn>
           <SubHeading id="codeforces">Codeforces</SubHeading>
@@ -212,10 +176,6 @@ export default function OnlineJudgeGuide() {
             進階功能還有兩個值得知道：<strong>Gym</strong>（歷年訓練 contest、區域賽考古、各種題單，題庫量很大），跟 <strong>Virtual</strong>（可以模擬參賽歷史比賽，按當下排名計算你的表現，自己模擬 ICPC 或追進度都很適合）。
           </p>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
 
         <FadeIn>
           <SubHeading id="atcoder">AtCoder</SubHeading>
@@ -241,10 +201,6 @@ export default function OnlineJudgeGuide() {
           </p>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
-
         <FadeIn>
           <SubHeading id="leetcode">LeetCode</SubHeading>
           <p>
@@ -255,10 +211,6 @@ export default function OnlineJudgeGuide() {
           </p>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
-
         {/* ── 其他值得知道的 ── */}
         <FadeIn>
           <Heading id="others">其他值得知道的</Heading>
@@ -267,20 +219,12 @@ export default function OnlineJudgeGuide() {
           </p>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
-
         <FadeIn>
           <SubHeading id="cses">CSES Problem Set</SubHeading>
           <p>
             芬蘭出品的結構化題庫，收錄數百題，分成 Introductory、Sorting and Searching、Graph Algorithms、DP、Range Queries、Tree Algorithms、Mathematics 等主題。裡面包含大量模板題跟經典技巧的硬用，強烈推薦認真練 CP 的人要刷過一輪，把基本工具吃進來。
           </p>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
 
         <FadeIn>
           <SubHeading id="usaco">USACO</SubHeading>
@@ -289,20 +233,12 @@ export default function OnlineJudgeGuide() {
           </p>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
-
         <FadeIn>
           <SubHeading id="kattis">Kattis</SubHeading>
           <p>
             很多 ICPC 訓練、部分區域賽跟校內賽會使用或參考的平台。題目風格偏 ICPC：題敘較長、輸入輸出格式細節多、實作與邊界條件很重要。準備 ICPC 的話會接觸到，平常不太會主動去刷。
           </p>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
 
         <FadeIn>
           <SubHeading id="project-euler">Project Euler</SubHeading>
@@ -311,20 +247,12 @@ export default function OnlineJudgeGuide() {
           </p>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
-
         <FadeIn>
           <SubHeading id="legacy">SPOJ / UVa（古典 OJ）</SubHeading>
           <p>
             十幾年前的經典 OJ，題庫年代久、風格不一，現在比較不像主流日常練習場。但很多經典題跟教材上的解題範例還是會引用 UVa 編號。當作參考性質知道一下就好。
           </p>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
 
         <FadeIn>
           <SubHeading id="chinese-oj">中國 OJ</SubHeading>
@@ -355,10 +283,6 @@ export default function OnlineJudgeGuide() {
           </ul>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
-
         <FadeIn>
           <SubHeading id="vjudge">Vjudge</SubHeading>
           <p>
@@ -368,10 +292,6 @@ export default function OnlineJudgeGuide() {
             最大的價值是組訓練 contest：可以混合不同 OJ 的題目開私人比賽，這在 ICPC team 訓練時超實用。我們以前也是用 Vjudge 開模擬賽。如果想刷中國系 OJ 的題目，從 Vjudge 進來體驗會比直接用 POJ 的網頁好太多。
           </p>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
 
         {/* ── 大廠程式競賽 ── */}
         <FadeIn>
@@ -387,10 +307,6 @@ export default function OnlineJudgeGuide() {
             提一下是因為這些比賽當年很多人靠它累積知名度跟拿到 offer，包括我自己也是因為 Kick Start 成績被 Google 邀請過。可惜這條路現在大部分都走不通了。
           </p>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
 
         {/* ── 怎麼選 ── */}
         <FadeIn>
@@ -409,11 +325,11 @@ export default function OnlineJudgeGuide() {
           </p>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="judge" className="mb-12" />
-      </FadeIn>
-
       </div>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="judge" className="mt-16" />
+      </FadeIn>
     </article>
   );
 }

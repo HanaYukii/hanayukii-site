@@ -108,10 +108,6 @@ export default function CppInterviewPerformanceAnalysis() {
         </p>
       </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="orderbook" className="mb-12" />
-      </FadeIn>
-
       <FadeIn delay={0.1}>
         {/* TOC */}
         <nav className="mb-12 rounded-lg border border-border bg-surface p-6">
@@ -149,10 +145,6 @@ export default function CppInterviewPerformanceAnalysis() {
             </li>
           </ol>
         </nav>
-      </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="orderbook" className="mb-12" />
       </FadeIn>
 
       {/* ======================== Q1 ======================== */}
@@ -268,10 +260,6 @@ Widget w4(ptr);              // const char*：傳 C-style 字串指標
         </Callout>
       </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="orderbook" className="mb-12" />
-      </FadeIn>
-
       {/* ======================== Q2 ======================== */}
       <FadeIn delay={0.2}>
         <Heading id="q2">第二題：Lambda 捕獲模式</Heading>
@@ -363,10 +351,6 @@ std::cout << msg << "\\n";  // 沒有 call/return，省掉 stack frame 開銷`}<
         </p>
       </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="orderbook" className="mb-12" />
-      </FadeIn>
-
       {/* ======================== Q3 ======================== */}
       <FadeIn delay={0.25}>
         <Heading id="q3">第三題：Class 裡的 Lambda</Heading>
@@ -456,10 +440,6 @@ public:
         </Callout>
       </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="orderbook" className="mb-12" />
-      </FadeIn>
-
       {/* ======================== Q4 ======================== */}
       <FadeIn delay={0.3}>
         <Heading id="q4">第四題：Pointer 參數 vs Value 參數</Heading>
@@ -531,10 +511,6 @@ void transform(std::string x, std::string y) {
 
       </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="orderbook" className="mb-12" />
-      </FadeIn>
-
       {/* ======================== Q5 ======================== */}
       <FadeIn delay={0.35}>
         <Heading id="q5">第五題：SSO 底層實作</Heading>
@@ -589,10 +565,6 @@ SSO 閾值（常見 64-bit 實作）：
           因為 union 要容納 inline buffer。這是用「更大的物件」換「更少的 heap allocation」。
         </p>
 
-      </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="orderbook" className="mb-12" />
       </FadeIn>
 
       {/* ======================== Q6 ======================== */}
@@ -753,10 +725,6 @@ void applyDelta(
 
       </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="orderbook" className="mb-12" />
-      </FadeIn>
-
       <FadeIn delay={0.45}>
         <div className="mt-8 flex flex-wrap gap-2 text-xs">
           {["C++", "Performance", "Interview", "HFT", "Move Semantics", "Lambda", "Order Book"].map((tag) => (
@@ -768,6 +736,10 @@ void applyDelta(
             </span>
           ))}
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="orderbook" className="mt-16" />
       </FadeIn>
     </article>
   );

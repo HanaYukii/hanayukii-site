@@ -50,10 +50,6 @@ export default function MoneyAnxiety() {
         </p>
       </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="balance" className="mb-12" />
-      </FadeIn>
-
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text">
 
         {/* ── 科技圈的投資焦慮 ── */}
@@ -66,10 +62,6 @@ export default function MoneyAnxiety() {
           </p>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="balance" className="mb-12" />
-      </FadeIn>
-
         {/* ── 客觀上不需要擔心 ── */}
         <FadeIn>
           <Heading id="enough">客觀上不需要擔心</Heading>
@@ -79,10 +71,6 @@ export default function MoneyAnxiety() {
             {/* 被動收入的迷思：大部分人追的是安全感不是錢 */}
           </p>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="balance" className="mb-12" />
-      </FadeIn>
 
         {/* ── 但還是想捲 ── */}
         <FadeIn>
@@ -95,10 +83,6 @@ export default function MoneyAnxiety() {
           </p>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="balance" className="mb-12" />
-      </FadeIn>
-
         {/* ── 亞洲文化的匱乏感 ── */}
         <FadeIn>
           <Heading id="culture">亞洲文化的匱乏感</Heading>
@@ -108,10 +92,6 @@ export default function MoneyAnxiety() {
             {/* 不是個人問題，是文化驅動的集體焦慮 */}
           </p>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="balance" className="mb-12" />
-      </FadeIn>
 
         {/* ── 「財務自由」這個詞本身 ── */}
         <FadeIn>
@@ -123,11 +103,11 @@ export default function MoneyAnxiety() {
           </p>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="balance" className="mb-12" />
-      </FadeIn>
-
       </div>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="balance" className="mt-16" />
+      </FadeIn>
     </article>
   );
 }

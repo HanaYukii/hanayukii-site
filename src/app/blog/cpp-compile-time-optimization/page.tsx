@@ -69,10 +69,6 @@ export default function CppCompileTimeOptimization() {
         </p>
       </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="compile" className="mb-12" />
-      </FadeIn>
-
       <FadeIn delay={0.1}>
         {/* TOC */}
         <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
@@ -98,10 +94,6 @@ export default function CppCompileTimeOptimization() {
             ))}
           </div>
         </nav>
-      </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="compile" className="mb-12" />
       </FadeIn>
 
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-primary [&_code]:text-sm">
@@ -156,10 +148,6 @@ f(x):
             <code>constexpr</code> 的值直接嵌進指令。
           </Callout>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="compile" className="mb-12" />
-      </FadeIn>
 
         {/* ============ Item 2 ============ */}
         <FadeIn>
@@ -221,10 +209,6 @@ if 4 > 2:  swap(4, 2)
 if a > 4:  swap(a, 4)
 ...`}</Code>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="compile" className="mb-12" />
-      </FadeIn>
 
         {/* ============ Item 3 ============ */}
         <FadeIn>
@@ -312,10 +296,6 @@ static_assert(std::bidirectional_iterator<iterator>);`}</Code>
     cmp   reg, 0
     jne   crash              ← 每次 runtime 都要花幾條指令`}</Code>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="compile" className="mb-12" />
-      </FadeIn>
 
         {/* ============ Item 4 ============ */}
         <FadeIn>
@@ -423,10 +403,6 @@ auto get_key(const T& elem) -> /* SFINAE fallback */ { return elem; }`}</Code>
             分支，而是<strong>type導向的編譯期剪枝</strong>。
           </Callout>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="compile" className="mb-12" />
-      </FadeIn>
 
         {/* ============ Item 5 ============ */}
         <FadeIn>
@@ -556,10 +532,6 @@ index & 4095   →  and 指令   ← 1 cycle`}</Code>
           </div>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="compile" className="mb-12" />
-      </FadeIn>
-
         {/* ============ Summary ============ */}
         <FadeIn>
           <Heading id="summary">我自己最常用的幾個點</Heading>
@@ -582,6 +554,10 @@ index & 4095   →  and 指令   ← 1 cycle`}</Code>
           </div>
         </FadeIn>
       </div>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="compile" className="mt-16" />
+      </FadeIn>
     </article>
   );
 }

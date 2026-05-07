@@ -65,10 +65,6 @@ export default function Abc456fPlanHolidays() {
         <p className="mb-8 text-sm text-text-muted">2026-05-03</p>
       </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="contest" className="mb-12" />
-      </FadeIn>
-
       <FadeIn delay={0.1}>
         <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
           <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
@@ -98,10 +94,6 @@ export default function Abc456fPlanHolidays() {
         </nav>
       </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="contest" className="mb-12" />
-      </FadeIn>
-
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-primary [&_code]:text-sm">
 
         <FadeIn>
@@ -120,10 +112,6 @@ export default function Abc456fPlanHolidays() {
             限制 <InlineMath math="N \le 2 \times 10^5" />、<InlineMath math="K \le N" />、<InlineMath math="A_i \le 10^9" />。
           </Callout>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="contest" className="mb-12" />
-      </FadeIn>
 
         <FadeIn>
           <Heading id="free-rule">Step 1：免費規則的轉化</Heading>
@@ -147,10 +135,6 @@ export default function Abc456fPlanHolidays() {
             最小化 <InlineMath math="\sum_{i \in S} A_i" />。
           </Callout>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="contest" className="mb-12" />
-      </FadeIn>
 
         <FadeIn>
           <Heading id="indep-sum">Step 2：化為最大不相鄰省略和</Heading>
@@ -215,10 +199,6 @@ export default function Abc456fPlanHolidays() {
           </p>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="contest" className="mb-12" />
-      </FadeIn>
-
         <FadeIn>
           <Heading id="two-lengths">Step 3：為什麼只需檢查 L = K 跟 L = K + 1</Heading>
           <p>
@@ -256,10 +236,6 @@ export default function Abc456fPlanHolidays() {
             只需要對所有 <InlineMath math="[s, e]" /> 滿足 <InlineMath math="e - s + 1 \in \{K, K+1\}" /> 的窗口，計算 cost 取 min。
           </Callout>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="contest" className="mb-12" />
-      </FadeIn>
 
         <FadeIn>
           <Heading id="segtree">Step 4：線段樹維護最大不相鄰選和</Heading>
@@ -317,10 +293,6 @@ S combine(S L, S R) {
             時間：建樹 <InlineMath math="O(N)" />、單次區間查詢 <InlineMath math="O(\log N)" />、共 <InlineMath math="O(N \log N)" />。
           </p>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="contest" className="mb-12" />
-      </FadeIn>
 
         <FadeIn>
           <Heading id="pattern">延伸：線段樹「左右端狀態相依」合併模式</Heading>
@@ -389,10 +361,6 @@ S combine(S L, S R) {
             滿足這三點，幾乎就是線段樹「左右端狀態相依」模式的場景。
           </p>
         </FadeIn>
-
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="contest" className="mb-12" />
-      </FadeIn>
 
         <FadeIn>
           <Heading id="code">完整 Code</Heading>
@@ -493,10 +461,6 @@ int main() {
           </p>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="contest" className="mb-12" />
-      </FadeIn>
-
         <FadeIn>
           <Heading id="more">延伸練習</Heading>
           <p>
@@ -516,10 +480,6 @@ int main() {
           </p>
         </FadeIn>
 
-      <FadeIn delay={0.08}>
-        <ArticleIllustration variant="contest" className="mb-12" />
-      </FadeIn>
-
         <FadeIn>
           <div className="mt-12 flex flex-wrap gap-2 text-xs">
             {["AtCoder", "Segment Tree", "DP", "Max Non-Adjacent Sum", "Competitive Programming"].map((tag) => (
@@ -533,6 +493,10 @@ int main() {
           </div>
         </FadeIn>
       </div>
+
+      <FadeIn delay={0.08}>
+        <ArticleIllustration variant="contest" className="mt-16" />
+      </FadeIn>
     </article>
   );
 }
