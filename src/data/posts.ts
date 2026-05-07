@@ -8,6 +8,10 @@ export type Post = {
   hot?: boolean;
 };
 
+// tagStyle convention:
+//   bg-primary/10 text-primary  →  technical writeups (CP, C++, SWE, Web3, system design)
+//   bg-accent/10 text-accent    →  personal essays / life / career narratives
+
 export const posts: Post[] = [
   {
     title: "文件是 AI 時代的隱藏槓桿",
@@ -24,16 +28,16 @@ export const posts: Post[] = [
     summary:
       "把買假日問題轉成最大不相鄰省略和，並用線段樹「左右端狀態相依」模式維護動態查詢。順便整理 max subarray sum 同模式的對照。",
     tags: ["Competitive Programming", "Segment Tree"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "bg-primary/10 text-primary",
     href: "/blog/abc456f-plan-holidays",
   },
   {
     title: "KOL、牛市放大器，與投資裡的平行時空",
     date: "2026-05-02",
     summary:
-      "牛市會把一個人的魅力放大成神，熊市才會把同樣的特質放大成風險。從 D 大、反 D 大的人、其他 KOL 類型，到我自己對配置跟少賺的反思。",
+      "牛市會把一個人的魅力放大成神，熊市才會把同樣的特質放大成風險。從 D 大、反 D 大的人、其他 KOL 類型,到我自己對配置跟少賺的反思。",
     tags: ["Life", "投資"],
-    tagStyle: "bg-warm/10 text-warm",
+    tagStyle: "bg-accent/10 text-accent",
     href: "/blog/kol-bull-market-amplifier",
     hot: true,
   },
@@ -43,7 +47,7 @@ export const posts: Post[] = [
     summary:
       "從台灣的 ZeroJudge、TIOJ 到 Codeforces、AtCoder、LeetCode，主流 OJ 的特色、適合誰、怎麼用。給想入坑 CP 或不知道往哪邊練的人。",
     tags: ["Competitive Programming"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "bg-primary/10 text-primary",
     href: "/blog/online-judge-guide",
   },
   {
@@ -52,7 +56,7 @@ export const posts: Post[] = [
     summary:
       "公司用 Cursor Teams 年繳遇到的 seat billing 爭議：email rotation 被當成新增 seat，已付費 seat 沒人能用卻繼續被收錢。簡短紀錄一下。",
     tags: ["雜談", "SaaS"],
-    tagStyle: "bg-warm/10 text-warm",
+    tagStyle: "bg-accent/10 text-accent",
     href: "/blog/cursor-billing-dispute",
   },
   {
@@ -61,7 +65,7 @@ export const posts: Post[] = [
     summary:
       "直觀的二維匹配 DP，但轉移的實作不太直觀。每日一題的好題。",
     tags: ["Algorithm", "DP"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "bg-primary/10 text-primary",
     href: "/blog/lc-2463",
   },
   {
@@ -80,7 +84,7 @@ export const posts: Post[] = [
     summary:
       "Segment Tree 維護 GCD，分 case 討論。值域限制讓拿掉誰 GCD 都不為 1 只在很小的 n 才可能。",
     tags: ["Competitive Programming", "Number Theory"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "bg-primary/10 text-primary",
     href: "/blog/lc-wc497-q4",
   },
   {
@@ -89,7 +93,7 @@ export const posts: Post[] = [
     summary:
       "去年我是粉絲，今年我換了角度。一場心理成長活動背後的包裝、銷售設計，以及我自己的反思。",
     tags: ["Life", "觀察"],
-    tagStyle: "bg-warm/10 text-warm",
+    tagStyle: "bg-accent/10 text-accent",
     href: "/blog/reset-influence-analysis",
   },
   {
@@ -98,7 +102,7 @@ export const posts: Post[] = [
     summary:
       "Nim + XOR 加法恆等式 + Digit DP。把區間博弈轉成 Nim，再用代數轉換拆解 counting。",
     tags: ["Competitive Programming", "Game Theory"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "bg-primary/10 text-primary",
     href: "/blog/cf2217f",
   },
   {
@@ -107,7 +111,7 @@ export const posts: Post[] = [
     summary:
       "意外回歸星塵的一年，感謝各種現場的相遇與告別。從桃草到蝦中、從虎魚組到高嶺のなでしこ，2025 年的偶像現場紀錄。",
     tags: ["Life", "Idol"],
-    tagStyle: "bg-warm/10 text-warm",
+    tagStyle: "bg-accent/10 text-accent",
     href: "/blog/idol-2025",
   },
   {
@@ -125,7 +129,7 @@ export const posts: Post[] = [
     summary:
       "在 Google Cloud 待了三年，我最後選擇裸辭。不是因為壓力太大，而是因為太輕鬆。",
     tags: ["Career", "Personal"],
-    tagStyle: "bg-warm/10 text-warm",
+    tagStyle: "bg-accent/10 text-accent",
     href: "/blog/leaving-google",
     hot: true,
   },
@@ -144,7 +148,7 @@ export const posts: Post[] = [
     summary:
       "從 constexpr 到 LUT 生成 - 五個實用的編譯期技巧，把能在編譯期做的事移到編譯期。",
     tags: ["C++", "Performance"],
-    tagStyle: "bg-sky/10 text-sky",
+    tagStyle: "bg-primary/10 text-primary",
     href: "/blog/cpp-compile-time-optimization",
   },
   {
@@ -153,7 +157,7 @@ export const posts: Post[] = [
     summary:
       "std::string 不一定用 heap？return 時加 std::move 反而更慢？拆解編譯器與標準庫在背後做的事。",
     tags: ["C++", "Performance", "Memory"],
-    tagStyle: "bg-sky/10 text-sky",
+    tagStyle: "bg-primary/10 text-primary",
     href: "/blog/cpp-secret-optimizations-1",
   },
   {
@@ -162,7 +166,7 @@ export const posts: Post[] = [
     summary:
       "sizeof 不是你想的那樣、virtual 讓物件膨脹 4 倍、shared_ptr 的隱藏原子操作代價。",
     tags: ["C++", "Performance", "Memory"],
-    tagStyle: "bg-sky/10 text-sky",
+    tagStyle: "bg-primary/10 text-primary",
     href: "/blog/cpp-secret-optimizations-2",
   },
   {
@@ -171,7 +175,7 @@ export const posts: Post[] = [
     summary:
       "世界頂級量化交易公司的面試，面試官劍橋畢業，從零實作 inplace_vector：aligned storage、placement new、Rule of Five。",
     tags: ["C++", "C++26", "Interview"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "bg-primary/10 text-primary",
     href: "/blog/cpp-inplace-vector",
   },
   {
@@ -180,7 +184,7 @@ export const posts: Post[] = [
     summary:
       "我親身參與的某知名 Crypto / HFT 公司 C++ 面試，涵蓋 string 傳遞、lambda 捕獲、Order Book 設計等六道效能分析題。",
     tags: ["C++", "Interview", "HFT"],
-    tagStyle: "bg-warm/10 text-warm",
+    tagStyle: "bg-primary/10 text-primary",
     href: "/blog/cpp-interview-performance-analysis",
   },
   // ───── Drafts ─────
@@ -199,7 +203,7 @@ export const posts: Post[] = [
     summary:
       "明知道這輩子不需要太擔心，卻停不下來想捲。科技圈的投資焦慮、亞洲文化的匱乏感，跟那個永遠不夠的數字。",
     tags: ["Life", "Career"],
-    tagStyle: "bg-warm/10 text-warm",
+    tagStyle: "bg-accent/10 text-accent",
     href: null,
   },
   {
@@ -208,7 +212,7 @@ export const posts: Post[] = [
     summary:
       "人過度美化自己沒選的路，也過度合理化已選的路。但真相是你永遠跑不了對照組。",
     tags: ["Life", "Personal"],
-    tagStyle: "bg-warm/10 text-warm",
+    tagStyle: "bg-accent/10 text-accent",
     href: null,
   },
   {
@@ -217,7 +221,7 @@ export const posts: Post[] = [
     summary:
       "CP 的強、工程的強、職場的強，不同維度的定義跟我自己的體會。",
     tags: ["Career", "Personal"],
-    tagStyle: "bg-warm/10 text-warm",
+    tagStyle: "bg-accent/10 text-accent",
     href: null,
   },
 ];

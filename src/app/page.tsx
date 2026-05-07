@@ -35,20 +35,25 @@ export default function Home() {
 
       {/* Featured */}
       <section className="mx-auto max-w-3xl px-6 pb-16">
-        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
-          Featured
+        <p className="mb-6 font-mono text-xs uppercase tracking-[0.15em] text-primary">
+          /FEATURED
         </p>
         <div className="divide-y divide-border">
-          {hotPosts.map((post) => (
+          {hotPosts.map((post, i) => (
             <Link
               key={post.title}
               href={post.href!}
               className="group block py-6"
             >
               <div className="flex items-baseline justify-between gap-4">
-                <h2 className="text-xl font-semibold transition-colors group-hover:text-primary">
-                  {post.title}
-                </h2>
+                <div className="flex items-baseline gap-3 min-w-0">
+                  <span className="shrink-0 font-mono text-sm text-text-muted/60">
+                    {String(i + 1).padStart(2, "0")} /
+                  </span>
+                  <h2 className="text-xl font-semibold transition-colors group-hover:text-primary">
+                    {post.title}
+                  </h2>
+                </div>
                 <span className="shrink-0 text-xs text-text-muted">
                   {post.date}
                 </span>
@@ -74,8 +79,8 @@ export default function Home() {
       {/* Recent */}
       <section className="mx-auto max-w-3xl px-6 pb-24">
         <div className="mb-6 flex items-center justify-between">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
-            Recent
+          <p className="font-mono text-xs uppercase tracking-[0.15em] text-primary">
+            /RECENT
           </p>
           <Link
             href="/blog"
