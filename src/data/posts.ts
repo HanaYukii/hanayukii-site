@@ -14,6 +14,15 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    title: "高嶺のなでしこ — 生きてりゃいい 歌詞翻譯",
+    date: "2026-05-14",
+    summary:
+      "高嶺のなでしこ「生きてりゃいい」歌詞翻譯。エースコック はるさめキャンペーン主題曲，shito・中西作詞作曲，HoneyWorks 編曲。",
+    tags: ["Idol", "takaneko"],
+    tagStyle: "bg-accent/10 text-accent",
+    href: "/blog/takaneko-ikite-ryaii",
+  },
+  {
     title: "文件是 AI 時代的隱藏槓桿",
     date: "2026-05-03",
     summary:
