@@ -22,10 +22,6 @@ export default function Home() {
             <div className="mt-10 space-y-3 text-base leading-relaxed text-text-muted sm:text-lg">
               <p>Ex-Google engineer, now Tech Lead at an AI startup.</p>
               <p>
-                Competitive programmer at heart, Web3 protocol contributor on
-                the side.
-              </p>
-              <p>
                 這邊隨興寫自己喜歡的 topic — 演算法、C++、職涯、偶像、F1、日本旅遊。
               </p>
             </div>
@@ -36,16 +32,16 @@ export default function Home() {
               className="mt-10 max-w-xs space-y-3 font-mono text-xs"
             >
               <div className="flex items-center justify-between border-b border-border pb-2">
-                <span className="text-text-muted">algorithm</span>
-                <span className="text-primary">accepted</span>
+                <span className="text-text-muted">algorithms</span>
+                <span className="text-primary">fun</span>
               </div>
               <div className="flex items-center justify-between border-b border-border pb-2">
-                <span className="text-text-muted">system</span>
-                <span className="text-sky">stable</span>
+                <span className="text-text-muted">engineering</span>
+                <span className="text-sky">craft</span>
               </div>
               <div className="flex items-center justify-between border-b border-border pb-2">
-                <span className="text-text-muted">life</span>
-                <span className="text-accent">writing</span>
+                <span className="text-text-muted">writing</span>
+                <span className="text-accent">habit</span>
               </div>
             </div>
           </FadeIn>

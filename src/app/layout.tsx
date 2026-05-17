@@ -117,9 +117,7 @@ function Footer() {
               花雪 <span className="font-normal text-text/70">(HanaYukii)</span>
             </p>
             <p className="text-sm leading-relaxed text-text-muted">
-              工程師、競賽選手，
-              <br />
-              寫一些自己有感的東西。
+              隨興寫喜歡的 topic
             </p>
             <p className="mt-4 text-xs italic text-accent/80">
               Starmine, still becoming.
