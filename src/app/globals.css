@@ -27,13 +27,9 @@ html {
 }
 
 body {
-  background:
-    linear-gradient(180deg, rgba(46, 196, 182, 0.08), transparent 460px),
-    linear-gradient(90deg, rgba(244, 132, 95, 0.06), transparent 35%, rgba(56, 189, 248, 0.05)),
-    var(--color-bg);
+  background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
-  overflow-x: hidden;
 }
 
 h1,
@@ -43,7 +39,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-serif);
-  letter-spacing: 0;
+  letter-spacing: -0.02em;
 }
 
 code,
