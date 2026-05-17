@@ -235,5 +235,7 @@ export const posts: Post[] = [
   },
 ];
 
-export const hotPosts = posts.filter((p) => p.hot).reverse();
+export const hotPosts = posts
+  .filter((p) => p.hot)
+  .sort((a, b) => b.date.localeCompare(a.date));
 export const recentPosts = posts.filter((p) => !p.hot && p.href);

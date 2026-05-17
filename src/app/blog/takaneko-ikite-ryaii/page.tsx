@@ -209,6 +209,7 @@ export default function IkiteRyaii() {
             title="生きてりゃいい — 高嶺のなでしこ"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
+            loading="lazy"
             className="h-full w-full"
           />
         </div>

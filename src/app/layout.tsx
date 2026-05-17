@@ -183,7 +183,7 @@ function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-2 border-t border-border pt-6 text-xs text-text-muted sm:flex-row sm:justify-between">
-          <p>&copy; 2026 花雪 HanaYukii</p>
+          <p>&copy; {new Date().getFullYear()} 花雪 HanaYukii</p>
           <p>Built with Next.js</p>
         </div>
       </div>
