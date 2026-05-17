@@ -45,26 +45,36 @@ function Navbar() {
   const links = [
     { href: "/", label: "Home" },
     { href: "/blog", label: "Blog" },
-    { href: "/about", label: "About Me" },
+    { href: "/about", label: "About Me", shortLabel: "About" },
   ];
 
   return (
     <nav className="sticky top-0 z-50 border-b border-border bg-bg/70 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-4xl items-center justify-between gap-4 px-6 py-4">
         <Link
           href="/"
-          className="text-2xl font-bold tracking-tight text-text transition-colors hover:text-primary"
+          className="shrink-0 text-xl font-bold text-text transition-colors hover:text-primary sm:text-2xl"
         >
-          花雪 <span className="font-normal text-text/70">(HanaYukii)</span>
+          花雪{" "}
+          <span className="hidden font-normal text-text/70 sm:inline">
+            (HanaYukii)
+          </span>
         </Link>
-        <div className="flex gap-6">
+        <div className="flex min-w-0 gap-3 sm:gap-6">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-text/60 transition-colors hover:text-text"
+              className="text-xs font-medium text-text/60 transition-colors hover:text-text sm:text-sm"
             >
-              {link.label}
+              {"shortLabel" in link ? (
+                <>
+                  <span className="sm:hidden">{link.shortLabel}</span>
+                  <span className="hidden sm:inline">{link.label}</span>
+                </>
+              ) : (
+                link.label
+              )}
             </Link>
           ))}
         </div>
@@ -193,7 +203,7 @@ export default function RootLayout({
     >
       <body className="flex min-h-screen flex-col antialiased">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="min-w-0 flex-1">{children}</main>
         <Footer />
         <Analytics />
         <SpeedInsights />
