@@ -27,7 +27,10 @@ html {
 }
 
 body {
-  background-color: var(--color-bg);
+  background:
+    linear-gradient(180deg, rgba(46, 196, 182, 0.08), transparent 460px),
+    linear-gradient(90deg, rgba(244, 132, 95, 0.06), transparent 35%, rgba(56, 189, 248, 0.05)),
+    var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
 }
