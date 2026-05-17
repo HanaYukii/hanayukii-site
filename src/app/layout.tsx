@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Newsreader, Inter_Tight, JetBrains_Mono, Noto_Serif_TC } from "next/font/google";
+import { topics } from "@/data/topics";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -84,14 +85,6 @@ function Navbar() {
 }
 
 function Footer() {
-  const topics: { label: string; tag: string }[] = [
-    { label: "C++ / 系統", tag: "C++" },
-    { label: "演算法 / CP", tag: "Competitive Programming" },
-    { label: "職涯 / 反思", tag: "Career" },
-    { label: "投資 / 觀察", tag: "投資" },
-    { label: "生活 / 雜談", tag: "Life" },
-  ];
-
   const contacts: { label: string; href: string; external: boolean }[] = [
     { label: "GitHub", href: "https://github.com/HanaYukii", external: true },
     {
@@ -145,7 +138,7 @@ function Footer() {
                     href={`/blog?tag=${encodeURIComponent(topic.tag)}`}
                     className="text-text-muted transition-colors hover:text-text"
                   >
-                    {topic.label}
+                    {topic.footerLabel}
                   </Link>
                 </li>
               ))}

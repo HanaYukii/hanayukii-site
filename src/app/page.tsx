@@ -1,29 +1,7 @@
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { hotPosts, recentPosts } from "@/data/posts";
-
-const focusAreas = [
-  {
-    label: "Competitive Programming",
-    tag: "Competitive Programming",
-    summary: "演算法、競賽題解、解題思路與訓練回顧。",
-  },
-  {
-    label: "Systems / C++",
-    tag: "C++",
-    summary: "效能、記憶體、編譯期技巧與工程面試。",
-  },
-  {
-    label: "Career",
-    tag: "Career",
-    summary: "從 Google 到新創，工作選擇與職涯反思。",
-  },
-  {
-    label: "Life",
-    tag: "Life",
-    summary: "偶像現場、投資觀察、旅行與日常紀錄。",
-  },
-];
+import { featuredTopics } from "@/data/topics";
 
 const signals = [
   { value: "Ex-Google", label: "backend engineer" },
@@ -179,17 +157,17 @@ export default function Home() {
           </div>
 
           <div className="grid gap-3 md:grid-cols-4">
-            {focusAreas.map((area) => (
+            {featuredTopics.map((topic) => (
               <Link
-                key={area.tag}
-                href={`/blog?tag=${encodeURIComponent(area.tag)}`}
+                key={topic.tag}
+                href={`/blog?tag=${encodeURIComponent(topic.tag)}`}
                 className="group rounded-lg border border-border bg-surface/45 p-4 transition-colors hover:border-primary/60 hover:bg-surface-hover/60"
               >
                 <p className="font-serif text-lg font-semibold text-text transition-colors group-hover:text-primary">
-                  {area.label}
+                  {topic.home.label}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-text-muted">
-                  {area.summary}
+                  {topic.home.summary}
                 </p>
               </Link>
             ))}
