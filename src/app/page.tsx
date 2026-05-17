@@ -269,8 +269,8 @@ export default function Home() {
                 href={post.href!}
                 className="group grid min-w-0 gap-3 border-border/60 py-4 transition-colors lg:border-t"
               >
-                <div className="flex min-w-0 items-center justify-between gap-4">
-                  <h3 className="min-w-0 truncate text-base font-semibold text-text transition-colors group-hover:text-primary">
+                <div className="flex min-w-0 items-start justify-between gap-4">
+                  <h3 className="line-clamp-2 text-base font-semibold text-text transition-colors group-hover:text-primary">
                     {post.title}
                   </h3>
                   <time
