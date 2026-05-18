@@ -1,6 +1,27 @@
 import Link from "next/link";
 import { hotPosts, recentPosts } from "@/data/posts";
 
+const heroIndex = [
+  {
+    label: "Algorithms",
+    detail: "CP notes",
+    color: "text-primary",
+    bar: "bg-primary",
+  },
+  {
+    label: "Engineering",
+    detail: "C++ / systems",
+    color: "text-sky",
+    bar: "bg-sky",
+  },
+  {
+    label: "Essays",
+    detail: "career / idol / life",
+    color: "text-accent",
+    bar: "bg-accent",
+  },
+];
+
 export default function Home() {
   return (
     <>
@@ -18,29 +39,27 @@ export default function Home() {
           </p>
 
           <div className="mt-10 space-y-3 text-base leading-relaxed text-text-muted sm:text-lg">
-            <p>Ex-Google engineer, now Tech Lead at an AI startup.</p>
             <p>
-              這邊隨興寫自己喜歡的 topic — 演算法、C++、職涯、偶像、F1、日本旅遊。
+              Ex-Google engineer, Tech Lead at an AI startup, and competitive
+              programming enthusiast.
             </p>
           </div>
 
-          {/* Status indicators */}
           <div
-            aria-hidden="true"
-            className="mt-10 max-w-xs space-y-3 font-mono text-xs"
+            className="mt-10 max-w-sm border-y border-border/80 py-2 font-mono text-xs"
           >
-            <div className="flex items-center justify-between border-b border-border pb-2">
-              <span className="text-text-muted">algorithms</span>
-              <span className="text-primary">fun</span>
-            </div>
-            <div className="flex items-center justify-between border-b border-border pb-2">
-              <span className="text-text-muted">engineering</span>
-              <span className="text-sky">craft</span>
-            </div>
-            <div className="flex items-center justify-between border-b border-border pb-2">
-              <span className="text-text-muted">writing</span>
-              <span className="text-accent">habit</span>
-            </div>
+            {heroIndex.map((item) => (
+              <div
+                key={item.label}
+                className="grid grid-cols-[1rem_1fr] items-center gap-3 py-2 text-text-muted"
+              >
+                <span className={`h-px w-4 ${item.bar}`} />
+                <span>
+                  <span className={item.color}>{item.label}</span>{" "}
+                  <span className="text-text-muted/70">/ {item.detail}</span>
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
