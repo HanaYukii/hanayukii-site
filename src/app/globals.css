@@ -28,8 +28,9 @@ html {
 
 body {
   background:
-    linear-gradient(180deg, rgba(46, 196, 182, 0.08), transparent 460px),
-    linear-gradient(90deg, rgba(244, 132, 95, 0.06), transparent 35%, rgba(56, 189, 248, 0.05)),
+    linear-gradient(140deg, rgba(244, 132, 95, 0.22), rgba(244, 132, 95, 0.1) 30%, transparent 68%),
+    linear-gradient(220deg, rgba(56, 189, 248, 0.2), rgba(56, 189, 248, 0.08) 32%, transparent 70%),
+    linear-gradient(180deg, rgba(46, 196, 182, 0.08), rgba(46, 196, 182, 0.03) 520px, transparent 900px),
     var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
