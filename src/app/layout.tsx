@@ -36,10 +36,10 @@ const themeInitScript = `
 (() => {
   try {
     const storedTheme = window.localStorage.getItem("hanayukii-theme");
-    const theme = storedTheme === "dark" || storedTheme === "stationery" ? storedTheme : "stationery";
+    const theme = storedTheme === "dark" || storedTheme === "stationery" ? storedTheme : "dark";
     document.documentElement.dataset.theme = theme;
   } catch {
-    document.documentElement.dataset.theme = "stationery";
+    document.documentElement.dataset.theme = "dark";
   }
 })();
 `;
@@ -204,7 +204,7 @@ export default function RootLayout({
   return (
     <html
       lang="zh-TW"
-      data-theme="stationery"
+      data-theme="dark"
       suppressHydrationWarning
       className={`${newsreader.variable} ${interTight.variable} ${jetbrainsMono.variable} ${notoSerifTC.variable}`}
     >

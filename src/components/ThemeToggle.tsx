@@ -8,7 +8,7 @@ const storageKey = "hanayukii-theme";
 
 function getCurrentTheme(): Theme {
   if (typeof document === "undefined") {
-    return "stationery";
+    return "dark";
   }
 
   return document.documentElement.dataset.theme === "dark" ? "dark" : "stationery";
@@ -21,7 +21,7 @@ export default function ThemeToggle() {
     setTheme(getCurrentTheme());
   }, []);
 
-  const currentTheme = theme ?? "stationery";
+  const currentTheme = theme ?? "dark";
   const nextTheme: Theme = currentTheme === "dark" ? "stationery" : "dark";
 
   function switchTheme() {
