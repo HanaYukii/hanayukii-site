@@ -22,17 +22,26 @@ type ArticleIllustrationProps = {
 };
 
 const colors = {
-  accent: "#2ec4b6",
-  accentSoft: "rgba(46, 196, 182, 0.16)",
-  warm: "#f4845f",
-  warmSoft: "rgba(244, 132, 95, 0.16)",
-  sky: "#38bdf8",
-  skySoft: "rgba(56, 189, 248, 0.14)",
-  ink: "#e4e7ef",
-  muted: "#9ba1b8",
-  border: "#26314a",
-  surface: "#0f1320",
-  surfaceAlt: "#141a29",
+  accent: "var(--illustration-accent)",
+  accentSoft: "var(--illustration-accent-soft)",
+  accentWash: "var(--illustration-accent-wash)",
+  accentHaze: "var(--illustration-accent-haze)",
+  warm: "var(--illustration-warm)",
+  warmSoft: "var(--illustration-warm-soft)",
+  warmHaze: "var(--illustration-warm-haze)",
+  sky: "var(--illustration-sky)",
+  skySoft: "var(--illustration-sky-soft)",
+  skyWash: "var(--illustration-sky-wash)",
+  ink: "var(--illustration-ink)",
+  muted: "var(--illustration-muted)",
+  border: "var(--illustration-border)",
+  surface: "var(--illustration-surface)",
+  surfaceAlt: "var(--illustration-surface-alt)",
+  paper: "var(--illustration-paper)",
+  ghost: "var(--illustration-ghost)",
+  grid: "var(--illustration-grid)",
+  frameFill: "var(--illustration-frame-fill)",
+  frameStroke: "var(--illustration-frame-stroke)",
 };
 
 function Panel({
@@ -154,7 +163,7 @@ function renderIllustration(variant: ArticleIllustrationVariant) {
           <Panel x={96} y={110} w={146} h={84} />
           <Panel x={96} y={220} w={146} h={84} />
           <Panel x={96} y={330} w={146} h={84} />
-          <Panel x={382} y={170} w={202} h={184} fill="rgba(46, 196, 182, 0.08)" />
+          <Panel x={382} y={170} w={202} h={184} fill={colors.accentWash} />
           <Panel x={710} y={130} w={154} h={102} />
           <Panel x={710} y={292} w={154} h={102} />
           <Arrow d="M242 152 C 310 152, 322 210, 382 222" color={colors.accent} />
@@ -182,7 +191,7 @@ function renderIllustration(variant: ArticleIllustrationVariant) {
       return (
         <>
           <Panel x={110} y={146} w={148} h={188} />
-          <Panel x={140} y={122} w={148} h={188} fill="rgba(255,255,255,0.02)" />
+          <Panel x={140} y={122} w={148} h={188} fill={colors.paper} />
           <Panel x={170} y={98} w={148} h={188} />
           <Bar x={194} y={146} w={88} color={colors.ink} opacity={0.9} />
           <Bar x={194} y={182} w={96} />
@@ -192,13 +201,13 @@ function renderIllustration(variant: ArticleIllustrationVariant) {
           <Arrow d="M318 250 C 386 250, 412 250, 456 250" color={colors.warm} dash="7 10" />
           <Dot x={382} y={192} r={5} fill={colors.warm} />
           <Dot x={414} y={250} r={5} fill={colors.warm} />
-          <Panel x={456} y={124} w={178} h={212} fill="rgba(46, 196, 182, 0.06)" />
+          <Panel x={456} y={124} w={178} h={212} fill={colors.accentWash} />
           <Bar x={490} y={170} w={84} color={colors.accent} opacity={0.9} />
           <Bar x={490} y={210} w={110} />
           <Bar x={490} y={250} w={92} />
           <Bar x={490} y={290} w={72} />
           <Arrow d="M634 230 C 690 230, 720 230, 746 230" color={colors.accent} />
-          <Panel x={746} y={146} w={112} h={168} fill="rgba(56, 189, 248, 0.08)" />
+          <Panel x={746} y={146} w={112} h={168} fill={colors.skyWash} />
           <rect x="776" y="176" width="52" height="52" rx="14" fill="none" stroke={colors.sky} strokeWidth="2" />
           <Dot x={792} y={192} r={4} fill={colors.sky} />
           <Dot x={812} y={192} r={4} fill={colors.sky} />
@@ -212,7 +221,7 @@ function renderIllustration(variant: ArticleIllustrationVariant) {
       return (
         <>
           <Panel x={96} y={126} w={220} h={232} />
-          <Panel x={644} y={126} w={220} h={232} fill="rgba(46, 196, 182, 0.06)" />
+          <Panel x={644} y={126} w={220} h={232} fill={colors.accentWash} />
           {Array.from({ length: 4 }).map((_, row) =>
             Array.from({ length: 5 }).map((__, col) => (
               <rect
@@ -237,18 +246,18 @@ function renderIllustration(variant: ArticleIllustrationVariant) {
                 width="18"
                 height="18"
                 rx="4"
-                fill={row === 2 && col < 3 ? colors.accentSoft : "rgba(255,255,255,0.04)"}
+                fill={row === 2 && col < 3 ? colors.accentSoft : colors.ghost}
                 stroke={colors.border}
                 strokeWidth="1"
               />
             ))
           )}
-          <path d="M480 140 L548 168 V250 C548 304 508 334 480 346 C452 334 412 304 412 250 V168 Z" fill="rgba(56, 189, 248, 0.08)" stroke={colors.sky} strokeWidth="2" />
+          <path d="M480 140 L548 168 V250 C548 304 508 334 480 346 C452 334 412 304 412 250 V168 Z" fill={colors.skyWash} stroke={colors.sky} strokeWidth="2" />
           <rect x="448" y="214" width="64" height="54" rx="14" fill="none" stroke={colors.ink} strokeWidth="2" />
           <path d="M456 214 V198 C456 180 470 168 480 168 C490 168 504 180 504 198 V214" fill="none" stroke={colors.ink} strokeWidth="2" />
           <Arrow d="M316 244 C 358 244, 386 244, 412 244" color={colors.warm} />
           <Arrow d="M548 244 C 590 244, 618 244, 644 244" color={colors.accent} />
-          <Panel x={420} y={382} w={120} h={52} fill="rgba(244, 132, 95, 0.12)" />
+          <Panel x={420} y={382} w={120} h={52} fill={colors.warmSoft} />
           <Bar x={444} y={408} w={72} color={colors.warm} />
           <Arrow d="M754 358 C 720 390, 640 404, 540 408" color={colors.sky} dash="7 10" />
           <Spark x={812} y={152} color={colors.accent} />
@@ -265,7 +274,7 @@ function renderIllustration(variant: ArticleIllustrationVariant) {
           <Bar x={140} y={246} w={96} />
           <Bar x={140} y={280} w={136} />
           <Arrow d="M312 248 C 368 248, 388 248, 422 248" color={colors.accent} />
-          <circle cx="492" cy="248" r="66" fill="rgba(46, 196, 182, 0.06)" stroke={colors.accent} strokeWidth="2" />
+          <circle cx="492" cy="248" r="66" fill={colors.accentWash} stroke={colors.accent} strokeWidth="2" />
           <circle cx="492" cy="248" r="20" fill="none" stroke={colors.ink} strokeWidth="2" />
           <path d="M492 190 V222 M492 274 V306 M434 248 H466 M518 248 H550 M452 208 L470 226 M514 270 L532 288 M452 288 L470 270 M514 226 L532 208" stroke={colors.muted} strokeWidth="2" strokeLinecap="round" />
           <Arrow d="M558 248 C 620 248, 644 248, 676 248" color={colors.warm} />
@@ -293,7 +302,7 @@ function renderIllustration(variant: ArticleIllustrationVariant) {
       return (
         <>
           <Panel x={96} y={176} w={634} h={164} />
-          <rect x="128" y="212" width="414" height="92" rx="18" fill="rgba(46, 196, 182, 0.08)" stroke={colors.accent} strokeWidth="2" />
+          <rect x="128" y="212" width="414" height="92" rx="18" fill={colors.accentWash} stroke={colors.accent} strokeWidth="2" />
           {Array.from({ length: 7 }).map((_, index) => (
             <line
               key={`cell-${index}`}
@@ -320,7 +329,7 @@ function renderIllustration(variant: ArticleIllustrationVariant) {
           <Panel x={96} y={146} w={256} h={228} />
           <rect x="126" y="184" width="42" height="72" rx="12" fill={colors.accentSoft} stroke={colors.border} />
           <rect x="180" y="184" width="84" height="72" rx="12" fill={colors.skySoft} stroke={colors.border} />
-          <rect x="276" y="184" width="34" height="72" rx="12" fill="rgba(255,255,255,0.04)" stroke={colors.border} strokeDasharray="6 8" />
+          <rect x="276" y="184" width="34" height="72" rx="12" fill={colors.ghost} stroke={colors.border} strokeDasharray="6 8" />
           <rect x="126" y="274" width="184" height="52" rx="12" fill={colors.warmSoft} stroke={colors.border} />
           <Arrow d="M352 220 C 410 220, 430 220, 462 220" color={colors.accent} />
           <Panel x={462} y={146} w={114} h={228} />
@@ -329,7 +338,7 @@ function renderIllustration(variant: ArticleIllustrationVariant) {
           <Bar x={492} y={274} w={54} />
           <Arrow d="M576 260 C 630 260, 660 260, 702 260" color={colors.sky} />
           <Panel x={702} y={168} w={160} h={82} />
-          <Panel x={702} y={282} w={160} h={82} fill="rgba(56, 189, 248, 0.08)" />
+          <Panel x={702} y={282} w={160} h={82} fill={colors.skyWash} />
           <Arrow d="M782 250 L782 282" color={colors.warm} dash="7 10" />
           <Dot x={782} y={266} r={6} fill={colors.warm} />
         </>
@@ -383,7 +392,7 @@ function renderIllustration(variant: ArticleIllustrationVariant) {
           <Bar x={316} y={160} w={96} color={colors.ink} opacity={0.9} />
           <Bar x={506} y={160} w={96} color={colors.ink} opacity={0.9} />
           <Arrow d="M646 164 C 714 164, 742 164, 782 164" color={colors.accent} />
-          <Panel x={742} y={114} w={128} h={98} fill="rgba(46, 196, 182, 0.06)" />
+          <Panel x={742} y={114} w={128} h={98} fill={colors.accentWash} />
           <path d="M130 312 H302 M172 278 V346 M232 262 V360 M286 288 V338" stroke={colors.warm} strokeWidth="10" strokeLinecap="round" />
           <circle cx="412" cy="282" r="10" fill={colors.accent} />
           <circle cx="372" cy="342" r="10" fill={colors.sky} />
@@ -424,7 +433,7 @@ function renderIllustration(variant: ArticleIllustrationVariant) {
             </g>
           ))}
           <Bar x={454} y={310} w={106} color={colors.ink} opacity={0.9} />
-          <Panel x={668} y={158} w={182} h={180} fill="rgba(56, 189, 248, 0.08)" />
+          <Panel x={668} y={158} w={182} h={180} fill={colors.skyWash} />
           <path d="M708 214 L734 240 L808 174" fill="none" stroke={colors.sky} strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
           <Spark x={820} y={152} color={colors.accent} />
         </>
@@ -448,7 +457,7 @@ function renderIllustration(variant: ArticleIllustrationVariant) {
             ))
           )}
           <Arrow d="M366 248 C 426 248, 446 248, 478 248" color={colors.warm} />
-          <rect x="478" y="212" width="74" height="52" rx="14" fill="rgba(244, 132, 95, 0.12)" stroke={colors.warm} strokeDasharray="7 10" />
+          <rect x="478" y="212" width="74" height="52" rx="14" fill={colors.warmSoft} stroke={colors.warm} strokeDasharray="7 10" />
           <Arrow d="M552 238 C 618 238, 642 238, 674 238" color={colors.accent} />
           <Panel x={674} y={134} w={170} h={228} />
           <path d="M716 174 H802 M716 206 H790 M716 238 H784 M716 286 H806" stroke={colors.ink} strokeOpacity="0.75" strokeWidth="6" strokeLinecap="round" />
@@ -463,7 +472,7 @@ function renderIllustration(variant: ArticleIllustrationVariant) {
           <Bar x={150} y={172} w={88} color={colors.ink} opacity={0.9} />
           <Bar x={150} y={212} w={110} />
           <Bar x={150} y={252} w={70} />
-          <rect x="388" y="174" width="170" height="88" rx="22" fill="rgba(46, 196, 182, 0.08)" stroke={colors.accent} strokeWidth="2" />
+          <rect x="388" y="174" width="170" height="88" rx="22" fill={colors.accentWash} stroke={colors.accent} strokeWidth="2" />
           <circle cx="388" cy="218" r="14" fill={colors.surface} />
           <circle cx="558" cy="218" r="14" fill={colors.surface} />
           <Bar x={426} y={218} w={82} color={colors.accent} opacity={0.9} />
@@ -514,7 +523,7 @@ function renderIllustration(variant: ArticleIllustrationVariant) {
           <Panel x={96} y={182} w={170} h={86} />
           <Bar x={132} y={224} w={96} color={colors.ink} opacity={0.9} />
           <Arrow d="M266 224 C 324 224, 346 224, 390 224" color={colors.accent} />
-          <Panel x={390} y={160} w={164} h={132} fill="rgba(46, 196, 182, 0.06)" />
+          <Panel x={390} y={160} w={164} h={132} fill={colors.accentWash} />
           <Bar x={426} y={204} w={92} color={colors.accent} opacity={0.9} />
           <Bar x={426} y={240} w={74} />
           <Arrow d="M554 224 C 616 224, 636 224, 674 224" color={colors.sky} />
@@ -541,7 +550,7 @@ function renderIllustration(variant: ArticleIllustrationVariant) {
             B
           </text>
           <Arrow d="M306 238 C 378 238, 402 238, 448 238" color={colors.muted} />
-          <circle cx="496" cy="238" r="18" fill="rgba(255,255,255,0.04)" stroke={colors.border} strokeWidth="2" />
+          <circle cx="496" cy="238" r="18" fill={colors.ghost} stroke={colors.border} strokeWidth="2" />
           <Arrow d="M514 238 C 586 238, 612 200, 660 188" color={colors.accent} />
           <Arrow d="M514 238 C 586 238, 612 276, 660 288" color={colors.warm} dash="7 10" />
           <Panel x={660} y={146} w={190} h={184} />
@@ -553,7 +562,7 @@ function renderIllustration(variant: ArticleIllustrationVariant) {
       return (
         <>
           <Panel x={118} y={160} w={186} h={154} />
-          <rect x="152" y="198" width="118" height="76" rx="20" fill="rgba(56, 189, 248, 0.08)" stroke={colors.sky} strokeWidth="2" />
+          <rect x="152" y="198" width="118" height="76" rx="20" fill={colors.skyWash} stroke={colors.sky} strokeWidth="2" />
           <circle cx="182" cy="236" r="10" fill={colors.warmSoft} />
           <Bar x={202} y={236} w={44} color={colors.ink} opacity={0.9} />
           {[0, 1, 2].map((index) => (
@@ -589,7 +598,7 @@ function renderIllustration(variant: ArticleIllustrationVariant) {
           <circle cx="534" cy="214" r="8" fill={colors.warm} />
           <circle cx="594" cy="170" r="8" fill={colors.sky} />
           <Arrow d="M622 244 C 686 244, 714 244, 760 244" color={colors.accent} />
-          <Panel x={760} y={138} w={96} h={212} fill="rgba(46, 196, 182, 0.06)" />
+          <Panel x={760} y={138} w={96} h={212} fill={colors.accentWash} />
           <Bar x={784} y={182} w={48} color={colors.ink} opacity={0.9} />
           <Bar x={784} y={232} w={48} />
           <Bar x={784} y={282} w={48} color={colors.warm} />
@@ -609,16 +618,22 @@ export default function ArticleIllustration({
   return (
     <div
       aria-hidden="true"
-      className={`relative overflow-hidden rounded-2xl border border-border bg-[#0f1320] ${className}`}
+      className={`relative overflow-hidden rounded-2xl border border-border bg-[var(--illustration-surface)] ${className}`}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(46,196,182,0.08),transparent_42%),radial-gradient(circle_at_bottom_right,rgba(244,132,95,0.06),transparent_34%)]" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(circle at top left, var(--illustration-accent-haze), transparent 42%), radial-gradient(circle at bottom right, var(--illustration-warm-haze), transparent 34%)",
+        }}
+      />
       <svg viewBox="0 0 960 520" className="relative block w-full h-auto">
         <defs>
           <pattern id={patternId} width="36" height="36" patternUnits="userSpaceOnUse">
             <path
               d="M36 0H0V36"
               fill="none"
-              stroke="rgba(155, 161, 184, 0.08)"
+              stroke={colors.grid}
               strokeWidth="1"
             />
           </pattern>
@@ -631,8 +646,8 @@ export default function ArticleIllustration({
           width="912"
           height="472"
           rx="28"
-          fill="rgba(255,255,255,0.01)"
-          stroke="rgba(155, 161, 184, 0.08)"
+          fill={colors.frameFill}
+          stroke={colors.frameStroke}
         />
 
         <Spark x={888} y={74} color={colors.accent} />

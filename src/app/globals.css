@@ -1,6 +1,78 @@
 @import "tailwindcss";
 
 @theme {
+  --color-primary: #2f675d;
+  --color-primary-dark: #244f48;
+  --color-accent: #b54734;
+  --color-warm: #9d762d;
+  --color-sky: #486f89;
+  --color-rose: #8c4d5a;
+  --color-bg: #f3eadc;
+  --color-surface: #fbf6ec;
+  --color-surface-hover: #efe3d1;
+  --color-text: #2d2923;
+  --color-text-muted: #70685d;
+  --color-border: #d4c6b1;
+
+  --font-serif: var(--font-newsreader), var(--font-noto-serif-tc), Georgia,
+    "Songti TC", "Source Han Serif TC", serif;
+  --font-sans: var(--font-inter-tight), -apple-system, BlinkMacSystemFont,
+    "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "SF Mono", Menlo, Consolas,
+    "Courier New", monospace;
+}
+
+:root,
+html[data-theme="stationery"] {
+  color-scheme: light;
+  --color-primary: #2f675d;
+  --color-primary-dark: #244f48;
+  --color-accent: #b54734;
+  --color-warm: #9d762d;
+  --color-sky: #486f89;
+  --color-rose: #8c4d5a;
+  --color-bg: #f3eadc;
+  --color-surface: #fbf6ec;
+  --color-surface-hover: #efe3d1;
+  --color-text: #2d2923;
+  --color-text-muted: #70685d;
+  --color-border: #d4c6b1;
+
+  --site-body-background:
+    linear-gradient(90deg, rgba(104, 72, 38, 0.16), rgba(104, 72, 38, 0.04) 13%, transparent 28%, transparent 72%, rgba(104, 72, 38, 0.05) 87%, rgba(104, 72, 38, 0.16)),
+    radial-gradient(circle at 18% 8%, rgba(255, 255, 255, 0.72), transparent 32rem),
+    linear-gradient(180deg, rgba(255, 252, 244, 0.76), rgba(243, 234, 220, 0.68) 34rem, transparent 70rem),
+    repeating-linear-gradient(90deg, rgba(95, 66, 37, 0.035) 0 1px, transparent 1px 15px),
+    repeating-linear-gradient(0deg, rgba(45, 41, 35, 0.025) 0 1px, transparent 1px 10px),
+    var(--color-bg);
+  --site-selection-bg: rgba(181, 71, 52, 0.24);
+  --site-selection-text: var(--color-text);
+  --nav-shadow: rgba(95, 66, 37, 0.06);
+
+  --illustration-accent: #2f675d;
+  --illustration-accent-soft: rgba(47, 103, 93, 0.14);
+  --illustration-accent-wash: rgba(47, 103, 93, 0.08);
+  --illustration-accent-haze: rgba(47, 103, 93, 0.08);
+  --illustration-warm: #b54734;
+  --illustration-warm-soft: rgba(181, 71, 52, 0.13);
+  --illustration-warm-haze: rgba(181, 71, 52, 0.06);
+  --illustration-sky: #486f89;
+  --illustration-sky-soft: rgba(72, 111, 137, 0.13);
+  --illustration-sky-wash: rgba(72, 111, 137, 0.1);
+  --illustration-ink: #2d2923;
+  --illustration-muted: #70685d;
+  --illustration-border: #d4c6b1;
+  --illustration-surface: #f3eadc;
+  --illustration-surface-alt: #fbf6ec;
+  --illustration-paper: rgba(255, 252, 244, 0.72);
+  --illustration-ghost: rgba(112, 104, 93, 0.1);
+  --illustration-grid: rgba(112, 104, 93, 0.14);
+  --illustration-frame-fill: rgba(255, 252, 244, 0.44);
+  --illustration-frame-stroke: rgba(112, 104, 93, 0.14);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
   --color-primary: #2ec4b6;
   --color-primary-dark: #20a89b;
   --color-accent: #f4845f;
@@ -14,12 +86,35 @@
   --color-text-muted: #9ba1b8;
   --color-border: #1e2235;
 
-  --font-serif: var(--font-newsreader), var(--font-noto-serif-tc), Georgia,
-    "Songti TC", "Source Han Serif TC", serif;
-  --font-sans: var(--font-inter-tight), -apple-system, BlinkMacSystemFont,
-    "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
-  --font-mono: var(--font-jetbrains-mono), "SF Mono", Menlo, Consolas,
-    "Courier New", monospace;
+  --site-body-background:
+    linear-gradient(140deg, rgba(244, 132, 95, 0.22), rgba(244, 132, 95, 0.1) 30%, transparent 68%),
+    linear-gradient(220deg, rgba(56, 189, 248, 0.2), rgba(56, 189, 248, 0.08) 32%, transparent 70%),
+    linear-gradient(180deg, rgba(46, 196, 182, 0.08), rgba(46, 196, 182, 0.03) 520px, transparent 900px),
+    var(--color-bg);
+  --site-selection-bg: rgba(46, 196, 182, 0.3);
+  --site-selection-text: #fff;
+  --nav-shadow: rgba(255, 255, 255, 0.04);
+
+  --illustration-accent: #2ec4b6;
+  --illustration-accent-soft: rgba(46, 196, 182, 0.16);
+  --illustration-accent-wash: rgba(46, 196, 182, 0.06);
+  --illustration-accent-haze: rgba(46, 196, 182, 0.08);
+  --illustration-warm: #f4845f;
+  --illustration-warm-soft: rgba(244, 132, 95, 0.16);
+  --illustration-warm-haze: rgba(244, 132, 95, 0.06);
+  --illustration-sky: #38bdf8;
+  --illustration-sky-soft: rgba(56, 189, 248, 0.14);
+  --illustration-sky-wash: rgba(56, 189, 248, 0.08);
+  --illustration-ink: #e4e7ef;
+  --illustration-muted: #9ba1b8;
+  --illustration-border: #26314a;
+  --illustration-surface: #0f1320;
+  --illustration-surface-alt: #141a29;
+  --illustration-paper: rgba(255, 255, 255, 0.02);
+  --illustration-ghost: rgba(255, 255, 255, 0.04);
+  --illustration-grid: rgba(155, 161, 184, 0.08);
+  --illustration-frame-fill: rgba(255, 255, 255, 0.01);
+  --illustration-frame-stroke: rgba(155, 161, 184, 0.08);
 }
 
 html {
@@ -27,11 +122,7 @@ html {
 }
 
 body {
-  background:
-    linear-gradient(140deg, rgba(244, 132, 95, 0.22), rgba(244, 132, 95, 0.1) 30%, transparent 68%),
-    linear-gradient(220deg, rgba(56, 189, 248, 0.2), rgba(56, 189, 248, 0.08) 32%, transparent 70%),
-    linear-gradient(180deg, rgba(46, 196, 182, 0.08), rgba(46, 196, 182, 0.03) 520px, transparent 900px),
-    var(--color-bg);
+  background: var(--site-body-background);
   color: var(--color-text);
   font-family: var(--font-sans);
 }
@@ -54,6 +145,6 @@ samp {
 }
 
 ::selection {
-  background-color: rgba(46, 196, 182, 0.3);
-  color: #fff;
+  background-color: var(--site-selection-bg);
+  color: var(--site-selection-text);
 }

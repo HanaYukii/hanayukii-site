@@ -25,8 +25,8 @@ const cpBadges = [
   { text: "Google Code Jam Round 3 (x2)", color: "bg-warm/10 text-warm" },
   { text: "Meta Hacker Cup Round 3 (x3)", color: "bg-rose/10 text-rose" },
   { text: "LeetCode ~2800 - Guardian (Top 0.04%)", color: "bg-primary/10 text-primary" },
-  { text: "Codeforces 2300+ - International Master (Top 0.5%)", color: "bg-teal-400/10 text-teal-300" },
-  { text: "AtCoder 2000+ - 5-Dan", color: "bg-orange-400/10 text-orange-300" },
+  { text: "Codeforces 2300+ - International Master (Top 0.5%)", color: "bg-accent/10 text-accent" },
+  { text: "AtCoder 2000+ - 5-Dan", color: "bg-warm/10 text-warm" },
   { text: "Google Kick Start 2020 - Invited to Google Visit Program", color: "bg-sky/10 text-sky" },
 ];
 

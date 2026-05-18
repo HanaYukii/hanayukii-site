@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Newsreader, Inter_Tight, JetBrains_Mono, Noto_Serif_TC } from "next/font/google";
 import { topics } from "@/data/topics";
+import ThemeToggle from "@/components/ThemeToggle";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -31,6 +32,18 @@ const notoSerifTC = Noto_Serif_TC({
   preload: false,
 });
 
+const themeInitScript = `
+(() => {
+  try {
+    const storedTheme = window.localStorage.getItem("hanayukii-theme");
+    const theme = storedTheme === "dark" || storedTheme === "stationery" ? storedTheme : "stationery";
+    document.documentElement.dataset.theme = theme;
+  } catch {
+    document.documentElement.dataset.theme = "stationery";
+  }
+})();
+`;
+
 export const metadata: Metadata = {
   title: "花雪 HanaYukii",
   description:
@@ -50,7 +63,7 @@ function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-border bg-bg/70 backdrop-blur-xl">
+    <nav className="sticky top-0 z-50 border-b border-border bg-surface/90 shadow-[0_1px_0_var(--nav-shadow)]">
       <div className="mx-auto flex max-w-4xl items-center justify-between gap-4 px-6 py-4">
         <Link
           href="/"
@@ -61,7 +74,7 @@ function Navbar() {
             (HanaYukii)
           </span>
         </Link>
-        <div className="flex min-w-0 gap-3 sm:gap-6">
+        <div className="flex min-w-0 items-center gap-3 sm:gap-6">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -78,6 +91,7 @@ function Navbar() {
               )}
             </Link>
           ))}
+          <ThemeToggle />
         </div>
       </div>
     </nav>
@@ -108,7 +122,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="relative z-10 border-t border-border bg-bg/80">
+    <footer className="relative z-10 border-t border-border bg-surface/65">
       <div className="mx-auto max-w-4xl px-6 py-12">
         <div className="grid gap-10 sm:grid-cols-3 sm:gap-12">
           {/* Brand */}
@@ -190,8 +204,13 @@ export default function RootLayout({
   return (
     <html
       lang="zh-TW"
+      data-theme="stationery"
+      suppressHydrationWarning
       className={`${newsreader.variable} ${interTight.variable} ${jetbrainsMono.variable} ${notoSerifTC.variable}`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="flex min-h-screen flex-col antialiased">
         <Navbar />
         <main className="min-w-0 flex-1">{children}</main>
