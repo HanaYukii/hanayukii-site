@@ -1,5 +1,4 @@
 import Link from "next/link";
-import FadeIn from "@/components/FadeIn";
 import { hotPosts, recentPosts } from "@/data/posts";
 
 export default function Home() {
@@ -8,43 +7,41 @@ export default function Home() {
       {/* Hero */}
       <section>
         <div className="mx-auto max-w-3xl px-6 pb-16 pt-24 sm:pt-28">
-          <FadeIn>
-            <h1 className="text-5xl font-bold sm:text-6xl">
-              花雪{" "}
-              <span className="font-normal italic text-text/50">
-                / HanaYukii
-              </span>
-            </h1>
-            <p className="mt-3 text-sm italic text-accent/80">
-              Starmine, still becoming.
+          <h1 className="text-5xl font-bold sm:text-6xl">
+            花雪{" "}
+            <span className="font-normal italic text-text/50">
+              / HanaYukii
+            </span>
+          </h1>
+          <p className="mt-3 text-sm italic text-accent/80">
+            Starmine, still becoming.
+          </p>
+
+          <div className="mt-10 space-y-3 text-base leading-relaxed text-text-muted sm:text-lg">
+            <p>Ex-Google engineer, now Tech Lead at an AI startup.</p>
+            <p>
+              這邊隨興寫自己喜歡的 topic — 演算法、C++、職涯、偶像、F1、日本旅遊。
             </p>
+          </div>
 
-            <div className="mt-10 space-y-3 text-base leading-relaxed text-text-muted sm:text-lg">
-              <p>Ex-Google engineer, now Tech Lead at an AI startup.</p>
-              <p>
-                這邊隨興寫自己喜歡的 topic — 演算法、C++、職涯、偶像、F1、日本旅遊。
-              </p>
+          {/* Status indicators */}
+          <div
+            aria-hidden="true"
+            className="mt-10 max-w-xs space-y-3 font-mono text-xs"
+          >
+            <div className="flex items-center justify-between border-b border-border pb-2">
+              <span className="text-text-muted">algorithms</span>
+              <span className="text-primary">fun</span>
             </div>
-
-            {/* Status indicators */}
-            <div
-              aria-hidden="true"
-              className="mt-10 max-w-xs space-y-3 font-mono text-xs"
-            >
-              <div className="flex items-center justify-between border-b border-border pb-2">
-                <span className="text-text-muted">algorithms</span>
-                <span className="text-primary">fun</span>
-              </div>
-              <div className="flex items-center justify-between border-b border-border pb-2">
-                <span className="text-text-muted">engineering</span>
-                <span className="text-sky">craft</span>
-              </div>
-              <div className="flex items-center justify-between border-b border-border pb-2">
-                <span className="text-text-muted">writing</span>
-                <span className="text-accent">habit</span>
-              </div>
+            <div className="flex items-center justify-between border-b border-border pb-2">
+              <span className="text-text-muted">engineering</span>
+              <span className="text-sky">craft</span>
             </div>
-          </FadeIn>
+            <div className="flex items-center justify-between border-b border-border pb-2">
+              <span className="text-text-muted">writing</span>
+              <span className="text-accent">habit</span>
+            </div>
+          </div>
         </div>
       </section>
 
