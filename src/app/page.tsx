@@ -10,7 +10,7 @@ const heroIndex = [
   },
   {
     label: "Engineering",
-    detail: "C++ / systems",
+    detail: "C++ / systems / crypto",
     color: "text-sky",
     bar: "bg-sky",
   },

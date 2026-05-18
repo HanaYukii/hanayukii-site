@@ -48,7 +48,6 @@ export const posts: Post[] = [
     tags: ["Life", "投資"],
     tagStyle: "bg-accent/10 text-accent",
     href: "/blog/kol-bull-market-amplifier",
-    hot: true,
   },
   {
     title: "各大 Online Judge 介紹",
@@ -58,6 +57,7 @@ export const posts: Post[] = [
     tags: ["Competitive Programming"],
     tagStyle: "bg-primary/10 text-primary",
     href: "/blog/online-judge-guide",
+    hot: true,
   },
   {
     title: "Cursor Teams 年繳踩雷紀錄",
@@ -237,5 +237,5 @@ export const posts: Post[] = [
 
 export const hotPosts = posts
   .filter((p) => p.hot)
-  .sort((a, b) => b.date.localeCompare(a.date));
+  .sort((a, b) => a.date.localeCompare(b.date));
 export const recentPosts = posts.filter((p) => !p.hot && p.href);
