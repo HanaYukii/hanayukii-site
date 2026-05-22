@@ -35,7 +35,7 @@ const notoSerifTC = Noto_Serif_TC({
 const themeInitScript = `
 (() => {
   try {
-    const storedTheme = window.localStorage.getItem("hanayukii-theme");
+    const storedTheme = window.localStorage.getItem("hanayukii-theme-v2");
     const theme = storedTheme === "dark" || storedTheme === "stationery" ? storedTheme : "dark";
     document.documentElement.dataset.theme = theme;
   } catch {

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 type Theme = "stationery" | "dark";
 
-const storageKey = "hanayukii-theme";
+const storageKey = "hanayukii-theme-v2";
 
 function getCurrentTheme(): Theme {
   if (typeof document === "undefined") {
