@@ -14,6 +14,33 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    title: "TEAM SHACHI —「マジ感謝」歌詞翻譯",
+    date: "2026-05-25",
+    summary:
+      "TEAM SHACHI「マジ感謝」歌詞翻譯與心得。為什麼這首歌在解散、畢業、最後一場 Live 幾乎是無敵的存在。",
+    tags: ["Idol", "Life"],
+    tagStyle: "bg-accent/10 text-accent",
+    href: "/blog/maji-kansha",
+  },
+  {
+    title: "ukka Final Chapter — 我認識的 ukka，從一開始就是最後一年",
+    date: "2026-05-25",
+    summary:
+      "看完 ukka 最後一場 live 後的感想。我認識的 ukka，從一開始就是最後一年；最遺憾的不是解散，而是剛開始喜歡，就發現已經是最後一章。",
+    tags: ["Idol", "Live", "Life"],
+    tagStyle: "bg-accent/10 text-accent",
+    href: "/blog/ukka-final-chapter",
+  },
+  {
+    title: "推し清單 — 現在跟以前推過的偶像",
+    date: "2026-05-25",
+    summary:
+      "從 Stardust 起點，到現在主要在追、已解散的推、以前喜歡偶爾看、觀望中的團。成員名以代表色標示。",
+    tags: ["Idol", "Life"],
+    tagStyle: "bg-accent/10 text-accent",
+    href: "/blog/oshi-list",
+  },
+  {
     title: "高嶺のなでしこ — 生きてりゃいい 歌詞翻譯",
     date: "2026-05-14",
     summary:
