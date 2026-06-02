@@ -14,6 +14,15 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    title: "在晴朗的風裡翻頁 — TEAM SHACHI 最終曲「晴れ晴れ」",
+    date: "2026-05-27",
+    summary:
+      "youth case 寫給 TEAM SHACHI 的畢業曲〈晴れ晴れ〉。寫給曾經一起走過一段路的人，關於離別，也關於離別之後。",
+    tags: ["Idol", "Live", "Life"],
+    tagStyle: "bg-accent/10 text-accent",
+    href: "/blog/shachi-harebare",
+  },
+  {
     title: "聊聊 C++20 的 std::format",
     date: "2026-05-26",
     summary:
