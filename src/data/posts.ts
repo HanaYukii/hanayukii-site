@@ -14,6 +14,15 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    title: "聊聊 C++20 的 std::format",
+    date: "2026-05-26",
+    summary:
+      "std::format 格式語法速記：對齊寬度、浮點數的 precision 與 type，還有 precision 在浮點數跟字串上語義不同的坑。",
+    tags: ["C++", "C++20"],
+    tagStyle: "bg-primary/10 text-primary",
+    href: "/blog/cpp-format",
+  },
+  {
     title: "TEAM SHACHI —「マジ感謝」歌詞翻譯",
     date: "2026-05-25",
     summary:
