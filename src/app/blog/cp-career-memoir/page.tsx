@@ -4,11 +4,11 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
-  title: "多年後的程式競賽選手生涯回憶錄 | 花雪 HanaYukii",
+  title: "我的競賽程式生涯回顧 | 花雪 HanaYukii",
   description:
     "從計概作業太難開始刷題，到 ICPC Gold。你永遠不知道，你的興趣可以把你帶得多遠。",
   openGraph: {
-    title: "多年後的程式競賽選手生涯回憶錄",
+    title: "我的競賽程式生涯回顧",
     description:
       "從計概作業太難開始刷題，到 ICPC Gold。你永遠不知道，你的興趣可以把你帶得多遠。",
     type: "article",
@@ -44,7 +44,7 @@ export default function CpCareerMemoir() {
           </span>
         </div>
         <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
-          多年後的程式競賽選手生涯回憶錄
+          我的競賽程式生涯回顧
         </h1>
         <p className="mb-2 text-sm text-text-muted">持續優化中</p>
         <p className="mb-8 text-text-muted">

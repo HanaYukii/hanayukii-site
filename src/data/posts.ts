@@ -59,7 +59,7 @@ export const posts: Post[] = [
     href: "/blog/takaneko-ikite-ryaii",
   },
   {
-    title: "文件是 AI 時代的隱藏槓桿",
+    title: "文件在 AI 時代的價值",
     date: "2026-05-03",
     summary:
       "以前文件常常像成本；現在它可能是讓 AI、團隊、未來的自己都更快進入 context 的介面。AI 時代不是讓文件變得不重要，而是讓文件的價值被放大。",
@@ -77,7 +77,7 @@ export const posts: Post[] = [
     href: "/blog/abc456f-plan-holidays",
   },
   {
-    title: "KOL、牛市放大器，與投資裡的平行時空",
+    title: "牛市放大效應與 KOL",
     date: "2026-05-02",
     summary:
       "牛市會把一個人的魅力放大成神，熊市才會把同樣的特質放大成風險。從 D 大、反 D 大的人、其他 KOL 類型,到我自己對配置跟少賺的反思。",
@@ -114,7 +114,7 @@ export const posts: Post[] = [
     href: "/blog/lc-2463",
   },
   {
-    title: "多年後的程式競賽選手生涯回憶錄",
+    title: "我的競賽程式生涯回顧",
     date: "2026-04-14",
     summary:
       "從計概作業太難開始刷題，到 ICPC Gold。你永遠不知道，你的興趣可以把你帶得多遠。",
@@ -197,7 +197,7 @@ export const posts: Post[] = [
     href: "/blog/cpp-compile-time-optimization",
   },
   {
-    title: "SSO 跟 Copy Elision：C++ 背後在偷做什麼",
+    title: "SSO 跟 Copy Elision：編譯器與標準庫做的事",
     date: "2026-03-31",
     summary:
       "std::string 不一定用 heap？return 時加 std::move 反而更慢？拆解編譯器與標準庫在背後做的事。",
@@ -206,7 +206,7 @@ export const posts: Post[] = [
     href: "/blog/cpp-secret-optimizations-1",
   },
   {
-    title: "Padding、Vtable、Smart Pointer：C++ 的隱藏成本",
+    title: "Padding、Vtable、Smart Pointer 的成本",
     date: "2026-03-31",
     summary:
       "sizeof 不是你想的那樣、virtual 讓物件膨脹 4 倍、shared_ptr 的隱藏原子操作代價。",
@@ -215,7 +215,7 @@ export const posts: Post[] = [
     href: "/blog/cpp-secret-optimizations-2",
   },
   {
-    title: "手寫 inplace_vector：一場硬核 C++ 面試",
+    title: "手寫 inplace_vector（C++ 面試題）",
     date: "2026-03-31",
     summary:
       "世界頂級量化交易公司的面試，面試官劍橋畢業，從零實作 inplace_vector：aligned storage、placement new、Rule of Five。",
@@ -234,7 +234,7 @@ export const posts: Post[] = [
   },
   // ───── Drafts ─────
   {
-    title: "系統設計面試的經典注意事項",
+    title: "系統設計面試的注意事項",
     date: "",
     summary:
       "以 Auto-complete 為案例，整理系統設計面試中常見的思路：需求分析、狀態設計、Debounce、快取策略、Accessibility。",

@@ -4,11 +4,11 @@ import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 
 export const metadata: Metadata = {
-  title: "文件是 AI 時代的隱藏槓桿 | 花雪 HanaYukii",
+  title: "文件在 AI 時代的價值 | 花雪 HanaYukii",
   description:
     "以前文件常常像成本；現在它可能是讓 AI、團隊、未來的自己都更快進入 context 的介面。AI 時代不是讓文件變得不重要，而是讓文件的價值被放大。",
   openGraph: {
-    title: "文件是 AI 時代的隱藏槓桿",
+    title: "文件在 AI 時代的價值",
     description:
       "AI 時代不是讓文件變得不重要，而是讓文件的價值被放大。寫得越清楚，人跟 AI 都越容易正確呼叫它。",
     type: "article",
@@ -43,7 +43,7 @@ export default function DocumentationAiEra() {
           </span>
         </div>
         <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
-          文件是 AI 時代的隱藏槓桿
+          文件在 AI 時代的價值
         </h1>
         <p className="mb-2 text-base text-text-muted leading-relaxed">
           以前文件常常像成本；現在它可能是讓 AI、團隊、未來的自己都更快進入 context 的介面。

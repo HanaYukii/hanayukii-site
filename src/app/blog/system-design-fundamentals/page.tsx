@@ -5,11 +5,11 @@ import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
-  title: "系統設計面試的經典注意事項 | 花雪 HanaYukii",
+  title: "系統設計面試的注意事項 | 花雪 HanaYukii",
   description:
     "以 Auto-complete 為例，整理系統設計面試中常見的思路跟技術細節。",
   openGraph: {
-    title: "系統設計面試的經典注意事項",
+    title: "系統設計面試的注意事項",
     description:
       "以 Auto-complete 為例，整理系統設計面試中常見的思路跟技術細節。",
     type: "article",
@@ -49,7 +49,7 @@ export default function SystemDesignFundamentals() {
         </div>
 
         <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
-          系統設計面試的經典注意事項
+          系統設計面試的注意事項
         </h1>
         <p className="mb-2 text-sm text-text-muted">2026-04-11</p>
         <p className="mb-8 text-text-muted">

@@ -5,11 +5,11 @@ import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
-  title: "C++ 你不知道的優化（下）：Struct Padding、Vtable 與 Smart Pointer | 花雪 HanaYukii",
+  title: "Padding、Vtable、Smart Pointer 的成本 | 花雪 HanaYukii",
   description:
     "sizeof 不是你想的那樣、virtual 讓物件膨脹 4 倍、shared_ptr 的隱藏原子操作代價。",
   openGraph: {
-    title: "C++ 你不知道的優化（下）：Struct Padding、Vtable 與 Smart Pointer",
+    title: "Padding、Vtable、Smart Pointer 的成本",
     description:
       "sizeof 不是你想的那樣、virtual 讓物件膨脹 4 倍、shared_ptr 的隱藏原子操作代價。",
     type: "article",
@@ -95,7 +95,7 @@ export default function CppSecretOptimizations2() {
           </span>
         </div>
         <h1 className="mb-4 text-4xl font-bold tracking-tight">
-          C++ 你不知道的優化（下）：Struct Padding、Vtable 與 Smart Pointer
+          Padding、Vtable、Smart Pointer 的成本
         </h1>
         <p className="mb-4 text-text-muted">
           深入記憶體佈局與object model - 理解 struct padding 如何浪費空間、virtual

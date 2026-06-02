@@ -5,11 +5,11 @@ import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
-  title: "面試被要求手寫 C++26 inplace_vector | 花雪 HanaYukii",
+  title: "手寫 inplace_vector（C++ 面試題） | 花雪 HanaYukii",
   description:
     "世界頂級量化交易公司的面試，面試官劍橋畢業，從零實作 inplace_vector：aligned storage、placement new、Rule of Five。",
   openGraph: {
-    title: "面試被要求手寫 C++26 inplace_vector",
+    title: "手寫 inplace_vector（C++ 面試題）",
     description:
       "世界頂級量化交易公司的面試，從零實作 inplace_vector：aligned storage、placement new、Rule of Five。",
     type: "article",
@@ -90,7 +90,7 @@ export default function CppInplaceVector() {
         </div>
 
         <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
-          面試被要求手寫 C++26 inplace_vector
+          手寫 inplace_vector（C++ 面試題）
         </h1>
         <p className="mb-2 text-sm text-text-muted">2026-03-31</p>
         <p className="mb-8 text-text-muted">

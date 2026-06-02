@@ -5,11 +5,11 @@ import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
-  title: "C++ 你不知道的優化（上）：SSO 與 Copy Elision | 花雪 HanaYukii",
+  title: "SSO 跟 Copy Elision：編譯器與標準庫做的事 | 花雪 HanaYukii",
   description:
     "std::string 不一定用 heap？return 時加 std::move 反而更慢？拆解編譯器與標準庫在背後做的事。",
   openGraph: {
-    title: "C++ 你不知道的優化（上）：SSO 與 Copy Elision",
+    title: "SSO 跟 Copy Elision：編譯器與標準庫做的事",
     description:
       "std::string 不一定用 heap？return 時加 std::move 反而更慢？拆解編譯器與標準庫在背後做的事。",
     type: "article",
@@ -97,7 +97,7 @@ export default function CppSecretOptimizations1() {
           </span>
         </div>
         <h1 className="mb-4 text-4xl font-bold tracking-tight">
-          C++ 你不知道的優化（上）：SSO 與 Copy Elision
+          SSO 跟 Copy Elision：編譯器與標準庫做的事
         </h1>
         <p className="mb-2 text-sm text-text-muted">2026-03-31</p>
         <p className="mb-8 text-text-muted">

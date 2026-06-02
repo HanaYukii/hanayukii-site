@@ -5,11 +5,11 @@ import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
-  title: "聊聊 C++ 編譯期能做的事 | 花雪 HanaYukii",
+  title: "C++ 編譯期可以做的五件事 | 花雪 HanaYukii",
   description:
     "這篇不想列語法大全，只想講幾個真的常用、而且能把 runtime 成本直接搬去編譯期的技巧。",
   openGraph: {
-    title: "聊聊 C++ 編譯期能做的事",
+    title: "C++ 編譯期可以做的五件事",
     description:
       "幾個真的常用、而且能把 runtime 成本直接搬去編譯期的 C++ 技巧。",
     type: "article",
@@ -61,7 +61,7 @@ export default function CppCompileTimeOptimization() {
           </span>
         </div>
         <h1 className="mb-4 text-4xl font-bold tracking-tight">
-          聊聊 C++ 編譯期能做的事
+          C++ 編譯期可以做的五件事
         </h1>
         <p className="mb-8 text-text-muted">
           我自己在意的不是語法炫不炫，而是哪些東西真的值得提早到編譯期做。

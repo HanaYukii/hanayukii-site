@@ -4,11 +4,11 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
-  title: "KOL、牛市放大器，與投資裡的平行時空 | 花雪 HanaYukii",
+  title: "牛市放大效應與 KOL | 花雪 HanaYukii",
   description:
     "從 D 大、JAM 到 Google RSU 的投資反思。三條線指向同一件事：當距離太近、信念太強、故事太順，就容易把對某件事的真心相信，誤認成應該重壓的理由。",
   openGraph: {
-    title: "KOL、牛市放大器,與投資裡的平行時空",
+    title: "牛市放大效應與 KOL",
     description:
       "從 D 大、JAM 到 Google RSU 的投資反思。當距離太近、信念太強、故事太順，就容易把相信誤認成重壓的理由。",
     type: "article",
@@ -43,7 +43,7 @@ export default function KolBullMarketAmplifier() {
           </span>
         </div>
         <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
-          KOL、牛市放大器，與投資裡的平行時空
+          牛市放大效應與 KOL
         </h1>
         <p className="mb-2 text-base text-text-muted leading-relaxed">
           從 D 大、JAM 到 Google RSU 的投資反思
