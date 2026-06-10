@@ -59,7 +59,7 @@ export const posts: Post[] = [
     href: "/blog/ukka-final-chapter",
   },
   {
-    title: "推し清單 — 現在跟以前推過的偶像",
+    title: "推し清單",
     date: "2026-05-25",
     summary:
       "從 Stardust 起點，到現在主要在追、已解散的推、以前喜歡偶爾看、觀望中的團。成員名以代表色標示。",

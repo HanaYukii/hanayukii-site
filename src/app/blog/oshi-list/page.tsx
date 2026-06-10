@@ -3,11 +3,11 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
-  title: "推し清單 — 現在跟以前推過的偶像 | 花雪 HanaYukii",
+  title: "推し清單 | 花雪 HanaYukii",
   description:
     "從 Stardust 起點，到現在主要在追、已解散的推、以前喜歡偶爾看、觀望中的團。",
   openGraph: {
-    title: "推し清單 — 現在跟以前推過的偶像",
+    title: "推し清單",
     description:
       "從 Stardust 起點，到現在主要在追、已解散的推、以前喜歡偶爾看、觀望中的團。",
     type: "article",
