@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import Code from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
-  title: "聊聊 C++20 的 std::format | 花雪 HanaYukii",
+  title: "C++20 的 std::format 語法整理 | 花雪 HanaYukii",
   description:
     "std::format 的格式語法速記：對齊寬度、浮點數的 precision 與 type、還有 precision 在浮點數跟字串上語義不同的坑。",
   openGraph: {
-    title: "聊聊 C++20 的 std::format",
+    title: "C++20 的 std::format 語法整理",
     description:
       "對齊寬度、浮點數 precision / type、以及 precision 在字串上是截斷長度的坑。",
     type: "article",
@@ -43,7 +43,7 @@ export default function CppFormat() {
           </span>
         </div>
         <h1 className="mb-4 text-4xl font-bold tracking-tight">
-          聊聊 C++20 的 std::format
+          C++20 的 std::format 語法整理
         </h1>
         <p className="mb-8 text-text-muted">
           排版字串時，比起 <code>printf</code> 的 <code>%</code> 或 iostream 的{" "}

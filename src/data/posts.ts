@@ -1,4 +1,4 @@
-export type Post = {
+﻿export type Post = {
   title: string;
   date: string;
   summary: string;
@@ -32,7 +32,7 @@ export const posts: Post[] = [
     href: "/blog/shachi-harebare",
   },
   {
-    title: "聊聊 C++20 的 std::format",
+    title: "C++20 的 std::format 語法整理",
     date: "2026-05-26",
     summary:
       "std::format 格式語法速記：對齊寬度、浮點數的 precision 與 type，還有 precision 在浮點數跟字串上語義不同的坑。",
@@ -50,10 +50,10 @@ export const posts: Post[] = [
     href: "/blog/maji-kansha",
   },
   {
-    title: "ukka Final Chapter — 我認識的 ukka，從一開始就是最後一年",
+    title: "ukka Final Chapter",
     date: "2026-05-25",
     summary:
-      "看完 ukka 最後一場 live 後的感想。我認識的 ukka，從一開始就是最後一年；最遺憾的不是解散，而是剛開始喜歡，就發現已經是最後一章。",
+      "看完 ukka 最後一場 live 後的感想。才剛開始追就遇上解散，記下這一年的現場、喜歡上的成員，還有最後一天的不甘心。",
     tags: ["Idol", "Live", "Life"],
     tagStyle: "bg-accent/10 text-accent",
     href: "/blog/ukka-final-chapter",

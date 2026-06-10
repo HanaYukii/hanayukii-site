@@ -3,11 +3,11 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
-  title: "ukka Final Chapter — 我認識的 ukka，從一開始就是最後一年 | 花雪 HanaYukii",
+  title: "ukka Final Chapter | 花雪 HanaYukii",
   description:
     "看完 ukka Final Chapter 後的感想。很多老粉懷念的是過去十年，而我捨不得的是這一年才剛開始發生的故事。",
   openGraph: {
-    title: "ukka Final Chapter — 我認識的 ukka，從一開始就是最後一年",
+    title: "ukka Final Chapter",
     description:
       "看完 ukka Final Chapter 後的感想。",
     type: "article",
@@ -61,9 +61,6 @@ export default function UkkaFinalChapter() {
         <h1 className="mb-4 text-4xl font-bold tracking-tight">
           ukka Final Chapter
         </h1>
-        <p className="mb-3 text-base italic text-accent/80">
-          我認識的 ukka，從一開始就是 Final Chapter。
-        </p>
         <p className="mb-8 text-sm text-text-muted">2026-05-25</p>
       </FadeIn>
 
