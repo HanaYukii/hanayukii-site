@@ -14,6 +14,15 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    title: "C++20 的 std::span 應用整理",
+    date: "2026-06-10",
+    summary:
+      "std::span 把 vector、array、指標加長度收成同一個介面：基本用法、subspan 切片、static extent，還有 span<const T> 跟 const span<T> 不是同一回事的坑。",
+    tags: ["C++", "C++20"],
+    tagStyle: "bg-primary/10 text-primary",
+    href: "/blog/cpp-span",
+  },
+  {
     title: "在晴朗的風裡翻頁 — TEAM SHACHI 最終曲「晴れ晴れ」",
     date: "2026-05-27",
     summary:
