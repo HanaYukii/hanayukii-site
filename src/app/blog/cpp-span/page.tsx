@@ -46,11 +46,11 @@ export default function CppSpan() {
           C++20 的 std::span 應用整理
         </h1>
         <p className="mb-8 text-text-muted">
-          寫函式常常卡一個小問題：「一段連續的資料」要用什麼型別收？
-          收 <code>vector</code> 的話 C array 進不來，
-          收指標加長度又退回 C 的寫法。<code>std::span</code> 就是來收這件事的，
-          一個不擁有資料的輕量視圖。這篇整理基本用法、切片、extent，
-          跟幾個容易踩的坑。
+          寫函式常常卡一個小問題：「一段連續的資料」要用什麼型別接？
+          用 <code>vector</code> 的話 C array 傳不進來，
+          用指標加長度又退回 C 的寫法。<code>std::span</code>{" "}
+          就是為這件事設計的：一個不擁有資料的輕量視圖。
+          這篇整理基本用法、切片、extent，跟幾個容易踩的坑。
         </p>
       </FadeIn>
 
@@ -59,7 +59,7 @@ export default function CppSpan() {
         <FadeIn>
           <Heading id="why">一個介面收所有連續資料</Heading>
           <p>
-            以前同一份邏輯，常常得為不同容器各開一個入口：
+            以前同一份邏輯，常常得為不同容器各寫一個版本：
           </p>
           <Code lang="cpp">{`// 以前：擇一，然後另外兩種呼叫端就不開心
 double avg(const std::vector<double>& v);
@@ -79,7 +79,7 @@ double avg(std::span<const double> v);`}</Code>
           <Heading id="basic">基本用法</Heading>
           <p>
             <code>#include &lt;span&gt;</code>。C array、<code>std::array</code>、
-            <code>vector</code>、指標加長度，全部餵得進去：
+            <code>vector</code>、指標加長度，全部都能直接傳：
           </p>
           <Code lang="cpp">{`#include <span>
 
@@ -119,8 +119,7 @@ print_all({v.data() + 1, 2});  // 指標 + 長度 → 8 9`}</Code>
 std::vector v = {1, 2, 3};
 fill_zero(v);   // v 變成 {0, 0, 0}`}</Code>
           <p>
-            可以把它當成比較好用的 <code>(T*, size_t)</code>：
-            迭代器什麼的都配好了，但東西終究是別人的，它只是借來用。
+            可以把它當成配好了迭代器的 <code>(T*, size_t)</code>。
           </p>
         </FadeIn>
 
@@ -144,7 +143,7 @@ void g(const std::span<int> s) {
             <code>const</code> 加在 span 上只是說這個 view 本身不能改指向，
             元素照樣可以寫。所以<strong>不打算改資料的介面，就寫{" "}
             <code>span&lt;const T&gt;</code></strong>，順便連{" "}
-            <code>const</code> 的容器都吃得進來。
+            <code>const</code> 的容器也能直接傳。
           </p>
         </FadeIn>
 
@@ -191,9 +190,10 @@ std::vector v = {1.0, 2.0, 3.0};
 // dot3(v, w);                       // 編譯錯誤：vector 長度是執行期的
 dot3(std::span{v}.first<3>(), w);    // 明確保證「就是 3 個」`}</Code>
           <p>
-            CTAD 有個小地方要留意：<code>{`std::span s{arr}`}</code> 餵 C array，
+            另外，自動型別推導（CTAD）有個地方要留意：
+            <code>{`std::span s{arr}`}</code> 用 C array 初始化，
             推出來是 <code>span&lt;int, 3&gt;</code>（static extent），
-            餵 vector 才是 dynamic。static extent 少存一個長度、
+            用 vector 初始化才是 dynamic。static extent 少存一個長度、
             編譯器也能多做點假設，不過日常介面用 dynamic 就夠了。
           </p>
         </FadeIn>
@@ -203,7 +203,7 @@ dot3(std::span{v}.first<3>(), w);    // 明確保證「就是 3 個」`}</Code>
           <Heading id="bytes">as_bytes：用 byte 視角看資料</Heading>
           <p>
             做 IO、hash、序列化常常要拿一塊資料的原始 bytes，
-            以前都是 <code>reinterpret_cast</code> 自由發揮，現在有標準寫法：
+            以前得自己 <code>reinterpret_cast</code>，現在有標準寫法：
           </p>
           <Code lang="cpp">{`std::vector<float> v = {1.5f, 2.5f};
 
@@ -217,12 +217,12 @@ auto writable = std::as_writable_bytes(std::span{v});  // span<std::byte>`}</Cod
         <FadeIn>
           <Heading id="traps">坑：沒有 bounds check，也沒有所有權</Heading>
           <p>
-            <code>s[i]</code> 越界是 UB，而且 C++20/23 連 <code>at()</code>{" "}
-            都沒有，C++26 才補上。index 是外面來的就自己先檢查{" "}
-            <code>size()</code>。
+            <code>s[i]</code> 越界是未定義行為（UB），而且 C++20/23 連{" "}
+            <code>at()</code> 都沒有，C++26 才補上。index 來自外部輸入的話，
+            先自己檢查 <code>size()</code>。
           </p>
           <p>
-            更常見的是 dangling。span 不會幫資料續命，
+            更常見的是懸空（dangling）。span 不會延長資料的生命週期，
             跟 <code>string_view</code> 是同一類問題：
           </p>
           <Code lang="cpp">{`std::span<int> bad() {
@@ -236,7 +236,7 @@ v.push_back(4);          // 可能 reallocate，s 整個失效`}</Code>
           <p>
             用法上跟 <code>string_view</code> 同一套：
             <strong>當參數往下傳</strong>很安全，存成成員或回傳出去就要想清楚，
-            得確定底層資料活得比它久、而且不會搬家。
+            得確定底層資料的壽命比 span 長，中途也不會 reallocate。
           </p>
         </FadeIn>
 
@@ -249,7 +249,7 @@ v.push_back(4);          // 可能 reallocate，s 整個失效`}</Code>
             <code>starts_with</code> 這些字串操作，但永遠唯讀。
             分法很簡單：<strong>字串用 <code>string_view</code>，
             其他連續記憶體用 <code>span</code></strong>，
-            真的要原地改字元的少數場合，才輪得到{" "}
+            真的要原地改字元的少數場合，才會用到{" "}
             <code>span&lt;char&gt;</code>。
           </p>
         </FadeIn>
