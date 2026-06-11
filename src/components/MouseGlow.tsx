@@ -1,24 +1,33 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function MouseGlow() {
-  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    let raf = 0;
     const handler = (e: MouseEvent) => {
-      setPos({ x: e.clientX, y: e.clientY });
+      const { clientX: x, clientY: y } = e;
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        el.style.background = `radial-gradient(600px circle at ${x}px ${y}px, color-mix(in srgb, var(--color-primary) 7%, transparent), transparent 40%)`;
+      });
     };
-    window.addEventListener("mousemove", handler);
-    return () => window.removeEventListener("mousemove", handler);
+    window.addEventListener("mousemove", handler, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("mousemove", handler);
+    };
   }, []);
 
   return (
     <div
-      className="pointer-events-none fixed inset-0 z-30 transition-opacity duration-300"
-      style={{
-        background: `radial-gradient(600px circle at ${pos.x}px ${pos.y}px, rgba(46, 196, 182, 0.05), transparent 40%)`,
-      }}
+      ref={ref}
+      aria-hidden
+      className="pointer-events-none fixed inset-0 z-30"
     />
   );
 }
