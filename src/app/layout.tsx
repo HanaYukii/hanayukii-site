@@ -96,7 +96,7 @@ function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-xs font-medium text-text/60 transition-colors hover:text-text sm:text-sm"
+              className="relative text-xs font-medium text-text/60 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:content-[''] hover:text-text hover:after:scale-x-100 sm:text-sm"
             >
               {"shortLabel" in link ? (
                 <>
