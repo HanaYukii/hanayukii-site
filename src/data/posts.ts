@@ -14,6 +14,15 @@
 
 export const posts: Post[] = [
   {
+    title: "C++ 反射入門",
+    date: "2026-06-16",
+    summary:
+      "反射就是程式檢視自己的型別與結構。C++ 一直做得克難：執行期靠 RTTI、編譯期靠 type_traits，要列欄位得靠第三方庫，而 C++26 的 static reflection 把它變成語言內建。搭配簡單例子，順便對照其他語言。",
+    tags: ["C++", "Reflection"],
+    tagStyle: "bg-primary/10 text-primary",
+    href: "/blog/cpp-reflection",
+  },
+  {
     title: "C++20 的 std::span 應用整理",
     date: "2026-06-10",
     summary:
