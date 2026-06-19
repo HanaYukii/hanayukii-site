@@ -259,43 +259,6 @@ export const posts: Post[] = [
     tagStyle: "bg-primary/10 text-primary",
     href: "/blog/cpp-interview-performance-analysis",
   },
-  // ───── Drafts ─────
-  {
-    title: "系統設計面試的注意事項",
-    date: "",
-    summary:
-      "以 Auto-complete 為案例，整理系統設計面試中常見的思路：需求分析、狀態設計、Debounce、快取策略、Accessibility。",
-    tags: ["System Design", "Interview"],
-    tagStyle: "bg-primary/10 text-primary",
-    href: null,
-  },
-  {
-    title: "財務自由是不是假議題",
-    date: "",
-    summary:
-      "明知道這輩子不需要太擔心，卻停不下來想捲。科技圈的投資焦慮、亞洲文化的匱乏感，跟那個永遠不夠的數字。",
-    tags: ["Life", "Career"],
-    tagStyle: "bg-accent/10 text-accent",
-    href: null,
-  },
-  {
-    title: "如果人生可以 A/B Test",
-    date: "",
-    summary:
-      "人過度美化自己沒選的路，也過度合理化已選的路。但真相是你永遠跑不了對照組。",
-    tags: ["Life", "Personal"],
-    tagStyle: "bg-accent/10 text-accent",
-    href: null,
-  },
-  {
-    title: "什麼叫做強",
-    date: "",
-    summary:
-      "CP 的強、工程的強、職場的強，不同維度的定義跟我自己的體會。",
-    tags: ["Career", "Personal"],
-    tagStyle: "bg-accent/10 text-accent",
-    href: null,
-  },
 ];
 
 export const hotPosts = posts
