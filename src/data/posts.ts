@@ -14,6 +14,15 @@
 
 export const posts: Post[] = [
   {
+    title: "C++ 多型：靜態(template) vs 動態(virtual)",
+    date: "2026-06-16",
+    summary:
+      "同一介面、不同行為，C++ 有兩條路：動態多型（virtual，執行期分派）與靜態多型（template / CRTP，編譯期分派）。以例子對照，附 concept 與選用時機。",
+    tags: ["C++", "Performance"],
+    tagStyle: "bg-primary/10 text-primary",
+    href: "/blog/cpp-polymorphism",
+  },
+  {
     title: "C++ 反射入門",
     date: "2026-06-16",
     summary:
