@@ -14,6 +14,15 @@
 
 export const posts: Post[] = [
   {
+    title: "讓 Claude Code 呼叫 Codex",
+    date: "2026-06-16",
+    summary:
+      "用官方的 codex-plugin-cc，在 Claude Code 裡直接叫 Codex 做 code review、對抗式審查、或把卡住的任務丟給它。完整安裝步驟、登入認證、設定，以及費用怎麼算。",
+    tags: ["AI", "Tooling"],
+    tagStyle: "bg-primary/10 text-primary",
+    href: "/blog/claude-call-codex",
+  },
+  {
     title: "C++ 多型：靜態(template) vs 動態(virtual)",
     date: "2026-06-16",
     summary:
