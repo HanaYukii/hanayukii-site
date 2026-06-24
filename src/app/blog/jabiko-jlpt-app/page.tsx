@@ -52,6 +52,7 @@ export default function JabikoJlptApp() {
           Jabiko 是我和朋友一起做的一個 JLPT（日本語能力試驗）自習網站，
           從動詞變化這種基礎，一路練到 N1 的文法與漢字讀音。
           打開網頁就能用，不用註冊，進度存在瀏覽器本機；想跨裝置的話，用 Google 登入就能同步。
+          介面深色淺色都有，挑順眼的用。
         </p>
         <Image
           src="/images/jabiko-home.png"
@@ -149,6 +150,23 @@ export default function JabikoJlptApp() {
           />
         </FadeIn>
 
+        {/* ============ 分章學習 ============ */}
+        <FadeIn>
+          <Heading id="learn">分章學習</Heading>
+          <p>
+            不想自己亂抓題目的話，「學習」這頁把內容拆成一章一章：左邊挑一章，
+            右邊就列那章的規則、例子跟最容易踩的陷阱，看完直接點按鈕進對應的練習。
+            目前先把動詞、形容詞變化這些打底的做成章節，備考範圍的之後再補。
+          </p>
+          <Image
+            src="/images/jabiko-learn-dark.png"
+            alt="分章學習：左邊章節索引，右邊單章的規則、例子與陷阱"
+            width={2048}
+            height={2955}
+            className="my-5 h-auto w-full rounded-lg border border-border"
+          />
+        </FadeIn>
+
         {/* ============ 漢字音讀查詢 ============ */}
         <FadeIn>
           <Heading id="kanji-lookup">漢字音讀查詢</Heading>
@@ -167,21 +185,30 @@ export default function JabikoJlptApp() {
           />
         </FadeIn>
 
-        {/* ============ 作答輔助 ============ */}
+        {/* ============ 作答與解析 ============ */}
         <FadeIn>
-          <Heading id="answering">作答輔助</Heading>
+          <Heading id="answering">作答與解析</Heading>
           <p>
-            作答前如果不確定，可以開「提示」——它給情境但不會漏答案；
-            送出後會看到解說：正解、四個選項各自的差異、日文加繁中例句，還有 JLPT 等級。
-            題目的日文句子旁邊有個發音鈕，想聽怎麼唸點一下就讀給你聽，順便練個耳朵。
-            鍵盤 1–4 選答、Enter 下一題，深色淺色都有。
+            作答前不確定，可以開「提示」——給情境、但不會漏答案。漢字、例句旁邊都有發音鈕，
+            想聽怎麼唸點一下就讀給你聽，順便練個耳朵。鍵盤 1–4 選答、Enter 下一題。
           </p>
-          {/* 截圖：作答中開提示 / 作答後展開解說的畫面 */}
           <Image
-            src="/images/jabiko-answer.png"
-            alt="提示／解說畫面"
-            width={912}
-            height={1331}
+            src="/images/jabiko-answer-dark.png"
+            alt="答題畫面：題目、四個選項與發音鈕"
+            width={1214}
+            height={1066}
+            className="my-5 h-auto w-full rounded-lg border border-border"
+          />
+          <p>
+            重點在解析：每一題答完都有完整解析——正解、四個選項各自差在哪、日文加繁中例句，
+            還標了 JLPT 等級；文法題再點一下能展開完整的文法說明，把那個句型一次講清楚。
+            錯的題就直接從解析裡學起來，不用另外查。
+          </p>
+          <Image
+            src="/images/jabiko-answer-fb-dark.png"
+            alt="答完展開的完整解析：正解、逐選項說明、例句與等級"
+            width={1214}
+            height={1570}
             className="my-5 h-auto w-full rounded-lg border border-border"
           />
         </FadeIn>

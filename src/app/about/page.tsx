@@ -28,6 +28,8 @@ const personJsonLd = {
     "https://github.com/HanaYukii",
     "https://www.linkedin.com/in/erh-hsuan-lu-a9b0681ba/",
     "https://codeforces.com/profile/HanaYukii",
+    "https://leetcode.com/u/HanaYukii/",
+    "https://atcoder.jp/users/HanaYukii",
   ],
 };
 

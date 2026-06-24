@@ -24,9 +24,9 @@ const cpBadges = [
   { text: "ICPC Taipei Regional Gold - Team Leader & Main Coder (2020)", color: "bg-accent/10 text-accent" },
   { text: "Google Code Jam Round 3 (x2)", color: "bg-warm/10 text-warm" },
   { text: "Meta Hacker Cup Round 3 (x3)", color: "bg-rose/10 text-rose" },
-  { text: "LeetCode ~2800 - Guardian (Top 0.04%)", color: "bg-primary/10 text-primary" },
+  { text: "LeetCode peak 2800+ - Guardian", color: "bg-primary/10 text-primary" },
   { text: "Codeforces 2300+ - International Master (Top 0.5%)", color: "bg-accent/10 text-accent" },
-  { text: "AtCoder 2000+ - 5-Dan", color: "bg-warm/10 text-warm" },
+  { text: "AtCoder 2000+ - 1 Dan", color: "bg-warm/10 text-warm" },
   { text: "Google Kick Start 2020 - Invited to Google Visit Program", color: "bg-sky/10 text-sky" },
 ];
 
@@ -168,7 +168,7 @@ export default function AboutContent() {
             </div>
             <div className="flex flex-wrap gap-3">
               <ExternalLink href="https://codeforces.com/profile/HanaYukii">Codeforces</ExternalLink>
-              <ExternalLink href="https://leetcode.com/hanayukii">LeetCode</ExternalLink>
+              <ExternalLink href="https://leetcode.com/u/HanaYukii/">LeetCode</ExternalLink>
               <ExternalLink href="https://atcoder.jp/users/HanaYukii">AtCoder</ExternalLink>
             </div>
           </div>
