@@ -23,6 +23,15 @@ export const posts: Post[] = [
     href: "/blog/jabiko-jlpt-app",
   },
   {
+    title: "用 multi agent AI 出 JLPT 考題：交叉審查與品質閘",
+    date: "2026-06-24",
+    summary:
+      "用 subagent + Codex 兩個 AI 代理平行出題再交叉互審，搭配 lint／dry-run／讀音驗證等自動品質閘，幫 JLPT 題庫大量出題又不出近義雙解。",
+    tags: ["AI", "Software Engineering"],
+    tagStyle: "bg-primary/10 text-primary",
+    href: "/blog/ai-exam-authoring-workflow",
+  },
+  {
     title: "讓 Claude Code 呼叫 Codex",
     date: "2026-06-16",
     summary:
