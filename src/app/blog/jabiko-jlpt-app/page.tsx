@@ -50,8 +50,16 @@ export default function JabikoJlptApp() {
         </h1>
         <p className="mb-8 text-text-muted">
           Jabiko 是我和朋友一起做的一個 JLPT（日本語能力試驗）自習網站，
-          從動詞變化這種基礎，一路練到 N1 的文法與漢字讀音。
-          打開網頁就能用，不用註冊，進度存在瀏覽器本機；想跨裝置的話，用 Google 登入就能同步。
+          從動詞變化這種基礎，一路練到 N1 的文法與漢字讀音。打開{" "}
+          <a
+            href="https://jabiko.pages.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary underline underline-offset-2 hover:text-primary/80"
+          >
+            jabiko.pages.dev
+          </a>{" "}
+          就能用，不用註冊，進度存在瀏覽器本機；想跨裝置的話，用 Google 登入就能同步。
           介面深色淺色都有，挑順眼的用。
         </p>
         <Image
