@@ -14,6 +14,15 @@
 
 export const posts: Post[] = [
   {
+    title: "Jabiko：JLPT 自習網站",
+    date: "2026-06-24",
+    summary:
+      "和朋友一起做的 JLPT 自習網站，從基礎變化到 N1 備考、會自動盯錯題複習；介紹主要的練習模式與功能特色。",
+    tags: ["AI", "Frontend"],
+    tagStyle: "bg-primary/10 text-primary",
+    href: "/blog/jabiko-jlpt-app",
+  },
+  {
     title: "讓 Claude Code 呼叫 Codex",
     date: "2026-06-16",
     summary:
