@@ -122,15 +122,6 @@ export const posts: Post[] = [
     href: "/blog/takaneko-ikite-ryaii",
   },
   {
-    title: "文件在 AI 時代的價值",
-    date: "2026-05-03",
-    summary:
-      "以前文件常常像成本；現在它可能是讓 AI、團隊、未來的自己都更快進入 context 的介面。AI 時代不是讓文件變得不重要，而是讓文件的價值被放大。",
-    tags: ["Software Engineering", "AI"],
-    tagStyle: "bg-primary/10 text-primary",
-    href: "/blog/documentation-ai-era",
-  },
-  {
     title: "AtCoder ABC 456 F Plan Holidays",
     date: "2026-05-03",
     summary:
@@ -149,16 +140,6 @@ export const posts: Post[] = [
     href: "/blog/kol-bull-market-amplifier",
   },
   {
-    title: "各大 Online Judge 介紹",
-    date: "2026-04-29",
-    summary:
-      "從台灣的 ZeroJudge、TIOJ 到 Codeforces、AtCoder、LeetCode，主流 OJ 的特色、適合誰、怎麼用。給想入坑 CP 或不知道往哪邊練的人。",
-    tags: ["Competitive Programming"],
-    tagStyle: "bg-primary/10 text-primary",
-    href: "/blog/online-judge-guide",
-    hot: true,
-  },
-  {
     title: "Cursor Teams 年繳踩雷紀錄",
     date: "2026-04-29",
     summary:
@@ -166,6 +147,25 @@ export const posts: Post[] = [
     tags: ["雜談", "SaaS"],
     tagStyle: "bg-accent/10 text-accent",
     href: "/blog/cursor-billing-dispute",
+  },
+  {
+    title: "文件在 AI 時代的價值",
+    date: "2026-04-19",
+    summary:
+      "以前文件常常像成本；現在它可能是讓 AI、團隊、未來的自己都更快進入 context 的介面。AI 時代不是讓文件變得不重要，而是讓文件的價值被放大。",
+    tags: ["Software Engineering", "AI"],
+    tagStyle: "bg-primary/10 text-primary",
+    href: "/blog/documentation-ai-era",
+  },
+  {
+    title: "各大 Online Judge 介紹",
+    date: "2026-04-17",
+    summary:
+      "從台灣的 ZeroJudge、TIOJ 到 Codeforces、AtCoder、LeetCode，主流 OJ 的特色、適合誰、怎麼用。給想入坑 CP 或不知道往哪邊練的人。",
+    tags: ["Competitive Programming"],
+    tagStyle: "bg-primary/10 text-primary",
+    href: "/blog/online-judge-guide",
+    hot: true,
   },
   {
     title: "LeetCode 2463 Minimum Total Distance Traveled",
