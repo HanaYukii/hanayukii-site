@@ -71,6 +71,35 @@ export default function JabikoJlptApp() {
         />
       </FadeIn>
 
+      <FadeIn delay={0.1}>
+        <nav className="my-10 rounded-xl border border-border bg-surface/40 p-5">
+          <p className="mb-3 text-xs font-bold uppercase tracking-wider text-text-muted">
+            功能一覽
+          </p>
+          <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2">
+            {[
+              { id: "home", title: "首頁總覽" },
+              { id: "today", title: "今日練習" },
+              { id: "srs", title: "弱點複習" },
+              { id: "learn", title: "分章學習" },
+              { id: "answering", title: "答題輔助" },
+              { id: "modes", title: "練習模式" },
+              { id: "rules", title: "規則速查表" },
+              { id: "kanji-lookup", title: "漢字音讀查詢" },
+            ].map((item, i) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-text transition-colors hover:bg-surface-hover hover:text-primary"
+              >
+                <span className="text-text-muted">{i + 1}.</span>
+                {item.title}
+              </a>
+            ))}
+          </div>
+        </nav>
+      </FadeIn>
+
       <div className="prose-custom space-y-2 leading-relaxed text-text-muted [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-sm [&_code]:text-primary [&_strong]:text-text">
         {/* ============ 為什麼做這個 ============ */}
         <FadeIn>
@@ -80,8 +109,8 @@ export default function JabikoJlptApp() {
           </p>
           <p>
             我學各種東西都習慣從刷題裡學，所以做的時候重心一直放在題庫——
-            題目跟解說的品質我最先顧：提示做成可以開關的、解說會逐個選項拆給你看，
-            目前自己是覺得做得還不錯。規則速查表也有了，系統性的分章教材會再慢慢補。
+            題目跟解說的品質我最先顧：提示做成可以開關的、解說會逐個選項拆給你看。
+            規則速查表也有了，系統性的分章教材會再慢慢補。
             題庫怎麼用 AI 大量出題又控制品質，我另外整理成
             <Link href="/blog/ai-exam-authoring-workflow" className="text-primary hover:underline">
               一篇技術文
@@ -92,6 +121,7 @@ export default function JabikoJlptApp() {
 
         {/* ============ 首頁總覽 ============ */}
         <FadeIn>
+          <Heading id="home">首頁總覽</Heading>
           <Image
             src="/images/jabiko-home-full.png"
             alt="Jabiko 首頁主畫面：練習入口、各模式與使用狀況"
@@ -147,31 +177,6 @@ export default function JabikoJlptApp() {
           />
         </FadeIn>
 
-        {/* ============ 練習模式 ============ */}
-        <FadeIn>
-          <Heading id="modes">練習模式</Heading>
-          <p>
-            模式照目的分了幾種：打底的「基礎變化」（可挑詞類、變化目標，題庫大小即時重算）、
-            「句中填空」、「句型練習」；備考的「綜合考題庫」和照範圍分的「N1／N2／N4 備考」；
-            還有專練漢字読み的「單字讀音」。
-          </p>
-          <Image
-            src="/images/jabiko-modes.png"
-            alt="練習模式選單／基礎變化篩選畫面"
-            width={1830}
-            height={1140}
-            className="my-5 h-auto w-full rounded-lg border border-border"
-          />
-          <p className="mt-4">每組要練幾題自己決定——10、20、30、50，或「全部」。</p>
-          <Image
-            src="/images/jabiko-session.png"
-            alt="每組題數：10／20／30／50／全部"
-            width={484}
-            height={352}
-            className="my-4 h-auto w-[280px] max-w-full rounded-lg border border-border"
-          />
-        </FadeIn>
-
         {/* ============ 分章學習 ============ */}
         <FadeIn>
           <Heading id="learn">分章學習</Heading>
@@ -185,40 +190,6 @@ export default function JabikoJlptApp() {
             alt="分章學習：左邊章節索引，右邊單章的規則、例子與陷阱"
             width={2048}
             height={2955}
-            className="my-5 h-auto w-full rounded-lg border border-border"
-          />
-        </FadeIn>
-
-        {/* ============ 規則速查表 ============ */}
-        <FadeIn>
-          <Heading id="rules">規則速查表</Heading>
-          <p>
-            只想查規則、不想進練習的話，「規則」這頁把動詞變化、ます／て形、各種接續都整理成表，
-            一頁掃過去就好。
-          </p>
-          <Image
-            src="/images/jabiko-rules.png"
-            alt="規則速查表：動詞變化等整理成表"
-            width={2048}
-            height={1573}
-            className="my-5 h-auto w-full rounded-lg border border-border"
-          />
-        </FadeIn>
-
-        {/* ============ 漢字音讀查詢 ============ */}
-        <FadeIn>
-          <Heading id="kanji-lookup">漢字音讀查詢</Heading>
-          <p>
-            漢字讀音最容易在濁音、長短音上栽跟頭。除了「單字讀音」的刷題，另外有一個查詢工具：
-            照等級或關鍵字找漢字，點開卡片會列出它的音讀和真實例詞，旁邊的按鈕還能點來聽讀音。
-            某個字到底長音還是短音、有沒有濁，查一下、聽一下就清楚了。
-          </p>
-          {/* 截圖：漢字音讀查詢卡片畫面 */}
-          <Image
-            src="/images/jabiko-kanji.png"
-            alt="漢字音讀查詢卡片畫面"
-            width={2244}
-            height={1119}
             className="my-5 h-auto w-full rounded-lg border border-border"
           />
         </FadeIn>
@@ -268,6 +239,65 @@ export default function JabikoJlptApp() {
           />
         </FadeIn>
 
+        {/* ============ 練習模式 ============ */}
+        <FadeIn>
+          <Heading id="modes">練習模式</Heading>
+          <p>
+            模式照目的分了幾種：打底的「基礎變化」（可挑詞類、變化目標，題庫大小即時重算）、
+            「句中填空」、「句型練習」；備考的「綜合考題庫」和照範圍分的「N1／N2／N4 備考」；
+            還有專練漢字読み的「單字讀音」。
+          </p>
+          <Image
+            src="/images/jabiko-modes.png"
+            alt="練習模式選單／基礎變化篩選畫面"
+            width={1830}
+            height={1140}
+            className="my-5 h-auto w-full rounded-lg border border-border"
+          />
+          <p className="mt-4">每組要練幾題自己決定——10、20、30、50，或「全部」。</p>
+          <Image
+            src="/images/jabiko-session.png"
+            alt="每組題數：10／20／30／50／全部"
+            width={484}
+            height={352}
+            className="my-4 h-auto w-[280px] max-w-full rounded-lg border border-border"
+          />
+        </FadeIn>
+
+        {/* ============ 規則速查表 ============ */}
+        <FadeIn>
+          <Heading id="rules">規則速查表</Heading>
+          <p>
+            只想查規則、不想進練習的話，「規則」這頁把動詞變化、ます／て形、各種接續都整理成表，
+            一頁掃過去就好。
+          </p>
+          <Image
+            src="/images/jabiko-rules.png"
+            alt="規則速查表：動詞變化等整理成表"
+            width={2048}
+            height={1573}
+            className="my-5 h-auto w-full rounded-lg border border-border"
+          />
+        </FadeIn>
+
+        {/* ============ 漢字音讀查詢 ============ */}
+        <FadeIn>
+          <Heading id="kanji-lookup">漢字音讀查詢</Heading>
+          <p>
+            漢字讀音最容易在濁音、長短音上栽跟頭。除了「單字讀音」的刷題，另外有一個查詢工具：
+            照等級或關鍵字找漢字，點開卡片會列出它的音讀和真實例詞，旁邊的按鈕還能點來聽讀音。
+            某個字到底長音還是短音、有沒有濁，查一下、聽一下就清楚了。
+          </p>
+          {/* 截圖：漢字音讀查詢卡片畫面 */}
+          <Image
+            src="/images/jabiko-kanji.png"
+            alt="漢字音讀查詢卡片畫面"
+            width={2244}
+            height={1119}
+            className="my-5 h-auto w-full rounded-lg border border-border"
+          />
+        </FadeIn>
+
         {/* ============ 小結 ============ */}
         <FadeIn>
           <Heading id="wrap">小結</Heading>
@@ -281,11 +311,10 @@ export default function JabikoJlptApp() {
             >
               jabiko.pages.dev
             </a>
-            ，打開就能練。
-            用了覺得哪裡怪、或想要什麼功能，都歡迎跟我說。
+            ，打開就能練，完全免費。想常用的話，瀏覽器選「加入主畫面」就能裝到手機，離線也能練。
           </p>
           <p>
-            Jabiko 就是個會自己幫你盯錯題的 JLPT 自習室，每天開來點一下就有得練。
+            題庫和功能到考試前都會持續加、持續修。用了覺得哪裡怪、或想要什麼功能，都歡迎跟我說。
           </p>
         </FadeIn>
       </div>
