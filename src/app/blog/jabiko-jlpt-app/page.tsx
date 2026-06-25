@@ -99,6 +99,17 @@ export default function JabikoJlptApp() {
             height={3092}
             className="my-2 h-auto w-full rounded-lg border border-border"
           />
+          <p className="mt-4">
+            第一次打開可以先選程度——初級（N4・N5）、中級（N2・N3）、高級（N1・N2），
+            今日練習和各題庫就照這個難度給題，之後隨時能改。
+          </p>
+          <Image
+            src="/images/jabiko-level.png"
+            alt="首頁的「選擇你的程度」：初級／中級／高級"
+            width={1400}
+            height={164}
+            className="my-4 h-auto w-full rounded-lg border border-border"
+          />
         </FadeIn>
 
         {/* ============ 今日練習 ============ */}
@@ -123,10 +134,8 @@ export default function JabikoJlptApp() {
         <FadeIn>
           <Heading id="srs">弱點複習</Heading>
           <p>
-            錯題不用自己記。每次作答都會記錄，答錯的題自動進「弱點複習」，撈到期、最久沒碰的先還你。
-            答對一次，就把它下次再出現的間隔往後拉（1、3、7、到 14 天，愈記得愈久才考一次）；
-            要是又錯，就打回原點重來——真的記熟了才會慢慢淡出。
-            每一輪是有限回合，練完給一張小戰報：清掉幾題、還剩幾題。
+            錯題不用自己記。答錯的自動進「弱點複習」，到期、最久沒碰的先還你；答對一次就把下次間隔
+            往後拉（1、3、7、到 14 天），又錯就打回原點——真的記熟了才慢慢淡出。練完給一張小戰報。
           </p>
           {/* 截圖：弱點複習清單 / 練習結束的戰報畫面 */}
           <Image
@@ -142,19 +151,24 @@ export default function JabikoJlptApp() {
         <FadeIn>
           <Heading id="modes">練習模式</Heading>
           <p>
-            練習模式照目的分了幾種。打底有「基礎變化」
-            （練動詞、形容詞的變化，可以挑詞類、變化目標等條件，題庫大小即時重算）、
-            「句中填空」、「句型練習」；備考有「綜合考題庫」，
-            以及照範圍分好的「N1 備考（N1+N2）」「N2 備考（N2+N3）」「N4 備考（N4+N5）」；
-            另外有「單字讀音」，專練 N1、N2 的漢字読み。題量還在加，到檢定前會一直更新。
+            模式照目的分了幾種：打底的「基礎變化」（可挑詞類、變化目標，題庫大小即時重算）、
+            「句中填空」、「句型練習」；備考的「綜合考題庫」和照範圍分的「N1／N2／N4 備考」；
+            還有專練漢字読み的「單字讀音」。
           </p>
-          {/* 截圖：練習模式選單 / 基礎變化的多維篩選畫面 */}
           <Image
             src="/images/jabiko-modes.png"
             alt="練習模式選單／基礎變化篩選畫面"
             width={1830}
             height={1140}
             className="my-5 h-auto w-full rounded-lg border border-border"
+          />
+          <p className="mt-4">每組要練幾題自己決定——10、20、30、50，或「全部」。</p>
+          <Image
+            src="/images/jabiko-session.png"
+            alt="每組題數：10／20／30／50／全部"
+            width={484}
+            height={352}
+            className="my-4 h-auto w-[280px] max-w-full rounded-lg border border-border"
           />
         </FadeIn>
 
@@ -171,6 +185,22 @@ export default function JabikoJlptApp() {
             alt="分章學習：左邊章節索引，右邊單章的規則、例子與陷阱"
             width={2048}
             height={2955}
+            className="my-5 h-auto w-full rounded-lg border border-border"
+          />
+        </FadeIn>
+
+        {/* ============ 規則速查表 ============ */}
+        <FadeIn>
+          <Heading id="rules">規則速查表</Heading>
+          <p>
+            只想查規則、不想進練習的話，「規則」這頁把動詞變化、ます／て形、各種接續都整理成表，
+            一頁掃過去就好。
+          </p>
+          <Image
+            src="/images/jabiko-rules.png"
+            alt="規則速查表：動詞變化等整理成表"
+            width={2048}
+            height={1573}
             className="my-5 h-auto w-full rounded-lg border border-border"
           />
         </FadeIn>
@@ -193,24 +223,41 @@ export default function JabikoJlptApp() {
           />
         </FadeIn>
 
-        {/* ============ 作答與解析 ============ */}
+        {/* ============ 答題輔助 ============ */}
         <FadeIn>
-          <Heading id="answering">作答與解析</Heading>
+          <Heading id="answering">答題輔助</Heading>
           <p>
-            作答前不確定，可以開「提示」——給情境、但不會漏答案。漢字、例句旁邊都有發音鈕，
-            想聽怎麼唸點一下就讀給你聽，順便練個耳朵。鍵盤 1–4 選答、Enter 下一題。
+            答題時有幾個可以自己開關的輔助。漢字太多讀不動，就開「顯示註音」，漢字上方會標假名——
+            預設關（跟真實考試一樣），讀音題則永遠不標，不然等於送答案。
           </p>
           <Image
-            src="/images/jabiko-answer-dark.png"
-            alt="答題畫面：題目、四個選項與發音鈕"
+            src="/images/jabiko-furigana-off.png"
+            alt="關閉註音：題目維持純漢字"
             width={1214}
-            height={1066}
+            height={1108}
+            className="my-3 h-auto w-full rounded-lg border border-border"
+          />
+          <Image
+            src="/images/jabiko-furigana-on.png"
+            alt="開啟註音：漢字上方標假名"
+            width={1214}
+            height={1122}
+            className="my-3 h-auto w-full rounded-lg border border-border"
+          />
+          <p>
+            作答前不確定，按「提示」給你情境、但不會漏答案。漢字和例句旁邊都有發音鈕（🔊）點了唸給你聽；
+            鍵盤 1–4 選答、Enter 下一題。
+          </p>
+          <Image
+            src="/images/jabiko-hint.png"
+            alt="打開提示：給情境但不漏答案"
+            width={1214}
+            height={1216}
             className="my-5 h-auto w-full rounded-lg border border-border"
           />
           <p>
-            重點在解析：每一題答完都有完整解析——正解、四個選項各自差在哪、日文加繁中例句，
-            還標了 JLPT 等級；文法題再點一下能展開完整的文法說明，把那個句型一次講清楚。
-            錯的題就直接從解析裡學起來，不用另外查。
+            答完每題都有完整解析——正解、四個選項各自差在哪、日文加繁中例句，還標了 JLPT 等級；
+            文法題再點一下能展開完整的文法說明。錯的題直接從解析學起來，不用另外查。
           </p>
           <Image
             src="/images/jabiko-answer-fb-dark.png"
