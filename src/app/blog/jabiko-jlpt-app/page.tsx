@@ -66,7 +66,7 @@ export default function JabikoJlptApp() {
           src="/images/jabiko-home.png"
           alt="Jabiko 首頁"
           width={3072}
-          height={1488}
+          height={1906}
           className="h-auto w-full rounded-lg border border-border"
         />
       </FadeIn>
@@ -79,11 +79,13 @@ export default function JabikoJlptApp() {
           <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2">
             {[
               { id: "home", title: "首頁總覽" },
+              { id: "progress", title: "進度總覽" },
               { id: "today", title: "今日練習" },
               { id: "srs", title: "弱點複習" },
               { id: "learn", title: "分章學習" },
               { id: "answering", title: "答題輔助" },
               { id: "modes", title: "練習模式" },
+              { id: "mock", title: "模擬考" },
               { id: "rules", title: "規則速查表" },
               { id: "kanji-lookup", title: "漢字音讀查詢" },
             ].map((item, i) => (
@@ -122,11 +124,15 @@ export default function JabikoJlptApp() {
         {/* ============ 首頁總覽 ============ */}
         <FadeIn>
           <Heading id="home">首頁總覽</Heading>
+          <p>
+            上面一排是各個入口——學習、挑戰、單字讀音、模擬考、弱點複習，點哪個進哪個；
+            再往下，是你自己的學習狀況：練了多少、各級正答率、最近的練習量。
+          </p>
           <Image
             src="/images/jabiko-home-full.png"
-            alt="Jabiko 首頁主畫面：練習入口、各模式與使用狀況"
+            alt="Jabiko 首頁主畫面：上方練習入口、下方學習狀況"
             width={3072}
-            height={3092}
+            height={4234}
             className="my-2 h-auto w-full rounded-lg border border-border"
           />
           <p className="mt-4">
@@ -136,9 +142,31 @@ export default function JabikoJlptApp() {
           <Image
             src="/images/jabiko-level.png"
             alt="首頁的「選擇你的程度」：初級／中級／高級"
-            width={1400}
-            height={164}
+            width={1880}
+            height={328}
             className="my-4 h-auto w-full rounded-lg border border-border"
+          />
+        </FadeIn>
+
+        {/* ============ 進度總覽 ============ */}
+        <FadeIn>
+          <Heading id="progress">進度總覽</Heading>
+          <p>
+            練過一陣子之後，首頁下半就是一塊學習儀表板：總正答率做成一個環、各級（N1〜N5）
+            正答率排成長條、近兩週每天練了幾題用一排小柱子帶過，最後是「題型弱點」——
+            把文法、詞彙、漢字読み這些分開算正答率，最弱的排前面，一眼看出該補哪一塊。
+          </p>
+          <p className="mt-2">
+            標示上盡量誠實：那排柱子是「每天的題數」而不是學習時長（沒有時長這個資料），
+            「已熟練」也只算錯過又救回來的題，不灌水。
+          </p>
+          {/* 截圖：首頁下半的學習儀表板（環＋各級長條＋每日練習量＋題型弱點），需有一些作答紀錄才看得到 */}
+          <Image
+            src="/images/jabiko-progress.png"
+            alt="學習儀表板：總正答率環、各級正答率長條、每日練習量、題型弱點"
+            width={1880}
+            height={1266}
+            className="my-5 h-auto w-full rounded-lg border border-border"
           />
         </FadeIn>
 
@@ -164,8 +192,9 @@ export default function JabikoJlptApp() {
         <FadeIn>
           <Heading id="srs">弱點複習</Heading>
           <p>
-            錯題不用自己記。答錯的自動進「弱點複習」，到期、最久沒碰的先還你；答對一次就把下次間隔
-            往後拉（1、3、7、到 14 天），又錯就打回原點——真的記熟了才慢慢淡出。練完給一張小戰報。
+            錯題不用自己記。答錯的自動進「弱點複習」，到期、最久沒碰的先還你；剛答錯的會隔一陣子
+            （約一小時）才回來，不會同一回合就跳出來煩你。之後每答對一次就把間隔往後拉
+            （1、3、7、到 14 天），又錯就打回原點——真的記熟了才慢慢淡出。練完給一張小戰報。
           </p>
           {/* 截圖：弱點複習清單 / 練習結束的戰報畫面 */}
           <Image
@@ -183,13 +212,14 @@ export default function JabikoJlptApp() {
           <p>
             不想自己亂抓題目的話，「學習」這頁把內容拆成一章一章：左邊挑一章，
             右邊就列那章的規則、例子跟最容易踩的陷阱，看完直接點按鈕進對應的練習。
-            目前先把動詞、形容詞變化這些打底的做成章節，備考範圍的之後再補。
+            目前從動詞、形容詞變化這些打底的，一路排到各種常用句型，大概十幾章；
+            更進階的備考內容還在慢慢往上補。
           </p>
           <Image
             src="/images/jabiko-learn-dark.png"
             alt="分章學習：左邊章節索引，右邊單章的規則、例子與陷阱"
             width={2048}
-            height={2955}
+            height={6062}
             className="my-5 h-auto w-full rounded-lg border border-border"
           />
         </FadeIn>
@@ -231,10 +261,10 @@ export default function JabikoJlptApp() {
             文法題再點一下能展開完整的文法說明。錯的題直接從解析學起來，不用另外查。
           </p>
           <Image
-            src="/images/jabiko-answer-fb-dark.png"
-            alt="答完展開的完整解析：正解、逐選項說明、例句與等級"
+            src="/images/jabiko-grammar-fb.png"
+            alt="文法題答完的完整解析：正解與逐個選項說明、例句"
             width={1214}
-            height={1570}
+            height={1828}
             className="my-5 h-auto w-full rounded-lg border border-border"
           />
         </FadeIn>
@@ -244,23 +274,42 @@ export default function JabikoJlptApp() {
           <Heading id="modes">練習模式</Heading>
           <p>
             模式照目的分了幾種：打底的「基礎變化」（可挑詞類、變化目標，題庫大小即時重算）、
-            「句中填空」、「句型練習」；備考的「綜合考題庫」和照範圍分的「N1／N2／N4 備考」；
+            「句中填空」、「句型練習」；備考的「綜合考題庫」和照範圍分的「N1／N2／N3／N4 備考」
+            （各自混相鄰兩級的題，像 N1 備考就是 N1＋N2、N2 備考是 N2＋N3）；
             還有專練漢字読み的「單字讀音」。
           </p>
           <Image
             src="/images/jabiko-modes.png"
             alt="練習模式選單／基礎變化篩選畫面"
-            width={1830}
-            height={1140}
-            className="my-5 h-auto w-full rounded-lg border border-border"
+            width={832}
+            height={3900}
+            className="my-5 mx-auto block h-auto w-[340px] max-w-full rounded-lg border border-border"
           />
-          <p className="mt-4">每組要練幾題自己決定——10、20、30、50，或「全部」。</p>
+          <p className="mt-4">每組要練幾題自己決定——10、20、30、50、「全部」，或自己輸入數字。</p>
           <Image
             src="/images/jabiko-session.png"
-            alt="每組題數：10／20／30／50／全部"
+            alt="每組題數：10／20／30／50／全部，或自己輸入"
             width={484}
-            height={352}
+            height={430}
             className="my-4 h-auto w-[280px] max-w-full rounded-lg border border-border"
+          />
+        </FadeIn>
+
+        {/* ============ 模擬考 ============ */}
+        <FadeIn>
+          <Heading id="mock">模擬考</Heading>
+          <p>
+            想照真正的考卷結構練，就進「模擬考」。它依 JLPT N1／N2／N3 各自的官方題型把題目分區——
+            漢字読み、表記、文脈規定（詞彙填空）、語順組合、文章脈絡、內容理解……一區一區列出來，
+            還標了每一區官方大概幾題。挑一區直接練那一塊，作答完即時看解析，錯的一樣自動進弱點複習。
+          </p>
+          {/* 截圖：模擬考的題型分區清單（上方切 N1／N2／N3，各題型列出題數） */}
+          <Image
+            src="/images/jabiko-mock.png"
+            alt="模擬考：依 JLPT 官方題型分區，挑一區直接練"
+            width={1840}
+            height={2954}
+            className="my-5 h-auto w-full rounded-lg border border-border"
           />
         </FadeIn>
 
