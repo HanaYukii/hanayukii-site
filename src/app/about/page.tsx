@@ -6,9 +6,9 @@ const personJsonLd = {
   name: "花雪 HanaYukii",
   alternateName: ["Erh-Hsuan Lu", "HanaYukii"],
   url: "https://hanayukii.dev",
-  jobTitle: "Tech Lead / Founding Engineer",
+  jobTitle: "Senior Staff Engineer",
   description:
-    "Ex-Google engineer, Tech Lead at an AI startup, competitive programmer (ICPC Gold, Codeforces 2300+, LeetCode 2800+), Web3 protocol contributor.",
+    "Ex-Google engineer, Senior Staff Engineer at an AI startup, competitive programmer (ICPC Gold, Codeforces 2300+, LeetCode 2800+), Web3 protocol contributor.",
   knowsAbout: [
     "C++",
     "Systems Engineering",

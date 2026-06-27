@@ -6,32 +6,93 @@ import FadeIn from "@/components/FadeIn";
 
 type Lang = "zh" | "en";
 
-const ExternalLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center gap-1.5 rounded-full border border-border px-3.5 py-1.5 text-sm font-medium transition-all hover:border-primary hover:text-primary"
-  >
-    {children}
-    <svg className="h-3 w-3 opacity-40" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M3 9l6-6m0 0H4m5 0v5" />
-    </svg>
-  </a>
-);
+type LinkItem = { label: string; href: string };
+
+// muted, ·-separated inline links; internal hrefs (starting "/") use next/link
+function InlineLinks({ items }: { items: LinkItem[] }) {
+  return (
+    <span className="text-sm text-text-muted">
+      {items.map((item, i) => (
+        <span key={item.href}>
+          {i > 0 && <span className="mx-2 opacity-40">·</span>}
+          {item.href.startsWith("/") ? (
+            <Link href={item.href} className="inline-block py-1 transition-colors hover:text-primary">
+              {item.label}
+            </Link>
+          ) : (
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block py-1 transition-colors hover:text-primary"
+            >
+              {item.label}
+            </a>
+          )}
+        </span>
+      ))}
+    </span>
+  );
+}
 
 const cpBadges = [
-  { text: "ICPC Taipei Regional Gold - Team Leader & Main Coder (2020)", color: "bg-accent/10 text-accent" },
-  { text: "Google Code Jam Round 3 (x2)", color: "bg-warm/10 text-warm" },
-  { text: "Meta Hacker Cup Round 3 (x3)", color: "bg-rose/10 text-rose" },
-  { text: "LeetCode peak 2800+ - Guardian", color: "bg-primary/10 text-primary" },
-  { text: "Codeforces 2300+ - International Master (Top 0.5%)", color: "bg-accent/10 text-accent" },
-  { text: "AtCoder 2000+ - 1 Dan", color: "bg-warm/10 text-warm" },
-  { text: "Google Kick Start 2020 - Invited to Google Visit Program", color: "bg-sky/10 text-sky" },
+  { text: "ICPC Taipei Regional Gold — Team Leader & Main Coder (2020)", color: "bg-accent/10 text-accent" },
+  { text: "Codeforces 2300+ — International Master (Top 0.5%)", color: "bg-primary/10 text-primary" },
+  { text: "LeetCode 2800+ — Guardian", color: "bg-primary/10 text-primary" },
+  { text: "AtCoder 2000+ — 1 Dan", color: "bg-primary/10 text-primary" },
+  { text: "Google Code Jam Round 3 (x2)", color: "bg-accent/10 text-accent" },
+  { text: "Meta Hacker Cup Round 3 (x3)", color: "bg-accent/10 text-accent" },
+  { text: "Google Kick Start — Invited to Google Visit Program (2020)", color: "bg-accent/10 text-accent" },
 ];
 
+const cpLinks: LinkItem[] = [
+  { label: "Codeforces", href: "https://codeforces.com/profile/HanaYukii" },
+  { label: "LeetCode", href: "https://leetcode.com/u/HanaYukii/" },
+  { label: "AtCoder", href: "https://atcoder.jp/users/HanaYukii" },
+  { label: "Solutions", href: "https://github.com/HanaYukii/Competitive-Programming" },
+];
+
+type Project = { period: string; name: string; blurb: string; links: LinkItem[] };
+
+const projects: Record<Lang, Project[]> = {
+  zh: [
+    {
+      period: "2024 –",
+      name: "Polkadot JAM Protocol",
+      blurb: "Web3 Foundation 的 JAM contest 參賽隊，repo 核心成員（95★），大量參與實作與文件。",
+      links: [{ label: "GitHub", href: "https://github.com/New-JAMneration/JAM-Protocol" }],
+    },
+    {
+      period: "2026 –",
+      name: "Jabiko",
+      blurb: "和朋友做的 JLPT 自習網站，從動詞變化練到 N1 文法，會自動盯錯題複習，打開就能用。",
+      links: [
+        { label: "jabiko.pages.dev", href: "https://jabiko.pages.dev/" },
+        { label: "介紹", href: "/blog/jabiko-jlpt-app" },
+      ],
+    },
+  ],
+  en: [
+    {
+      period: "2024 –",
+      name: "Polkadot JAM Protocol",
+      blurb: "Web3 Foundation JAM contest team — one of the core repo contributors (95★), a lot of the implementation and docs.",
+      links: [{ label: "GitHub", href: "https://github.com/New-JAMneration/JAM-Protocol" }],
+    },
+    {
+      period: "2026 –",
+      name: "Jabiko",
+      blurb: "A JLPT self-study site I built with a friend — from verb conjugation up to N1 grammar, with automatic spaced review of missed questions.",
+      links: [
+        { label: "jabiko.pages.dev", href: "https://jabiko.pages.dev/" },
+        { label: "Write-up", href: "/blog/jabiko-jlpt-app" },
+      ],
+    },
+  ],
+};
+
 const background = [
-  { period: "2025 –", role: "Tech Lead", place: "AI Startup (under NDA)" },
+  { period: "2025 –", role: "Senior Staff Engineer", place: "AI Startup (under NDA)" },
   { period: "2022 – 2025", role: "Software Engineer", place: "Google · Cloud" },
   { period: "2016 – 2022", role: "B.S. + M.S. CS", place: "NCTU / NYCU" },
 ];
@@ -43,71 +104,34 @@ const skills: Record<Lang, string[]> = {
 
 const beyondCode: Record<Lang, { icon: string; title: string; text: string }[]> = {
   zh: [
-    {
-      icon: "🎤",
-      title: "日系偶像",
-      text: "目前主要追私立恵比寿中学、高嶺のなでしこ、=LOVE、ukka、TPE48 等等。長年也累積了不少日文軟實力。",
-    },
-    {
-      icon: "🏎️⚾",
-      title: "F1 & 棒球",
-      text: "F1 忠實觀眾，想找機會去鈴鹿跟新加坡站看現場。也很愛棒球，在日本跟美國都看過球。",
-    },
-    {
-      icon: "🚴",
-      title: "公路車",
-      text: "平常騎公路車，喜歡研究裝備跟規劃路線，長騎很適合放空。",
-    },
-    {
-      icon: "📈",
-      title: "投資",
-      text: "有在投資加密貨幣跟股票，本身也在做 Web3 開發，也是在科技業參與時代趨勢。",
-    },
-    {
-      icon: "✈️",
-      title: "日本旅遊",
-      text: "常去日本，通常是配合偶像的 live 順便旅遊，希望跟著偶像一起走遍日本各地。",
-    },
+    { icon: "🎤", title: "日系偶像", text: "目前主要追私立恵比寿中学、高嶺のなでしこ、=LOVE、ukka、TPE48 等等，長年也累積了不少日文軟實力。" },
+    { icon: "🏎️⚾", title: "F1 & 棒球", text: "F1 忠實觀眾，想找機會去鈴鹿跟新加坡站看現場。也很愛棒球，在日本跟美國都看過球。" },
+    { icon: "🚴", title: "公路車", text: "平常騎公路車，喜歡研究裝備跟規劃路線，長騎很適合放空。" },
+    { icon: "📈", title: "投資", text: "有在投資加密貨幣跟股票，本身也在做 Web3 開發，在科技業裡也比較跟得上這塊的動態。" },
+    { icon: "✈️", title: "日本旅遊", text: "常去日本，通常是配合偶像的 live 順便旅遊，希望跟著偶像一起走遍日本各地。" },
   ],
   en: [
-    {
-      icon: "🎤",
-      title: "J-Pop Idols",
-      text: "Currently following 私立恵比寿中学, 高嶺のなでしこ, =LOVE, ukka, TPE48 and more. Years of fan-life have built up a fair amount of Japanese on the side.",
-    },
-    {
-      icon: "🏎️⚾",
-      title: "F1 & Baseball",
-      text: "Long-time F1 viewer — hoping to catch a Suzuka or Singapore GP live someday. Also a big baseball fan; been to games in both Japan and the US.",
-    },
-    {
-      icon: "🚴",
-      title: "Road Cycling",
-      text: "Ride road bikes regularly. Enjoy researching gear and planning routes — long rides are good for clearing the head.",
-    },
-    {
-      icon: "📈",
-      title: "Investing",
-      text: "Active in crypto and equities; also building in Web3. Like being on the inside of the trends I'm betting on.",
-    },
-    {
-      icon: "✈️",
-      title: "Japan Travel",
-      text: "Go to Japan often, usually built around idol live shows. The long-term plan: visit every prefecture, one concert at a time.",
-    },
+    { icon: "🎤", title: "J-Pop Idols", text: "Currently following 私立恵比寿中学, 高嶺のなでしこ, =LOVE, ukka, TPE48 and more. Following them for years has got my Japanese to a decent level." },
+    { icon: "🏎️⚾", title: "F1 & Baseball", text: "Been watching F1 for years — want to make it to Suzuka or the Singapore GP in person. Big baseball fan too; been to games in Japan and the US." },
+    { icon: "🚴", title: "Road Cycling", text: "Ride road bikes regularly — like fiddling with gear and planning routes. Long rides are a good way to zone out." },
+    { icon: "📈", title: "Investing", text: "Investing in crypto and equities, and building in Web3 myself. Working in tech, it's easier to stay close to how it develops." },
+    { icon: "✈️", title: "Japan Travel", text: "Go to Japan often, usually around idol live shows — hoping to get to most of the prefectures eventually." },
   ],
 };
 
 export default function AboutContent() {
   const [lang, setLang] = useState<Lang>("zh");
 
+  const sectionClass = "mt-12 border-t border-border pt-10";
+
   return (
-    <div className="mx-auto max-w-3xl px-6 py-16">
+    <div lang={lang === "zh" ? "zh-Hant" : "en"} className="mx-auto max-w-3xl px-6 py-16">
       {/* ── Lang Toggle ── */}
       <div className="mb-8 flex justify-end">
         <div className="inline-flex rounded-full border border-border p-1 text-sm">
           <button
             type="button"
+            aria-pressed={lang === "zh"}
             onClick={() => setLang("zh")}
             className={`rounded-full px-3 py-1 transition-all ${
               lang === "zh" ? "bg-primary text-white" : "text-text-muted hover:text-text"
@@ -117,6 +141,7 @@ export default function AboutContent() {
           </button>
           <button
             type="button"
+            aria-pressed={lang === "en"}
             onClick={() => setLang("en")}
             className={`rounded-full px-3 py-1 transition-all ${
               lang === "en" ? "bg-primary text-white" : "text-text-muted hover:text-text"
@@ -135,87 +160,88 @@ export default function AboutContent() {
 
       {/* ── Intro ── */}
       <FadeIn>
-        <section className="mb-14">
+        <section>
           {lang === "zh" ? (
             <p className="text-lg leading-relaxed text-text-muted">
-              我是<strong className="text-text">花雪 (HanaYukii)</strong>。
-              <Link href="/blog/cp-career-memoir" className="text-primary hover:underline">程式競賽</Link>出身，喜歡演算法跟數學。在 <Link href="/blog/leaving-google" className="text-primary hover:underline">Google 待了三年</Link>，現在在 AI 新創當 Tech Lead，也有在做 Web3。
-              這邊隨興寫自己喜歡的 topic，想寫啥寫啥。
+              我是<strong className="text-text">花雪 (HanaYukii)</strong>，<Link href="/blog/cp-career-memoir" className="text-primary hover:underline">程式競賽</Link>出身，喜歡演算法跟數學。在 <Link href="/blog/leaving-google" className="text-primary hover:underline">Google 待了三年</Link>後離開，現在在一間 AI 新創做 Senior Staff Engineer，平常也碰 Web3。這個網站隨手記些自己有興趣的東西，想寫啥寫啥。
             </p>
           ) : (
             <p className="text-lg leading-relaxed text-text-muted">
-              I&apos;m <strong className="text-text">HanaYukii</strong>. From a{" "}
+              I&apos;m <strong className="text-text">HanaYukii</strong> — from a{" "}
               <Link href="/blog/cp-career-memoir" className="text-primary hover:underline">competitive programming</Link>{" "}
-              background; love algorithms and math. Spent{" "}
-              <Link href="/blog/leaving-google" className="text-primary hover:underline">three years at Google</Link>, now Tech Lead at an AI startup, also building in Web3.
-              I write here on whatever I find interesting — no roadmap, no agenda.
+              background, and I like algorithms and math. After{" "}
+              <Link href="/blog/leaving-google" className="text-primary hover:underline">three years at Google</Link>{" "}
+              I moved on; now I&apos;m a Senior Staff Engineer at an AI startup, and I also build in Web3. I write here about whatever I happen to find interesting.
             </p>
           )}
         </section>
       </FadeIn>
 
+      {/* ── Talk (prominent CTA, surfaced high) ── */}
+      <FadeIn>
+        <div className="mt-8 flex flex-wrap items-center gap-4">
+          <a
+            href="https://calendly.com/islu245777/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110"
+          >
+            {lang === "zh" ? "預約 1:1 交流" : "Book a 1:1 chat"}
+            <svg aria-hidden="true" className="h-3 w-3 opacity-70" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M3 9l6-6m0 0H4m5 0v5" />
+            </svg>
+          </a>
+          <span className="text-sm text-text-muted">
+            {lang === "zh" ? "30 分鐘，聊什麼都行。" : "30 minutes, anything goes."}
+          </span>
+        </div>
+      </FadeIn>
+
       {/* ── Competitive Programming ── */}
       <FadeIn>
-        <section className="mb-14">
-          <h2 className="mb-6 text-2xl font-bold">Competitive Programming</h2>
-          <div className="rounded-xl border border-border bg-surface/40 p-6">
-            <div className="mb-4 flex flex-wrap gap-3">
-              {cpBadges.map((badge) => (
-                <span key={badge.text} className={`rounded-full px-3 py-1 text-sm font-semibold ${badge.color}`}>
-                  {badge.text}
-                </span>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <ExternalLink href="https://codeforces.com/profile/HanaYukii">Codeforces</ExternalLink>
-              <ExternalLink href="https://leetcode.com/u/HanaYukii/">LeetCode</ExternalLink>
-              <ExternalLink href="https://atcoder.jp/users/HanaYukii">AtCoder</ExternalLink>
-            </div>
+        <section className={sectionClass}>
+          <h2 className="mb-5 text-2xl font-bold">Competitive Programming</h2>
+          <div className="flex flex-wrap gap-2.5">
+            {cpBadges.map((badge) => (
+              <span key={badge.text} className={`rounded-full px-3 py-1 text-sm font-medium ${badge.color}`}>
+                {badge.text}
+              </span>
+            ))}
+          </div>
+          <div className="mt-4">
+            <InlineLinks items={cpLinks} />
           </div>
         </section>
       </FadeIn>
 
       {/* ── Projects ── */}
       <FadeIn>
-        <section className="mb-14">
-          <h2 className="mb-6 text-2xl font-bold">Projects</h2>
-          <div className="rounded-xl border border-border bg-surface/40 p-6 transition-all hover:border-primary/30 hover:bg-surface-hover">
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="flex items-center gap-3">
-                  <h3 className="font-bold">Polkadot JAM Protocol</h3>
-                  <span className="rounded-full bg-warm/10 px-2 py-0.5 text-xs font-semibold text-warm">94 Stars</span>
-                  <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">Top Contributor in Team</span>
+        <section className={sectionClass}>
+          <h2 className="mb-5 text-2xl font-bold">Projects</h2>
+          <div className="space-y-5">
+            {projects[lang].map((p) => (
+              <div key={p.name} className="flex gap-4">
+                <span className="w-24 shrink-0 pt-0.5 text-xs font-medium text-text-muted">{p.period}</span>
+                <div className="min-w-0">
+                  <h3 className="font-semibold">{p.name}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-text-muted">{p.blurb}</p>
+                  <div className="mt-1.5">
+                    <InlineLinks items={p.links} />
+                  </div>
                 </div>
-                <p className="mt-1 text-sm text-text-muted">Sep 2024 – Present</p>
-                <p className="mt-1 text-sm leading-relaxed text-text-muted">
-                  {lang === "zh"
-                    ? "Web3 Foundation JAM contest 參賽團隊，repo 核心成員，大量參與實作跟文件。"
-                    : "Web3 Foundation JAM contest team. Core repo contributor — substantial work across implementation and docs."}
-                </p>
               </div>
-              <a
-                href="https://github.com/New-JAMneration"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-4 shrink-0 rounded-full border border-border p-2 transition-all hover:border-primary hover:text-primary"
-              >
-                <svg className="h-4 w-4" viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
-                </svg>
-              </a>
-            </div>
+            ))}
           </div>
         </section>
       </FadeIn>
 
       {/* ── Background ── */}
       <FadeIn>
-        <section className="mb-14">
+        <section className={sectionClass}>
           <h2 className="mb-5 text-2xl font-bold">Background</h2>
           <div className="space-y-3">
-            {background.map((item, i) => (
-              <div key={i} className="flex items-baseline gap-4">
+            {background.map((item) => (
+              <div key={item.role} className="flex items-baseline gap-4">
                 <span className="w-24 shrink-0 text-xs font-medium text-text-muted">{item.period}</span>
                 <div className="min-w-0">
                   <span className="font-semibold">{item.role}</span>
@@ -226,60 +252,38 @@ export default function AboutContent() {
           </div>
           <div className="mt-6 flex flex-wrap gap-2">
             {skills[lang].map((s) => (
-              <span key={s} className="rounded-full border border-border bg-surface/40 px-3 py-1 text-sm">{s}</span>
+              <span key={s} className="rounded-full border border-border bg-surface/40 px-3 py-1 text-sm text-text-muted">{s}</span>
             ))}
           </div>
         </section>
       </FadeIn>
 
       {/* ── Beyond Code ── */}
-      <section className="mb-14">
-        <FadeIn>
-          <h2 className="mb-6 text-2xl font-bold">Beyond Code</h2>
-        </FadeIn>
-        <div className="space-y-4">
-          {beyondCode[lang].map((item, i) => (
-            <FadeIn key={i} delay={i * 0.05}>
-              <div className="rounded-xl border border-border bg-surface/40 p-6 transition-all hover:border-primary/30 hover:bg-surface-hover">
-                <div className="mb-2 flex items-center gap-2">
-                  <span className="text-lg">{item.icon}</span>
-                  <h3 className="text-lg font-bold">{item.title}</h3>
-                </div>
-                <p className="text-sm leading-relaxed text-text-muted">{item.text}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-      </section>
+      <FadeIn>
+        <section className={sectionClass}>
+          <h2 className="mb-5 text-2xl font-bold">Beyond Code</h2>
+          <ul className="space-y-3">
+            {beyondCode[lang].map((item) => (
+              <li key={item.title} className="text-sm leading-relaxed text-text-muted">
+                <span className="mr-1.5">{item.icon}</span>
+                <strong className="font-medium text-text">{item.title}</strong>
+                <span> — {item.text}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </FadeIn>
 
       {/* ── Contact ── */}
       <FadeIn>
-        <section className="mb-14">
-          <h2 className="mb-4 text-2xl font-bold">Contact</h2>
-
-          <div className="mb-6 flex flex-wrap gap-3">
-            <ExternalLink href="https://www.linkedin.com/in/erh-hsuan-lu-a9b0681ba/">LinkedIn</ExternalLink>
-            <ExternalLink href="https://github.com/HanaYukii">GitHub</ExternalLink>
-          </div>
-
-          <p className="mb-5 text-sm leading-relaxed text-text-muted">
+        <section className={sectionClass}>
+          <h2 className="mb-5 text-2xl font-bold">Contact</h2>
+          <p className="text-sm leading-relaxed text-text-muted">
             {lang === "zh"
-              ? "想聊的 topic 不限，希望 build up 好的 connection，經驗有機會幫上人，也從交流中學習。"
-              : "Open to chat about anything — looking to build good connections, share experience where useful, and learn from yours."}
+              ? "什麼都可以聊。我的經驗能幫上忙就幫，也想跟你學點東西。"
+              : "Happy to talk about anything — I'll share what I know if it helps, and I'd like to learn from you too."}
           </p>
-
-          <div className="flex flex-wrap items-center gap-3">
-            <a
-              href="https://calendly.com/islu245777/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:brightness-110"
-            >
-              {lang === "zh" ? "預約 1:1 交流 (Calendly)" : "Book a 1:1 chat (Calendly)"}
-              <svg className="h-3 w-3 opacity-70" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M3 9l6-6m0 0H4m5 0v5" />
-              </svg>
-            </a>
+          <div className="mt-4 flex flex-wrap items-center gap-3">
             <a
               href="mailto:islu245777@gmail.com"
               className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium transition-all hover:border-primary hover:text-primary"
@@ -287,9 +291,17 @@ export default function AboutContent() {
               islu245777@gmail.com
             </a>
           </div>
+          <div className="mt-3">
+            <InlineLinks
+              items={[
+                { label: lang === "zh" ? "預約 1:1 交流" : "Calendly", href: "https://calendly.com/islu245777/30min" },
+                { label: "LinkedIn", href: "https://www.linkedin.com/in/erh-hsuan-lu-a9b0681ba/" },
+                { label: "GitHub", href: "https://github.com/HanaYukii" },
+              ]}
+            />
+          </div>
         </section>
       </FadeIn>
-
     </div>
   );
 }
