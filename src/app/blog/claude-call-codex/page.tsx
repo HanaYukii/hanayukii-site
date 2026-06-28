@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import Code from "@/components/CodeBlock";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/claude-call-codex", {
   title: "讓 Claude Code 呼叫 Codex | 花雪 HanaYukii",
   description:
     "用官方的 codex-plugin-cc，在 Claude Code 裡直接叫 Codex 做 code review、對抗式審查、或把卡住的任務丟給它。完整安裝步驟、登入認證、設定，以及費用怎麼算。",
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
       "codex-plugin-cc 安裝、登入、設定與用法，附費用說明。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -26,6 +28,7 @@ function Heading({ children, id }: { children: React.ReactNode; id: string }) {
 export default function ClaudeCallCodex() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/claude-call-codex" />
       <FadeIn>
         <Link
           href="/blog"

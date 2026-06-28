@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import Code from "@/components/CodeBlock";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/cpp-polymorphism", {
   title: "C++ 多型：靜態(template) vs 動態(virtual) | 花雪 HanaYukii",
   description:
     "同一個介面、不同行為，C++ 有兩條路：動態多型（virtual，執行期分派）與靜態多型（template / CRTP，編譯期分派）。以例子為主，附 concept 與選用時機。",
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
       "virtual 與 template / CRTP 的對照，以例子為主，附 concept 與選用時機。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -26,6 +28,7 @@ function Heading({ children, id }: { children: React.ReactNode; id: string }) {
 export default function CppPolymorphism() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/cpp-polymorphism" />
       <FadeIn>
         <Link
           href="/blog"

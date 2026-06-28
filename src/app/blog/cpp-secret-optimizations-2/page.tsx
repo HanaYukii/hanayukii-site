@@ -3,8 +3,10 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/cpp-secret-optimizations-2", {
   title: "Padding、Vtable、Smart Pointer 的成本 | 花雪 HanaYukii",
   description:
     "sizeof 不是你想的那樣、virtual 讓物件膨脹 4 倍、shared_ptr 的隱藏原子操作代價。",
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
       "sizeof 不是你想的那樣、virtual 讓物件膨脹 4 倍、shared_ptr 的隱藏原子操作代價。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -73,6 +75,7 @@ function QuizBox({
 export default function CppSecretOptimizations2() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/cpp-secret-optimizations-2" />
       <FadeIn>
         {/* Back link */}
         <Link

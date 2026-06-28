@@ -4,8 +4,10 @@ import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { InlineMath } from "@/components/Math";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/lc-2463", {
   title: "LeetCode 2463 Minimum Total Distance Traveled | 花雪 HanaYukii",
   description:
     "直觀的二維匹配 DP，但轉移的實作不太直觀。每日一題的好題。",
@@ -15,7 +17,7 @@ export const metadata: Metadata = {
       "直觀的二維匹配 DP，但轉移的實作不太直觀。每日一題的好題。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -28,6 +30,7 @@ function Heading({ children, id }: { children: React.ReactNode; id: string }) {
 export default function Lc2463() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/lc-2463" />
       <FadeIn>
         <Link
           href="/blog"

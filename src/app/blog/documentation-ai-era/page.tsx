@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/documentation-ai-era", {
   title: "文件在 AI 時代的價值 | 花雪 HanaYukii",
   description:
     "以前文件常常像成本；現在它可能是讓 AI、團隊、未來的自己都更快進入 context 的介面。AI 時代不是讓文件變得不重要，而是讓文件的價值被放大。",
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
       "AI 時代不是讓文件變得不重要，而是讓文件的價值被放大。寫得越清楚，人跟 AI 都越容易正確呼叫它。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -26,6 +28,7 @@ function Heading({ children, id }: { children: React.ReactNode; id: string }) {
 export default function DocumentationAiEra() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/documentation-ai-era" />
       <FadeIn>
         <Link
           href="/blog"

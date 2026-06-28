@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/ukka-final-chapter", {
   title: "ukka Final Chapter | 花雪 HanaYukii",
   description:
     "看完 ukka Final Chapter 後的感想。很多老粉懷念的是過去十年，而我捨不得的是這一年才剛開始發生的故事。",
@@ -12,7 +14,7 @@ export const metadata: Metadata = {
       "看完 ukka Final Chapter 後的感想。",
     type: "article",
   },
-};
+});
 
 const C = {
   emma: "#F4A03B", // 桜井えま
@@ -39,6 +41,7 @@ function SectionHeading({ children, id }: { children: React.ReactNode; id: strin
 export default function UkkaFinalChapter() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/ukka-final-chapter" />
       <FadeIn>
         <Link
           href="/blog"

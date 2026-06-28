@@ -3,8 +3,10 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/cpp-interview-performance-analysis", {
   title: "我在 Crypto/HFT 公司的 C++ 效能面試 | 花雪 HanaYukii",
   description:
     "這場 Crypto / HFT C++ 面試幾乎不問 LeetCode，六題都在問 copy、move、allocation 和資料結構取捨。",
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
       "這場 Crypto / HFT C++ 面試幾乎不問 LeetCode，六題都在問 copy、move、allocation 和資料結構取捨。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -75,6 +77,7 @@ function VerdictBox({
 export default function CppInterviewPerformanceAnalysis() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/cpp-interview-performance-analysis" />
       <FadeIn>
         {/* Back link */}
         <Link

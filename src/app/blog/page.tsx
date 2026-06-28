@@ -1,6 +1,40 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { posts } from "@/data/posts";
+import { SITE_URL, AUTHOR } from "@/lib/seo";
+
+const DESCRIPTION =
+  "C++、演算法與競賽程式、Web3、職涯隨筆與偶像現場——花雪 HanaYukii 的文章。";
+
+export const metadata: Metadata = {
+  title: "Blog | 花雪 HanaYukii",
+  description: DESCRIPTION,
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog | 花雪 HanaYukii",
+    description: DESCRIPTION,
+    url: "/blog",
+    type: "website",
+  },
+};
+
+const blogJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "花雪 HanaYukii — Blog",
+  url: `${SITE_URL}/blog`,
+  inLanguage: "zh-TW",
+  author: { "@type": "Person", name: AUTHOR, url: `${SITE_URL}/about` },
+  blogPost: posts
+    .filter((p) => p.href)
+    .map((p) => ({
+      "@type": "BlogPosting",
+      headline: p.title,
+      url: `${SITE_URL}${p.href}`,
+      datePublished: new Date(p.date).toISOString(),
+    })),
+};
 
 export default async function Blog({
   searchParams,
@@ -15,6 +49,10 @@ export default async function Blog({
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
+      />
       <FadeIn>
         <div className="mb-2 flex items-center gap-3">
           <h1 className="text-4xl font-bold tracking-tight">Blog</h1>

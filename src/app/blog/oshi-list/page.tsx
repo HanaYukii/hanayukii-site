@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/oshi-list", {
   title: "推し清單 | 花雪 HanaYukii",
   description:
     "從 Stardust 起點，到現在主要在追、已解散的推、以前喜歡偶爾看、觀望中的團。",
@@ -12,7 +14,7 @@ export const metadata: Metadata = {
       "從 Stardust 起點，到現在主要在追、已解散的推、以前喜歡偶爾看、觀望中的團。",
     type: "article",
   },
-};
+});
 
 // 成員代表色（メンバーカラー）
 const C = {
@@ -53,6 +55,7 @@ function SectionHeading({ children, id }: { children: React.ReactNode; id: strin
 export default function OshiList() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/oshi-list" />
       <FadeIn>
         <Link
           href="/blog"

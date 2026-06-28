@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import Code from "@/components/CodeBlock";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/ai-exam-authoring-workflow", {
   title: "用 multi agent AI 出 JLPT 考題：交叉審查與品質閘 | 花雪 HanaYukii",
   description:
     "用 subagent + Codex 兩個 AI 代理平行出題再交叉互審，搭配 lint／dry-run／讀音驗證等自動品質閘，幫 JLPT 題庫大量出題又不出近義雙解。",
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
       "multi agent 平行出題＋交叉互審＋把品質規則編碼成自動閘，把 AI 出題變成可維護的流程。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -38,6 +40,7 @@ function Callout({ children }: { children: React.ReactNode }) {
 export default function AiExamAuthoringWorkflow() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/ai-exam-authoring-workflow" />
       <FadeIn>
         <Link
           href="/blog"

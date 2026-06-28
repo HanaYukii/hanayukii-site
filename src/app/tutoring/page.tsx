@@ -1,5 +1,21 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+
+const DESCRIPTION =
+  "程式競賽、演算法、APCS 與頂級外商面試準備家教。7 年以上教學經驗，指導過數十位學生。";
+
+export const metadata: Metadata = {
+  title: "演算法家教 | 花雪 HanaYukii",
+  description: DESCRIPTION,
+  alternates: { canonical: "/tutoring" },
+  openGraph: {
+    title: "演算法家教 | 花雪 HanaYukii",
+    description: DESCRIPTION,
+    url: "/tutoring",
+    type: "website",
+  },
+};
 
 export default function Tutoring() {
   return (
@@ -21,7 +37,7 @@ export default function Tutoring() {
             <li>交大資工學士 (2016–2020)</li>
             <li>交大資工碩士 (2020–2022)</li>
             <li>Google 軟體工程師 (2022–2025)</li>
-            <li>AI 新創 Tech Lead (2025–)</li>
+            <li>AI 新創 Senior Staff Engineer (2025–)</li>
           </ul>
         </section>
       </FadeIn>

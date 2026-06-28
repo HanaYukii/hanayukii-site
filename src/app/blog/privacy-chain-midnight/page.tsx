@@ -3,8 +3,10 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/privacy-chain-midnight", {
   title: "隱私鏈技術入門：Midnight Network | 花雪 HanaYukii",
   description:
     "用 Midnight 這個例子，快速看懂隱私鏈在解什麼問題，以及 ZK proof 在鏈上怎麼用。",
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
       "用 Midnight 這個例子，快速看懂隱私鏈在解什麼問題，以及 ZK proof 在鏈上怎麼用。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -39,6 +41,7 @@ function Callout({ children }: { children: React.ReactNode }) {
 export default function PrivacyChainMidnight() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/privacy-chain-midnight" />
       <FadeIn>
         <Link
           href="/blog"

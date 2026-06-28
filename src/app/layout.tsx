@@ -49,11 +49,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://hanayukii.dev"),
   title: "花雪 HanaYukii",
   description:
-    "Personal site of 花雪 (HanaYukii) — backend engineer, competitive programmer, and writer.",
+    "Personal site of 花雪 (HanaYukii) — Senior Staff Engineer, competitive programmer, and writer.",
   openGraph: {
     title: "花雪 HanaYukii",
     description:
-      "Personal site of 花雪 (HanaYukii) — backend engineer, competitive programmer, and writer.",
+      "Personal site of 花雪 (HanaYukii) — Senior Staff Engineer, competitive programmer, and writer.",
     url: "https://hanayukii.dev",
     siteName: "花雪 HanaYukii",
     type: "website",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "花雪 HanaYukii",
     description:
-      "Personal site of 花雪 (HanaYukii) — backend engineer, competitive programmer, and writer.",
+      "Personal site of 花雪 (HanaYukii) — Senior Staff Engineer, competitive programmer, and writer.",
   },
   alternates: {
     types: {

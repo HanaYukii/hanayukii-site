@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/takaneko-ikite-ryaii", {
   title: "高嶺のなでしこ — 生きてりゃいい 歌詞翻譯 | 花雪 HanaYukii",
   description:
     "高嶺のなでしこ「生きてりゃいい」歌詞翻譯。エースコック はるさめキャンペーン。",
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
       "高嶺のなでしこ「生きてりゃいい」歌詞翻譯。エースコック はるさめキャンペーン。",
     type: "article",
   },
-};
+});
 
 const verses: { ja: string; zh: string }[] = [
   {
@@ -177,6 +179,7 @@ Lalala…
 export default function IkiteRyaii() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/takaneko-ikite-ryaii" />
       <FadeIn>
         <Link
           href="/blog"

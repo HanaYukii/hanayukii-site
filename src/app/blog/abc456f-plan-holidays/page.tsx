@@ -4,8 +4,10 @@ import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { InlineMath, BlockMath } from "@/components/Math";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/abc456f-plan-holidays", {
   title: "AtCoder ABC 456 F Plan Holidays | 花雪 HanaYukii",
   description:
     "AtCoder ABC 456 F 題解。把買假日問題轉成最大不相鄰省略和，並用線段樹的「左右端狀態相依」模式維護動態查詢。順帶整理 max subarray sum 同模式的對照。",
@@ -15,7 +17,7 @@ export const metadata: Metadata = {
       "AtCoder ABC 456 F 題解。最大不相鄰省略和 + 線段樹「左右端狀態相依」合併模式。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -40,6 +42,7 @@ function Callout({ children }: { children: React.ReactNode }) {
 export default function Abc456fPlanHolidays() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/abc456f-plan-holidays" />
       <FadeIn>
         <Link
           href="/blog"

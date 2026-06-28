@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { InlineMath, BlockMath } from "@/components/Math";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/cf2217f", {
   title: "CF2217F Interval Game | 花雪 HanaYukii",
   description:
     "Codeforces 2217F Interval Game 題解。Nim + XOR 加法恆等式 + Digit DP。",
@@ -15,7 +17,7 @@ export const metadata: Metadata = {
       "Codeforces 2217F Interval Game 題解。Nim + XOR 加法恆等式 + Digit DP。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -40,6 +42,7 @@ function Callout({ children }: { children: React.ReactNode }) {
 export default function CF2217F() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/cf2217f" />
       <FadeIn>
         <Link
           href="/blog"

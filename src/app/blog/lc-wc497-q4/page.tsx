@@ -4,8 +4,10 @@ import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { InlineMath, BlockMath } from "@/components/Math";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/lc-wc497-q4", {
   title: "LeetCode Weekly Contest 497 Q4 Good Subsequence Queries | 花雪 HanaYukii",
   description:
     "LeetCode Weekly Contest 497 Q4 題解。Segment Tree 維護 GCD + 分 case 討論。",
@@ -15,7 +17,7 @@ export const metadata: Metadata = {
       "LeetCode Weekly Contest 497 Q4 題解。Segment Tree 維護 GCD + 分 case 討論。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -40,6 +42,7 @@ function Callout({ children }: { children: React.ReactNode }) {
 export default function LcWc497Q4() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/lc-wc497-q4" />
       <FadeIn>
         <Link
           href="/blog"

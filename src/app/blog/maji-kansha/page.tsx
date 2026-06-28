@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/maji-kansha", {
   title: "TEAM SHACHI —「マジ感謝」歌詞翻譯 | 花雪 HanaYukii",
   description: "TEAM SHACHI「マジ感謝」歌詞翻譯與心得。",
   openGraph: {
@@ -10,7 +12,7 @@ export const metadata: Metadata = {
     description: "TEAM SHACHI「マジ感謝」歌詞翻譯與心得。",
     type: "article",
   },
-};
+});
 
 const verses: { ja: string; zh: string }[] = [
   {
@@ -203,6 +205,7 @@ const verses: { ja: string; zh: string }[] = [
 export default function MajiKansha() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/maji-kansha" />
       <FadeIn>
         <Link
           href="/blog"

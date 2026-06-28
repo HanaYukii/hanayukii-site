@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/leaving-google", {
   title: "離開 Google 半年後的轉職紀錄 | 花雪 HanaYukii",
   description:
     "在 Google Cloud 待了三年，我最後選擇裸辭。不是因為壓力太大，甚至可以說是輕鬆的。但工作內容跟期待的落差越來越大。",
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
       "在 Google Cloud 待了三年，我最後選擇裸辭。不是因為壓力太大，甚至可以說是輕鬆的。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -26,6 +28,7 @@ function Heading({ children, id }: { children: React.ReactNode; id: string }) {
 export default function LeavingGoogle() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/leaving-google" />
       <FadeIn>
         <Link
           href="/blog"

@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import Image from "next/image";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
 // 各 feature 下面的 <Image> 指向 public/images/jabiko-*.png。
 // 圖片補進 public/images/ 後即顯示；width/height 待依實際截圖尺寸再調整。
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/jabiko-jlpt-app", {
   title: "Jabiko：JLPT 自習網站 | 花雪 HanaYukii",
   description:
     "一個 JLPT 自習網站，從基礎變化到 N1 備考、會自動盯錯題複習；介紹主要的練習模式與功能特色。",
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
       "從基礎變化到 N1 備考、會自動盯錯題複習的 JLPT 自習網站：主要功能與特色介紹。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -29,6 +31,7 @@ function Heading({ children, id }: { children: React.ReactNode; id: string }) {
 export default function JabikoJlptApp() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/jabiko-jlpt-app" />
       <FadeIn>
         <Link
           href="/blog"

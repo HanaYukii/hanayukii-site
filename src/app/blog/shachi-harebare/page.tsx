@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/shachi-harebare", {
   title: "在晴朗的風裡翻頁 — TEAM SHACHI 最終曲「晴れ晴れ」 | 花雪 HanaYukii",
   description:
     "youth case 寫給 TEAM SHACHI 的畢業曲〈晴れ晴れ〉。歌詞意境很美：寫給曾經一起走過一段路的人。",
@@ -11,7 +13,7 @@ export const metadata: Metadata = {
     description: "youth case 寫給 TEAM SHACHI 的畢業曲〈晴れ晴れ〉。",
     type: "article",
   },
-};
+});
 
 const verses: { ja: string; zh: string }[] = [
   {
@@ -143,6 +145,7 @@ const verses: { ja: string; zh: string }[] = [
 export default function ShachiHarebare() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/shachi-harebare" />
       <FadeIn>
         <Link
           href="/blog"

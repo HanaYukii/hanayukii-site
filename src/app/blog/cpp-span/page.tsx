@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import Code from "@/components/CodeBlock";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/cpp-span", {
   title: "C++20 的 std::span 應用整理 | 花雪 HanaYukii",
   description:
     "std::span 把 vector、array、指標加長度收成同一個介面：基本用法、subspan 切片、static extent，還有 span<const T> 跟 const span<T> 不是同一回事的坑。",
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
       "不擁有資料的連續記憶體視圖：基本用法、切片、extent，跟幾個 dangling 的坑。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -26,6 +28,7 @@ function Heading({ children, id }: { children: React.ReactNode; id: string }) {
 export default function CppSpan() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/cpp-span" />
       <FadeIn>
         <Link
           href="/blog"

@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/kol-bull-market-amplifier", {
   title: "牛市放大效應與 KOL | 花雪 HanaYukii",
   description:
     "從 D 大、JAM 到 Google RSU 的投資反思。三條線指向同一件事：當距離太近、信念太強、故事太順，就容易把對某件事的真心相信，誤認成應該重壓的理由。",
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
       "從 D 大、JAM 到 Google RSU 的投資反思。當距離太近、信念太強、故事太順，就容易把相信誤認成重壓的理由。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -26,6 +28,7 @@ function Heading({ children, id }: { children: React.ReactNode; id: string }) {
 export default function KolBullMarketAmplifier() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/kol-bull-market-amplifier" />
       <FadeIn>
         <Link
           href="/blog"

@@ -2,8 +2,10 @@
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import Code from "@/components/CodeBlock";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/cpp-format", {
   title: "C++20 的 std::format 語法整理 | 花雪 HanaYukii",
   description:
     "std::format 的格式語法速記：對齊寬度、浮點數的 precision 與 type、還有 precision 在浮點數跟字串上語義不同的坑。",
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
       "對齊寬度、浮點數 precision / type、以及 precision 在字串上是截斷長度的坑。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -26,6 +28,7 @@ function Heading({ children, id }: { children: React.ReactNode; id: string }) {
 export default function CppFormat() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/cpp-format" />
       <FadeIn>
         <Link
           href="/blog"

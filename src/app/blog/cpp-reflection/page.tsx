@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import Code from "@/components/CodeBlock";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/cpp-reflection", {
   title: "C++ 反射入門 | 花雪 HanaYukii",
   description:
     "反射就是程式檢視自己的型別與結構。C++ 一直做得很克難：執行期靠 RTTI、編譯期靠 type_traits，要列欄位得靠第三方庫，而 C++26 的 static reflection 把這件事變成語言內建。",
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
       "從 RTTI、type_traits 到 C++26 static reflection，搭配簡單例子，順便對照其他語言怎麼做。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -26,6 +28,7 @@ function Heading({ children, id }: { children: React.ReactNode; id: string }) {
 export default function CppReflection() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/cpp-reflection" />
       <FadeIn>
         <Link
           href="/blog"

@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/cursor-billing-dispute", {
   title: "Cursor Teams 年繳踩雷紀錄 | 花雪 HanaYukii",
   description:
     "公司用 Cursor Teams 年繳遇到一個 seat billing 爭議：email rotation 被當成新增 seat，已付費 seat 沒人能用卻繼續被收錢。簡短紀錄一下。",
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
       "Email rotation 被當成新增 seat，已付費 seat 沒人能用卻繼續被收錢。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -26,6 +28,7 @@ function Heading({ children, id }: { children: React.ReactNode; id: string }) {
 export default function CursorBillingDispute() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/cursor-billing-dispute" />
       <FadeIn>
         <Link
           href="/blog"

@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/online-judge-guide", {
   title: "各大 Online Judge 介紹 | 花雪 HanaYukii",
   description:
     "從台灣的 ZeroJudge、TIOJ 到 Codeforces、AtCoder、LeetCode，主流 OJ 的特色、適合誰、怎麼用。給想入坑競賽程式或不知道往哪邊練的人。",
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
       "從台灣的 ZeroJudge、TIOJ 到 Codeforces、AtCoder、LeetCode，主流 OJ 的特色、適合誰、怎麼用。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -34,6 +36,7 @@ function SubHeading({ children, id }: { children: React.ReactNode; id: string })
 export default function OnlineJudgeGuide() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/online-judge-guide" />
       <FadeIn>
         <Link
           href="/blog"

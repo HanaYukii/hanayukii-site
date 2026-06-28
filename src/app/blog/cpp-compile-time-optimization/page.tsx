@@ -3,8 +3,10 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/cpp-compile-time-optimization", {
   title: "C++ 編譯期可以做的五件事 | 花雪 HanaYukii",
   description:
     "這篇不想列語法大全，只想講幾個真的常用、而且能把 runtime 成本直接搬去編譯期的技巧。",
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
       "幾個真的常用、而且能把 runtime 成本直接搬去編譯期的 C++ 技巧。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -39,6 +41,7 @@ function Callout({ children }: { children: React.ReactNode }) {
 export default function CppCompileTimeOptimization() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/cpp-compile-time-optimization" />
       <FadeIn>
         {/* Back link */}
         <Link

@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/reset-influence-analysis", {
   title: "區塊鏈日報 RESET 活動心得 | 花雪 HanaYukii",
   description:
     "區塊鏈日報 RESET 從心啟動活動的觀察與反思。",
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
       "區塊鏈日報 RESET 從心啟動活動的觀察與反思。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -26,6 +28,7 @@ function Heading({ children, id }: { children: React.ReactNode; id: string }) {
 export default function ResetInfluenceAnalysis() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/reset-influence-analysis" />
       <FadeIn>
         <Link
           href="/blog"

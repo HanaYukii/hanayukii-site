@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/cp-career-memoir", {
   title: "我的競賽程式生涯回顧 | 花雪 HanaYukii",
   description:
     "從計概作業太難開始刷題，到 ICPC Gold。你永遠不知道，你的興趣可以把你帶得多遠。",
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
     type: "article",
     images: ["/images/icpc-gold-award.jpg"],
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -27,6 +29,7 @@ function Heading({ children, id }: { children: React.ReactNode; id: string }) {
 export default function CpCareerMemoir() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/cp-career-memoir" />
       <FadeIn>
         <Link
           href="/blog"

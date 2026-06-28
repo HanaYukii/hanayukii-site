@@ -3,8 +3,10 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/cpp-secret-optimizations-1", {
   title: "SSO 跟 Copy Elision：編譯器與標準庫做的事 | 花雪 HanaYukii",
   description:
     "std::string 不一定用 heap？return 時加 std::move 反而更慢？拆解編譯器與標準庫在背後做的事。",
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
       "std::string 不一定用 heap？return 時加 std::move 反而更慢？拆解編譯器與標準庫在背後做的事。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -75,6 +77,7 @@ function QuizBox({
 export default function CppSecretOptimizations1() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/cpp-secret-optimizations-1" />
       <FadeIn>
         {/* Back link */}
         <Link

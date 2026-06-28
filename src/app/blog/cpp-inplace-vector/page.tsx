@@ -3,8 +3,10 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/cpp-inplace-vector", {
   title: "手寫 inplace_vector（C++ 面試題） | 花雪 HanaYukii",
   description:
     "世界頂級量化交易公司的面試，面試官劍橋畢業，從零實作 inplace_vector：aligned storage、placement new、Rule of Five。",
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
       "世界頂級量化交易公司的面試，從零實作 inplace_vector：aligned storage、placement new、Rule of Five。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -64,6 +66,7 @@ function PitfallBox({ children }: { children: React.ReactNode }) {
 export default function CppInplaceVector() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/cpp-inplace-vector" />
       <FadeIn>
         {/* Back link */}
         <Link

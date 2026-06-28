@@ -3,8 +3,10 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/dependency-injection", {
   title: "搞懂 Dependency Injection | 花雪 HanaYukii",
   description:
     "DI 常被講得很玄，但核心其實很單純：不要在業務邏輯裡自己 new 依賴。這篇用實例把邊界講清楚。",
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
       "DI 常被講得很玄，但核心其實很單純：不要在業務邏輯裡自己 new 依賴。",
     type: "article",
   },
-};
+});
 
 function Heading({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -39,6 +41,7 @@ function Callout({ children }: { children: React.ReactNode }) {
 export default function DependencyInjection() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/dependency-injection" />
       <FadeIn>
         <Link
           href="/blog"

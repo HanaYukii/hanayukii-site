@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
+import { articleMetadata } from "@/lib/seo";
+import PostJsonLd from "@/components/PostJsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("/blog/idol-2025", {
   title: "2025 偶像現場全紀錄 | 花雪 HanaYukii",
   description:
     "意外回歸星塵的一年，感謝各種現場的相遇與告別。從桃草到蝦中、從虎魚組到高嶺のなでしこ，2025 年的偶像現場紀錄。",
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
       "意外回歸星塵的一年，感謝各種現場的相遇與告別。2025 年的偶像現場紀錄。",
     type: "article",
   },
-};
+});
 
 function Heading({ date, children, id }: { date?: string; children: React.ReactNode; id: string }) {
   return (
@@ -33,6 +35,7 @@ function Heading({ date, children, id }: { date?: string; children: React.ReactN
 export default function Idol2025() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      <PostJsonLd href="/blog/idol-2025" />
       <FadeIn>
         <Link
           href="/blog"

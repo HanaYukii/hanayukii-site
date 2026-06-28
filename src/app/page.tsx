@@ -1,6 +1,21 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { hotPosts, recentPosts } from "@/data/posts";
 import Typewriter from "@/components/Typewriter";
+import { SITE_URL, AUTHOR } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: AUTHOR,
+  url: SITE_URL,
+  inLanguage: "zh-TW",
+  author: { "@type": "Person", name: AUTHOR, url: `${SITE_URL}/about` },
+};
 
 const heroIndex = [
   {
@@ -26,6 +41,10 @@ const heroIndex = [
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
       {/* Hero */}
       <section>
         <div className="mx-auto max-w-3xl px-6 pb-16 pt-24 sm:pt-28">
@@ -41,8 +60,8 @@ export default function Home() {
 
           <div className="mt-10 space-y-3 text-base leading-relaxed text-text-muted sm:text-lg">
             <p>
-              Ex-Google engineer, Tech Lead at an AI startup, and competitive
-              programming enthusiast.
+              Ex-Google engineer, now Senior Staff Engineer at an AI startup,
+              and competitive programming enthusiast.
             </p>
           </div>
 

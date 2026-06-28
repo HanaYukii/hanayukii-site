@@ -1,6 +1,8 @@
 ﻿export type Post = {
   title: string;
   date: string;
+  /** Optional last-revised date (ISO). Falls back to `date` for dateModified. */
+  updated?: string;
   summary: string;
   tags: string[];
   tagStyle: string;

@@ -1,4 +1,20 @@
+import type { Metadata } from "next";
 import AboutContent from "./AboutContent";
+
+const DESCRIPTION =
+  "花雪 HanaYukii：ex-Google 工程師、現任 AI 新創 Senior Staff Engineer，程式競賽 ICPC Gold／Codeforces IM，也做 Web3。";
+
+export const metadata: Metadata = {
+  title: "About | 花雪 HanaYukii",
+  description: DESCRIPTION,
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About | 花雪 HanaYukii",
+    description: DESCRIPTION,
+    url: "/about",
+    type: "profile",
+  },
+};
 
 const personJsonLd = {
   "@context": "https://schema.org",
