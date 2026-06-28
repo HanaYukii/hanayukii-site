@@ -33,8 +33,7 @@ Repo: HanaYukii/hanayukii-site（部署 hanayukii.dev）。
 
 - **一個交付物 = 一個 commit**（「一篇一 commit」）。訊息格式：`Add /blog/<slug> — <標題>`。
 - 預設**先給作者看過、說 OK 再 commit**（除非他說「直接推」）。
-- **絕對不要動 `src/app/about/`**：`about/AboutContent.tsx`、`about/page.tsx` 一直有未提交的 WIP，**永遠別 stage/commit 它們**。
-- 因此**只 `git add` 指定路徑**（文章資料夾 + `src/data/posts.ts`），**不要 `git add -A` / `git add .`**。
+- **只 `git add` 改到的指定路徑**，**不要 `git add -A` / `git add .`**——工作區常有未完成的 WIP（例如 jabiko 的圖與草稿），別掃進 commit。
 
 ## 驗證流程
 
