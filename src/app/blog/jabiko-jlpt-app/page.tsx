@@ -55,15 +55,15 @@ export default function JabikoJlptApp() {
           Jabiko 是我和朋友一起做的一個 JLPT（日本語能力試驗）自習網站，
           從動詞變化這種基礎，一路練到 N1 的文法與漢字讀音。打開{" "}
           <a
-            href="https://jabiko.pages.dev/"
+            href="https://jabiko.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary underline underline-offset-2 hover:text-primary/80"
           >
-            jabiko.pages.dev
+            jabiko.app
           </a>{" "}
           就能用，不用註冊，進度存在瀏覽器本機；想跨裝置的話，用 Google 登入就能同步。
-          介面深色淺色都有，挑順眼的用。
+          介面深色淺色都有，中／日／英三種語言也能切，挑順眼的用。
         </p>
         <Image
           src="/images/jabiko-home.png"
@@ -85,12 +85,14 @@ export default function JabikoJlptApp() {
               { id: "progress", title: "進度總覽" },
               { id: "today", title: "今日練習" },
               { id: "srs", title: "弱點複習" },
+              { id: "bookmarks", title: "題目收藏" },
               { id: "learn", title: "分章學習" },
               { id: "answering", title: "答題輔助" },
               { id: "modes", title: "練習模式" },
               { id: "mock", title: "模擬考" },
               { id: "rules", title: "規則速查表" },
               { id: "kanji-lookup", title: "漢字音讀查詢" },
+              { id: "articles", title: "文章區" },
             ].map((item, i) => (
               <a
                 key={item.id}
@@ -195,16 +197,38 @@ export default function JabikoJlptApp() {
         <FadeIn>
           <Heading id="srs">弱點複習</Heading>
           <p>
-            錯題不用自己記。答錯的自動進「弱點複習」，到期、最久沒碰的先還你；剛答錯的會隔一陣子
-            （約一小時）才回來，不會同一回合就跳出來煩你。之後每答對一次就把間隔往後拉
-            （1、3、7、到 14 天），又錯就打回原點——真的記熟了才慢慢淡出。練完給一張小戰報。
+            錯題不用自己記。答錯的自動進「弱點複習」，到期、最久沒碰的先還你；剛答錯的過兩天回來考你，
+            之後每答對一次就把間隔往後拉（2、4、7、14、到 30 天），又錯就打回原點——
+            真的記熟了才慢慢淡出。
           </p>
-          {/* 截圖：弱點複習清單 / 練習結束的戰報畫面 */}
+          <p className="mt-2">
+            一組練完會給一張戰報卡：練了幾題、對幾題、正解率，下面就是分享鈕，
+            戰績可以直接發出去。全部答對的話，卡上的達摩會把兩隻眼睛都點滿——開眼了。
+          </p>
+          {/* 截圖：練習結束的戰報卡（滿分開眼達摩版） */}
           <Image
-            src="/images/jabiko-srs.png"
-            alt="弱點複習／戰報畫面"
-            width={912}
-            height={962}
+            src="/images/jabiko-done-card.png"
+            alt="練完的戰報卡：戰績數字、分享鈕；全對時達摩開眼"
+            width={1360}
+            height={1220}
+            className="my-5 h-auto w-full rounded-lg border border-border"
+          />
+        </FadeIn>
+
+        {/* ============ 題目收藏 ============ */}
+        <FadeIn>
+          <Heading id="bookmarks">題目收藏</Heading>
+          <p>
+            答完覺得這題值得再回來——考點刁、例句好、或單純想留著——點解析旁邊的星號收起來。
+            收藏的題目在「我的收藏」模式隨時重練。它跟弱點複習分工不同：
+            弱點複習管你<strong>錯過的</strong>，收藏管你<strong>自己覺得重要的</strong>。
+          </p>
+          {/* 截圖：答完題的解析區，右側星號收藏鈕 */}
+          <Image
+            src="/images/jabiko-bookmark.png"
+            alt="答完題的解析：點「收藏此題」把題目收進「我的收藏」"
+            width={1284}
+            height={692}
             className="my-5 h-auto w-full rounded-lg border border-border"
           />
         </FadeIn>
@@ -350,23 +374,42 @@ export default function JabikoJlptApp() {
           />
         </FadeIn>
 
+        {/* ============ 文章區 ============ */}
+        <FadeIn>
+          <Heading id="articles">文章區</Heading>
+          <p>
+            除了刷題，站上還開了一個「文章」區，放跟日文有關的主題文。
+            現在是「從一首歌學日文」系列——挑幾首偶像曲，把歌詞裡值得學的單字和語感拆出來講，
+            附官方 MV 連結；之後會慢慢加流行語之類的其他主題。
+          </p>
+          {/* 截圖：文章列表頁 */}
+          <Image
+            src="/images/jabiko-articles.png"
+            alt="文章區列表：從一首歌學日文系列"
+            width={1440}
+            height={1334}
+            className="my-5 h-auto w-full rounded-lg border border-border"
+          />
+        </FadeIn>
+
         {/* ============ 小結 ============ */}
         <FadeIn>
           <Heading id="wrap">小結</Heading>
           <p>
             網站在{" "}
             <a
-              href="https://jabiko.pages.dev/"
+              href="https://jabiko.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary underline underline-offset-2 hover:text-primary/80"
             >
-              jabiko.pages.dev
+              jabiko.app
             </a>
             ，打開就能練，完全免費。想常用的話，瀏覽器選「加入主畫面」就能裝到手機，離線也能練。
           </p>
           <p>
-            題庫和功能到考試前都會持續加、持續修。用了覺得哪裡怪、或想要什麼功能，都歡迎跟我說。
+            題庫和功能到考試前都會持續加、持續修。用了覺得哪裡怪、或想要什麼功能，
+            站內右上角就有「意見回饋」，許願、回報問題都從那裡丟給我就行。
           </p>
         </FadeIn>
       </div>
