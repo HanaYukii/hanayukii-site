@@ -5,17 +5,14 @@ import Image from "next/image";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
 
-// 各 feature 下面的 <Image> 指向 public/images/jabiko-*.png。
-// 圖片補進 public/images/ 後即顯示；width/height 待依實際截圖尺寸再調整。
-
 export const metadata: Metadata = articleMetadata("/blog/jabiko-jlpt-app", {
   title: "Jabiko：JLPT 自習網站 | 花雪 HanaYukii",
   description:
-    "一個 JLPT 自習網站，從基礎變化到 N1 備考、會自動盯錯題複習；介紹主要的練習模式與功能特色。",
+    "一個從完全新手一路練到 JLPT N1 的自習網站，整合分章學習、題庫、文型資料庫與弱點複習。",
   openGraph: {
     title: "Jabiko：JLPT 自習網站",
     description:
-      "從基礎變化到 N1 備考、會自動盯錯題複習的 JLPT 自習網站：主要功能與特色介紹。",
+      "從完全新手一路練到 JLPT N1：分章學習、題庫、文型資料庫與弱點複習。",
     type: "article",
   },
 });
@@ -53,7 +50,7 @@ export default function JabikoJlptApp() {
         </h1>
         <p className="mb-8 text-text-muted">
           Jabiko 是我和朋友一起做的一個 JLPT（日本語能力試驗）自習網站，
-          從動詞變化這種基礎，一路練到 N1 的文法與漢字讀音。打開{" "}
+          從五十音、動詞變化這些基礎，一路練到 N1 的文法、單字與漢字讀音。打開{" "}
           <a
             href="https://jabiko.app/"
             target="_blank"
@@ -66,10 +63,10 @@ export default function JabikoJlptApp() {
           介面深色淺色都有，中／日／英三種語言也能切，挑順眼的用。
         </p>
         <Image
-          src="/images/jabiko-home.png"
-          alt="Jabiko 首頁"
-          width={3072}
-          height={1906}
+          src="/images/jabiko-home-current-top.jpg"
+          alt="Jabiko 首頁：今日練習、目標級別、學習入口與目前題庫數量"
+          width={940}
+          height={1050}
           className="h-auto w-full rounded-lg border border-border"
         />
       </FadeIn>
@@ -92,6 +89,7 @@ export default function JabikoJlptApp() {
               { id: "mock", title: "模擬考" },
               { id: "rules", title: "規則速查表" },
               { id: "kanji-lookup", title: "漢字音讀查詢" },
+              { id: "grammar", title: "文型資料庫" },
               { id: "articles", title: "文章區" },
             ].map((item, i) => (
               <a
@@ -117,7 +115,7 @@ export default function JabikoJlptApp() {
           <p>
             我學各種東西都習慣從刷題裡學，所以做的時候重心一直放在題庫——
             題目跟解說的品質我最先顧：提示做成可以開關的、解說會逐個選項拆給你看。
-            規則速查表也有了，系統性的分章教材會再慢慢補。
+            規則速查表和分章教材也一路補到 N1。
             題庫怎麼用 AI 大量出題又控制品質，我另外整理成
             <Link href="/blog/ai-exam-authoring-workflow" className="text-primary hover:underline">
               一篇技術文
@@ -130,27 +128,20 @@ export default function JabikoJlptApp() {
         <FadeIn>
           <Heading id="home">首頁總覽</Heading>
           <p>
-            上面一排是各個入口——學習、挑戰、單字讀音、模擬考、弱點複習，點哪個進哪個；
+            上面一排是各個入口——學習、文型、文章、挑戰、題型練習，點哪個進哪個；
             再往下，是你自己的學習狀況：練了多少、各級正答率、最近的練習量。
           </p>
           <Image
-            src="/images/jabiko-home-full.png"
-            alt="Jabiko 首頁主畫面：上方練習入口、下方學習狀況"
-            width={3072}
-            height={4234}
+            src="/images/jabiko-home-current.jpg"
+            alt="Jabiko 首頁主畫面：今日練習、各區入口與學習進度"
+            width={940}
+            height={2158}
             className="my-2 h-auto w-full rounded-lg border border-border"
           />
           <p className="mt-4">
-            第一次打開可以先選程度——初級（N4・N5）、中級（N2・N3）、高級（N1・N2），
+            第一次打開可以先選程度——完全新手、初級（N4・N5）、中級（N2・N3）、高級（N1・N2），
             今日練習和各題庫就照這個難度給題，之後隨時能改。
           </p>
-          <Image
-            src="/images/jabiko-level.png"
-            alt="首頁的「選擇你的程度」：初級／中級／高級"
-            width={1880}
-            height={328}
-            className="my-4 h-auto w-full rounded-lg border border-border"
-          />
         </FadeIn>
 
         {/* ============ 進度總覽 ============ */}
@@ -197,9 +188,8 @@ export default function JabikoJlptApp() {
         <FadeIn>
           <Heading id="srs">弱點複習</Heading>
           <p>
-            錯題不用自己記。答錯的自動進「弱點複習」，到期、最久沒碰的先還你；剛答錯的過兩天回來考你，
-            之後每答對一次就把間隔往後拉（2、4、7、14、到 30 天），又錯就打回原點——
-            真的記熟了才慢慢淡出。
+            錯題不用自己記。答錯的當下就會進「弱點複習」，而且會跨回合留著；
+            重新答對一次才移出，之後又錯就再回來。這裡就是一份很直接的「目前還不會」清單。
           </p>
           <p className="mt-2">
             一組練完會給一張戰報卡：練了幾題、對幾題、正解率，下面就是分享鈕，
@@ -239,8 +229,7 @@ export default function JabikoJlptApp() {
           <p>
             不想自己亂抓題目的話，「學習」這頁把內容拆成一章一章：左邊挑一章，
             右邊就列那章的規則、例子跟最容易踩的陷阱，看完直接點按鈕進對應的練習。
-            目前從動詞、形容詞變化這些打底的，一路排到各種常用句型，大概十幾章；
-            更進階的備考內容還在慢慢往上補。
+            目前已經從完全新手、N5 的打底內容一路排到 N1，首頁也會顯示總章節數和完成進度。
           </p>
           <Image
             src="/images/jabiko-learn-dark.png"
@@ -273,8 +262,8 @@ export default function JabikoJlptApp() {
             className="my-3 h-auto w-full rounded-lg border border-border"
           />
           <p>
-            作答前不確定，按「提示」給你情境、但不會漏答案。漢字和例句旁邊都有發音鈕（🔊）點了唸給你聽；
-            鍵盤 1–4 選答、Enter 下一題。
+            作答前不確定，按「提示」給你情境、但不會漏答案。漢字和例句旁邊都有發音鈕（🔊）點了唸給你聽，
+            語速也能調成正常、慢速或更慢；鍵盤 1–4 選答、Enter 下一題。
           </p>
           <Image
             src="/images/jabiko-hint.png"
@@ -300,10 +289,9 @@ export default function JabikoJlptApp() {
         <FadeIn>
           <Heading id="modes">練習模式</Heading>
           <p>
-            模式照目的分了幾種：打底的「基礎變化」（可挑詞類、變化目標，題庫大小即時重算）、
-            「句中填空」、「句型練習」；備考的「綜合考題庫」和照範圍分的「N1／N2／N3／N4 備考」
-            （各自混相鄰兩級的題，像 N1 備考就是 N1＋N2、N2 備考是 N2＋N3）；
-            還有專練漢字読み的「單字讀音」。
+            挑戰分成四種：打底的「基礎變化」（可挑詞類、變化目標，題庫大小即時重算）、
+            「句中填空」、「句型判斷」，以及把文法、詞彙、漢字混在一起的「綜合考題庫」。
+            範圍可以一路選到 N5〜N1；另外還有專練漢字読み的「單字讀音」。
           </p>
           <Image
             src="/images/jabiko-modes.png"
@@ -374,20 +362,37 @@ export default function JabikoJlptApp() {
           />
         </FadeIn>
 
+        {/* ============ 文型資料庫 ============ */}
+        <FadeIn>
+          <Heading id="grammar">文型資料庫</Heading>
+          <p>
+            想查某個句型、不想從章節慢慢翻，可以直接進「文型」。目前依 N5〜N1 分級，
+            每個文型會整理中文解釋、接續規則、例句、常見錯法；有合適素材的，還會放日劇或動漫台詞。
+            上面的搜尋可以直接找文型、中文意思或關鍵字。
+          </p>
+          <Image
+            src="/images/jabiko-grammar-index.jpg"
+            alt="JLPT 文型資料庫：N5 到 N1 的文型分級與搜尋"
+            width={704}
+            height={522}
+            className="my-5 h-auto w-full rounded-lg border border-border"
+          />
+        </FadeIn>
+
         {/* ============ 文章區 ============ */}
         <FadeIn>
           <Heading id="articles">文章區</Heading>
           <p>
             除了刷題，站上還開了一個「文章」區，放跟日文有關的主題文。
-            現在是「從一首歌學日文」系列——挑幾首偶像曲，把歌詞裡值得學的單字和語感拆出來講，
-            附官方 MV 連結；之後會慢慢加流行語之類的其他主題。
+            現在先從偶像和歌詞開始：挑一首歌，把值得學的單字、句型和語感完整拆開，
+            再補上團體背景、官方 MV 與歌詞來源。之後也會加流行語、日劇動漫台詞之類的主題。
           </p>
           {/* 截圖：文章列表頁 */}
           <Image
-            src="/images/jabiko-articles.png"
-            alt="文章區列表：從一首歌學日文系列"
-            width={1440}
-            height={1334}
+            src="/images/jabiko-articles-current.jpg"
+            alt="文章區列表：偶像與從歌詞學日文系列"
+            width={720}
+            height={878}
             className="my-5 h-auto w-full rounded-lg border border-border"
           />
         </FadeIn>
