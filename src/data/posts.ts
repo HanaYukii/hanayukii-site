@@ -23,6 +23,7 @@ export const posts: Post[] = [
     tags: ["AI", "Frontend"],
     tagStyle: "bg-primary/10 text-primary",
     href: "/blog/jabiko-jlpt-app",
+    hot: true,
   },
   {
     title: "用 multi agent AI 出 JLPT 考題：交叉審查與品質閘",
@@ -301,5 +302,5 @@ export const posts: Post[] = [
 
 export const hotPosts = posts
   .filter((p) => p.hot)
-  .sort((a, b) => a.date.localeCompare(b.date));
+  .sort((a, b) => b.date.localeCompare(a.date));
 export const recentPosts = posts.filter((p) => !p.hot && p.href);
