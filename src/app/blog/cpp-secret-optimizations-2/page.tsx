@@ -101,8 +101,8 @@ export default function CppSecretOptimizations2() {
           Padding、Vtable、Smart Pointer 的成本
         </h1>
         <p className="mb-4 text-text-muted">
-          深入記憶體佈局與object model - 理解 struct padding 如何浪費空間、virtual
-          function 的真實代價、以及 smart pointer 不為人知的隱藏成本。
+          記憶體佈局與 object model：struct padding 如何浪費空間、virtual
+          function 的真實代價、smart pointer 的隱藏成本。
         </p>
         <p className="mb-8 text-sm text-text-muted">2026-03-31</p>
 

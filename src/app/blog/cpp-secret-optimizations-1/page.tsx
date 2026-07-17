@@ -105,7 +105,7 @@ export default function CppSecretOptimizations1() {
         <p className="mb-2 text-sm text-text-muted">2026-03-31</p>
         <p className="mb-8 text-text-muted">
           你以為 <code>std::string</code> 一定會 <code>new</code>？你以為 <code>return</code> 一定會複製？
-          編譯器在背後做的事比你想的還多 - 這篇帶你看兩個最常見的隱藏優化。
+          編譯器在背後做的事比你想的還多，這篇講兩個最常見的隱藏優化。
         </p>
       </FadeIn>
 

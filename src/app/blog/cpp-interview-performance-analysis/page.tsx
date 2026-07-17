@@ -105,8 +105,7 @@ export default function CppInterviewPerformanceAnalysis() {
         </h1>
         <p className="mb-2 text-sm text-text-muted">2026-03-31</p>
         <p className="mb-8 text-text-muted">
-          在 HFT 場景效能是最優先的，掌握最好的寫法非常重要。
-          這些都是很深度的 domain knowledge，也讓我更發現 C++ 的深奧。
+          在 HFT 場景效能是最優先的，這些寫法上的差異平常不太會特別注意。
           題目經過改寫，分析是我事後整理的。
         </p>
       </FadeIn>

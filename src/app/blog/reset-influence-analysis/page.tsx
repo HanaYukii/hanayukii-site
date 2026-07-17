@@ -101,7 +101,6 @@ export default function ResetInfluenceAnalysis() {
             </p>
             <p>
               整體活動質感很好，內容跟橋段可以感受到是有用心花時間準備的。
-              這篇比較想聊的是我自己觀察到的一些東西。
             </p>
             <p>
               更早期的我，不只是投資頻道，在很多地方都很容易把各種言論照單全收，
@@ -211,7 +210,7 @@ export default function ResetInfluenceAnalysis() {
               整體來說，這場比較適合當成一套講者提供的框架來看，
               吸收裡面有用的部分，但不要整包吞下去。
               我覺得現在搭配 AI 分析很重要，可以拆解一路聽過去並沒有那麼注意到的點，
-              最後內化成適合每個人的一套，才是真正的收穫。
+              最後內化成適合每個人的一套。
             </p>
 
             <div className="my-2 rounded-xl border border-primary/20 bg-primary/5 p-6">
