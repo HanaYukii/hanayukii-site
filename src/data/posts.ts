@@ -16,6 +16,15 @@
 
 export const posts: Post[] = [
   {
+    title: "AtCoder ABC 467 G Many Sweets Problem",
+    date: "2026-07-19",
+    summary:
+      "帶單點修改的「區間吃糖到 ≥ k 最少顆數」。merge-sort tree 每節點掛 Fenwick 支援改值，再把 index / value 對調、用 kth-element 式 descent 省掉外層二分的 log。",
+    tags: ["Competitive Programming", "Segment Tree"],
+    tagStyle: "bg-primary/10 text-primary",
+    href: "/blog/abc467g-many-sweets",
+  },
+  {
     title: "Jabiko：JLPT 自習網站",
     date: "2026-06-24",
     summary:
