@@ -10,11 +10,11 @@ import PostJsonLd from "@/components/PostJsonLd";
 export const metadata: Metadata = articleMetadata("/blog/abc467g-many-sweets", {
   title: "AtCoder ABC 467 G Many Sweets Problem | 花雪 HanaYukii",
   description:
-    "AtCoder ABC 467 G 題解。帶單點修改的「區間吃糖到 ≥ k 最少顆數」：merge-sort tree 每節點掛 Fenwick 支援改值，再把 index / value 對調、用 kth-element 式 descent 省掉外層二分的 log。",
+    "AtCoder ABC 467 G 題解。值域線段樹 + kth-element 式 descent 直接走出「區間吃糖到 ≥ k 最少顆數」；每個 node 自帶離線鋪好的離散化軸與 Fenwick 支援單點改值。附 merge-sort tree + 外層二分為何多一個 log。",
   openGraph: {
     title: "AtCoder ABC 467 G Many Sweets Problem",
     description:
-      "merge-sort tree 掛 Fenwick 支援修改，再把 index / value 對調、用 descent 省掉外層二分。",
+      "值域線段樹 + descent 一趟走出答案；每個 node 自帶離線鋪好的離散化軸，BIT 不用開大。",
     type: "article",
   },
 });
@@ -77,10 +77,10 @@ export default function Abc467gManySweets() {
             {[
               { id: "problem", title: "問題重述" },
               { id: "greedy", title: "子問題：由大到小吃" },
-              { id: "msort", title: "Merge-sort tree（靜態版）" },
-              { id: "fenwick", title: "支援修改：每個節點掛一個 Fenwick" },
-              { id: "tle", title: "TLE 版：外層再二分一個 log" },
-              { id: "descent", title: "AC 版：index ↔ value 對調 + descent" },
+              { id: "solution", title: "正解：值域線段樹，一趟 descent" },
+              { id: "discretize", title: "細節：每個 node 自己的離散化軸" },
+              { id: "walkthrough", title: "走一遍" },
+              { id: "tle", title: "附註：merge-sort tree + 外層二分為何多一個 log" },
               { id: "pitfalls", title: "幾個容易誤解的點" },
               { id: "code", title: "完整 Code" },
             ].map((item, i) => (
@@ -118,87 +118,72 @@ export default function Abc467gManySweets() {
           <p>
             固定 <InlineMath math="[l, r]" /> 跟 <InlineMath math="k" />：想吃最少顆，當然挑最甜的先吃。
             把區間內的值由大到小排，答案就是前綴和第一次 <InlineMath math="\ge k" /> 的位置。
-          </p>
-          <p className="mt-4">
-            所以真正需要的操作是：<strong>「區間 <InlineMath math="[l, r]" /> 內，值 <InlineMath math="\ge t" /> 的有幾顆、總甜度多少」</strong>。
-            有這個就能對門檻 <InlineMath math="t" /> 二分出答案。帶單點修改、按區間、按值統計，正是 merge-sort tree 的場景。
+            所以要維護的是「區間內、按值分布的 count / sum」，而且要撐得住單點改值。
           </p>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="msort">Merge-sort tree（靜態版）</Heading>
+          <Heading id="solution">正解：值域線段樹，一趟 descent</Heading>
           <p>
-            以「索引」開線段樹，每個節點把自己那段的值<strong>排序後存起來</strong>，再帶前綴和。
-            查 <InlineMath math="[l, r]" /> 內值 <InlineMath math="\ge t" /> 的 count / sum：
-            把 <InlineMath math="[l, r]" /> 拆成 <InlineMath math="O(\log N)" /> 個節點，
-            每個節點內對 <InlineMath math="t" /> 二分拿後綴，相加。單次 <InlineMath math="O(\log^2 N)" />。
+            把線段樹開在<strong>值域</strong>上（值離線壓縮）。節點 = 一段值域；
+            節點內存「值落在這段的元素<strong>索引</strong>」，配一個 Fenwick 記 count / sum。
+            索引在節點內排好序，所以任意 <InlineMath math="[l, r]" /> 的 count / sum 就是
+            <code>prefix(r) − prefix(l−1)</code>，<strong>不需要把 [l, r] 拆成線段樹節點</strong>。
           </p>
           <p className="mt-4">
-            空間：每個元素出現在 <InlineMath math="O(\log N)" /> 個節點的排序陣列裡，共 <InlineMath math="O(N \log N)" />。
-            沒有修改的話，到這裡就夠用了。
+            查詢從根往高值走一趟，邊走邊吃（「區間第 k 小」的老骨架，多存一條 sum）：
+          </p>
+          <Code lang="text">{`每個 node:一段值域,存「值落在這段的元素索引」+ Fenwick(count, sum)
+node 在 [l,r] 的 count/sum = 自己軸上 prefix(r) - prefix(l-1)
+
+query(l, r, k):
+    if 根在 [l,r] 的 sum < k: return -1
+    node = 根;  need = k;  ans = 0
+    while node 不是葉子:
+        (cnt, s) = 右子(高值那半) 在 [l,r] 的 count / sum
+        if s >= need:  node = 右子              # 答案糖全在高值半,走進去
+        else:          ans += cnt; need -= s    # 高值半整包吃掉
+                       node = 左子              # 剩下的往低值找
+    return ans + ceil(need / node 的值)         # 葉子 = 單一值,補齊剩量
+
+modify(c, x):
+    沿舊值的 葉→根 路徑:每個 node 在 c 的位置 (-1, -舊值)
+    沿新值的 葉→根 路徑:每個 node 在 c 的位置 (+1, +x)`}</Code>
+          <p className="mt-4">
+            正確性：進右子的條件是「高值那半的 sum <InlineMath math="\ge" /> need」，
+            表示最貪心的吃法根本吃不到左半；反之右半全吃也不夠，就整包收下、剩額丟給左半。
+            每一步都跟「由大到小吃」一致。
+          </p>
+          <p className="mt-4">
+            複雜度：每層一次節點查詢（軸上二分定位 + Fenwick 前綴，<InlineMath math="O(\log)" />），
+            樹高 <InlineMath math="O(\log)" />，單次查詢 <InlineMath math="O(\log^2 N)" />；
+            修改沿兩條葉到根的路徑，也是 <InlineMath math="O(\log^2 N)" />。
           </p>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="fenwick">支援修改：每個節點掛一個 Fenwick</Heading>
+          <Heading id="discretize">細節：每個 node 自己的離散化軸</Heading>
           <p>
-            麻煩在排序陣列是<strong>靜態</strong>的。<InlineMath math="A_c" /> 一改值，含 <InlineMath math="c" /> 的
-            <InlineMath math="O(\log N)" /> 個節點全要重排，vector 重排一次 <InlineMath math="O(N)" />，直接爆。
+            直接開會爆：值樹約 <InlineMath math="2(N+Q)" /> 個節點，如果每個節點的 Fenwick 都照完整索引
+            <InlineMath math="[1, N]" /> 開，就是 <InlineMath math="4 \times 10^5 \times 10^5" /> 級、
+            上百億格，記憶體直接炸。所以<strong>每個 node 要有自己的離散化系統</strong>：
+            BIT 只開「會出現在這個 node 的元素」那麼大。
           </p>
           <p className="mt-4">
-            解法是把每個節點的「排序陣列 + 前綴和」換成一個 <strong>Fenwick，以值當索引</strong>
-            （值域離線壓縮：初始的 <InlineMath math="A" /> 加上所有查詢的 <InlineMath math="x" />）。
-            改值 = 在含 <InlineMath math="c" /> 的每個節點做「舊值格 −1、新值格 +1」，不用重排；
-            查詢照樣是每個節點一個前綴。
+            哪些元素會碰到哪個 node，可以<strong>離線</strong>先算出來：
+            索引 <InlineMath math="c" /> 一生會有的值 = 初始 <InlineMath math="A_c" /> + 之後改到它的所有 <InlineMath math="x" />，
+            全部事先讀得到。對每對 (索引, 可能值)，沿該值葉到根的路徑把索引鋪進每個 node 的「軸」；
+            軸排序去重後<strong>固定不動</strong>。每對貢獻 <InlineMath math="O(\log)" /> 個 node、配對總數 <InlineMath math="N+Q" />，
+            總格數 <InlineMath math="O((N+Q)\log N)" />，幾百萬格而已。
           </p>
           <p className="mt-4">
-            「每個節點掛一個 BIT」聽起來很肥，其實每個 BIT 只涵蓋<strong>會出現在這個節點的值</strong>，
-            總空間還是 <InlineMath math="O((N+Q)\log N)" />：每個 (位置, 可能值) 配對出現在 <InlineMath math="O(\log N)" /> 個節點，配對總數 <InlineMath math="N+Q" />。
+            軸固定還有一個關鍵好處：<strong>排名不會浮動</strong>。改值只動計數（舊值路徑 −1、新值路徑 +1），
+            軸本身不增不減，所以 lower_bound 出來的位置永遠有效，不用擔心「改值之後排序亂掉」。
           </p>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="tle">TLE 版：外層再二分一個 log</Heading>
-          <p>
-            有了「區間內值 <InlineMath math="\ge t" /> 的 count / sum」這個黑盒，最直覺的用法：
-            對門檻 <InlineMath math="t" /> 二分，找到吃到哪個值為止。
-            每次 check <InlineMath math="O(\log^2 N)" />，外層再一個 log，
-            單次查詢 <InlineMath math="O(\log^3 N)" />。<InlineMath math="Q = 10^5" /> 就 TLE 了。
-          </p>
-          <p className="mt-4">
-            問題出在：count / sum 被當黑盒，外層二分每 check 一次，就從根重新拆一次區間。
-            <strong>外層的搜尋跟內層的樹結構完全沒共用</strong>。這一個 log 就是接下來要省的。
-          </p>
-        </FadeIn>
-
-        <FadeIn>
-          <Heading id="descent">AC 版：index ↔ value 對調 + descent</Heading>
-          <p>
-            這是「區間第 k 小」的老骨架：把線段樹改開在<strong>值域</strong>上。
-            節點 = 一段值域；節點內存的是「值落在這段的元素<strong>索引</strong>」，
-            索引軸離線鋪好、固定不動，配一個 Fenwick 記 count / sum。
-          </p>
-          <p className="mt-4">
-            對調之後有個關鍵差別：<InlineMath math="[l, r]" /> 對每個值域節點來說，
-            就是「索引落在 <InlineMath math="[l, r]" /> 的那些元素」。索引在節點內排好序，
-            用 Fenwick 做 <code>prefix(r) − prefix(l−1)</code> 就拿到任意區間的 count / sum，
-            <strong>完全不需要拆區間</strong>。
-          </p>
-          <SubHeading>查詢：從根往高值走一趟</SubHeading>
-          <p>
-            外層二分改成一條 root → leaf 的 descent。設剩餘需求 need（初始 <InlineMath math="k" />）：
-          </p>
-          <ul className="ml-6 mt-2 list-disc space-y-1">
-            <li>看右子（高值那半）在 <InlineMath math="[l, r]" /> 的 sum：<InlineMath math="\ge" /> need 就走進去（答案糖全在裡面）</li>
-            <li>不夠就整半吃掉：ans += count、need −= sum，改走左子找剩下的</li>
-            <li>走到葉子（單一值 <InlineMath math="v" />）：ans += <InlineMath math="\lceil \text{need}/v \rceil" /></li>
-          </ul>
-          <p className="mt-4">
-            每層一次節點查詢（軸上二分定位 + Fenwick 前綴，<InlineMath math="O(\log)" />），
-            樹高 <InlineMath math="O(\log)" />，單次查詢 <InlineMath math="O(\log^2 N)" />。
-            修改也是沿舊值、新值兩條葉到根的路徑各做一次加減，<InlineMath math="O(\log^2 N)" />。
-          </p>
-          <SubHeading>走一遍</SubHeading>
+          <Heading id="walkthrough">走一遍</Heading>
           <p>
             區間內是 <InlineMath math="\{7, 7, 5, 3, 2, 2\}" />、<InlineMath math="k = 17" />。由大到小驗：7 + 7 = 14，再吃 5 到 19，共 3 顆。descent 的走法：
           </p>
@@ -208,6 +193,20 @@ export default function Abc467gManySweets() {
             <li>再右半（7）sum = 14 &lt; 17 → 全吃：ans = 2、need = 3，走左</li>
             <li>葉（5）：<InlineMath math="\lceil 3/5 \rceil = 1" /> → ans = 3 ✓</li>
           </ul>
+        </FadeIn>
+
+        <FadeIn>
+          <Heading id="tle">附註：merge-sort tree + 外層二分為何多一個 log</Heading>
+          <p>
+            最自然的第一版是反過來：以「索引」開線段樹，每個節點存自己那段的值（merge-sort tree），
+            要支援改值就把排序陣列換成 Fenwick。查詢時把 <InlineMath math="[l, r]" /> 拆成
+            <InlineMath math="O(\log N)" /> 個節點問「值 <InlineMath math="\ge t" /> 的 count / sum」，
+            再對門檻 <InlineMath math="t" /> 外層二分，單次 <InlineMath math="O(\log^3 N)" />，TLE。
+          </p>
+          <p className="mt-4">
+            差在外層二分把 count / sum 當黑盒，每 check 一次就從根重拆一次區間，搜尋跟樹結構沒共用。
+            index ↔ value 對調之後，「搜答案」本身就是樹上那趟 descent，一個 log 就這樣省掉了。
+          </p>
         </FadeIn>
 
         <FadeIn>
@@ -225,11 +224,11 @@ export default function Abc467gManySweets() {
               值樹裡 <InlineMath math="[l, r]" /> 不對應任何節點，每個節點自己前綴相減就能拿任意區間，這正是不用拆區間的原因。
             </li>
             <li>
-              <strong>descent 是一條路，不是 DFS</strong>：每層只進一個 child。
-              它取代的是「外層對門檻二分」，搜答案跟樹結構共用同一趟，這就是省掉一個 log 的地方。
+              <strong>descent 是一條路，不是 DFS</strong>：每層只進一個 child，
+              搜答案跟樹結構共用同一趟。
             </li>
             <li>
-              <strong>二分沒有完全消失</strong>：每層還是要在節點的索引軸上 lower_bound 定位 <InlineMath math="l, r" />，
+              <strong>二分沒有完全消失</strong>：每層還是要在節點的軸上 lower_bound 定位 <InlineMath math="l, r" />，
               但那是查座標，不是搜答案。
             </li>
             <li>
@@ -241,10 +240,6 @@ export default function Abc467gManySweets() {
 
         <FadeIn>
           <Heading id="code">完整 Code</Heading>
-          <p>
-            離線鋪軸的部分：每個索引「可能」的值 = 初始值 + 會改到它的查詢 x，
-            每對 (索引, 值) 沿值的路徑鋪進節點軸，之後軸固定、只動 Fenwick 計數。
-          </p>
           <Code lang="cpp">{`// G - Many Sweets Problem   (AC, O((N+Q) log^2 N))
 #include <bits/stdc++.h>
 using namespace std;
