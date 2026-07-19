@@ -83,9 +83,9 @@ export default function Tif2025ShachiRespectStage() {
           </p>
           <p>
             去年重新開始看蝦中，後來又因為 ukka 聽回 SHACHI，年底也去了
-            〈俺のえびシャチライブ ～THE FINAL～〉。Respect Stage
-            辦的時候我其實也在日本，如果當時有機會去現場，應該會蠻不錯。
-            那時我已經重新聽 SHACHI，但還沒親自看 THE FINAL。
+            〈俺のえびシャチライブ ～THE FINAL～〉。那場 Respect Stage
+            舉辦時我其實也在日本；那時還沒親自看 THE
+            FINAL，如果當時有去，應該會很不錯。
           </p>
           <p>
             這也是 SHACHI 自 2012 年首次登上 TIF
@@ -124,25 +124,24 @@ export default function Tif2025ShachiRespectStage() {
             <li>
               <strong>ukka｜〈エンジョイ人生〉</strong>
               <p className="mt-1">
-                葵るり說，自己曾被這首歌積極向前的歌詞鼓勵。那一天，她們只是像平常一樣
-                笑著唱完；後來才更認真認識 ukka
-                的我，如今已經很難再把它當成一首普通的翻唱。
+                葵るり說，自己曾被這首歌積極向前的歌詞鼓勵。那一天，她們就像平常一樣笑著唱完。
+                後來才更認真認識 ukka 的我，如今很難再把它當成一首普通的翻唱。
               </p>
             </li>
             <li>
               <strong>TIFアイドル連合｜〈恋人はスナイパー〉</strong>
               <p className="mt-1">
                 11 人來自不同團體，其中也有高嶺のなでしこ的涼海すう和城月菜央。
-                高貓雖然不在星塵，和 SHACHI 卻一直像姐妹團一樣。
-                去年高貓在幕張辦三周年公演、SHACHI
+                高貓雖然不在星塵，兩團卻一直互稱「非官方姐妹團」。
+                去年高貓在幕張舉辦三周年公演、SHACHI
                 舉辦最終公演時，兩邊也互相送了花籃。
               </p>
             </li>
             <li>
               <strong>LumiUnion｜〈アサガオ〉</strong>
               <p className="mt-1">
-                由内藤るな代表發言。她們選了氣氛比較柔和的〈アサガオ〉，放在前後幾首
-                一路往前衝的歌中間，這一段也讓現場稍微慢了下來。
+                由内藤るな代表發言。她們選了氣氛比較柔和的〈アサガオ〉。
+                放在幾首一路往前衝的歌中間，現場也稍微慢了下來。
               </p>
             </li>
             <li>
@@ -169,9 +168,8 @@ export default function Tif2025ShachiRespectStage() {
         <FadeIn>
           <p>
             另外，看到
-            TIFアイドル連合的名單時，我也有想過，如果蝦中派妹組來參加，
-            應該會蠻不錯。妹組本來就很尊敬
-            SHACHI，以後輩身分來向前輩致意也很適合。
+            TIFアイドル連合的名單時，我也想過，如果蝦中派妹組來參加，應該會很不錯。
+            讓新一代成員以後輩身分向前輩致意，本來就很適合。
             而且桜井えま以前還說過，自己在研究生時期的第一次舞台，就是替 SHACHI
             伴舞。
           </p>
@@ -181,7 +179,8 @@ export default function Tif2025ShachiRespectStage() {
           <Heading>ukka 的〈エンジョイ人生〉</Heading>
           <p>
             當時大家只知道這是 SHACHI 最後一次 TIF。看 ukka
-            唱〈エンジョイ人生〉時，只覺得這首很適合她們，也期待這個團接下來會越來越好。
+            唱〈エンジョイ人生〉時，只覺得這首很適合她們；葵るり也說，
+            自己曾被歌詞裡積極向前的心情鼓勵。當時看完，也只會期待這個團接下來越來越好。
           </p>
           <p>
             數個月後，ukka 宣布解散。回頭才知道，這場同樣成了她們最後一次 TIF。
@@ -214,16 +213,16 @@ export default function Tif2025ShachiRespectStage() {
                 href="https://toki-sen.com/contents/1088152?tag=all"
                 target="_blank"
                 rel="noreferrer"
-                className={`mx-1 ${linkClass}`}
+                className={linkClass}
               >
                 宣布將在 2027 年春季左右活動終了
               </a>
-              。如果時間不變，這次大概就是她們最後一次 TIF；目前排在
+              。如果時間不變，這次大概就是她們最後一次 TIF；目前排在{" "}
               <a
                 href="https://official.idolfes.com/s/tif2026/page/timetable"
                 target="_blank"
                 rel="noreferrer"
-                className={`mx-1 ${linkClass}`}
+                className={linkClass}
               >
                 7 月 31 日 20:10～20:40 的 HOT STAGE
               </a>
@@ -231,21 +230,20 @@ export default function Tif2025ShachiRespectStage() {
             </p>
             <p>
               目前沒有看到類似 Respect Stage 的企劃，不過 HOT STAGE
-              壓軸本身已經是很高的安排。
+              壓軸本身已經是很高的安排。SHACHI 的最後一次 TIF
+              是回頭整理十多年來和後輩累積的關係；把最後三十分鐘直接交給現在的とき宣，
+              或許也更適合她們。
             </p>
             <p className="pt-3">
-              延伸：
-              <Link
-                href="/blog/ukka-final-chapter"
-                className={`ml-1 ${linkClass}`}
-              >
+              延伸：{" "}
+              <Link href="/blog/ukka-final-chapter" className={linkClass}>
                 ukka Final Chapter
               </Link>
-              <span className="mx-2">·</span>
+              <span> · </span>
               <Link href="/blog/idol-2025" className={linkClass}>
                 2025 偶像現場回顧
               </Link>
-              <span className="mx-2">·</span>
+              <span> · </span>
               <Link href="/blog/shachi-harebare" className={linkClass}>
                 TEAM SHACHI 最終曲〈晴れ晴れ〉
               </Link>
