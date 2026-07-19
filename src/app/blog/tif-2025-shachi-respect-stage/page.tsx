@@ -131,8 +131,10 @@ export default function Tif2025ShachiRespectStage() {
             <li>
               <strong>TIFアイドル連合｜〈恋人はスナイパー〉</strong>
               <p className="mt-1">
-                11 人來自不同團體，也讓這一場不只是星塵家族內部的送別。
-                這種只為一場舞台組成的陣容，也很有 TIF 的味道。
+                11 人來自不同團體，其中也有高嶺のなでしこ的涼海すう和城月菜央。
+                高貓雖然不在星塵，和 SHACHI 卻一直像姐妹團一樣。
+                去年高貓在幕張辦三周年公演、SHACHI
+                舉辦最終公演時，兩邊也互相送了花籃。
               </p>
             </li>
             <li>
@@ -167,46 +169,20 @@ export default function Tif2025ShachiRespectStage() {
           <p>
             另外，看到
             TIFアイドル連合的名單時，我也有想過，如果蝦中派妹組來參加，
-            應該會蠻不錯。桜井えま以前也說過，自己還是研究生時，第一次站上舞台就是替
-            SHACHI 伴舞。這次如果能換成蝦中成員的身分回來，感覺也很適合。
-            加上えま是把我重新拉回蝦中的人，我自己當然會特別想看。
-          </p>
-          <p>
-            公開名單沒有說明原因。從
-            <a
-              href="https://www.shiritsuebichu.jp/official/pc/media/article.html?idnum=14908"
-              target="_blank"
-              rel="noreferrer"
-              className={`mx-1 ${linkClass}`}
-            >
-              蝦中的官方行程
-            </a>
-            只能確認，團體舞台和えま參加的歌唱企劃都排在隔天的 8 月 2
-            日，其他就不多猜了。幾個月後，我還是在
-            <Link
-              href="/blog/idol-2025#ebishachi"
-              className={`mx-1 ${linkClass}`}
-            >
-              俺のえびシャチライブ ～THE FINAL～
-            </Link>
-            親眼看到兩團正式告別。
+            應該會蠻不錯。桜井えま以前也說過，自己還在研究生時期，第一次站上舞台就是替
+            SHACHI 伴舞。而且妹組本來就很尊敬
+            SHACHI，作為後輩來參加這一場也很適合。
           </p>
         </FadeIn>
 
         <FadeIn>
           <Heading>ukka 的〈エンジョイ人生〉</Heading>
           <p>
-            當時大家只知道，這是 SHACHI 的最後一次 TIF。數個月後，ukka
-            也宣布解散，這場同樣成了她們最後一次參加 TIF。但那一天，
-            她們就只是來替 SHACHI 好好唱一首歌。
+            當時大家只知道這是 SHACHI 最後一次 TIF。看 ukka
+            唱〈エンジョイ人生〉時，只覺得這首很適合她們，也期待這個團接下來會越來越好。
           </p>
           <p>
-            現在最讓我停下來看的，是台上的她們根本沒有告別的樣子。她們和 SHACHI
-            對著眼、一起跳，真的像還會有很多個下一次。
-          </p>
-          <p>
-            現在再聽，我不會覺得〈エンジョイ人生〉變成了反話。她們確實又往前走了一段，
-            只是誰也沒想到，下一站會是 Final Chapter。
+            數個月後，ukka 宣布解散。回頭才知道，這場同樣成了她們最後一次 TIF。
           </p>
         </FadeIn>
 
@@ -257,9 +233,7 @@ export default function Tif2025ShachiRespectStage() {
             </p>
             <p>
               目前沒有看到類似 Respect Stage 的企劃，不過 HOT STAGE
-              壓軸本身已經是很高的安排。とき宣是近年才走到現在的位置，跟 SHACHI
-              這種有後輩從小就在看、甚至替她們伴過舞的情況不太一樣。沒有照同一種形式做，
-              我覺得也算合理。
+              壓軸本身已經是很高的安排。
             </p>
             <p className="pt-3">
               延伸：
