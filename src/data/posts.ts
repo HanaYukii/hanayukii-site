@@ -37,7 +37,7 @@ export const posts: Post[] = [
     title: "Jabiko：JLPT 自習網站",
     date: "2026-06-24",
     summary:
-      "和朋友一起做的 JLPT 自習網站，從基礎變化到 N1 備考、會自動盯錯題複習；介紹主要的練習模式與功能特色。",
+      "和朋友一起做的 JLPT 自習網站，從基礎變化一路練到 N1，也會把答錯的題目排進複習。這篇記錄目前的練習模式和設計。",
     tags: ["AI", "Frontend"],
     tagStyle: "bg-primary/10 text-primary",
     href: "/blog/jabiko-jlpt-app",
@@ -47,7 +47,7 @@ export const posts: Post[] = [
     title: "用 multi agent AI 出 JLPT 考題：交叉審查與品質閘",
     date: "2026-06-24",
     summary:
-      "用 subagent + Codex 兩個 AI 代理平行出題再交叉互審，搭配 lint／dry-run／讀音驗證等自動品質閘，幫 JLPT 題庫大量出題又不出近義雙解。",
+      "我怎麼讓 subagent 和 Codex 平行出題、互相審查，再用 lint、dry-run 和讀音驗證擋掉近義雙解。",
     tags: ["AI", "Software Engineering"],
     tagStyle: "bg-primary/10 text-primary",
     href: "/blog/ai-exam-authoring-workflow",
@@ -89,10 +89,10 @@ export const posts: Post[] = [
     href: "/blog/cpp-span",
   },
   {
-    title: "在晴朗的風裡翻頁 — TEAM SHACHI 最終曲「晴れ晴れ」",
+    title: "TEAM SHACHI 最終曲「晴れ晴れ」歌詞翻譯與心得",
     date: "2026-05-27",
     summary:
-      "youth case 寫給 TEAM SHACHI 的畢業曲〈晴れ晴れ〉。寫給曾經一起走過一段路的人，關於離別，也關於離別之後。",
+      "youth case 寫給 TEAM SHACHI 的畢業曲〈晴れ晴れ〉。在 THE FINAL 聽到這首歌後，整理了一些歌詞翻譯和自己的感想。",
     tags: ["Idol", "Live", "Life"],
     tagStyle: "bg-accent/10 text-accent",
     href: "/blog/shachi-harebare",
@@ -110,7 +110,7 @@ export const posts: Post[] = [
     title: "TEAM SHACHI —「マジ感謝」歌詞翻譯",
     date: "2026-05-25",
     summary:
-      "TEAM SHACHI「マジ感謝」歌詞翻譯與心得。為什麼這首歌在解散、畢業、最後一場 Live 幾乎是無敵的存在。",
+      "TEAM SHACHI「マジ感謝」歌詞翻譯與心得。解散、畢業、最後一場 live，都很適合拿它來收尾。",
     tags: ["Idol", "Life"],
     tagStyle: "bg-accent/10 text-accent",
     href: "/blog/maji-kansha",
@@ -155,7 +155,7 @@ export const posts: Post[] = [
     title: "牛市放大效應與 KOL",
     date: "2026-05-02",
     summary:
-      "牛市會把一個人的魅力放大成神，熊市才會把同樣的特質放大成風險。從 D 大、反 D 大的人、其他 KOL 類型,到我自己對配置跟少賺的反思。",
+      "從 D 大、反 D 大的人和其他 KOL 類型，回頭看牛熊市怎麼放大個人魅力，以及我自己在配置和少賺上的反思。",
     tags: ["Life", "投資"],
     tagStyle: "bg-accent/10 text-accent",
     href: "/blog/kol-bull-market-amplifier",
@@ -173,7 +173,7 @@ export const posts: Post[] = [
     title: "文件在 AI 時代的價值",
     date: "2026-04-19",
     summary:
-      "以前文件常常像成本；現在它可能是讓 AI、團隊、未來的自己都更快進入 context 的介面。AI 時代不是讓文件變得不重要，而是讓文件的價值被放大。",
+      "以前不太想寫文件，現在卻常拿它當成團隊、AI 和未來自己共用的 context。整理我這幾年對文件 ROI 的看法。",
     tags: ["Software Engineering", "AI"],
     tagStyle: "bg-primary/10 text-primary",
     href: "/blog/documentation-ai-era",
@@ -201,7 +201,7 @@ export const posts: Post[] = [
     title: "我的競賽程式生涯回顧",
     date: "2026-04-14",
     summary:
-      "從計概作業太難開始刷題，到 ICPC Gold。你永遠不知道，你的興趣可以把你帶得多遠。",
+      "從計概作業太難開始刷題，一路打到 ICPC Gold。回頭記錄大學競賽、出國比賽，以及這段經歷後來怎麼影響我的工作。",
     tags: ["Competitive Programming", "Personal"],
     tagStyle: "bg-accent/10 text-accent",
     href: "/blog/cp-career-memoir",
@@ -238,7 +238,7 @@ export const posts: Post[] = [
     title: "2025 偶像現場全紀錄",
     date: "2026-04-08",
     summary:
-      "意外回歸星塵的一年，感謝各種現場的相遇與告別。從桃草到蝦中、從虎魚組到高嶺のなでしこ，2025 年的偶像現場紀錄。",
+      "2025 年重新開始跑偶像現場的紀錄。從桃草、蝦中、SHACHI 到高嶺のなでしこ，寫下看過哪些場，又是怎麼一路接回來的。",
     tags: ["Life", "Idol"],
     tagStyle: "bg-accent/10 text-accent",
     href: "/blog/idol-2025",
@@ -247,7 +247,7 @@ export const posts: Post[] = [
     title: "從 Midnight 看隱私鏈技術",
     date: "2026-04-06",
     summary:
-      "從零開始理解隱私鏈的核心技術：ZK-SNARKs、雙狀態架構、可程式化隱私，以 Midnight Network (NIGHT) 為例拆解。",
+      "用 Midnight Network 當例子，整理 ZK-SNARKs、雙狀態架構和選擇性揭露，也比較幾種隱私方案的差別。",
     tags: ["Web3", "Privacy"],
     tagStyle: "bg-primary/10 text-primary",
     href: "/blog/privacy-chain-midnight",
@@ -256,7 +256,7 @@ export const posts: Post[] = [
     title: "離開 Google 半年後的轉職紀錄",
     date: "2026-04-06",
     summary:
-      "在 Google Cloud 待了三年，我最後選擇裸辭。不是因為壓力太大，而是因為太輕鬆。",
+      "在 Google Cloud 待了三年後裸辭。工作量不算大，但內容跟期待的落差越來越大，最後決定去早期 AI 新創。",
     tags: ["Career", "Personal"],
     tagStyle: "bg-accent/10 text-accent",
     href: "/blog/leaving-google",
@@ -275,7 +275,7 @@ export const posts: Post[] = [
     title: "C++ 編譯期可以做的五件事",
     date: "2026-03-31",
     summary:
-      "從 constexpr 到 LUT 生成 - 五個實用的編譯期技巧，把能在編譯期做的事移到編譯期。",
+      "從 constexpr 到 LUT 生成，整理五個實用技巧，以及哪些工作值得提前到編譯期做。",
     tags: ["C++", "Performance"],
     tagStyle: "bg-primary/10 text-primary",
     href: "/blog/cpp-compile-time-optimization",

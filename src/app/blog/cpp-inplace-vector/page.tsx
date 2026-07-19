@@ -690,7 +690,7 @@ int main() {
 
       {/* ======================== Summary ======================== */}
       <FadeIn delay={0.5}>
-        <Heading id="summary">總結</Heading>
+        <Heading id="summary">這題實際在考什麼</Heading>
 
         <div className="my-6 overflow-x-auto">
           <table className="w-full text-sm">

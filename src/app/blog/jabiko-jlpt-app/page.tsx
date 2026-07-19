@@ -9,11 +9,11 @@ import RelatedPosts from "@/components/RelatedPosts";
 export const metadata: Metadata = articleMetadata("/blog/jabiko-jlpt-app", {
   title: "Jabiko：JLPT 自習網站 | 花雪 HanaYukii",
   description:
-    "一個從完全新手一路練到 JLPT N1 的自習網站，整合分章學習、題庫、文型資料庫與弱點複習。",
+    "和朋友一起做的 JLPT 自習網站，包含分章練習、題庫、文型資料庫和錯題複習。",
   openGraph: {
     title: "Jabiko：JLPT 自習網站",
     description:
-      "從完全新手一路練到 JLPT N1：分章學習、題庫、文型資料庫與弱點複習。",
+      "和朋友一起做的 JLPT 自習網站，包含分章練習、題庫、文型資料庫和錯題複習。",
     type: "article",
   },
 });
@@ -398,9 +398,9 @@ export default function JabikoJlptApp() {
           />
         </FadeIn>
 
-        {/* ============ 小結 ============ */}
+        {/* ============ 直接試用 ============ */}
         <FadeIn>
-          <Heading id="wrap">小結</Heading>
+          <Heading id="wrap">直接試用</Heading>
           <p>
             網站在{" "}
             <a

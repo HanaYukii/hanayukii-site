@@ -70,7 +70,7 @@ export default function CF2217F() {
           Nim + XOR 加法恆等式 + Digit DP
         </p>
         <p className="mb-2 text-sm text-text-muted">
-          看起來像機率 + 區間問題，核心是把遊戲轉成 Nim，再做 XOR 分佈的 counting。
+          第一眼以為要同時處理機率和區間；拆成 Nim 之後，就只剩 XOR 分佈的 counting。
         </p>
         <p className="mb-8 text-sm text-text-muted">
           2026-04-08 ·{" "}
@@ -99,8 +99,8 @@ export default function CF2217F() {
               { id: "algebra", title: "Step 3：關鍵代數轉換" },
               { id: "digitdp", title: "Step 4：Digit DP" },
               { id: "merge", title: "Step 5：合併與枚舉" },
-              { id: "code", title: "完整 Code" },
-              { id: "flow", title: "解法 Flow" },
+              { id: "code", title: "完整程式碼" },
+              { id: "flow", title: "最後整理" },
             ].map((item, i) => (
               <a
                 key={item.id}
@@ -282,7 +282,7 @@ long long sum = digit(i, mx) * (1LL << __builtin_popcount(i));`}</Code>
             構造 Alice 的區間：取 <InlineMath math="a = s,\ b = 0" />，也就是 <InlineMath math="[l_1, r_1] = [s+1, x_1]" />。
           </p>
 
-          <SubHeading>Special Case</SubHeading>
+          <SubHeading>一個特例</SubHeading>
           <p>
             如果 <InlineMath math="x_1 > x_2" />，可以選 <InlineMath math="s \ge x_2" />。
             此時 <InlineMath math="c \oplus d \le c + d \le x_2 - 1 < s" />，
@@ -299,7 +299,7 @@ long long sum = digit(i, mx) * (1LL << __builtin_popcount(i));`}</Code>
 
         {/* ── Code ── */}
         <FadeIn>
-          <Heading id="code">完整 Code</Heading>
+          <Heading id="code">完整程式碼</Heading>
           <Code lang="cpp">{`#include <bits/stdc++.h>
 using namespace std;
 
@@ -368,9 +368,9 @@ int main() {
 }`}</Code>
         </FadeIn>
 
-        {/* ── 解法 Flow ── */}
+        {/* ── 最後整理 ── */}
         <FadeIn>
-          <Heading id="flow">解法 Flow</Heading>
+          <Heading id="flow">最後整理</Heading>
           <div className="my-4 flex flex-col items-center gap-2 text-sm">
             <div className="rounded-lg border border-border bg-surface/60 px-4 py-2 text-center">
               區間博弈 → 4 堆 <strong>Nim</strong>

@@ -10,11 +10,11 @@ import RelatedPosts from "@/components/RelatedPosts";
 export const metadata: Metadata = articleMetadata("/blog/dependency-injection", {
   title: "搞懂 Dependency Injection | 花雪 HanaYukii",
   description:
-    "DI 常被講得很玄，但核心其實很單純：不要在業務邏輯裡自己 new 依賴。這篇用實例把邊界講清楚。",
+    "Dependency Injection 解的是依賴怎麼進入 business logic，以及 DB、cache、HTTP client 這些邊界能不能替換與測試。",
   openGraph: {
     title: "搞懂 Dependency Injection",
     description:
-      "DI 常被講得很玄，但核心其實很單純：不要在業務邏輯裡自己 new 依賴。",
+      "從 constructor injection、abstraction 到 container，整理 DI 的做法、它如何改善測試，以及常見反模式。",
     type: "article",
   },
 });
@@ -79,13 +79,13 @@ export default function DependencyInjection() {
           </p>
           <div className="space-y-2">
             {[
-              { id: "item1", title: "DI 其實只是在處理依賴怎麼進來" },
+              { id: "item1", title: "DI 處理的是依賴怎麼進來" },
               { id: "item2", title: "沒有 DI 時，test 為什麼會越寫越痛苦" },
               { id: "item3", title: "我最常用的做法：Constructor Injection" },
               { id: "item4", title: "再往下一層：用 abstraction 隔開實作" },
               { id: "item5", title: "不同語言其實差不多" },
               { id: "item6", title: "Container 什麼時候才需要" },
-              { id: "item7", title: "DI 真正的回報通常在測試" },
+              { id: "item7", title: "DI 在測試裡最容易看出效果" },
               { id: "item8", title: "幾個很常見的反模式" },
               { id: "summary", title: "最後我自己的判斷方式" },
             ].map((item, i) => (
@@ -109,13 +109,13 @@ export default function DependencyInjection() {
           </p>
           <div className="space-y-2">
             {[
-              { id: "item1", title: "DI 其實只是在處理依賴怎麼進來" },
+              { id: "item1", title: "DI 處理的是依賴怎麼進來" },
               { id: "item2", title: "沒有 DI 時，test 為什麼會越寫越痛苦" },
               { id: "item3", title: "我最常用的做法：Constructor Injection" },
               { id: "item4", title: "再往下一層：用 abstraction 隔開實作" },
               { id: "item5", title: "不同語言其實差不多" },
               { id: "item6", title: "Container 什麼時候才需要" },
-              { id: "item7", title: "DI 真正的回報通常在測試" },
+              { id: "item7", title: "DI 在測試裡最容易看出效果" },
               { id: "item8", title: "幾個很常見的反模式" },
             ].map((item, i) => (
               <a
@@ -134,10 +134,10 @@ export default function DependencyInjection() {
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-primary [&_code]:text-sm">
         {/* ============ Item 1 ============ */}
         <FadeIn>
-          <Heading id="item1">DI 其實只是在處理依賴怎麼進來</Heading>
+          <Heading id="item1">DI 處理的是依賴怎麼進來</Heading>
 
           <p>
-            Dependency Injection（DI）的核心概念只有一句話：
+            我對 Dependency Injection（DI）的定義很簡單：
           </p>
           <Callout>
             <strong>不要自己建立 dependency，讓外部傳進來。</strong>
@@ -150,7 +150,7 @@ export default function DependencyInjection() {
 
           <SubHeading>什麼是耦合 Coupling？</SubHeading>
           <p>
-            在討論 DI 之前，先理解它要解決的核心問題：<strong>耦合（Coupling）</strong>。
+            在討論 DI 之前，先看它想處理的問題：<strong>耦合（Coupling）</strong>。
           </p>
           <p>
             Coupling 指的是兩個 module 之間的依賴程度。當 A 直接使用了 B 的 concrete implementation，
@@ -825,7 +825,7 @@ func InitializeApp(cfg Config) (*App, error) {
 
         {/* ============ Item 7 ============ */}
         <FadeIn>
-          <Heading id="item7">DI 真正的回報通常在測試</Heading>
+          <Heading id="item7">DI 在測試裡最容易看出效果</Heading>
 
           <p>
             在 Item 2 我們已經看過沒有 DI 時，unit test 根本寫不了。

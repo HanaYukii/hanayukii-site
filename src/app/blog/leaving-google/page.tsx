@@ -9,11 +9,11 @@ import RelatedPosts from "@/components/RelatedPosts";
 export const metadata: Metadata = articleMetadata("/blog/leaving-google", {
   title: "離開 Google 半年後的轉職紀錄 | 花雪 HanaYukii",
   description:
-    "在 Google Cloud 待了三年，我最後選擇裸辭。不是因為壓力太大，甚至可以說是輕鬆的。但工作內容跟期待的落差越來越大。",
+    "在 Google Cloud 待了三年後裸辭。工作量不算大，但內容跟期待的落差越來越大，最後決定去早期 AI 新創。",
   openGraph: {
     title: "離開 Google 半年後的轉職紀錄",
     description:
-      "在 Google Cloud 待了三年，我最後選擇裸辭。不是因為壓力太大，甚至可以說是輕鬆的。",
+      "在 Google Cloud 待了三年後裸辭，休息一段時間，再去早期 AI 新創。",
     type: "article",
   },
 });
@@ -69,7 +69,7 @@ export default function LeavingGoogle() {
               { id: "final-decision", title: "下決定" },
               { id: "interviews", title: "Next Step" },
               { id: "decision", title: "近期發展" },
-              { id: "reflection", title: "結語" },
+              { id: "reflection", title: "離開之後" },
             ].map((item, i) => (
               <a
                 key={item.id}
@@ -225,7 +225,7 @@ export default function LeavingGoogle() {
           <Heading id="final-decision">下決定</Heading>
           <div className="space-y-4">
             <p>
-              長期累積的東西到這時候已經爆發了。絕對不是工作內容量上的累，但確實進入了 burnout 的狀態。
+              長期累積的東西到這時候一起爆發了。工作量其實不大，但我確實 burnout 了。
               夏天在日本 WFA 了一陣子想調整。
               從 GitHub 的 contribution graph 也看得出來，那段時間連開源都幾乎沒有動力碰。
             </p>
@@ -243,11 +243,12 @@ export default function LeavingGoogle() {
             </p>
             <p>
               我很感謝大家願意陪我把各種可能性攤開來談。
-              那段整理經驗、盤點選項的過程，反而讓我更清楚：我想改變的不是單一專案或團隊，而是工作的型態與自己承擔責任的方式。
+              聊完之後，我還是覺得單純換專案或 team 不夠。
+              我想試的是工作方式完全不一樣、自己也能負責更多事情的地方。
             </p>
             <p>
-              所以最後選擇往公司外探索。這個決定不是由單一事件或任何一個人造成的，
-              而是長時間累積後，對下一階段生活與工作方式的選擇。
+              所以最後還是往公司外找。沒有哪一件事或哪一個人直接造成這個決定，
+              單純是累積了一段時間後，我想換一種生活和工作方式。
               如果未來有機會再合作，我依然會很珍惜；只是當下的我想先去一個更早期、變化也更快的環境試一次。
             </p>
             <p>
@@ -358,15 +359,15 @@ export default function LeavingGoogle() {
           </div>
         </FadeIn>
 
-        {/* ============ 走過之後的體會 ============ */}
+        {/* ============ 離開之後 ============ */}
         <FadeIn>
-          <Heading id="reflection">結語</Heading>
+          <Heading id="reflection">離開之後</Heading>
           <div className="space-y-4">
             <p>
-              走過之後，那些不甘心反而成了推自己往前走的力量。
+              離開後，原本那些不甘心確實推了我一把。
             </p>
             <p>
-              穩穩待著能預見一個安穩、收入也不錯的未來，但骨子裡的野心不允許我就這樣安逸下去。
+              繼續待著的生活很安穩、收入也不錯，但我還是想試試看自己能走多遠。
             </p>
           </div>
         </FadeIn>
@@ -377,7 +378,7 @@ export default function LeavingGoogle() {
               離開後的日子很充實——演算法、C++、AI、家教、日文 N1、運動，還做了這個個人網站、還有眾多 AI 專案；Codeforces 也撿回來認真打，紅名是學生時期沒拿到的目標，這次想慢慢把它補上。
             </p>
             <p>
-              這陣子我也好好 review、充實自己，補回基本功、在這個 AI 時代走在最前緣——目標是讓自己走到一個有自信、公司任我挑，甚至有底氣去把握未來潛在的創業機會的狀態。近期在科技業這樣的寒冬下，我還是持續收到 LinkedIn 的邀請，也算是對自己實力的一大肯定。多線並進對我不是分心，是趁還能負荷盡量探索；也一直 open to 有趣的 side project 跟合作。
+              這陣子也重新補基本功，想看看自己在 AI 這波能走到哪裡。目標很直接：把能力練到對下一份工作、甚至未來要不要創業都有選擇。近期科技業雖然冷，我還是持續收到 LinkedIn 的邀請，至少代表市場還願意看我的經歷。目前也還負荷得來，所以 side project 和合作機會都保持 open。
             </p>
           </div>
         </FadeIn>
@@ -385,16 +386,16 @@ export default function LeavingGoogle() {
         <FadeIn>
           <div className="space-y-4">
             <p>
-              這段經驗雖然有很多不美滿的地方，總體來說還是有不少不錯的經歷：
+              工作內容雖然不適合我，三年裡還是留下不少回憶：
               到灣區出差、使用各國頂級辦公室跟福利、跟頂尖的人合作、
               跟多家 big name 公司作為客戶端的合作經驗，也大幅提升了英文能力。
               未來也可能還有新的合作機會。
             </p>
             <p>
-              事後看，我確實很懷念 Google 的福利，卻從來沒懷念過工作內容。也許這也是為什麼社群上大家總在曬福利，卻很少有人說自己的工作做得多快樂、多有熱忱，不過我對於未來回去 Google 找到適合自己的好 team 還是有所期待；但我也不確定現在的位置會待多久、未來會怎麼走，就走一步算一步、把握當下吧。
+              事後看，我確實很懷念 Google 的福利，卻沒有懷念過工作內容。未來如果又遇到真的適合我的 team，我也不排斥回去；至於現在這份會待多久，就先走一步算一步。
             </p>
             <p>
-              而我當前的熱忱與 motivation 正處於 all-time high——經過這陣低潮，人生又重新快速轉動了起來。
+              至少現在，工作的熱情和 motivation 都回來了。
             </p>
             <p>
               感謝這一路上遇到的人。聽我訴苦的、給我方向的、一直以來的 role model，都謝謝你們。

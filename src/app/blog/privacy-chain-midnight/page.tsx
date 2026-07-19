@@ -10,11 +10,11 @@ import RelatedPosts from "@/components/RelatedPosts";
 export const metadata: Metadata = articleMetadata("/blog/privacy-chain-midnight", {
   title: "隱私鏈技術入門：Midnight Network | 花雪 HanaYukii",
   description:
-    "用 Midnight 這個例子，快速看懂隱私鏈在解什麼問題，以及 ZK proof 在鏈上怎麼用。",
+    "用 Midnight 當例子，整理公鏈隱私、ZK proof、公開與私有狀態，以及選擇性揭露怎麼串在一起。",
   openGraph: {
     title: "隱私鏈技術入門：Midnight Network",
     description:
-      "用 Midnight 這個例子，快速看懂隱私鏈在解什麼問題，以及 ZK proof 在鏈上怎麼用。",
+      "用 Midnight 當例子，整理公鏈隱私、ZK proof、公開與私有狀態，以及選擇性揭露怎麼串在一起。",
     type: "article",
   },
 });
@@ -29,14 +29,6 @@ function Heading({ children, id }: { children: React.ReactNode; id: string }) {
 
 function SubHeading({ children }: { children: React.ReactNode }) {
   return <h3 className="mb-3 mt-8 text-lg font-bold">{children}</h3>;
-}
-
-function Callout({ children }: { children: React.ReactNode }) {
-  return (
-    <blockquote className="my-4 border-l-2 border-primary pl-4 text-text-muted italic">
-      {children}
-    </blockquote>
-  );
 }
 
 export default function PrivacyChainMidnight() {
@@ -71,7 +63,7 @@ export default function PrivacyChainMidnight() {
       <FadeIn delay={0.05}>
         <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
           <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
-            Agenda
+            目錄
           </p>
           <div className="space-y-2">
             {[
@@ -215,10 +207,6 @@ export default function PrivacyChainMidnight() {
             例如借貸協議只需要知道你的信用分數大於 700，不需要知道完整報表；
             合約只驗證 proof 是否成立，不讀原始資料本身。
           </p>
-          <Callout>
-            這也是 ZK proof 最有價值的地方：
-            合約驗的是「條件」，不是「文件」。
-          </Callout>
         </div>
       </FadeIn>
 
@@ -227,7 +215,7 @@ export default function PrivacyChainMidnight() {
         <Heading id="architecture">Midnight 的架構拆解</Heading>
         <div className="space-y-4">
           <p>
-            Midnight 可以先抓三個關鍵：雙狀態、本地執行加 proof、以及能寫隱私合約。
+            Midnight 的架構大致可以拆成三塊：雙狀態、本地執行加 proof，以及能寫隱私合約。
           </p>
 
           <SubHeading>雙狀態模型：公開 + 私有</SubHeading>
@@ -249,8 +237,8 @@ export default function PrivacyChainMidnight() {
 
           <SubHeading>Kachina Protocol：橋接公開和私有狀態</SubHeading>
           <p>
-            真正關鍵不是「有私有資料」，而是「私有資料怎麼安全參與合約執行」。
-            Midnight 的答案可以很簡單地記成四個字：本地算，鏈上驗。
+            私有資料要參與合約執行，還得讓鏈上確認計算沒有作弊。
+            Midnight 採用的做法可以簡化成四個字：本地算，鏈上驗。
           </p>
           <p>
             Kachina Protocol 的流程大致是：
@@ -312,8 +300,7 @@ contract AgeVerification {
         <Heading id="selective-disclosure">選擇性揭露：隱私和合規可以共存</Heading>
         <div className="space-y-4">
           <p>
-            Midnight 想打的不是「完全躲監管」，而是「只交代必要資訊」。
-            這就是 Selective Disclosure。
+            Midnight 把 Selective Disclosure 當成重要的使用方式：資料不必全公開，也不是全部藏起來，只交出當下需要的資訊。
           </p>
           <p>
             幾個很直觀的例子：
@@ -330,8 +317,7 @@ contract AgeVerification {
             </li>
           </ul>
           <p>
-            這些例子的共同點很重要：合約驗的是條件，不是原始文件。
-            工程上看，這代表你不用在每個協議裡複製一份敏感資料庫，也不用讓每個合作方都接觸完整個資。
+            也就是合約只驗條件，不必保存原始文件。工程上不用在每個協議裡複製一份敏感資料庫，也不用讓每個合作方都接觸完整個資。
           </p>
         </div>
       </FadeIn>
@@ -402,9 +388,8 @@ contract AgeVerification {
             </table>
           </div>
           <p>
-            如果只看一句話：Monero 偏極致隱私，Zcash 偏可選隱私，
-            Midnight 偏合約層的可程式化隱私。
-            Midnight 最吸引人的點不是「更神祕」，而是它比較像給開發者用的隱私工具箱。
+            我會把它們粗略分成：Monero 偏極致隱私，Zcash 偏可選隱私，
+            Midnight 偏合約層的可程式化隱私。對我來說，Midnight 比較像給開發者用的隱私工具箱，這也是它最有意思的地方。
             但它也還很早，技術方向清楚，不代表生態和採用一定跟得上。
           </p>
         </div>

@@ -59,7 +59,7 @@ const projects: Record<Lang, Project[]> = {
     {
       period: "2024 –",
       name: "Polkadot JAM Protocol",
-      blurb: "Web3 Foundation 的 JAM contest 參賽隊，repo 核心成員（95★），大量參與實作與文件。",
+      blurb: "Web3 Foundation 的 JAM contest 參賽隊，repo 核心成員（95★）；我主要寫實作和文件。",
       links: [{ label: "GitHub", href: "https://github.com/New-JAMneration/JAM-Protocol" }],
     },
     {
@@ -171,7 +171,7 @@ export default function AboutContent() {
               <Link href="/blog/cp-career-memoir" className="text-primary hover:underline">competitive programming</Link>{" "}
               background, and I like algorithms and math. After{" "}
               <Link href="/blog/leaving-google" className="text-primary hover:underline">three years at Google</Link>{" "}
-              I moved on; now I&apos;m a Senior Staff Engineer at an AI startup, and I also build in Web3. I write here about whatever I happen to find interesting.
+              I left and joined an AI startup, where I&apos;m now a Senior Staff Engineer. I also build in Web3 and write here about whatever I happen to find interesting.
             </p>
           )}
         </section>

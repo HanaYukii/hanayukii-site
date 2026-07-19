@@ -67,7 +67,7 @@ export default function CppReflection() {
           <p>
             代價就是 C++ 長年沒有完整反射，只有兩塊零碎的工具——
             執行期的 <strong>RTTI</strong>、編譯期的 <strong>type_traits</strong>。
-            先看這兩個，再看其他語言的對照，最後是 C++26。
+            下面依序看這兩種工具、其他語言的對照，以及 C++26 的 static reflection。
           </p>
         </FadeIn>
 
@@ -216,11 +216,11 @@ enum_to_string(Color::Green);   // "Green"`}</Code>
           </p>
         </FadeIn>
 
-        {/* 小結 */}
+        {/* 現在可以怎麼用 */}
         <FadeIn>
-          <Heading id="wrap">小結</Heading>
+          <Heading id="wrap">現在可以怎麼用</Heading>
           <p>
-            一句話收尾：C++ 的反射一直是「做得到，但很克難」。日常需求大多用{" "}
+            目前 C++ 的反射還是「做得到，但很克難」。日常需求大多用{" "}
             <code>type_traits</code> 配 <code>if constexpr</code> 就能解，
             執行期要辨型別才動 RTTI；要走訪欄位先靠 Boost.PFR 之類的庫頂著。
             等 C++26 的 static reflection 普及，這些繞路大半都能收掉。

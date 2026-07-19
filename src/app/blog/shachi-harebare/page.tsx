@@ -6,11 +6,11 @@ import PostJsonLd from "@/components/PostJsonLd";
 import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/shachi-harebare", {
-  title: "在晴朗的風裡翻頁 — TEAM SHACHI 最終曲「晴れ晴れ」 | 花雪 HanaYukii",
+  title: "TEAM SHACHI 最終曲「晴れ晴れ」歌詞翻譯與心得 | 花雪 HanaYukii",
   description:
-    "youth case 寫給 TEAM SHACHI 的畢業曲〈晴れ晴れ〉。歌詞意境很美：寫給曾經一起走過一段路的人。",
+    "youth case 寫給 TEAM SHACHI 的畢業曲〈晴れ晴れ〉。在 THE FINAL 聽到這首歌後，整理歌詞翻譯和自己的感想。",
   openGraph: {
-    title: "在晴朗的風裡翻頁 — TEAM SHACHI 最終曲「晴れ晴れ」",
+    title: "TEAM SHACHI 最終曲「晴れ晴れ」歌詞翻譯與心得",
     description: "youth case 寫給 TEAM SHACHI 的畢業曲〈晴れ晴れ〉。",
     type: "article",
   },
@@ -167,7 +167,7 @@ export default function ShachiHarebare() {
           </span>
         </div>
         <h1 className="mb-3 text-3xl font-bold leading-tight sm:text-4xl">
-          在晴朗的風裡翻頁 — TEAM SHACHI 最終曲「晴れ晴れ」
+          TEAM SHACHI 最終曲「晴れ晴れ」歌詞翻譯與心得
         </h1>
         <p className="mb-3 text-base italic text-accent/80">
           寫給曾經一起走過一段路的人。
@@ -195,7 +195,7 @@ export default function ShachiHarebare() {
             〈晴れ晴れ〉是 youth case 寫給 TEAM SHACHI 的畢業曲，收在最終單曲裡。
           </p>
           <p>
-            先說「晴れ晴れ（はればれ）」這個詞。它不是單純的「晴天」，
+            「晴れ晴れ（はればれ）」比起單純的「晴天」，
             比較接近雨過天晴、如釋重負——是經歷過一些事情之後，
             終於能夠坦然往前走的心情。
           </p>
@@ -208,10 +208,10 @@ export default function ShachiHarebare() {
             那些日子都成了珍貴的回憶。
           </p>
           <p>
-            它寫的不只是離別，而是離別之後：
+            這首歌寫到離別之後：
             即使見不到面，還是相信對方正在某個地方努力著。
           </p>
-          <p>所以這裡的再見不是切斷，而是一種更安靜的陪伴。</p>
+          <p>所以我會把這裡的再見，理解成一種更安靜的陪伴。</p>
 
           <p>
             有好多段都特別打動。也特別喜歡這首裡那種跨越時間、跨越空間的感覺。
@@ -224,7 +224,7 @@ export default function ShachiHarebare() {
             </p>
           </blockquote>
           <p>
-            它沒有只往回看。一邊告別，也一邊往前開了一扇門：
+            歌詞也沒有一直往回看；說著再見的同時，還是往前開了一扇門：
             去遇見還不知道的自己，開始新的故事。
           </p>
           <blockquote className="my-2 rounded-r-lg border-l-2 border-warm/40 bg-surface/40 px-4 py-3">
@@ -235,8 +235,8 @@ export default function ShachiHarebare() {
             </p>
           </blockquote>
           <p>
-            不是「以後就會忘記」那種安慰，而是：人不在身邊了，
-            那段一起走過的時間還在。
+            它沒有說「以後就會忘記」。人不在身邊了，
+            一起走過的時間還是留著。
           </p>
 
           <blockquote className="my-2 rounded-r-lg border-l-2 border-warm/40 bg-surface/40 px-4 py-3">
@@ -247,8 +247,8 @@ export default function ShachiHarebare() {
             </p>
           </blockquote>
           <p>
-            不是「我們還能一直聯絡」，
-            而是更遠、更安靜的信任：看不見對方，也相信你還在你的路上努力著。
+            也沒有說「我們還能一直聯絡」。只是看不見對方時，
+            還是會相信你正在自己的路上努力著。
           </p>
 
           <blockquote className="my-2 rounded-r-lg border-l-2 border-warm/40 bg-surface/40 px-4 py-3">
@@ -260,8 +260,8 @@ export default function ShachiHarebare() {
             </p>
           </blockquote>
           <p>
-            不只是「遇見你很開心」，而是如果沒有這場相遇，
-            可能不會做這樣的夢，也不會走到現在這條路。
+            如果沒有這場相遇，可能不會做這樣的夢，
+            也不會走到現在這條路。
           </p>
 
           <blockquote className="my-2 rounded-r-lg border-l-2 border-warm/40 bg-surface/40 px-4 py-3">
@@ -273,9 +273,8 @@ export default function ShachiHarebare() {
             </p>
           </blockquote>
           <p>
-            以前覺得這只是句常見的歌詞，經歷多了才慢慢懂：
-            人生好像就是不斷遇見一些人、再跟一些人道別，
-            帶著每個階段留下的軌跡跟回憶，把它們當成珍貴的寶物，繼續往前。
+            以前覺得這只是句常見的歌詞。這幾年遇見、離開的人多了一點，
+            才慢慢聽懂它。那些一起走過的時間不會消失，之後還是得繼續往前。
           </p>
           <p>到了最後，還能用這麼棒的一首歌收尾，真的是很幸福的結局。</p>
 

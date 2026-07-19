@@ -127,7 +127,7 @@ export default function CursorBillingDispute() {
         </FadeIn>
 
         <FadeIn>
-          <Heading id="conclusion">結論</Heading>
+          <Heading id="conclusion">這次學到的事</Heading>
           <p>
             公司繳了一波學費。雖然我們規模不大，這幾個月累積下來也付了破萬美金的訂閱費。受到這樣的對待，心裡真的不平衡。
           </p>

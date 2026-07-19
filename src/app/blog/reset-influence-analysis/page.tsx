@@ -9,11 +9,11 @@ import RelatedPosts from "@/components/RelatedPosts";
 export const metadata: Metadata = articleMetadata("/blog/reset-influence-analysis", {
   title: "區塊鏈日報 RESET 活動心得 | 花雪 HanaYukii",
   description:
-    "區塊鏈日報 RESET 從心啟動活動的觀察與反思。",
+    "朋友剛好多一張票，我就去看了 RESET。整場安排得很完整，也讓我重新想了一次內容、敘事和影響力怎麼綁在一起。",
   openGraph: {
     title: "區塊鏈日報 RESET 活動心得",
     description:
-      "區塊鏈日報 RESET 從心啟動活動的觀察與反思。",
+      "朋友剛好多一張票，我就去看了 RESET。整場安排得很完整，也讓我重新想了一次內容、敘事和影響力怎麼綁在一起。",
     type: "article",
   },
 });
@@ -66,15 +66,15 @@ export default function ResetInfluenceAnalysis() {
       <FadeIn delay={0.1}>
         <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
           <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
-            Agenda
+            這篇會寫到
           </p>
           <div className="space-y-2">
             {[
-              { id: "context", title: "背景" },
-              { id: "structure", title: "活動結構" },
-              { id: "good", title: "好的部分" },
-              { id: "questionable", title: "存疑的部分" },
-              { id: "reflection", title: "我的反思" },
+              { id: "context", title: "為什麼會來" },
+              { id: "structure", title: "現場大概怎麼進行" },
+              { id: "good", title: "我覺得做得好的地方" },
+              { id: "questionable", title: "有些地方我還是有保留" },
+              { id: "reflection", title: "回頭看自己" },
             ].map((item, i) => (
               <a
                 key={item.id}
@@ -93,31 +93,28 @@ export default function ResetInfluenceAnalysis() {
 
         {/* ============ 背景 ============ */}
         <FadeIn>
-          <Heading id="context">背景</Heading>
+          <Heading id="context">為什麼會來</Heading>
           <div className="space-y-4">
             <p>
-              朋友剛好多搶到票，反正來看看應該不錯，或多或少應該有收穫，
-              個人成長跟心靈課程方向的內容也讓人好奇，就來了這場 RESET 從心啟動。
-              我自己對幾個大的幣圈頻道都有持續收看，區塊鏈日報算是蠻熟悉的創作者。
+              朋友剛好多一張票，我想說去看看應該也會有收穫，就到了這場 RESET 從心啟動。
+              個人成長和心靈課程這種內容我也有點好奇。平常幾個大的幣圈頻道我都有看，區塊鏈日報算是我很熟的一個。
             </p>
             <p>
-              整體活動質感很好，內容跟橋段可以感受到是有用心花時間準備的。
+              活動做得很完整，內容和橋段看得出花了不少時間。
             </p>
             <p>
-              更早期的我，不只是投資頻道，在很多地方都很容易把各種言論照單全收，
-              不太會去拆解背後的邏輯跟動機。
-              而我現在對他的頻道的總體評價，依然還是有很多值得學習的觀念，
-              不過一定要自己消化，用適合的方式活用。
+              以前不只看投資頻道，很多事情我都很容易把別人的話照單全收，不太會拆背後的邏輯和動機。
+              現在我還是覺得他的頻道有不少值得學的觀念，只是一定得自己消化。
             </p>
             <p>
-              這次參加 RESET，我也在過程中發現並思考更多，這套影響力是怎麼被建立起來的。
+              這次坐在現場，反而一直注意他是怎麼把影響力做出來的。
             </p>
           </div>
         </FadeIn>
 
         {/* ============ 活動結構 ============ */}
         <FadeIn>
-          <Heading id="structure">活動結構</Heading>
+          <Heading id="structure">現場大概怎麼進行</Heading>
           <div className="space-y-4">
             <p>
               因為是付費活動，具體內容就不展開了。
@@ -127,19 +124,19 @@ export default function ResetInfluenceAnalysis() {
             <p>演講的結構很清楚：</p>
             <ol className="list-decimal list-inside space-y-2 text-sm">
               <li>
-                <strong>開場</strong>  -
-                用心準備的誠意，希望每個人都有收穫。
+                <strong>開場</strong>：
+                先講準備這場活動的心情，也希望每個人都有收穫。
               </li>
               <li>
-                <strong>個人故事</strong>  -
+                <strong>個人故事</strong>：
                 從家庭背景、早年經歷到後來的發展，大部分是頻道講過的故事。
               </li>
               <li>
-                <strong>核心框架</strong>  -
-                一套做人處事的觀念，圍繞幾個人生主題展開。
+                <strong>核心框架</strong>：
+                幾個他常講的做人處事觀念。
               </li>
               <li>
-                <strong>收尾 + QA + 抽獎</strong>  -
+                <strong>收尾 + QA + 抽獎</strong>：
                 QA 環節風格跟平常節目差不多。
               </li>
             </ol>
@@ -149,69 +146,51 @@ export default function ResetInfluenceAnalysis() {
 
         {/* ============ 好的部分 ============ */}
         <FadeIn>
-          <Heading id="good">好的部分</Heading>
+          <Heading id="good">我覺得做得好的地方</Heading>
           <div className="space-y-4">
             <p>
-              整場結構很完整，有明確的主題順序，觀眾很容易跟上也有記憶點。
-              內容本身也有不少非常好的處世觀念原則，
-              總體也是跟頻道長期的輸出方向很一致。
+              主題排得很順，現場很好跟，也容易記。
+              裡面不少處世原則我原本就在頻道聽過，和他長期的內容很一致。
             </p>
             <p>
-              故事性很強，一直用自己跟身邊人的經歷去帶，很容易讓人記住。
-              現場感染力也很明顯，他知道怎麼經營氛圍，讓大家覺得來這裡是有意義的，
-              對很多人來說會有鼓舞效果。
-              決策的部分也有拆成步驟，很有系統。
+              他很會用自己和身邊人的經歷帶內容，現場氣氛也掌握得很好。
+              對很多人來說應該很有鼓舞效果；講到決策時也有拆成步驟，不會只停在口號。
             </p>
           </div>
         </FadeIn>
 
         {/* ============ 存疑的部分 ============ */}
         <FadeIn>
-          <Heading id="questionable">存疑的部分</Heading>
+          <Heading id="questionable">有些地方我還是有保留</Heading>
           <div className="space-y-4">
             <p>
-              有些觀點比較偏行動導向的詮釋，像是可以透過自己的選擇決定很多事，
-              但現實還有家庭背景、運氣、行業差異、或自己的個人基本面這些變數，可能被忽略了一些。
-              整體比較像是一種觀點框架，說服方式也偏個人經歷，較少引用外部資料或失敗案例的分析。
+              有些段落把重點放在「靠選擇改變人生」，但家庭背景、運氣、行業差異和個人條件，沒有被談得那麼多。
+              整體比較像講者的一套觀點，主要靠個人經歷說服，外部資料和失敗案例比較少。
             </p>
             <p>
               整場在經營氛圍跟群體歸屬感上也下了不少功夫。
               語感偏成功學跟 sales 風格，對創業跟業務的人很有效，但不算是中性分享。
             </p>
-            <h3 className="mt-6 mb-2 text-lg font-bold text-warm">最大的體會</h3>
+            <h3 className="mt-6 mb-2 text-lg font-bold text-warm">比內容更讓我注意的事</h3>
             <p>
-              這次最大的體會是這整套敘事工程的力量。
-              其實很多觀點跟故事雖然都很好，也很值得學習，
-              但也有點老生常談，不一定那麼特別。
-              真正厲害的可能不是內容本身，而是這整套影響力工程，
-              用故事取代道理，容易被記住；
-              <br />
-              把原則壓成短句，容易在社群擴散；
-              <br />
-              經營現場能量跟群體感，創造一種歸屬感。
-              這點我是蠻佩服的。
+              我最後最在意的，其實不是哪一條原則，而是他怎麼把這些不算新鮮的道理講得有力量。
+              故事比道理容易記，短句適合在社群流動，現場的群體感又讓內容更有重量。這套能力我是真的佩服。
             </p>
           </div>
         </FadeIn>
 
         {/* ============ 我的反思 ============ */}
         <FadeIn>
-          <Heading id="reflection">我的反思</Heading>
+          <Heading id="reflection">回頭看自己</Heading>
           <div className="space-y-4">
             <p>
-              現場接觸到不少背景跟銷售相關的人。
-              以前我覺得技術能力、學歷才是比較正規、走正道、比較高級的路，
-              可能也是工程師背景的偏見，對銷售一直有點距離。
-              但現在越來越覺得能把東西賣出去就是本事，
-              而現實上，大部分人的工作本質上都是銷售的一環，只是不是自己站在前面賣而已。很多人沒意識到，不管做什麼，最後都跟把東西賣出去有關。
-              很多人會在類似情況直接套負面標籤，
-              但只要不是在害人，賣東西沒有那麼罪大惡極。
+              現場遇到不少做銷售的人。以前我總覺得技術能力和學歷才算比較「正規」的路，對 sales 有一點工程師式的偏見。
+              後來越來越覺得，能把東西賣出去本來就是能力；多數工作其實都是銷售鏈的一部分，只是未必由自己站在最前面。
+              只要不是靠傷害別人賺錢，沒有必要一看到 sales 就先貼負面標籤。
             </p>
             <p>
-              整體來說，這場比較適合當成一套講者提供的框架來看，
-              吸收裡面有用的部分，但不要整包吞下去。
-              我覺得現在搭配 AI 分析很重要，可以拆解一路聽過去並沒有那麼注意到的點，
-              最後內化成適合每個人的一套。
+              我會把這場當成講者提供的一套框架：有用的留下，不合的就放著，不用整包吞。
+              散場後再把幾個當下沒想清楚的地方慢慢拆開，最後留下適合自己的版本。
             </p>
 
             <div className="my-2 rounded-xl border border-primary/20 bg-primary/5 p-6">

@@ -345,19 +345,19 @@ Derived 物件                    Derived Vtable
 相比之下，non-virtual call：
 obj->bar();                   → 直接跳轉到固定地址（編譯期已知）`}</Code>
 
-          <SubHeading>真正的代價：失去 inline 機會</SubHeading>
+          <SubHeading>virtual 的主要成本：inline 更困難</SubHeading>
           <p>
             兩次額外的 memory indirection 本身不算太慢。
-            真正的效能殺手是：<strong>編譯器無法 inline virtual function</strong>。
+            更大的成本是：<strong>編譯器通常比較難 inline virtual function</strong>。
           </p>
           <p>
             Non-virtual function 在編譯期就知道要呼叫哪個函數，編譯器可以把函數體直接嵌入呼叫處（inline），
-            省去函數呼叫的 overhead。Virtual function 要到 runtime 才知道呼叫哪個版本，
-            編譯器無法做這個優化。
+            省去函數呼叫的 overhead。Virtual function 通常要到 runtime 才知道呼叫哪個版本；
+            如果編譯器無法 devirtualize，就很難把它 inline。
           </p>
           <Callout>
             在 hot loop 中，inline 與否的差距可達 <strong>5-10 倍</strong>。
-            代價不在 indirection 本身，而在失去 inline 優化的機會。
+            代價不只在 indirection，也常常來自 inline 機會變少。
           </Callout>
 
           <SubHeading>
@@ -433,7 +433,7 @@ public:
           </Heading>
 
           <SubHeading>
-            <code>unique_ptr</code>：真正的零成本抽象
+            <code>unique_ptr</code>：ownership 的零成本抽象
           </SubHeading>
           <p>
             <code>std::unique_ptr</code> 是 C++ 中少見的「名副其實」的零成本抽象：
@@ -596,7 +596,7 @@ Heap allocation 1（連續記憶體）:
 
         {/* ============ Summary ============ */}
         <FadeIn>
-          <Heading id="summary">總結</Heading>
+          <Heading id="summary">寫 code 時要留意什麼</Heading>
           <div className="my-4 overflow-x-auto rounded-lg border border-border">
             <table className="w-full text-sm">
               <thead className="border-b border-border bg-surface/60">
@@ -648,12 +648,10 @@ Heap allocation 1（連續記憶體）:
           </div>
 
           <div className="mt-8 rounded-xl border border-primary/30 bg-primary/5 p-6 text-center">
-            <p className="text-lg font-bold text-text">核心觀念</p>
+            <p className="text-lg font-bold text-text">實務上</p>
             <p className="mt-2 text-base">
-              理解記憶體佈局與object model，才能寫出{" "}
-              <strong className="text-primary">
-                對 CPU 友善的高效 C++ 程式。
-              </strong>
+              hot path 有效能問題時，先量 <strong className="text-primary">sizeof、allocation 與 inline 結果</strong>，
+              再決定要不要調整欄位順序或 ownership。
             </p>
           </div>
 

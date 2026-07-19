@@ -88,7 +88,7 @@ export default function OnlineJudgeGuide() {
 
         <FadeIn>
           <p>
-            整理一下我自己用過、教學會帶到的主流 Online Judge。這個列表參考我以前家教教材的順序，從入門到競賽向都有，後面也補了幾個 slides 原本沒列但值得知道的。
+            這份列表沿用我以前家教教材的順序，收的是我自己用過、教學也會帶到的主流 Online Judge。從入門到競賽向都有，後面也補了幾個 slides 原本沒列的平台。
           </p>
           <p>
             適合想入坑 CP，或是已經在練但不知道下一步該去哪的人。
@@ -161,7 +161,7 @@ export default function OnlineJudgeGuide() {
         <FadeIn>
           <Heading id="international">國外 OJ</Heading>
           <p>
-            真正想練 CP，這幾個是必備的。
+            如果要往 CP 或 ICPC 方向練，主要會碰到下面幾個平台。
           </p>
         </FadeIn>
 

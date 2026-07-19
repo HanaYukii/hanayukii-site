@@ -253,10 +253,10 @@ export default function MajiKansha() {
         <div className="prose-custom mb-16 space-y-4 leading-relaxed text-text-muted [&_strong]:text-text">
           <p>最近一直在看 ukka 解散後的 Blog，反而覺得這首歌現在聽特別有感。</p>
           <p>
-            它不是單純的畢業歌，而是在說：即使結束了、即使大家走上不同的路，
+            現在聽，最有感的還是那句：即使結束了、即使大家走上不同的路，
             能夠相遇過這件事本身，就值得說一萬次 ありがとう。
           </p>
-          <p>所以這首歌在每一場 Live 都少不了。</p>
+          <p>難怪這首歌在每一場 Live 都少不了。</p>
         </div>
       </FadeIn>
 

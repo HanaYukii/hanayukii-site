@@ -72,13 +72,10 @@ export default function UkkaFinalChapter() {
         <section className="space-y-4 leading-relaxed text-text-muted">
           <p>
             看完 ukka（蝦中的妹團）Final Chapter，
-            最強烈的感受其實不是難過，是不甘心。
+            最強烈的感覺是不甘心。
           </p>
           <p>
-            不是單純捨不得。更像是能感覺到她們其實還想繼續。
-          </p>
-          <p>
-            從 MC、blog 到 live 結束後的發文，都看得出來那種
+            當然也捨不得。只是從 MC、blog 到 live 結束後的發文，都看得出來那種
             「還想繼續」、「還想去更大的地方」、「只是力量還不夠」的情緒。
           </p>
           <p>
@@ -201,8 +198,9 @@ export default function UkkaFinalChapter() {
             不知道兩人是四年半前一起加入的同期，從那時候一起走到現在。
           </p>
           <p>
-            後來補 blog、看訪談才慢慢拼起來。再回頭看那場預選会，
-            看到的就不只是一場比賽了。
+            後來補 blog、看訪談，才慢慢拼起這段關係。
+            現在再看那場預選会，也會多注意站在旁邊的
+            <M color={C.ruri}>るり</M>。
           </p>
           <p>
             跟朋友也更常聊到 ukka，期待明年再找機會多看幾場。
@@ -241,9 +239,8 @@ export default function UkkaFinalChapter() {
             〈Aonity〉是 8 月才出的新歌，10 週年專輯《青春小節〜約束と衝動〜》的先行曲。
           </p>
           <p>
-            它出的時候，誰也不會把它當成告別曲。那是一首寫給未來的歌。
-            偏偏幾個月後就宣布解散，它於是變成了告別曲。
-            現在回頭再聽，很多原本寫給未來的歌詞，都變得像是在告別。
+            它出的時候，誰也不會把它當成告別曲，明明是一首寫給未來的歌。
+            幾個月後宣布解散，再聽時，原本寫給未來的句子卻都像在道別。
           </p>
           <p>
             或許這也是為什麼 Final 之後，我反而更常回去聽它。
@@ -292,15 +289,11 @@ export default function UkkaFinalChapter() {
         <section className="space-y-4 leading-relaxed text-text-muted">
           <p>2026/5/24。</p>
           <p>
-            整場很多催淚回顧橋段。
-            但對我來說，最有感的反而是：
-          </p>
-          <p className="text-text">
-            突然意識到，我自己認識的 ukka，已經是最後一章了。
+            整場很多催淚回顧橋段。看到一半我才突然意識到：
+            我自己認識的 ukka，從一開始就已經是最後一章了。
           </p>
           <p>
-            不是她們沒努力，也不是失去了熱情。
-            正因為都還想繼續往前，才更讓人不甘心。
+            大家都還想繼續往前，才更讓人不甘心。
           </p>
         </section>
       </FadeIn>
@@ -335,10 +328,8 @@ export default function UkkaFinalChapter() {
             連歌詞意境都有點像，都在唱一路走過的那段長長的歷史。
           </p>
           <p>
-            單看歌，我未必說得出哪首比較好。但對我來說，〈晴れ晴れ〉還是更有感觸。
-          </p>
-          <p>
-            或許不是因為歌本身，而是因為我陪 SHACHI 走過更長的時間。
+            單看歌，我未必說得出哪首比較好。但〈晴れ晴れ〉還是更有感觸，
+            大概是因為我陪 SHACHI 走過更長的時間。
             聽〈晴れ晴れ〉，腦中會浮現 チームしゃちほこ 時代、武道館、橫濱 Arena、
             名古屋城 Final 那些畫面。
           </p>
@@ -348,9 +339,9 @@ export default function UkkaFinalChapter() {
         </section>
       </FadeIn>
 
-      {/* 兩種遺憾 */}
+      {/* 跟 SHACHI 的 Final 不一樣 */}
       <FadeIn>
-        <SectionHeading id="comparison">兩種遺憾</SectionHeading>
+        <SectionHeading id="comparison">跟 SHACHI 的 Final 不一樣</SectionHeading>
       </FadeIn>
 
       <FadeIn>
@@ -366,13 +357,12 @@ export default function UkkaFinalChapter() {
           <p>
             ukka 給我的感覺則是「好像才剛找到方向」。
           </p>
-          <p>兩種遺憾完全不一樣。</p>
         </section>
       </FadeIn>
 
-      {/* 沒有答案 */}
+      {/* Final 之後還在想的事 */}
       <FadeIn>
-        <SectionHeading id="closing">沒有答案</SectionHeading>
+        <SectionHeading id="closing">Final 之後還在想的事</SectionHeading>
       </FadeIn>
 
       <FadeIn>
@@ -406,7 +396,6 @@ export default function UkkaFinalChapter() {
             至少現在，還不用把這次當成最後一次見面。
             要是哪天又有新的舞台、新的故事，我大概還是會想去看。
           </p>
-          <p>ukka 的故事可惜是結束了。但還好，有些人的故事還會繼續。</p>
         </section>
       </FadeIn>
 

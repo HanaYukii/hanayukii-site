@@ -9,11 +9,11 @@ import RelatedPosts from "@/components/RelatedPosts";
 export const metadata: Metadata = articleMetadata("/blog/idol-2025", {
   title: "2025 偶像現場全紀錄 | 花雪 HanaYukii",
   description:
-    "意外回歸星塵的一年，感謝各種現場的相遇與告別。從桃草到蝦中、從虎魚組到高嶺のなでしこ，2025 年的偶像現場紀錄。",
+    "2018 退坑後，2025 又開始跑偶像現場。從桃草、蝦中、TEAM SHACHI 到 SASUKE 和高嶺のなでしこ，記下這一年看過的十五場活動。",
   openGraph: {
     title: "2025 偶像現場全紀錄",
     description:
-      "意外回歸星塵的一年，感謝各種現場的相遇與告別。2025 年的偶像現場紀錄。",
+      "2018 退坑後，2025 又開始跑偶像現場。記下這一年看過的十五場活動。",
     type: "article",
   },
 });
@@ -66,16 +66,16 @@ export default function Idol2025() {
       <FadeIn>
         <div className="space-y-4">
           <p>
-            2025 是很低潮的一年，也從偶像那邊獲得很多能量。
-            以為自己早在 2017 就退坑偶像了，沒想到 2025 因為一連串意外的契機，變成了特別精彩的一年。
+            2025 自己的狀態不太好，卻意外跑了很多偶像現場，也從現場拿到不少能量。
+            原本以為早在 2018 就退坑了，沒想到隔了這麼久，又因為一連串契機開始往現場跑。
           </p>
           <p>
-            最精彩的大概還是えびちゅう睽違十年的 SSA，情緒最滿的是走到 TEAM SHACHI 的 final live。
-            夏天的野外場是最快樂的記憶，SASUKE 則是如果明年還有一定要再去。
+            其中最記得えびちゅう睽違十年的 SSA，還有年底一路看到 TEAM SHACHI 的 final live。
+            夏天的野外場也很快樂；SASUKE 如果明年還有，大概還會再去。
           </p>
           <p>
             可惜狀態不好，雖然很精彩，但覺得並沒有那麼盡興。
-            感謝各種現場的相遇與告別，也期待未來會有更多更好的相遇。
+            現在把每一場記下來，之後應該還會想起不少細節。
           </p>
         </div>
       </FadeIn>
@@ -431,7 +431,7 @@ export default function Idol2025() {
           </p>
           <p>
             最終單曲的兩首歌晴れ晴れ還有翔け抜けてスターマイン都超級好，
-            歌詞旋律都深深留在腦海裡，某種程度上也成為了自己現在的心境寫照。
+            歌詞旋律都深深留在腦海裡，現在聽也很像在寫自己的心情。
             可惜沒有更多機會流傳下去了。
           </p>
           <blockquote className="border-l-2 border-warm/40 bg-surface/40 rounded-r-lg px-4 py-3 text-text-muted">
@@ -453,7 +453,7 @@ export default function Idol2025() {
             最後的畫面，四個成員站在海島邊，化作虎鯨回到大海。
           </p>
           <p>
-            感謝在年尾收到這份重要的禮物。帶著這些歌、這些現場，還有那些告別與相遇的心情，我也要慢慢走向下一段旅程了。
+            能在年底趕上這一場，真的很好。看完之後，最終單曲裡的兩首歌也聽了很久。
           </p>
           <p>
             完整 live：<a href="https://www.youtube.com/watch?v=jBgRsToJGBM" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">YouTube</a>
@@ -478,8 +478,8 @@ export default function Idol2025() {
             那種從學生時代一路聽到現在的歌，現場響起來的時候，感受完全不一樣。
           </p>
           <p>
-            人生也充滿各種有趣的契機，今年也遇到了不少不管是快樂的或痛苦的，
-            不知道未來還有沒有這麼多的機會參與現場，希望新的挑戰一切順利。
+            2026 開始有新的挑戰，不知道還能不能像去年跑這麼多場。
+            有機會的話，還是想繼續去。
           </p>
           <p className="mt-8 text-lg font-semibold text-text">
             2026 もよろしく。

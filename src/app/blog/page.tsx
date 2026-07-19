@@ -75,8 +75,7 @@ export default async function Blog({
           </a>
         </div>
         <p className="mb-10 text-text-muted">
-          Mostly technical writing, with a few career posts and other things I
-          ended up caring enough to write down.
+          大多是技術筆記，偶爾也寫職涯、偶像，或最近剛好一直在想的事。
         </p>
 
         {tag && (

@@ -53,7 +53,7 @@ export default function Tutoring() {
             <li>110 競技程式設計助教、圖論助教</li>
             <li>2020 PCCA Winter Camp 總召 / 講師</li>
             <li>演算法海牛助教 (2021–2024)</li>
-            <li>頂級外商豐富模擬面試經驗</li>
+            <li>多次外商模擬面試經驗</li>
           </ul>
         </section>
       </FadeIn>

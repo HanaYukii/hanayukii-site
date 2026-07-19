@@ -9,11 +9,11 @@ import RelatedPosts from "@/components/RelatedPosts";
 export const metadata: Metadata = articleMetadata("/blog/ai-exam-authoring-workflow", {
   title: "用 multi agent AI 出 JLPT 考題：交叉審查與品質閘 | 花雪 HanaYukii",
   description:
-    "用 subagent + Codex 兩個 AI 代理平行出題再交叉互審，搭配 lint／dry-run／讀音驗證等自動品質閘，幫 JLPT 題庫大量出題又不出近義雙解。",
+    "我怎麼讓 subagent 和 Codex 平行出題、互相審查，再用 lint、dry-run 和讀音驗證擋掉近義雙解。",
   openGraph: {
     title: "用 multi agent AI 出 JLPT 考題：交叉審查與品質閘",
     description:
-      "multi agent 平行出題＋交叉互審＋把品質規則編碼成自動閘，把 AI 出題變成可維護的流程。",
+      "subagent 和 Codex 平行出題、互相審查，再用自動檢查擋掉近義雙解。",
     type: "article",
   },
 });
@@ -65,7 +65,7 @@ export default function AiExamAuthoringWorkflow() {
           我在維護一個 JLPT（日本語能力試驗）學習網站{" "}
           <Link href="/blog/jabiko-jlpt-app" className="text-primary hover:underline">Jabiko</Link>
           ，題庫一直在長。
-          寫前端不是難處，真正卡住的是「持續出高品質的考題」。
+          前端不太是問題，麻煩的是考題要能一直加，而且品質不能跟著掉。
         </p>
       </FadeIn>
 
@@ -83,7 +83,7 @@ export default function AiExamAuthoringWorkflow() {
               { id: "toolchain", title: "Claude Code 配 Codex CLI" },
               { id: "sustainability", title: "讓加題變成可持續的 loop" },
               { id: "results", title: "成果" },
-              { id: "takeaways", title: "小結" },
+              { id: "takeaways", title: "實際留下的做法" },
             ].map((item, i) => (
               <a
                 key={item.id}
@@ -256,10 +256,10 @@ codex exec --skip-git-repo-check "$(cat prompt.txt)" < /dev/null`}</Code>
           </p>
         </FadeIn>
 
-        {/* ============ 小結 ============ */}
+        {/* ============ 實際留下的做法 ============ */}
         <FadeIn>
-          <Heading id="takeaways">小結</Heading>
-          <p>整理一下實際用到的幾個做法：</p>
+          <Heading id="takeaways">實際留下的做法</Heading>
+          <p>流程跑過幾輪後，我留下四條規則：</p>
           <ul className="my-4 list-inside list-disc space-y-2">
             <li>異質的 multi agent 交叉驗證，比單一模型自審強——盲點不一致，才補得起來。</li>
             <li>能寫死的規則就寫成 lint 跟 test，AI 出的題才放得了量，review 也少盯很多。</li>

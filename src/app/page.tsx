@@ -60,8 +60,8 @@ export default function Home() {
 
           <div className="mt-10 space-y-3 text-base leading-relaxed text-text-muted sm:text-lg">
             <p>
-              Ex-Google engineer, now Senior Staff Engineer at an AI startup,
-              and competitive programming enthusiast.
+              After three years at Google, I now work at an AI startup. I still
+              solve programming contests for fun and write down whatever else catches my attention.
             </p>
           </div>
 

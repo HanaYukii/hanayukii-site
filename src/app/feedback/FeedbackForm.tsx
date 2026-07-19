@@ -31,7 +31,7 @@ export default function FeedbackForm() {
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        setErrorMsg(data.error || "送出失敗，稍後再試？");
+        setErrorMsg(data.error || "送出失敗，晚點再試一次。");
         setStatus("error");
         return;
       }
@@ -39,7 +39,7 @@ export default function FeedbackForm() {
       setStatus("ok");
       form.reset();
     } catch {
-      setErrorMsg("連線失敗，稍後再試？");
+      setErrorMsg("連線失敗，晚點再試一次。");
       setStatus("error");
     }
   }

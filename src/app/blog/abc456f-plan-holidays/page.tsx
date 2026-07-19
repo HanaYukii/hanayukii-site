@@ -301,7 +301,7 @@ S combine(S L, S R) {
         <FadeIn>
           <Heading id="pattern">延伸：線段樹「左右端狀態相依」合併模式</Heading>
           <p>
-            這題本質上是線段樹的一個經典模式：<strong>節點除了存區間答案，還要存兩端的銜接狀態，pushup 時根據兩段交界處的合法性合併</strong>。
+            這題用到的線段樹寫法很常見：<strong>節點除了存區間答案，還要存兩端的銜接狀態，pushup 時根據兩段交界處的合法性合併</strong>。
             這個模式涵蓋了一系列題目，最常見的就是「動態最大連續子陣列和」（Max Subarray Sum with point updates）。
           </p>
           <SubHeading>對照例：Max Subarray Sum</SubHeading>
@@ -349,7 +349,7 @@ S combine(S L, S R) {
             </table>
           </div>
           <p>
-            兩者的核心都是「<strong>分治合併 + 邊界狀態</strong>」。
+            兩者都是「<strong>分治合併 + 邊界狀態</strong>」。
             節點不只存答案，還存 boundary info；pushup 時根據合併規則處理交界處。
           </p>
           <SubHeading>怎麼判斷一道題該用這套</SubHeading>
@@ -479,8 +479,8 @@ int main() {
             <li><strong>區間最長同色括號 / 最大合法括號子序列</strong>：節點存未匹配左、未匹配右、答案</li>
           </ul>
           <p className="mt-4">
-            掌握這個 pattern 之後，不少看起來很難的區間最佳化題其實都是同一套：<strong>node 要存什麼 boundary info、pushup 要怎麼合併合法跨界</strong>。
-            把這兩件事想清楚就解一半了。
+            遇到這類區間最佳化題，可以先確認兩件事：<strong>node 要存什麼 boundary info、pushup 要怎麼合併合法跨界</strong>。
+            這兩件事確定後，線段樹的其餘部分通常都一樣。
           </p>
         </FadeIn>
 

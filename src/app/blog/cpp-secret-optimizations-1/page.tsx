@@ -105,8 +105,8 @@ export default function CppSecretOptimizations1() {
         </h1>
         <p className="mb-2 text-sm text-text-muted">2026-03-31</p>
         <p className="mb-8 text-text-muted">
-          你以為 <code>std::string</code> 一定會 <code>new</code>？你以為 <code>return</code> 一定會複製？
-          編譯器在背後做的事比你想的還多，這篇講兩個最常見的隱藏優化。
+          短字串可能完全不碰 heap，回傳 local object 也不一定會產生 copy。
+          這篇拆開看 SSO，以及 copy elision / NRVO 會在什麼情況下生效。
         </p>
       </FadeIn>
 
@@ -554,7 +554,7 @@ Obj x = make();     // 保證只有一次建構`}</Code>
 
         {/* ============ Summary ============ */}
         <FadeIn>
-          <Heading id="summary">總結</Heading>
+          <Heading id="summary">寫 code 時要記什麼</Heading>
           <div className="my-4 overflow-x-auto rounded-lg border border-border">
             <table className="w-full text-sm">
               <thead className="border-b border-border bg-surface/60">
@@ -594,9 +594,10 @@ Obj x = make();     // 保證只有一次建構`}</Code>
           </div>
 
           <div className="mt-8 rounded-xl border border-primary/30 bg-primary/5 p-6 text-center">
-            <p className="text-lg font-bold text-text">核心觀念</p>
+            <p className="text-lg font-bold text-text">實務上</p>
             <p className="mt-2 text-base">
-              不要和編譯器搶工作 - <strong className="text-primary">最好的優化是你什麼都不做，讓編譯器幫你做。</strong>
+              SSO 不需要手動觸發；回傳 local object 時，也不要為了「優化」多加{" "}
+              <strong className="text-primary"><code>std::move</code></strong>。
             </p>
           </div>
 

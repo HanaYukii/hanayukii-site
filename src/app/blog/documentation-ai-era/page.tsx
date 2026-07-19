@@ -9,11 +9,11 @@ import RelatedPosts from "@/components/RelatedPosts";
 export const metadata: Metadata = articleMetadata("/blog/documentation-ai-era", {
   title: "文件在 AI 時代的價值 | 花雪 HanaYukii",
   description:
-    "以前文件常常像成本；現在它可能是讓 AI、團隊、未來的自己都更快進入 context 的介面。AI 時代不是讓文件變得不重要，而是讓文件的價值被放大。",
+    "我把 Design Doc、README 與 review checklist 看成可重用的 context：先把方向和限制寫清楚，團隊、未來的自己與 AI 才不用重新猜。",
   openGraph: {
     title: "文件在 AI 時代的價值",
     description:
-      "AI 時代不是讓文件變得不重要，而是讓文件的價值被放大。寫得越清楚，人跟 AI 都越容易正確呼叫它。",
+      "Design Doc、README 和 review checklist 為什麼在 AI 工作流程裡更有用。",
     type: "article",
   },
 });
@@ -50,7 +50,7 @@ export default function DocumentationAiEra() {
           文件在 AI 時代的價值
         </h1>
         <p className="mb-2 text-base text-text-muted leading-relaxed">
-          以前文件常常像成本；現在它可能是讓 AI、團隊、未來的自己都更快進入 context 的介面。
+          Design Doc、README 和 review checklist，現在也成了 AI 進 codebase 前最直接的 context。
         </p>
         <p className="mb-8 text-sm text-text-muted">2026-05-03</p>
       </FadeIn>
@@ -63,13 +63,13 @@ export default function DocumentationAiEra() {
           <div className="space-y-2">
             {[
               { id: "why-hated", title: "以前文件 ROI 很差，所以大家討厭寫" },
-              { id: "concretization", title: "文件是想法的具象化" },
+              { id: "concretization", title: "寫下來，才知道哪裡還沒想清楚" },
               { id: "for-ai", title: "文件是給 AI 看的 context" },
-              { id: "onboarding", title: "Onboarding：給新人、給未來的自己、也給 AI" },
-              { id: "approval", title: "文件作為 approval：讓事情有底氣往前走" },
+              { id: "onboarding", title: "Onboarding 不只給新人" },
+              { id: "approval", title: "Design Doc 也是 alignment 與 approval 的紀錄" },
               { id: "iteration", title: "AI 讓文件快速迭代，但別什麼都怪 AI" },
-              { id: "review", title: "AI review 跟測試：留個伏筆" },
-              { id: "leverage", title: "結語：隱藏槓桿" },
+              { id: "review", title: "同一套做法也能用在 code review" },
+              { id: "leverage", title: "我現在怎麼看文件" },
             ].map((item, i) => (
               <a
                 key={item.id}
@@ -106,7 +106,7 @@ export default function DocumentationAiEra() {
         </FadeIn>
 
         <FadeIn>
-          <Heading id="concretization">文件是想法的具象化</Heading>
+          <Heading id="concretization">寫下來，才知道哪裡還沒想清楚</Heading>
           <p>
             文件不是把想好的東西打字出來而已。很多時候，是寫下來之後，才發現自己其實還沒想清楚。
           </p>
@@ -114,25 +114,25 @@ export default function DocumentationAiEra() {
             腦中的設計通常很模糊。一旦要寫成文件，就會被迫說清楚：問題是什麼、goal / non-goal 在哪、有哪些方案、trade-off 是什麼、哪些事情還沒決定。設計討論完整再開始動工，整體效率反而比較高。
           </p>
           <p>
-            <strong>文件不是想法的附屬品，而是想法成形的過程。</strong>這層價值跟 AI 無關，但常常被忽略。
+            我自己常常是寫到一半，才發現設計裡哪些地方其實還沒想清楚。這層價值跟 AI 無關，但很容易被忽略。
           </p>
         </FadeIn>
 
         <FadeIn>
           <Heading id="for-ai">文件是給 AI 看的 context</Heading>
           <p>
-            AI 很吃 context。給它越多正確 context，它越像 teammate；什麼都不給，它就只是一個很會猜的陌生人。
+            AI 對 context 很敏感。把 codebase 的規則和限制交代清楚，它才不需要一路猜下去。
           </p>
           <p>
             <strong>AI 看得懂 code，不代表它看得懂 codebase。</strong>它知道語法、知道常見 pattern，但不知道：這個 module 的責任邊界、哪些 invariant 不能破壞、哪些地方是歷史包袱、哪些 command 才是正確跑法、哪些 corner case 以前踩過雷、哪些實作看起來醜，但其實是刻意保守。
           </p>
           <p>
-            很多時候，叫 AI 寫 code 不難；真正卡的是叫它在一個 codebase 裡正確地跑起來、測起來、改起來。README、build 指令、test command 這些看似平凡的文件，會直接影響 AI 能不能有效率地了解 codebase 並正確做事。沒寫清楚，它就會開始猜。猜對很神，猜錯就很浪費時間。
+            叫 AI 寫出一段 code 不難，難的是讓它在既有 codebase 裡正確地跑起來、測起來、改起來。README、build 指令、test command 這些看似平凡的文件，會直接影響 AI 能不能有效率地了解 codebase 並正確做事。沒寫清楚，它就會開始猜。猜對很神，猜錯就很浪費時間。
           </p>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="onboarding">Onboarding：給新人、給未來的自己、也給 AI</Heading>
+          <Heading id="onboarding">Onboarding 不只給新人</Heading>
           <p>
             文件最常被提到的價值是 onboarding。這件事在 AI 時代沒有消失，反而更重要。
           </p>
@@ -148,12 +148,12 @@ export default function DocumentationAiEra() {
         </FadeIn>
 
         <FadeIn>
-          <Heading id="approval">文件作為 approval：讓事情有底氣往前走</Heading>
+          <Heading id="approval">Design Doc 也是 alignment 與 approval 的紀錄</Heading>
           <p>
             在 level 層級比較明確、stakeholder 比較多的環境（Google 這類大公司就很典型），文件還有一個很現實的作用：它是 alignment 跟 approval 的載體。
           </p>
           <p>
-            真正痛苦的常常不是「不會做」。是方向沒人明確 approve、proposal review 拖很久、上面沒正式否決也不給明確同意；下面已經被期待要推進、做到一半方向被翻案、最後變成做白工。
+            麻煩的往往不是「不會做」，而是方向沒人明確 approve、proposal review 拖很久、上面沒正式否決也不給明確同意；下面已經被期待要推進、做到一半方向被翻案、最後變成做白工。
           </p>
           <p>
             <strong>文件讓「我覺得應該這樣做」，變成「我們同意先這樣做」。</strong>
@@ -180,7 +180,7 @@ export default function DocumentationAiEra() {
         </FadeIn>
 
         <FadeIn>
-          <Heading id="review">AI review 跟測試：留個伏筆</Heading>
+          <Heading id="review">同一套做法也能用在 code review</Heading>
           <p>
             同樣的邏輯也可以放到 AI code review。只叫 AI「幫我 review code」通常不夠。比較好的方式是把人類 review 會看的點拆開：correctness、edge cases、performance、error handling、test coverage、maintainability，讓 AI 分別檢查，多跑幾輪，搭配不同工具。
           </p>
@@ -188,7 +188,7 @@ export default function DocumentationAiEra() {
             這些 checklist 本身也是文件。把團隊在意的標準寫下來，AI 才知道要用什麼角度 review。
           </p>
           <p>
-            <strong>文件提供 context，review 提供檢查，測試提供底線。</strong>
+            我會把這三件事分開：文件交代 context，review 找問題，測試守住最基本的 correctness。
           </p>
           <p>
             AI review code 的流程其實可以另外寫一篇，會牽涉到 prompt、多工具、多輪檢查跟測試怎麼串起來。這篇先暫停在這裡。
@@ -196,15 +196,15 @@ export default function DocumentationAiEra() {
         </FadeIn>
 
         <FadeIn>
-          <Heading id="leverage">結語：隱藏槓桿</Heading>
+          <Heading id="leverage">我現在怎麼看文件</Heading>
           <p>
-            AI 時代不是讓文件變得不重要，而是讓文件的價值被放大。它不只是給 PM 看、給新人看、給未來的自己看；也開始變成給 AI 看的 context。
+            文件現在多了一個會直接讀它、照著它工作的使用者：AI。這讓 Design Doc、README 和 checklist 更常被實際用到，而不只是在 review 時交差。
           </p>
           <p>
-            寫文件是把思考留下來，讓之後的人跟 AI 都能重用。
+            我寫文件，一方面是把當下的思考留下來，另一方面也是讓之後接手的人或工具不用重新考古。
           </p>
           <p>
-            文件用得好、理解得好，現在能比過去發揮更大的槓桿，但也是大學問。<strong>寫得越清楚，人跟 AI 都越容易正確呼叫它。</strong>
+            現在我比較在意的，不是文件寫得像不像正式規格，而是它能不能把問題、限制、決定和未決事項講清楚。這些寫清楚，人比較好接手，AI 也少猜。
           </p>
         </FadeIn>
 

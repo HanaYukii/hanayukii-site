@@ -127,7 +127,7 @@ export default function CpCareerMemoir() {
               有時候就是在宿舍有事沒事找幾題玩玩，過程中也得到很多成就感。
             </p>
             <p>
-              後期就不一樣了，幾乎參與所有{" "}
+              後期就不一樣了，幾乎參與所有
               <Link href="/blog/online-judge-guide" className="text-primary hover:underline">主流 online judge</Link>{" "}
               的線上賽——Codeforces、AtCoder，再加上 Codeforces Gym 上的競賽套題。
               世界級的線上演算法大賽也幾乎都會參加，Meta Hacker Cup、Google Code Jam / Kick Start 等等。

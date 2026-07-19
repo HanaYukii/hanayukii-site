@@ -211,7 +211,7 @@ for (const auto& sh : shapes)
             </li>
           </ul>
           <p>
-            一句話：<strong>開放集合用 virtual、封閉集合用 variant、熱路徑用 template</strong>。
+            我會這樣分：<strong>開放集合用 virtual、封閉集合用 variant、熱路徑用 template</strong>。
           </p>
         </FadeIn>
       </div>

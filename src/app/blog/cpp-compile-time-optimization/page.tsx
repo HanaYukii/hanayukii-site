@@ -10,11 +10,11 @@ import RelatedPosts from "@/components/RelatedPosts";
 export const metadata: Metadata = articleMetadata("/blog/cpp-compile-time-optimization", {
   title: "C++ 編譯期可以做的五件事 | 花雪 HanaYukii",
   description:
-    "這篇不想列語法大全，只想講幾個真的常用、而且能把 runtime 成本直接搬去編譯期的技巧。",
+    "整理 constexpr、static_assert、if constexpr、requires 與編譯期 LUT：哪些工作適合提早到編譯期完成。",
   openGraph: {
     title: "C++ 編譯期可以做的五件事",
     description:
-      "幾個真的常用、而且能把 runtime 成本直接搬去編譯期的 C++ 技巧。",
+      "constexpr、static_assert、if constexpr、requires 與編譯期 LUT 的實際用法。",
     type: "article",
   },
 });
@@ -84,7 +84,7 @@ export default function CppCompileTimeOptimization() {
               { id: "item1", title: "先分清楚：constexpr、const、#define" },
               { id: "item2", title: "constexpr 函數到底幫你省了什麼" },
               { id: "item3", title: "用 static_assert 把 bug 擋在編譯期" },
-              { id: "item4", title: "if constexpr / requires 真正好用的地方" },
+              { id: "item4", title: "if constexpr / requires 適合處理哪些分支" },
               { id: "item5", title: "用 IIFE 生成查表（LUT）" },
             ].map((item, i) => (
               <a
@@ -304,7 +304,7 @@ static_assert(std::bidirectional_iterator<iterator>);`}</Code>
         {/* ============ Item 4 ============ */}
         <FadeIn>
           <Heading id="item4">
-            <code>if constexpr</code> + <code>requires</code> 真正好用的地方
+            <code>if constexpr</code> + <code>requires</code> 適合處理哪些分支
           </Heading>
 
           <SubHeading>先理解問題</SubHeading>
@@ -482,7 +482,7 @@ index & 4095   →  and 指令   ← 1 cycle`}</Code>
             工程判斷：LUT 適合高頻熱路徑 + 允許精度誤差 + 輸入範圍固定。
           </Callout>
 
-          <SubHeading>進階：C++20 真正的編譯期 LUT</SubHeading>
+          <SubHeading>進階：C++20 編譯期 LUT</SubHeading>
           <Code lang="cpp">{`static constexpr auto sin_table_ = []() constexpr {
   std::array<double, 4096> table{};
   for (size_t i = 0; i < 4096; ++i) {
@@ -542,7 +542,7 @@ index & 4095   →  and 指令   ← 1 cycle`}</Code>
           <div className="space-y-4">
             <p>
               我平常不會為了「看起來很 compile-time」硬寫一堆 template trick。
-              真正常用的通常就這幾種：<code>constexpr</code> 常數、
+              平常常用的就是這幾種：<code>constexpr</code> 常數、
               <code>constexpr</code> 小函數、<code>static_assert</code>，
               還有 <code>if constexpr</code> / <code>requires</code> 這種能直接把分支剪掉的工具。
             </p>
