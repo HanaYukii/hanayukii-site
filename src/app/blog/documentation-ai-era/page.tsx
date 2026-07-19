@@ -4,6 +4,7 @@ import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/documentation-ai-era", {
   title: "文件在 AI 時代的價值 | 花雪 HanaYukii",
@@ -212,6 +213,7 @@ export default function DocumentationAiEra() {
       <FadeIn delay={0.08}>
         <ArticleIllustration variant="docs" className="mt-16" />
       </FadeIn>
+      <RelatedPosts href="/blog/documentation-ai-era" />
     </article>
   );
 }

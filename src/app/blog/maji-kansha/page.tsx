@@ -3,6 +3,7 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/maji-kansha", {
   title: "TEAM SHACHI —「マジ感謝」歌詞翻譯 | 花雪 HanaYukii",
@@ -290,6 +291,7 @@ export default function MajiKansha() {
           </Link>
         </div>
       </FadeIn>
+      <RelatedPosts href="/blog/maji-kansha" />
     </article>
   );
 }

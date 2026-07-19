@@ -5,6 +5,7 @@ import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/dependency-injection", {
   title: "搞懂 Dependency Injection | 花雪 HanaYukii",
@@ -1071,6 +1072,7 @@ struct OrderService {
       <FadeIn delay={0.08}>
         <ArticleIllustration variant="dependency" className="mt-16" />
       </FadeIn>
+      <RelatedPosts href="/blog/dependency-injection" />
     </article>
   );
 }

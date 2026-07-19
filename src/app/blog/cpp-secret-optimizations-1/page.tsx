@@ -5,6 +5,7 @@ import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/cpp-secret-optimizations-1", {
   title: "SSO 跟 Copy Elision：編譯器與標準庫做的事 | 花雪 HanaYukii",
@@ -615,6 +616,7 @@ Obj x = make();     // 保證只有一次建構`}</Code>
       <FadeIn delay={0.08}>
         <ArticleIllustration variant="memory" className="mt-16" />
       </FadeIn>
+      <RelatedPosts href="/blog/cpp-secret-optimizations-1" />
     </article>
   );
 }

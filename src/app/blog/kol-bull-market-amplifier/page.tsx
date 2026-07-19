@@ -4,6 +4,7 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/kol-bull-market-amplifier", {
   title: "牛市放大效應與 KOL | 花雪 HanaYukii",
@@ -268,6 +269,7 @@ export default function KolBullMarketAmplifier() {
         </FadeIn>
 
       </div>
+      <RelatedPosts href="/blog/kol-bull-market-amplifier" />
     </article>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 import { articleMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
 
@@ -292,6 +293,7 @@ export default function Tif2025ShachiRespectStage() {
           </div>
         </FadeIn>
       </div>
+      <RelatedPosts href="/blog/tif-2025-shachi-respect-stage" />
     </article>
   );
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/reset-influence-analysis", {
   title: "區塊鏈日報 RESET 活動心得 | 花雪 HanaYukii",
@@ -238,6 +239,7 @@ export default function ResetInfluenceAnalysis() {
           ))}
         </div>
       </FadeIn>
+      <RelatedPosts href="/blog/reset-influence-analysis" />
     </article>
   );
 }

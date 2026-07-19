@@ -5,6 +5,7 @@ import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/cpp-compile-time-optimization", {
   title: "C++ 編譯期可以做的五件事 | 花雪 HanaYukii",
@@ -561,6 +562,7 @@ index & 4095   →  and 指令   ← 1 cycle`}</Code>
       <FadeIn delay={0.08}>
         <ArticleIllustration variant="compile" className="mt-16" />
       </FadeIn>
+      <RelatedPosts href="/blog/cpp-compile-time-optimization" />
     </article>
   );
 }

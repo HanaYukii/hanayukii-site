@@ -6,6 +6,7 @@ import Code from "@/components/CodeBlock";
 import { InlineMath } from "@/components/Math";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/abc467g-many-sweets", {
   title: "AtCoder ABC 467 G Many Sweets Problem | 花雪 HanaYukii",
@@ -396,6 +397,7 @@ int main() {
       <FadeIn delay={0.08}>
         <ArticleIllustration variant="contest" className="mt-16" />
       </FadeIn>
+      <RelatedPosts href="/blog/abc467g-many-sweets" />
     </article>
   );
 }

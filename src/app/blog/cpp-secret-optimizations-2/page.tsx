@@ -5,6 +5,7 @@ import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/cpp-secret-optimizations-2", {
   title: "Padding、Vtable、Smart Pointer 的成本 | 花雪 HanaYukii",
@@ -670,6 +671,7 @@ Heap allocation 1（連續記憶體）:
       <FadeIn delay={0.08}>
         <ArticleIllustration variant="object" className="mt-16" />
       </FadeIn>
+      <RelatedPosts href="/blog/cpp-secret-optimizations-2" />
     </article>
   );
 }

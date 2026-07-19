@@ -4,6 +4,7 @@ import FadeIn from "@/components/FadeIn";
 import Code from "@/components/CodeBlock";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/claude-call-codex", {
   title: "讓 Claude Code 呼叫 Codex | 花雪 HanaYukii",
@@ -248,6 +249,7 @@ args = ["mcp", "serve"]`}</Code>
         </FadeIn>
 
       </div>
+      <RelatedPosts href="/blog/claude-call-codex" />
     </article>
   );
 }

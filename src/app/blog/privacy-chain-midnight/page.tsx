@@ -5,6 +5,7 @@ import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/privacy-chain-midnight", {
   title: "隱私鏈技術入門：Midnight Network | 花雪 HanaYukii",
@@ -425,6 +426,7 @@ contract AgeVerification {
       <FadeIn delay={0.08}>
         <ArticleIllustration variant="privacy" className="mt-16" />
       </FadeIn>
+      <RelatedPosts href="/blog/privacy-chain-midnight" />
     </article>
   );
 }

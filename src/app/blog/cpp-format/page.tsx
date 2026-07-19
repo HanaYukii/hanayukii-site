@@ -4,6 +4,7 @@ import FadeIn from "@/components/FadeIn";
 import Code from "@/components/CodeBlock";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/cpp-format", {
   title: "C++20 的 std::format 語法整理 | 花雪 HanaYukii",
@@ -168,6 +169,7 @@ std::format("{:.{}f}", pi, n);  // 小數位數由 n 決定`}</Code>
           </p>
         </FadeIn>
       </div>
+      <RelatedPosts href="/blog/cpp-format" />
     </article>
   );
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/cp-career-memoir", {
   title: "我的競賽程式生涯回顧 | 花雪 HanaYukii",
@@ -361,6 +362,7 @@ export default function CpCareerMemoir() {
           </div>
         </FadeIn>
       </div>
+      <RelatedPosts href="/blog/cp-career-memoir" />
     </article>
   );
 }

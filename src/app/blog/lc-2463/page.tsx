@@ -6,6 +6,7 @@ import Code from "@/components/CodeBlock";
 import { InlineMath } from "@/components/Math";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/lc-2463", {
   title: "LeetCode 2463 Minimum Total Distance Traveled | 花雪 HanaYukii",
@@ -175,6 +176,7 @@ public:
       <FadeIn delay={0.08}>
         <ArticleIllustration variant="dp" className="mt-16" />
       </FadeIn>
+      <RelatedPosts href="/blog/lc-2463" />
     </article>
   );
 }

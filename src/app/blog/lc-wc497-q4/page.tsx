@@ -6,6 +6,7 @@ import Code from "@/components/CodeBlock";
 import { InlineMath, BlockMath } from "@/components/Math";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/lc-wc497-q4", {
   title: "LeetCode Weekly Contest 497 Q4 Good Subsequence Queries | 花雪 HanaYukii",
@@ -351,6 +352,7 @@ public:
       <FadeIn delay={0.08}>
         <ArticleIllustration variant="contest" className="mt-16" />
       </FadeIn>
+      <RelatedPosts href="/blog/lc-wc497-q4" />
     </article>
   );
 }

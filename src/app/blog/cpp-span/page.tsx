@@ -4,6 +4,7 @@ import FadeIn from "@/components/FadeIn";
 import Code from "@/components/CodeBlock";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/cpp-span", {
   title: "C++20 的 std::span 應用整理 | 花雪 HanaYukii",
@@ -257,6 +258,7 @@ v.push_back(4);          // 可能 reallocate，s 整個失效`}</Code>
           </p>
         </FadeIn>
       </div>
+      <RelatedPosts href="/blog/cpp-span" />
     </article>
   );
 }

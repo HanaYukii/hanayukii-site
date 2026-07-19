@@ -4,6 +4,7 @@ import FadeIn from "@/components/FadeIn";
 import Code from "@/components/CodeBlock";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/cpp-polymorphism", {
   title: "C++ 多型：靜態(template) vs 動態(virtual) | 花雪 HanaYukii",
@@ -214,6 +215,7 @@ for (const auto& sh : shapes)
           </p>
         </FadeIn>
       </div>
+      <RelatedPosts href="/blog/cpp-polymorphism" />
     </article>
   );
 }

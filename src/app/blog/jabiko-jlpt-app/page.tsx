@@ -4,6 +4,7 @@ import FadeIn from "@/components/FadeIn";
 import Image from "next/image";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/jabiko-jlpt-app", {
   title: "Jabiko：JLPT 自習網站 | 花雪 HanaYukii",
@@ -418,6 +419,7 @@ export default function JabikoJlptApp() {
           </p>
         </FadeIn>
       </div>
+      <RelatedPosts href="/blog/jabiko-jlpt-app" />
     </article>
   );
 }

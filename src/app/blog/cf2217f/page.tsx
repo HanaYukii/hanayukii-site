@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
@@ -410,6 +411,7 @@ int main() {
       <FadeIn delay={0.08}>
         <ArticleIllustration variant="contest" className="mt-16" />
       </FadeIn>
+      <RelatedPosts href="/blog/cf2217f" />
     </article>
   );
 }

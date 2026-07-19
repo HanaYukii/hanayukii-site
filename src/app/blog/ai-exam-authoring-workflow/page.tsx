@@ -4,6 +4,7 @@ import FadeIn from "@/components/FadeIn";
 import Code from "@/components/CodeBlock";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/ai-exam-authoring-workflow", {
   title: "用 multi agent AI 出 JLPT 考題：交叉審查與品質閘 | 花雪 HanaYukii",
@@ -267,6 +268,7 @@ codex exec --skip-git-repo-check "$(cat prompt.txt)" < /dev/null`}</Code>
           </ul>
         </FadeIn>
       </div>
+      <RelatedPosts href="/blog/ai-exam-authoring-workflow" />
     </article>
   );
 }

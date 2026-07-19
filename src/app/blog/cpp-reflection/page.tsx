@@ -4,6 +4,7 @@ import FadeIn from "@/components/FadeIn";
 import Code from "@/components/CodeBlock";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/cpp-reflection", {
   title: "C++ 反射入門 | 花雪 HanaYukii",
@@ -226,6 +227,7 @@ enum_to_string(Color::Green);   // "Green"`}</Code>
           </p>
         </FadeIn>
       </div>
+      <RelatedPosts href="/blog/cpp-reflection" />
     </article>
   );
 }

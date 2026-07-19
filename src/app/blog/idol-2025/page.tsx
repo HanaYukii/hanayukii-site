@@ -4,6 +4,7 @@ import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/idol-2025", {
   title: "2025 偶像現場全紀錄 | 花雪 HanaYukii",
@@ -505,6 +506,7 @@ export default function Idol2025() {
       <FadeIn delay={0.08}>
         <ArticleIllustration variant="tickets" className="mt-16" />
       </FadeIn>
+      <RelatedPosts href="/blog/idol-2025" />
     </article>
   );
 }

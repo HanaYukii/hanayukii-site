@@ -4,6 +4,7 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/takaneko-ikite-ryaii", {
   title: "高嶺のなでしこ — 生きてりゃいい 歌詞翻譯 | 花雪 HanaYukii",
@@ -261,6 +262,7 @@ export default function IkiteRyaii() {
           </FadeIn>
         ))}
       </div>
+      <RelatedPosts href="/blog/takaneko-ikite-ryaii" />
     </article>
   );
 }

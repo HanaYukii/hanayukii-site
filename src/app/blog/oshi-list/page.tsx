@@ -3,6 +3,7 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/oshi-list", {
   title: "推し清單 | 花雪 HanaYukii",
@@ -307,6 +308,7 @@ export default function OshiList() {
           </a>
         </p>
       </FadeIn>
+      <RelatedPosts href="/blog/oshi-list" />
     </article>
   );
 }

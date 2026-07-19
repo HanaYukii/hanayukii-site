@@ -3,6 +3,7 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/shachi-harebare", {
   title: "在晴朗的風裡翻頁 — TEAM SHACHI 最終曲「晴れ晴れ」 | 花雪 HanaYukii",
@@ -317,6 +318,7 @@ export default function ShachiHarebare() {
           </Link>
         </div>
       </FadeIn>
+      <RelatedPosts href="/blog/shachi-harebare" />
     </article>
   );
 }

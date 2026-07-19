@@ -5,6 +5,7 @@ import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/cpp-interview-performance-analysis", {
   title: "我在 Crypto/HFT 公司的 C++ 效能面試 | 花雪 HanaYukii",
@@ -743,6 +744,7 @@ void applyDelta(
       <FadeIn delay={0.08}>
         <ArticleIllustration variant="orderbook" className="mt-16" />
       </FadeIn>
+      <RelatedPosts href="/blog/cpp-interview-performance-analysis" />
     </article>
   );
 }
