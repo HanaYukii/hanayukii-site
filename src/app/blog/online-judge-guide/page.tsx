@@ -174,7 +174,9 @@ export default function OnlineJudgeGuide() {
             認真練 CP 就 Codeforces，沒什麼好挑。題目品質、editorial、社群活躍度都非常強，幾乎是現代 CP 最重要的主戰場。
           </p>
           <p>
-            日常比賽偏構造題、思維題比較多，這類題目的缺點是技巧比較不容易直接套到其他題上，搭配 AtCoder ABC 後段題或 CSES 補經典技巧會比較平衡。
+            日常比賽偏構造題、思維題比較多（像我寫過的{" "}
+            <Link href="/blog/cf2217f" className="text-primary hover:underline">把區間博弈轉成 Nim</Link>{" "}
+            就是典型），這類題目的缺點是技巧比較不容易直接套到其他題上，搭配 AtCoder ABC 後段題或 CSES 補經典技巧會比較平衡。
           </p>
           <p>
             進階功能還有兩個值得知道：<strong>Gym</strong>（歷年訓練 contest、區域賽考古、各種題單，題庫量很大），跟 <strong>Virtual</strong>（可以模擬參賽歷史比賽，按當下排名計算你的表現，自己模擬 ICPC 或追進度都很適合）。
@@ -187,7 +189,9 @@ export default function OnlineJudgeGuide() {
             日本系，題目偏思維跟數學，品質非常高。三個主要比賽系列：
           </p>
           <ul className="list-inside list-disc space-y-1 text-sm">
-            <li><strong>ABC</strong> (Beginner Contest) — 適合入門到中階，通常約 7 題，從很簡單一路到需要完整演算法思考的題目。後段題（E/F/G 等）模板偏多、經典技巧覆蓋廣，學到的東西很容易套到其他題</li>
+            <li><strong>ABC</strong> (Beginner Contest) — 適合入門到中階，通常約 7 題，從很簡單一路到需要完整演算法思考的題目。後段題（E/F/G 等）模板偏多、經典技巧覆蓋廣，學到的東西很容易套到其他題（ABC456 F 的{" "}
+              <Link href="/blog/abc456f-plan-holidays" className="text-primary hover:underline">線段樹左右端合併</Link>、ABC467 G 的{" "}
+              <Link href="/blog/abc467g-many-sweets" className="text-primary hover:underline">值域線段樹 descent</Link> 都是這種）</li>
             <li><strong>ARC</strong> (Regular Contest) — 中階到高階，傳統上偏思維題；2026 起 ARC 主要回到 rated 1200–2799 的格式，另外也有 ARC++ / ARC-- 這類分級版本</li>
             <li><strong>AGC</strong> (Grand Contest) — AtCoder 最高難度系列，題目通常非常重思維與構造</li>
           </ul>
@@ -211,7 +215,9 @@ export default function OnlineJudgeGuide() {
             面試導向。題目偏經典演算法，難度中等，分類清楚，也有公司 tag、題單等面試導向資源（部分功能需要 Premium）。Weekly Contest + Biweekly Contest 兩場線上賽。
           </p>
           <p>
-            LeetCode 跟 CP 是不同方向。CP 重視思維深度跟比賽臨場，LeetCode 重視題型熟練跟手速。當然 LeetCode Contest 高分段也很競技，但主流使用情境還是面試準備。
+            LeetCode 跟 CP 是不同方向。CP 重視思維深度跟比賽臨場，LeetCode 重視題型熟練跟手速（像{" "}
+            <Link href="/blog/lc-2463" className="text-primary hover:underline">二維匹配 DP</Link>{" "}
+            這種經典題型）。當然 LeetCode Contest 高分段也很競技，但主流使用情境還是面試準備。
           </p>
         </FadeIn>
 
