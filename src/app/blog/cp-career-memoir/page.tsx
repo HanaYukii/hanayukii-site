@@ -9,11 +9,11 @@ import RelatedPosts from "@/components/RelatedPosts";
 export const metadata: Metadata = articleMetadata("/blog/cp-career-memoir", {
   title: "我的競賽程式生涯回顧 | 花雪 HanaYukii",
   description:
-    "從計概作業太難開始刷題，到 ICPC Gold。你永遠不知道，你的興趣可以把你帶得多遠。",
+    "從一份太難的計概作業開始刷題，後來拿到 ICPC Gold，也在離 World Finals 只差一點 penalty 的地方停下來。",
   openGraph: {
     title: "我的競賽程式生涯回顧",
     description:
-      "從計概作業太難開始刷題，到 ICPC Gold。你永遠不知道，你的興趣可以把你帶得多遠。",
+      "從一份太難的計概作業開始刷題，到 ICPC Gold 與差一點進 World Finals。",
     type: "article",
     images: ["/images/icpc-gold-award.jpg"],
   },
@@ -73,7 +73,7 @@ export default function CpCareerMemoir() {
               { id: "gold", title: "碩一：Gold 與最大的遺憾" },
               { id: "codeforces", title: "Codeforces" },
               { id: "post-grad", title: "研究所後期" },
-              { id: "epilogue", title: "結語" },
+              { id: "epilogue", title: "現在回頭看" },
             ].map((item, i) => (
               <a
                 key={item.id}
@@ -127,7 +127,9 @@ export default function CpCareerMemoir() {
               有時候就是在宿舍有事沒事找幾題玩玩，過程中也得到很多成就感。
             </p>
             <p>
-              後期就不一樣了，幾乎參與所有主流 online judge 的線上賽——Codeforces、AtCoder，再加上 Codeforces Gym 上的競賽套題。
+              後期就不一樣了，幾乎參與所有{" "}
+              <Link href="/blog/online-judge-guide" className="text-primary hover:underline">主流 online judge</Link>{" "}
+              的線上賽——Codeforces、AtCoder，再加上 Codeforces Gym 上的競賽套題。
               世界級的線上演算法大賽也幾乎都會參加，Meta Hacker Cup、Google Code Jam / Kick Start 等等。
               各平台加起來總題數應該有突破 5000 題，但只參加比賽的話，常常累積的都是前面的簡單題。事後回想，其實應該更有策略地練，會進步得更有效率。
             </p>
@@ -316,7 +318,7 @@ export default function CpCareerMemoir() {
               沒有打進 WF 的挫折很大，後續也沒有理由繼續高強度練習了。
               又經歷了一段沉迷遊戲的時間，整個人停了下來。
               研究所後期碰上疫情，步調更慢了，幾乎就再也很少打開那幾個競賽 OJ，頂多偶爾打打 LeetCode 賽。
-              就這樣，那個階段結束了。回頭看，這也許是影響未來幾年人生走向的一大槓桿。
+              就這樣，那個階段結束了，也影響了後面幾年的走向。
             </p>
             <p>
               但靠著之前累積的底子，面試 Google 的時候算是輕鬆就上了，某種程度的降維打擊。
@@ -331,17 +333,17 @@ export default function CpCareerMemoir() {
           </div>
         </FadeIn>
 
-        {/* ── 結語 ── */}
+        {/* ── 現在回頭看 ── */}
         <FadeIn>
-          <Heading id="epilogue">結語</Heading>
+          <Heading id="epilogue">現在回頭看</Heading>
           <div className="space-y-4">
             <p>
               回頭看，我的人生感覺好幾次在走歪、拉回之間反覆橫跳。
               小學國中成績很好，進了不錯的高中，然後有點混，又因為程式競賽拉回來，接著又停下來，後來進了 Google 卻不順利，到現在的盡力補救。
               希望現在是個拉回的階段。剛好在調整期可以把競賽練習撿回來，加上工作上也再度用到演算法。
-              AI 把生態翻了一輪，而我也想在 AI 浪潮再打出一段屬於自己的東西。
-              而這段回顧後，也確實發現自己現在經歷了一些社會打磨，多出太多無中生有的煩惱。
-              算是跟自己和解的一部分：把狀態調回舒服、適合自己的樣子。
+              AI 把整個產業翻了一輪，我也想看看自己還能做出什麼。
+              寫到這裡，才發現工作幾年後，多了很多以前根本不會想的煩惱。
+              現在想做的，大概就是把狀態調回自己舒服的樣子。
             </p>
             <p>
               競賽那幾年，是我到現在還最想找回的狀態。
