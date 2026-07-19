@@ -83,8 +83,9 @@ export default function Tif2025ShachiRespectStage() {
           </p>
           <p>
             去年重新開始看蝦中，後來又因為 ukka 聽回 SHACHI，年底也去了
-            〈俺のえびシャチライブ ～THE FINAL～〉。回頭看，Respect Stage
-            剛好落在我重新聽 SHACHI、但還沒親自看 THE FINAL 的那段時間。
+            〈俺のえびシャチライブ ～THE FINAL～〉。Respect Stage
+            辦的時候我其實也在日本，如果當時有機會去現場，應該會蠻不錯。
+            那時我已經重新聽 SHACHI，但還沒親自看 THE FINAL。
           </p>
           <p>
             這也是 SHACHI 自 2012 年首次登上 TIF
@@ -169,9 +170,10 @@ export default function Tif2025ShachiRespectStage() {
           <p>
             另外，看到
             TIFアイドル連合的名單時，我也有想過，如果蝦中派妹組來參加，
-            應該會蠻不錯。桜井えま以前也說過，自己還在研究生時期，第一次站上舞台就是替
-            SHACHI 伴舞。而且妹組本來就很尊敬
-            SHACHI，作為後輩來參加這一場也很適合。
+            應該會蠻不錯。妹組本來就很尊敬
+            SHACHI，以後輩身分來向前輩致意也很適合。
+            而且桜井えま以前還說過，自己在研究生時期的第一次舞台，就是替 SHACHI
+            伴舞。
           </p>
         </FadeIn>
 
@@ -201,10 +203,6 @@ export default function Tif2025ShachiRespectStage() {
           <p>
             大家前面輪流說自己受到 SHACHI 什麼影響，最後 SHACHI 再回一句，
             正因為一路被大家這樣看著，才成為現在的她們。講到這裡其實就夠了。
-          </p>
-          <p>
-            今年 TIF 又要到了，我只是想在新一年的行程開始前，先把去年的這 35
-            分鐘再記一次。
           </p>
         </FadeIn>
 
