@@ -16,6 +16,15 @@
 
 export const posts: Post[] = [
   {
+    title: "又快到 TIF 的季節，重看去年的 TEAM SHACHI Respect Stage",
+    date: "2026-07-19",
+    summary:
+      "又快到 TIF 的季節，重看去年 TEAM SHACHI 的 Respect Stage：一團一首歌，以及後來才知道也是最後一次 TIF 的 ukka。",
+    tags: ["Idol", "TIF", "TEAM SHACHI"],
+    tagStyle: "bg-accent/10 text-accent",
+    href: "/blog/tif-2025-shachi-respect-stage",
+  },
+  {
     title: "AtCoder ABC 467 G Many Sweets Problem",
     date: "2026-07-19",
     summary:
