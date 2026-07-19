@@ -3,6 +3,7 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import PostJsonLd from "@/components/PostJsonLd";
 import { articleMetadata } from "@/lib/seo";
+import styles from "./page.module.css";
 
 export const metadata: Metadata = articleMetadata(
   "/blog/tif-2025-shachi-respect-stage",
@@ -23,6 +24,45 @@ export const metadata: Metadata = articleMetadata(
 function Heading({ children }: { children: React.ReactNode }) {
   return (
     <h2 className="mb-4 mt-10 text-2xl font-bold text-warm">{children}</h2>
+  );
+}
+
+type MemberColor = {
+  light: string;
+  dark: string;
+};
+
+const memberColors = {
+  red: { light: "#dc2626", dark: "#f87171" },
+  yuzuki: { light: "#9333ea", dark: "#c084fc" },
+  ruri: { light: "#7c3aed", dark: "#a78bfa" },
+  suu: { light: "#0369a1", dark: "#38bdf8" },
+  kizukiNao: { light: "#a16207", dark: "#facc15" },
+  luna: { light: "#4d7c0f", dark: "#a3e635" },
+  pink: { light: "#be185d", dark: "#f472b6" },
+  shachiNao: { light: "#1d4ed8", dark: "#60a5fa" },
+  emma: { light: "#c2410c", dark: "#fb923c" },
+} satisfies Record<string, MemberColor>;
+
+function MemberName({
+  color,
+  children,
+}: {
+  color: MemberColor;
+  children: React.ReactNode;
+}) {
+  return (
+    <span
+      className={styles.memberName}
+      style={
+        {
+          "--member-color-light": color.light,
+          "--member-color-dark": color.dark,
+        } as React.CSSProperties
+      }
+    >
+      {children}
+    </span>
   );
 }
 
@@ -110,28 +150,35 @@ export default function Tif2025ShachiRespectStage() {
             <li>
               <strong>ばってん少女隊｜〈カントリーガール〉</strong>
               <p className="mt-1">
-                還沒有太多原創曲時，她們就唱過這首。上田理子把 SHACHI
+                還沒有太多原創曲時，她們就唱過這首。
+                <MemberName color={memberColors.red}>上田理子</MemberName>把 SHACHI
                 叫作「憧れの大お姉さん」；對她們來說，這首也和出道初期連在一起。
               </p>
             </li>
             <li>
               <strong>AMEFURASSHI｜〈いいくらし〉</strong>
               <p className="mt-1">
-                愛来講起遠征時在飯店開女子會，順便吐槽大黒柚姫其實很常看後輩團。
+                <MemberName color={memberColors.red}>愛来</MemberName>
+                講起遠征時在飯店開女子會，順便吐槽
+                <MemberName color={memberColors.yuzuki}>大黒柚姫</MemberName>
+                其實很常看後輩團。
                 這組最有朋友聚會的感覺，正經感言講沒多久就開始互虧。
               </p>
             </li>
             <li>
               <strong>ukka｜〈エンジョイ人生〉</strong>
               <p className="mt-1">
-                葵るり說，自己曾被這首歌積極向前的歌詞鼓勵。那一天，她們就像平常一樣笑著唱完。
+                <MemberName color={memberColors.ruri}>葵るり</MemberName>
+                說，自己曾被這首歌積極向前的歌詞鼓勵。那一天，她們就像平常一樣笑著唱完。
                 後來才更認真認識 ukka 的我，如今很難再把它當成一首普通的翻唱。
               </p>
             </li>
             <li>
               <strong>TIFアイドル連合｜〈恋人はスナイパー〉</strong>
               <p className="mt-1">
-                11 人來自不同團體，其中也有高嶺のなでしこ的涼海すう和城月菜央。
+                11 人來自不同團體，其中也有高嶺のなでしこ的
+                <MemberName color={memberColors.suu}>涼海すう</MemberName>和
+                <MemberName color={memberColors.kizukiNao}>城月菜央</MemberName>。
                 高貓雖然不在星塵，兩團卻一直互稱「非官方姐妹團」。
                 去年高貓在幕張舉辦三周年公演、SHACHI
                 舉辦最終公演時，兩邊也互相送了花籃。
@@ -140,7 +187,8 @@ export default function Tif2025ShachiRespectStage() {
             <li>
               <strong>LumiUnion｜〈アサガオ〉</strong>
               <p className="mt-1">
-                由内藤るな代表發言。她們選了氣氛比較柔和的〈アサガオ〉。
+                由<MemberName color={memberColors.luna}>内藤るな</MemberName>
+                代表發言。她們選了氣氛比較柔和的〈アサガオ〉。
                 放在幾首一路往前衝的歌中間，現場也稍微慢了下來。
               </p>
             </li>
@@ -149,7 +197,8 @@ export default function Tif2025ShachiRespectStage() {
                 いぎなり東北産｜〈ULTRA 超 MIRACLE SUPER VERY POWER BALL〉
               </strong>
               <p className="mt-1">
-                橘花怜回憶，成員們還是小學生、什麼都不懂的時候，就曾替 SHACHI
+                <MemberName color={memberColors.pink}>橘花怜</MemberName>
+                回憶，成員們還是小學生、什麼都不懂的時候，就曾替 SHACHI
                 伴舞。
                 是前輩的舞台讓她們在演藝圈裡看見夢想，講著講著也哭了。這首又是我
                 2016、2017 年最熟的那批 SHACHI 歌之一。
@@ -158,7 +207,10 @@ export default function Tif2025ShachiRespectStage() {
             <li>
               <strong>超ときめき♡宣伝部｜〈抱きしめてアンセム〉</strong>
               <p className="mt-1">
-                小泉遥香提到，自己是受咲良菜緒影響才開始接觸搖滾，也想把那股「熱血魂」留下來。
+                <MemberName color={memberColors.pink}>小泉遥香</MemberName>
+                提到，自己是受
+                <MemberName color={memberColors.shachiNao}>咲良菜緒</MemberName>
+                影響才開始接觸搖滾，也想把那股「熱血魂」留下來。
                 一邊哭、一邊被旁邊的人吐槽，反而很像她們平常相處的樣子。
               </p>
             </li>
@@ -170,7 +222,9 @@ export default function Tif2025ShachiRespectStage() {
             另外，看到
             TIFアイドル連合的名單時，我也想過，如果蝦中派妹組來參加，應該會很不錯。
             讓新一代成員以後輩身分向前輩致意，本來就很適合。
-            而且桜井えま以前還說過，自己在研究生時期的第一次舞台，就是替 SHACHI
+            而且
+            <MemberName color={memberColors.emma}>桜井えま</MemberName>
+            以前還說過，自己在研究生時期的第一次舞台，就是替 SHACHI
             伴舞。
           </p>
         </FadeIn>
@@ -179,7 +233,8 @@ export default function Tif2025ShachiRespectStage() {
           <Heading>ukka 的〈エンジョイ人生〉</Heading>
           <p>
             當時大家只知道這是 SHACHI 最後一次 TIF。看 ukka
-            唱〈エンジョイ人生〉時，只覺得這首很適合她們；葵るり也說，
+            唱〈エンジョイ人生〉時，只覺得這首很適合她們；
+            <MemberName color={memberColors.ruri}>葵るり</MemberName>也說，
             自己曾被歌詞裡積極向前的心情鼓勵。當時看完，也只會期待這個團接下來越來越好。
           </p>
           <p>

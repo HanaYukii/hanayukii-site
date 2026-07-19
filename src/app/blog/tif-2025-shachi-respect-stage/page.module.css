@@ -1,0 +1,7 @@
+.memberName {
+  color: var(--member-color-light);
+}
+
+:global(html[data-theme="dark"]) .memberName {
+  color: var(--member-color-dark);
+}
