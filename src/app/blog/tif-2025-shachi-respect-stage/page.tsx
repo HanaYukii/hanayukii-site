@@ -125,11 +125,12 @@ export default function Tif2025ShachiRespectStage() {
           </p>
           <p>
             去年 TIF 那幾天我其實也在日本，但比較熟的只有蝦中。她們排在早上，只為了那一場特地過去又覺得有點麻煩，最後就沒去
-            TIF。那時我還沒重新聽 SHACHI，對她們的印象差不多只有「今年要解散了」。
+            TIF。雖然多年前常聽 SHACHI，2025
+            年也有跟追星塵的朋友聊到她們，但一直沒有真的把歌找回來聽。當時對近況的印象差不多只有「今年要解散了」。
           </p>
           <p>
-            後來因為 ukka 又把 SHACHI 聽回來，年底也去了〈俺のえびシャチライブ
-            ～THE FINAL～〉。SHACHI 解散後找影片時，才偶然發現原來她們去年的 TIF
+            年底去了〈俺のえびシャチライブ ～THE FINAL～〉，不過直到那場以前，我都沒有特別找過
+            SHACHI 的影片來看。SHACHI 解散後找影片時，才偶然發現原來她們去年的 TIF
             除了自己的 HOT STAGE，後面還有這場 Respect Stage。
           </p>
           <p>
