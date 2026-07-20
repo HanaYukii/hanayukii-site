@@ -120,7 +120,7 @@ export default function Tif2025ShachiRespectStage() {
         <FadeIn>
           <p>
             又快到 TIF 的季節。最近這一個月突然很喜歡 SWEET STEADY，也開始認真看今年
-            HOT STAGE 的時程，就把去年在 SMILE GARDEN 的 TEAM SHACHI Respect
+            主舞台的時程，就把去年在 SMILE GARDEN 的 TEAM SHACHI Respect
             Stage 拿來再看了一次。
           </p>
           <p>
@@ -151,7 +151,7 @@ export default function Tif2025ShachiRespectStage() {
         </FadeIn>
 
         <FadeIn>
-          <Heading>同一天，還有她們自己的 HOT STAGE</Heading>
+          <Heading>同一天，還有她們自己的 HOT STAGE（主舞台）</Heading>
           <p>
             Respect Stage 並不是 SHACHI 當天唯一的演出。照
             <a
