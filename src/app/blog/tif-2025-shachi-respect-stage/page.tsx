@@ -124,9 +124,13 @@ export default function Tif2025ShachiRespectStage() {
           </p>
           <p>
             去年重新開始看蝦中，後來又因為 ukka 聽回
-            SHACHI，年底也去了〈俺のえびシャチライブ ～THE FINAL～〉。那場
-            Respect Stage 舉辦時我其實也在日本；那時還沒親自看過 SHACHI 的
-            live，如果當時有去，應該會很不錯。
+            SHACHI，年底也去了〈俺のえびシャチライブ
+            ～THE FINAL～〉。這場剛好落在我已經重新聽 SHACHI、但還沒親自看過她們
+            live 的那段時間。
+          </p>
+          <p>
+            去年如果真的去了 TIF，我大概也只會看蝦中。最近這一個月突然很喜歡 SWEET
+            STEADY，才開始認真看今年 HOT STAGE 的時程，也因此又想起去年還有這一場。
           </p>
           <p>
             這也是 SHACHI 自 2012 年首次登上 TIF
@@ -142,6 +146,43 @@ export default function Tif2025ShachiRespectStage() {
             把 Respect Stage 定位成「向從 2012 年起支撐 TIF 的 TEAM SHACHI 表達
             respect」的特別企劃。她們先唱〈翔け抜けてスターマイン〉，接著由後輩和一路有所交集的偶像輪流上台，一團唱一首
             SHACHI 的歌。
+          </p>
+        </FadeIn>
+
+        <FadeIn>
+          <Heading>同一天，還有她們自己的 HOT STAGE</Heading>
+          <p>
+            Respect Stage 並不是 SHACHI 當天唯一的演出。照
+            <a
+              href="https://official.idolfes.com/files/57/tif2025/assets/img/timetable/pdf/day1_202508030020.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className={`mx-1 ${linkClass}`}
+            >
+              當天的時間表
+            </a>
+            ，她們先在 16:10～16:40 完成自己的 HOT STAGE，17:15
+            才到 SMILE GARDEN 進行 Respect Stage。前一場從〈翔け抜けてスターマイン〉開始，中間把〈恋人はスナイパー〉、〈トリプルセブン〉等六首歌接成
+            <a
+              href="https://thetv.jp/news/detail/1282712/"
+              target="_blank"
+              rel="noreferrer"
+              className={`mx-1 ${linkClass}`}
+            >
+              TIF 特別 medley
+            </a>
+            ，最後還是用〈沸き曲〉收尾。
+          </p>
+          <p>
+            我很喜歡這個順序。先讓她們把自己的最後一場 HOT STAGE 唱完，35
+            分鐘後再到 SMILE GARDEN，和一路認識的後輩一起唱。SHACHI 從 2012 年就開始上
+            TIF，最後幾年未必是最熱門的名字，但同一天能有自己的 HOT STAGE 和一場
+            Respect Stage，也看得出她們在這個祭典裡累積的位置。台上那些關係也不是最後一年才突然湊出來的。
+          </p>
+          <p>
+            去年這兩場發生時我其實也在日本，只是當時對 SHACHI
+            頂多記得「她們要解散了」，沒有熟到會特地去排 TIF。後來真的看過她們的
+            live，再回來看這個下午，還是會覺得有點可惜：如果早幾個月認真聽就好了。
           </p>
         </FadeIn>
 
