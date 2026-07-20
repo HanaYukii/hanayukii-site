@@ -163,14 +163,14 @@ export default function AboutContent() {
         <section>
           {lang === "zh" ? (
             <p className="text-lg leading-relaxed text-text-muted">
-              我是<strong className="text-text">花雪 (HanaYukii)</strong>，<Link href="/blog/cp-career-memoir" className="text-primary hover:underline">程式競賽</Link>出身，喜歡演算法跟數學。在 <Link href="/blog/leaving-google" className="text-primary hover:underline">Google 待了三年</Link>後離開，現在在一間 AI 新創做 Senior Staff Engineer，平常也碰 Web3。這個網站隨手記些自己有興趣的東西，想寫啥寫啥。
+              我是<strong className="text-text">花雪 (HanaYukii)</strong>，<Link href="/blog/cp-career-memoir" className="prose-link">程式競賽</Link>出身，喜歡演算法跟數學。在 <Link href="/blog/leaving-google" className="prose-link">Google 待了三年</Link>後離開，現在在一間 AI 新創做 Senior Staff Engineer，平常也碰 Web3。這個網站隨手記些自己有興趣的東西，想寫啥寫啥。
             </p>
           ) : (
             <p className="text-lg leading-relaxed text-text-muted">
               I&apos;m <strong className="text-text">HanaYukii</strong> — from a{" "}
-              <Link href="/blog/cp-career-memoir" className="text-primary hover:underline">competitive programming</Link>{" "}
+              <Link href="/blog/cp-career-memoir" className="prose-link">competitive programming</Link>{" "}
               background, and I like algorithms and math. After{" "}
-              <Link href="/blog/leaving-google" className="text-primary hover:underline">three years at Google</Link>{" "}
+              <Link href="/blog/leaving-google" className="prose-link">three years at Google</Link>{" "}
               I left and joined an AI startup, where I&apos;m now a Senior Staff Engineer. I also build in Web3 and write here about whatever I happen to find interesting.
             </p>
           )}

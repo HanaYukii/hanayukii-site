@@ -25,7 +25,7 @@ export default function Tutoring() {
           演算法家教簡歷
         </h1>
         <p className="mb-12 text-text-muted">
-          程式競賽 · 演算法 · APCS · 面試準備（<Link href="/blog/cp-career-memoir" className="text-primary hover:underline">競賽經歷</Link>）
+          程式競賽 · 演算法 · APCS · 面試準備（<Link href="/blog/cp-career-memoir" className="prose-link">競賽經歷</Link>）
         </p>
       </FadeIn>
 

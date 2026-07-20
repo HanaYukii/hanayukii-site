@@ -56,7 +56,7 @@ export default function JabikoJlptApp() {
             href="https://jabiko.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary underline underline-offset-2 hover:text-primary/80"
+            className="prose-link"
           >
             jabiko.app
           </a>{" "}
@@ -118,7 +118,7 @@ export default function JabikoJlptApp() {
             題目跟解說的品質我最先顧：提示做成可以開關的、解說會逐個選項拆給你看。
             規則速查表和分章教材也一路補到 N1。
             題庫怎麼用 AI 大量出題又控制品質，我另外整理成
-            <Link href="/blog/ai-exam-authoring-workflow" className="text-primary hover:underline">
+            <Link href="/blog/ai-exam-authoring-workflow" className="prose-link">
               一篇技術文
             </Link>
             。
@@ -407,7 +407,7 @@ export default function JabikoJlptApp() {
               href="https://jabiko.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary underline underline-offset-2 hover:text-primary/80"
+              className="prose-link"
             >
               jabiko.app
             </a>

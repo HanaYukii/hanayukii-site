@@ -63,7 +63,7 @@ export default function AiExamAuthoringWorkflow() {
         </h1>
         <p className="mb-8 text-text-muted">
           我在維護一個 JLPT（日本語能力試驗）學習網站{" "}
-          <Link href="/blog/jabiko-jlpt-app" className="text-primary hover:underline">Jabiko</Link>
+          <Link href="/blog/jabiko-jlpt-app" className="prose-link">Jabiko</Link>
           ，題庫一直在長。
           前端不太是問題，麻煩的是考題要能一直加，而且品質不能跟著掉。
         </p>
@@ -202,7 +202,7 @@ export default function AiExamAuthoringWorkflow() {
           </ul>
           <Callout>
             規則寫成 lint 跟 test 之後，review 只要看有沒有過閘，不用每題用人眼盯，AI 出的題才好放量。
-            這其實跟「<Link href="/blog/documentation-ai-era" className="text-primary hover:underline">文件在 AI 時代的價值</Link>」
+            這其實跟「<Link href="/blog/documentation-ai-era" className="prose-link">文件在 AI 時代的價值</Link>」
             是同一件事：把 review 標準寫成模型看得到的輸入。
           </Callout>
         </FadeIn>
@@ -220,7 +220,7 @@ codex exec --skip-git-repo-check "$(cat prompt.txt)" < /dev/null`}</Code>
           <p>
             兩邊都輸出結構化 JSON，格式一致才好機器比對；codex 偶爾用日文寫解說，整併時統一轉繁中。
             「多一顆引擎當 second source」這個做法，我在
-            「<Link href="/blog/claude-call-codex" className="text-primary hover:underline">讓 Claude Code 呼叫 Codex</Link>」
+            「<Link href="/blog/claude-call-codex" className="prose-link">讓 Claude Code 呼叫 Codex</Link>」
             寫得更細。
           </p>
         </FadeIn>

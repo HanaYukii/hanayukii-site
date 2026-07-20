@@ -94,14 +94,14 @@ export default function Home() {
             <Link
               key={post.title}
               href={post.href!}
-              className="group block py-6"
+              className="group -mx-3 block rounded-lg px-3 py-6 transition-colors duration-200 hover:bg-surface/60"
             >
               <div className="flex items-baseline justify-between gap-4">
                 <div className="flex items-baseline gap-3 min-w-0">
                   <span className="shrink-0 font-mono text-sm text-text-muted/60 transition-colors group-hover:text-primary/70">
                     {String(i + 1).padStart(2, "0")} /
                   </span>
-                  <h2 className="text-xl font-semibold transition-[color,transform] duration-200 group-hover:translate-x-1 group-hover:text-primary">
+                  <h2 className="text-xl font-semibold transition-colors duration-200 group-hover:text-primary">
                     {post.title}
                   </h2>
                 </div>
@@ -148,7 +148,7 @@ export default function Home() {
             <Link
               key={post.title}
               href={post.href!}
-              className="group flex items-center justify-between gap-3 py-3 text-sm"
+              className="group -mx-3 flex items-center justify-between gap-3 rounded-md px-3 py-3 text-sm transition-colors duration-200 hover:bg-surface/60"
             >
               <div className="flex min-w-0 items-center gap-2">
                 <span
@@ -156,7 +156,7 @@ export default function Home() {
                 >
                   {post.tags[0]}
                 </span>
-                <span className="truncate text-text transition-[color,transform] duration-200 group-hover:translate-x-0.5 group-hover:text-primary">
+                <span className="truncate text-text transition-colors duration-200 group-hover:text-primary">
                   {post.title}
                 </span>
               </div>

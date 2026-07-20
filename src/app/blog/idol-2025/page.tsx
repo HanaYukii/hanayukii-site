@@ -456,7 +456,7 @@ export default function Idol2025() {
             能在年底趕上這一場，真的很好。看完之後，最終單曲裡的兩首歌也聽了很久。
           </p>
           <p>
-            完整 live：<a href="https://www.youtube.com/watch?v=jBgRsToJGBM" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">YouTube</a>
+            完整 live：<a href="https://www.youtube.com/watch?v=jBgRsToJGBM" target="_blank" rel="noopener noreferrer" className="prose-link">YouTube</a>
           </p>
         </div>
       </FadeIn>
@@ -489,7 +489,7 @@ export default function Idol2025() {
 
       <FadeIn>
         <p className="mt-8 text-sm text-text-muted">
-          完整參戰紀錄：<a href="https://www.eventernote.com/users/HanaYukii/events" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">eventernote</a>
+          完整參戰紀錄：<a href="https://www.eventernote.com/users/HanaYukii/events" target="_blank" rel="noopener noreferrer" className="prose-link">eventernote</a>
         </p>
         <div className="mt-8 flex flex-wrap gap-2 text-xs">
           {["Idol", "Life", "えびちゅう", "TEAM SHACHI", "高嶺のなでしこ", "ももクロ", "Live"].map((tag) => (

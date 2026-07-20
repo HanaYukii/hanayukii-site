@@ -32,7 +32,7 @@ export default function RelatedPosts({ href }: { href: string }) {
             <Link
               key={p.href}
               href={p.href!}
-              className="group flex items-baseline justify-between gap-4 py-3"
+              className="group -mx-3 flex items-baseline justify-between gap-4 rounded-lg px-3 py-3 transition-colors duration-200 hover:bg-surface/60"
             >
               <span className="min-w-0 text-sm text-text transition-colors group-hover:text-primary">
                 {p.title}

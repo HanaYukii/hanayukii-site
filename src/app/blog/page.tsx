@@ -126,7 +126,11 @@ export default async function Blog({
           );
 
           return post.href ? (
-            <Link key={post.title} href={post.href} className="group block py-6">
+            <Link
+              key={post.title}
+              href={post.href}
+              className="group -mx-3 block rounded-lg px-3 py-6 transition-colors duration-200 hover:bg-surface/60"
+            >
               {content}
             </Link>
           ) : (

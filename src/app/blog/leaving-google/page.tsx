@@ -99,7 +99,7 @@ export default function LeavingGoogle() {
               ICPC Gold、Codeforces IM、LeetCode rating 台灣前幾名，
               也因為 Kick Start 成績被 Google 邀請參加 101 線下活動並面試，打進過兩次 Code Jam Round 3。
               更多資訊可以參考
-              <Link href="/blog/cp-career-memoir" className="text-primary underline underline-offset-2 hover:text-primary/80">
+              <Link href="/blog/cp-career-memoir" className="prose-link">
                 程式競賽生涯回憶錄
               </Link>
               。
@@ -282,11 +282,11 @@ export default function LeavingGoogle() {
           </p>
           <p>
             不過其中兩場後來整理成了{" "}
-            <Link href="/blog/cpp-interview-performance-analysis" className="text-primary hover:underline">
+            <Link href="/blog/cpp-interview-performance-analysis" className="prose-link">
               C++ 效能面試
             </Link>
             {" "}和{" "}
-            <Link href="/blog/cpp-inplace-vector" className="text-primary hover:underline">
+            <Link href="/blog/cpp-inplace-vector" className="prose-link">
               手寫 inplace_vector
             </Link>
             。這段準備的經驗讓我對 C++ 的理解加深很多，更認識 modern C++。這些我相信未來都還有機會用上。
@@ -316,7 +316,7 @@ export default function LeavingGoogle() {
           </p>
           <p>
             其中最深刻的是{" "}
-            <Link href="/blog/idol-2025" className="text-primary hover:underline">
+            <Link href="/blog/idol-2025" className="prose-link">
               TEAM SHACHI 的 final live
             </Link>
             。

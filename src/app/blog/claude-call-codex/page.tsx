@@ -55,7 +55,7 @@ export default function ClaudeCallCodex() {
             href="https://github.com/openai/codex-plugin-cc"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary hover:underline"
+            className="prose-link"
           >
             codex-plugin-cc
           </a>
@@ -75,7 +75,7 @@ export default function ClaudeCallCodex() {
                 href="https://github.com/openai/codex-plugin-cc"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:underline"
+                className="prose-link"
               >
                 openai/codex-plugin-cc
               </a>{" "}
@@ -95,7 +95,7 @@ export default function ClaudeCallCodex() {
             <li>
               <strong>一個能用 Codex 的帳號</strong>：ChatGPT 帳號（Free
               或付費方案都行）或 OpenAI API key。怎麼付看{" "}
-              <a href="#cost" className="text-primary hover:underline">
+              <a href="#cost" className="prose-link">
                 最後一段
               </a>
               。
@@ -221,7 +221,7 @@ model_reasoning_effort = "high"`}</Code>
               href="https://developers.openai.com/codex/pricing"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary hover:underline"
+              className="prose-link"
             >
               官方定價頁
             </a>{" "}

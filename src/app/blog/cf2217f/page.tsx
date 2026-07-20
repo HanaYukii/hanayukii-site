@@ -78,7 +78,7 @@ export default function CF2217F() {
             href="https://codeforces.com/contest/2217/problem/F"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary hover:underline"
+            className="prose-link"
           >
             Problem Link
           </a>

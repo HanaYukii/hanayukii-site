@@ -128,7 +128,7 @@ export default function CpCareerMemoir() {
             </p>
             <p>
               後期就不一樣了，幾乎參與所有
-              <Link href="/blog/online-judge-guide" className="text-primary hover:underline">主流 online judge</Link>{" "}
+              <Link href="/blog/online-judge-guide" className="prose-link">主流 online judge</Link>{" "}
               的線上賽——Codeforces、AtCoder，再加上 Codeforces Gym 上的競賽套題。
               世界級的線上演算法大賽也幾乎都會參加，Meta Hacker Cup、Google Code Jam / Kick Start 等等。
               各平台加起來總題數應該有突破 5000 題，但只參加比賽的話，常常累積的都是前面的簡單題。事後回想，其實應該更有策略地練，會進步得更有效率。
@@ -325,7 +325,7 @@ export default function CpCareerMemoir() {
               當時刷題的時候也並不知道這跟面試這麼相關。
               這幾年練的東西，留下了很多可以長久使用的實力。
               而在 Google 的故事，過得很不順利——那又是{" "}
-              <Link href="/blog/leaving-google" className="text-primary underline underline-offset-2 hover:text-primary/80">
+              <Link href="/blog/leaving-google" className="prose-link">
                 另一個故事
               </Link>
               了。

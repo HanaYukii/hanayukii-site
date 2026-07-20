@@ -175,7 +175,7 @@ export default function OnlineJudgeGuide() {
           </p>
           <p>
             日常比賽偏構造題、思維題比較多（像我寫過的{" "}
-            <Link href="/blog/cf2217f" className="text-primary hover:underline">把區間博弈轉成 Nim</Link>{" "}
+            <Link href="/blog/cf2217f" className="prose-link">把區間博弈轉成 Nim</Link>{" "}
             就是典型），這類題目的缺點是技巧比較不容易直接套到其他題上，搭配 AtCoder ABC 後段題或 CSES 補經典技巧會比較平衡。
           </p>
           <p>
@@ -190,8 +190,8 @@ export default function OnlineJudgeGuide() {
           </p>
           <ul className="list-inside list-disc space-y-1 text-sm">
             <li><strong>ABC</strong> (Beginner Contest) — 適合入門到中階，通常約 7 題，從很簡單一路到需要完整演算法思考的題目。後段題（E/F/G 等）模板偏多、經典技巧覆蓋廣，學到的東西很容易套到其他題（ABC456 F 的{" "}
-              <Link href="/blog/abc456f-plan-holidays" className="text-primary hover:underline">線段樹左右端合併</Link>、ABC467 G 的{" "}
-              <Link href="/blog/abc467g-many-sweets" className="text-primary hover:underline">值域線段樹 descent</Link> 都是這種）</li>
+              <Link href="/blog/abc456f-plan-holidays" className="prose-link">線段樹左右端合併</Link>、ABC467 G 的{" "}
+              <Link href="/blog/abc467g-many-sweets" className="prose-link">值域線段樹 descent</Link> 都是這種）</li>
             <li><strong>ARC</strong> (Regular Contest) — 中階到高階，傳統上偏思維題；2026 起 ARC 主要回到 rated 1200–2799 的格式，另外也有 ARC++ / ARC-- 這類分級版本</li>
             <li><strong>AGC</strong> (Grand Contest) — AtCoder 最高難度系列，題目通常非常重思維與構造</li>
           </ul>
@@ -201,7 +201,7 @@ export default function OnlineJudgeGuide() {
               href="https://atcoder.jp/contests/dp"
               target="_blank"
               rel="noreferrer"
-              className="text-primary underline underline-offset-2 hover:text-primary/80"
+              className="prose-link"
             >
               Educational DP Contest
             </a>
@@ -216,7 +216,7 @@ export default function OnlineJudgeGuide() {
           </p>
           <p>
             LeetCode 跟 CP 是不同方向。CP 重視思維深度跟比賽臨場，LeetCode 重視題型熟練跟手速（像{" "}
-            <Link href="/blog/lc-2463" className="text-primary hover:underline">二維匹配 DP</Link>{" "}
+            <Link href="/blog/lc-2463" className="prose-link">二維匹配 DP</Link>{" "}
             這種經典題型）。當然 LeetCode Contest 高分段也很競技，但主流使用情境還是面試準備。
           </p>
         </FadeIn>

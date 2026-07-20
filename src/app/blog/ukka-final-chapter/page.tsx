@@ -451,14 +451,14 @@ export default function UkkaFinalChapter() {
           相關：
           <Link
             href="/blog/oshi-list"
-            className="ml-1 text-primary hover:underline"
+            className="prose-link"
           >
             推し清單
           </Link>
           {" · "}
           <Link
             href="/blog/idol-2025"
-            className="text-primary hover:underline"
+            className="prose-link"
           >
             2025 偶像現場全紀錄
           </Link>

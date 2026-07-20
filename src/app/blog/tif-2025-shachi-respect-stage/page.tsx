@@ -67,8 +67,7 @@ function MemberName({
   );
 }
 
-const linkClass =
-  "text-primary underline underline-offset-2 hover:text-primary/80";
+const linkClass = "prose-link";
 
 export default function Tif2025ShachiRespectStage() {
   return (
@@ -140,7 +139,7 @@ export default function Tif2025ShachiRespectStage() {
               href="https://official.idolfes.com/s/tif2025/news/detail/10076?ima=0000&link=ROBO004"
               target="_blank"
               rel="noreferrer"
-              className={`mx-1 ${linkClass}`}
+              className={linkClass}
             >
               TIF 官方
             </a>
@@ -158,7 +157,7 @@ export default function Tif2025ShachiRespectStage() {
               href="https://official.idolfes.com/files/57/tif2025/assets/img/timetable/pdf/day1_202508030020.pdf"
               target="_blank"
               rel="noreferrer"
-              className={`mx-1 ${linkClass}`}
+              className={linkClass}
             >
               當天的時間表
             </a>
@@ -168,7 +167,7 @@ export default function Tif2025ShachiRespectStage() {
               href="https://thetv.jp/news/detail/1282712/"
               target="_blank"
               rel="noreferrer"
-              className={`mx-1 ${linkClass}`}
+              className={linkClass}
             >
               TIF 特別 medley
             </a>

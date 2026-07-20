@@ -281,7 +281,7 @@ export default function OshiList() {
           <li>
             <Link
               href="/blog/idol-2025"
-              className="text-primary hover:underline"
+              className="prose-link"
             >
               2025 偶像現場全紀錄
             </Link>
@@ -289,7 +289,7 @@ export default function OshiList() {
           <li>
             <Link
               href="/blog/takaneko-ikite-ryaii"
-              className="text-primary hover:underline"
+              className="prose-link"
             >
               高嶺のなでしこ — 生きてりゃいい 歌詞翻譯
             </Link>
@@ -302,7 +302,7 @@ export default function OshiList() {
             href="https://www.eventernote.com/users/HanaYukii/events"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary hover:underline"
+            className="prose-link"
           >
             eventernote
           </a>

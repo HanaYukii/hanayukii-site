@@ -94,7 +94,7 @@ export default function CursorBillingDispute() {
               href="https://forum.cursor.com/t/team-seat-management-best-practices-how-do-you-handle-member-changes/153016"
               target="_blank"
               rel="noreferrer"
-              className="text-primary underline underline-offset-2 hover:text-primary/80"
+              className="prose-link"
             >
               官方論壇
             </a>

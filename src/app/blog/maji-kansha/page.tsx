@@ -281,12 +281,12 @@ export default function MajiKansha() {
           相關：
           <Link
             href="/blog/ukka-final-chapter"
-            className="ml-1 text-primary hover:underline"
+            className="prose-link"
           >
             ukka Final Chapter
           </Link>
           {" · "}
-          <Link href="/blog/idol-2025" className="text-primary hover:underline">
+          <Link href="/blog/idol-2025" className="prose-link">
             2025 偶像現場全紀錄
           </Link>
         </div>
