@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 
 type Theme = "stationery" | "dark";
 
-const storageKey = "hanayukii-theme-v2";
+const storageKey = "hanayukii-theme-v3";
 
 function getCurrentTheme(): Theme {
   if (typeof document === "undefined") {
     return "dark";
   }
 
-  return document.documentElement.dataset.theme === "dark" ? "dark" : "stationery";
+  return document.documentElement.dataset.theme === "stationery" ? "stationery" : "dark";
 }
 
 export default function ThemeToggle() {
