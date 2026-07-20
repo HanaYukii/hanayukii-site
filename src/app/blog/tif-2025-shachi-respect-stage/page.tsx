@@ -119,18 +119,18 @@ export default function Tif2025ShachiRespectStage() {
       <div className="prose-custom space-y-4 leading-relaxed text-text-muted [&_strong]:text-text">
         <FadeIn>
           <p>
-            又快到 TIF 的季節。開始看今年的名單和時程時，也想起去年在 SMILE
-            GARDEN 的 TEAM SHACHI Respect Stage，就拿來再看了一次。
+            又快到 TIF 的季節。最近這一個月突然很喜歡 SWEET STEADY，也開始認真看今年
+            HOT STAGE 的時程，就把去年在 SMILE GARDEN 的 TEAM SHACHI Respect
+            Stage 拿來再看了一次。
           </p>
           <p>
-            去年重新開始看蝦中，後來又因為 ukka 聽回
-            SHACHI，年底也去了〈俺のえびシャチライブ
-            ～THE FINAL～〉。這場剛好落在我已經重新聽 SHACHI、但還沒親自看過她們
-            live 的那段時間。
+            去年 TIF 那幾天我其實也在日本，但比較熟的只有蝦中。她們排在早上，只為了那一場特地過去又覺得有點麻煩，最後就沒去
+            TIF。那時我還沒重新聽 SHACHI，對她們的印象差不多只有「今年要解散了」。
           </p>
           <p>
-            去年如果真的去了 TIF，我大概也只會看蝦中。最近這一個月突然很喜歡 SWEET
-            STEADY，才開始認真看今年 HOT STAGE 的時程，也因此又想起去年還有這一場。
+            後來因為 ukka 又把 SHACHI 聽回來，年底也去了〈俺のえびシャチライブ
+            ～THE FINAL～〉。SHACHI 解散後找影片時，才偶然發現原來她們去年的 TIF
+            除了自己的 HOT STAGE，後面還有這場 Respect Stage。
           </p>
           <p>
             這也是 SHACHI 自 2012 年首次登上 TIF
@@ -180,9 +180,7 @@ export default function Tif2025ShachiRespectStage() {
             Respect Stage，也看得出她們在這個祭典裡累積的位置。台上那些關係也不是最後一年才突然湊出來的。
           </p>
           <p>
-            去年這兩場發生時我其實也在日本，只是當時對 SHACHI
-            頂多記得「她們要解散了」，沒有熟到會特地去排 TIF。後來真的看過她們的
-            live，再回來看這個下午，還是會覺得有點可惜：如果早幾個月認真聽就好了。
+            所以現在回來看這個下午，還是會覺得有點可惜：如果早幾個月認真聽，說不定那天就去了。
           </p>
         </FadeIn>
 
