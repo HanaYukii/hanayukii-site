@@ -1,0 +1,7 @@
+interface:
+  display_name: "Delegate to Claude"
+  short_description: "Delegate bounded read-only work to Claude Code"
+  default_prompt: "Use $delegate-to-claude to send this bounded read-only task to Claude and return a concise synthesis."
+
+policy:
+  allow_implicit_invocation: true

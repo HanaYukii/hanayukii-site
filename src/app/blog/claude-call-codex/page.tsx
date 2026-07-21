@@ -233,18 +233,14 @@ model_reasoning_effort = "high"`}</Code>
         <FadeIn>
           <Heading id="reverse">反過來：讓 Codex 呼叫 Claude</Heading>
           <p>
-            沒有像 codex-plugin-cc 那樣的單一官方外掛，但反過來也做得到：Claude Code
-            可以用 <code>claude mcp serve</code> 跑成一個 stdio MCP server，Codex
-            把它註冊成 MCP server 就能呼叫。在 Codex 的設定檔（
-            <code>~/.codex/config.toml</code> 或專案的 <code>.codex/config.toml</code>）加：
-          </p>
-          <Code lang="toml">{`[mcp_servers.claude]
-command = "claude"
-args = ["mcp", "serve"]`}</Code>
-          <p>
-            重啟 Codex 後用 <code>/mcp</code> 確認接上，能用的能力以 Claude Code
-            MCP server 實際暴露的 tools 為準。Codex 自己也有官方 Subagents、
-            社群也有 claude-codex-bridge 之類的橋接，想更進階再看。
+            這一段原本把 <code>claude mcp serve</code> 寫成讓 Codex 委派任務給 Claude
+            的方式，後來實測才發現不對：它暴露的是 Claude Code 的 tools，不會跑一輪
+            Claude 模型。真的要把工作交給 Claude，入口是 <code>claude -p</code>。安裝成
+            Codex skill、權限和額度上的細節，我另外整理在「
+            <Link href="/blog/codex-call-claude" className="prose-link">
+              讓 Codex 呼叫 Claude Code
+            </Link>
+            」。
           </p>
         </FadeIn>
 

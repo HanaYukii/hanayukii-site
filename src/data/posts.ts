@@ -16,6 +16,15 @@
 
 export const posts: Post[] = [
   {
+    title: "讓 Codex 呼叫 Claude Code",
+    date: "2026-07-21",
+    summary:
+      "用 claude -p 把獨立的讀 code、查錯與 code review 交給 Claude Code，再做成 Codex skill 視情況自動委派。",
+    tags: ["AI", "Tooling"],
+    tagStyle: "bg-primary/10 text-primary",
+    href: "/blog/codex-call-claude",
+  },
+  {
     title: "又快到 TIF 的季節，重看去年的 TEAM SHACHI Respect Stage",
     date: "2026-07-19",
     summary:
@@ -55,6 +64,7 @@ export const posts: Post[] = [
   {
     title: "讓 Claude Code 呼叫 Codex",
     date: "2026-06-16",
+    updated: "2026-07-21",
     summary:
       "用官方的 codex-plugin-cc，在 Claude Code 裡直接叫 Codex 做 code review、對抗式審查、或把卡住的任務丟給它。完整安裝步驟、登入認證、設定，以及費用怎麼算。",
     tags: ["AI", "Tooling"],
