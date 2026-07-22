@@ -153,7 +153,7 @@ export default function CppSecretOptimizations2() {
 
           <SubHeading>CPU 的自然對齊要求</SubHeading>
           <p>
-            CPU 存取記憶體時有一個基本規則：<strong>N-byte 的 type 必須從 N 的倍數地址開始</strong>。
+            CPU 存取記憶體時有個基本規則：<strong>N-byte 的 type 必須從 N 的倍數地址開始</strong>。
             例如 <code>int</code>（4 bytes）必須放在 4 的倍數地址，<code>double</code>（8 bytes）
             必須放在 8 的倍數地址。如果不滿足這個條件，編譯器會自動插入{" "}
             <strong>padding bytes</strong> 來對齊。
@@ -227,7 +227,7 @@ int main() {
             <code>#pragma pack(1)</code> 的取捨
           </SubHeading>
           <p>
-            你可以用 <code>#pragma pack(1)</code> 強制取消所有 padding：
+            可以用 <code>#pragma pack(1)</code> 強制取消所有 padding：
           </p>
           <Code lang="cpp">{`#pragma pack(push, 1)
 struct Packed {

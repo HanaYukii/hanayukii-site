@@ -88,7 +88,7 @@ export default function OnlineJudgeGuide() {
 
         <FadeIn>
           <p>
-            這份列表沿用我以前家教教材的順序，收的是我自己用過、教學也會帶到的主流 Online Judge。從入門到競賽向都有，後面也補了幾個 slides 原本沒列的平台。
+            這份列表沿用我以前家教教材的順序，收的是自己用過、教學也會帶到的主流 Online Judge。從入門到競賽向都有，後面也補了幾個 slides 原本沒列的平台。
           </p>
           <p>
             適合想入坑 CP，或是已經在練但不知道下一步該去哪的人。
@@ -196,7 +196,7 @@ export default function OnlineJudgeGuide() {
             <li><strong>AGC</strong> (Grand Contest) — AtCoder 最高難度系列，題目通常非常重思維與構造</li>
           </ul>
           <p>
-            另外 AtCoder 有一個{" "}
+            另外 AtCoder 有個{" "}
             <a
               href="https://atcoder.jp/contests/dp"
               target="_blank"
@@ -296,7 +296,7 @@ export default function OnlineJudgeGuide() {
         <FadeIn>
           <SubHeading id="vjudge">Vjudge</SubHeading>
           <p>
-            嚴格說 Vjudge 不是 OJ，是一個 virtual judge，它把 POJ、HDU、ZOJ、Codeforces、AtCoder、UVa、SPOJ 等十幾個 OJ 的題目聚合在一起，可以透過同一個介面整理跟提交多個 OJ 的題目。
+            嚴格說 Vjudge 不是 OJ，是個 virtual judge，把 POJ、HDU、ZOJ、Codeforces、AtCoder、UVa、SPOJ 等十幾個 OJ 的題目聚合在一起，可以透過同一個介面整理跟提交多個 OJ 的題目。
           </p>
           <p>
             最大的價值是組訓練 contest：可以混合不同 OJ 的題目開私人比賽，這在 ICPC team 訓練時超實用。我們以前也是用 Vjudge 開模擬賽。如果想刷中國系 OJ 的題目，從 Vjudge 進來體驗會比直接用 POJ 的網頁好太多。

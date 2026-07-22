@@ -50,7 +50,7 @@ export default function JabikoJlptApp() {
           Jabiko：JLPT 自習網站
         </h1>
         <p className="mb-8 text-text-muted">
-          Jabiko 是我和朋友一起做的一個 JLPT（日本語能力試驗）自習網站，
+          Jabiko 是我和朋友一起做的 JLPT（日本語能力試驗）自習網站，
           從五十音、動詞變化這些基礎，一路練到 N1 的文法、單字與漢字讀音。打開{" "}
           <a
             href="https://jabiko.app/"
@@ -349,7 +349,7 @@ export default function JabikoJlptApp() {
         <FadeIn>
           <Heading id="kanji-lookup">漢字音讀查詢</Heading>
           <p>
-            漢字讀音最容易在濁音、長短音上栽跟頭。除了「單字讀音」的刷題，另外有一個查詢工具：
+            漢字讀音最容易在濁音、長短音上栽跟頭。除了「單字讀音」的刷題，另外有個查詢工具：
             照等級或關鍵字找漢字，點開卡片會列出它的音讀和真實例詞，旁邊的按鈕還能點來聽讀音。
             某個字到底長音還是短音、有沒有濁，查一下、聽一下就清楚了。
           </p>

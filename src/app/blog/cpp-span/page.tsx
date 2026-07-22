@@ -53,7 +53,7 @@ export default function CppSpan() {
           寫函式常常卡一個小問題：「一段連續的資料」要用什麼型別接？
           用 <code>vector</code> 的話 C array 傳不進來，
           用指標加長度又退回 C 的寫法。<code>std::span</code>{" "}
-          就是為這件事設計的：一個不擁有資料的輕量視圖。
+          就是為這件事設計的：不擁有資料的輕量視圖。
           這篇整理基本用法、切片、extent，跟幾個容易踩的坑。
         </p>
       </FadeIn>

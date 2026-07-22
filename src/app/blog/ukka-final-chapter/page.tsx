@@ -244,7 +244,7 @@ export default function UkkaFinalChapter() {
           </p>
           <p>
             或許這也是為什麼 Final 之後，我反而更常回去聽它。
-            要選一首我最喜歡的 ukka 歌，我會選〈Aonity〉。
+            要選一首最喜歡的 ukka 歌，我會選〈Aonity〉。
           </p>
         </section>
       </FadeIn>
@@ -289,7 +289,7 @@ export default function UkkaFinalChapter() {
         <section className="space-y-4 leading-relaxed text-text-muted">
           <p>2026/5/24。</p>
           <p>
-            整場很多催淚回顧橋段。看到一半我才突然意識到：
+            整場很多催淚回顧橋段。看到一半才突然意識到：
             我自己認識的 ukka，從一開始就已經是最後一章了。
           </p>
           <p>

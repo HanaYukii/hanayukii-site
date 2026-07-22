@@ -81,7 +81,7 @@ export default function CursorBillingDispute() {
             <li>連把同一個 email 加回來也算 new record，照收</li>
           </ul>
           <p>
-            換句話說：那個已付費的 seat 沒有任何人能用，但會繼續被收錢到年底。我覺得很離譜。
+            換句話說：那個已付費的 seat 沒有任何人能用，但會繼續被收錢到年底。很離譜。
           </p>
         </FadeIn>
 

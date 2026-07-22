@@ -153,7 +153,7 @@ export default function CppInplaceVector() {
 
         <p className="mb-4 text-text-muted">
           <code className="text-primary">std::inplace_vector&lt;T, N&gt;</code> 是 C++26 新增的 container，
-          你可以把它想像成 <strong>固定容量的 vector</strong>：
+          可以把它想像成 <strong>固定容量的 vector</strong>：
         </p>
 
         <div className="my-6 overflow-x-auto">
@@ -236,7 +236,7 @@ struct bad_inplace_vector {
 };`}</Code>
 
         <p className="mb-3 text-text-muted">
-          inplace_vector 的語意是「push 的時候才建構」，所以我們需要一塊 <strong>raw memory</strong>，
+          inplace_vector 的語意是「push 的時候才建構」，所以需要一塊 <strong>raw memory</strong>，
           不觸發任何 constructor，等之後用 placement new 手動建構物件。
         </p>
 

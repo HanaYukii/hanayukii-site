@@ -50,7 +50,7 @@ export default function ClaudeCallCodex() {
           讓 Claude Code 呼叫 Codex
         </h1>
         <p className="mb-8 text-text-muted">
-          OpenAI 官方出了一個 Claude Code 外掛{" "}
+          OpenAI 官方出了個 Claude Code 外掛{" "}
           <a
             href="https://github.com/openai/codex-plugin-cc"
             target="_blank"
@@ -180,7 +180,7 @@ model_reasoning_effort = "high"`}</Code>
               <code>/codex:adversarial-review</code> — 對抗式審查，挑得更兇
             </li>
             <li>
-              <code>/codex:rescue</code> — 把一個任務整包委派給 Codex
+              <code>/codex:rescue</code> — 把任務整包委派給 Codex
             </li>
             <li>
               <code>/codex:status</code>、<code>/codex:result</code>、{" "}

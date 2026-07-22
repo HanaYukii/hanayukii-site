@@ -154,11 +154,11 @@ export default function CppInterviewPerformanceAnalysis() {
       <FadeIn delay={0.15}>
         <Heading id="q1">第一題：建構子參數怎麼接</Heading>
         <p className="mb-4 text-text-muted">
-          有一個 struct，成員是 <code className="text-primary">std::string</code>，建構子需要把外部傳入的字串存下來。
+          有個 struct，成員是 <code className="text-primary">std::string</code>，建構子需要把外部傳入的字串存下來。
           比較以下三種寫法的效能差異。
         </p>
         <p className="mb-4 text-text-muted">
-          其中 <code className="text-primary">std::string_view</code> (C++17) 是一個輕量的唯讀字串參考，
+          其中 <code className="text-primary">std::string_view</code> (C++17) 是輕量的唯讀字串參考，
           內部只存 pointer + length，本身不擁有資料也不做任何 allocation，建構成本接近零。
         </p>
 
@@ -309,7 +309,7 @@ void process(std::string_view msg) {
           <br />
           <code>static</code> 意味著 lambda 物件只初始化一次。第一次呼叫時 <code>[&amp;]</code> 捕獲的是
           第一次 <code>msg</code> 的 reference。之後每次呼叫，<code>msg</code> 的位址不同，但 lambda 仍然持有第一次的 reference
-          - 這是一個 dangling reference。<strong>這是最嚴重的 bug。</strong>
+          - 這是 dangling reference。<strong>這是最嚴重的 bug。</strong>
         </VerdictBox>
 
         <VerdictBox verdict="good">
@@ -323,7 +323,7 @@ void process(std::string_view msg) {
           <strong>寫法 2：static constexpr + parameter</strong> - 最快且最安全。
           <br />
           Stateless lambda（no capture），compiler 可以當成普通 function pointer。
-          <code>constexpr</code> 保證編譯期初始化，<code>static</code> 只是一個 hint（stateless lambda 沒有 state 可以 init）。
+          <code>constexpr</code> 保證編譯期初始化，<code>static</code> 只是個 hint（stateless lambda 沒有 state 可以 init）。
           不依賴任何外部 reference，完全沒有 lifetime 問題。
         </VerdictBox>
 

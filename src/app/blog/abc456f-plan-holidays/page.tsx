@@ -306,7 +306,7 @@ S combine(S L, S R) {
           </p>
           <SubHeading>對照例：Max Subarray Sum</SubHeading>
           <p>
-            這是一個經典題目：給一個數列 <InlineMath math="A" />，支援單點修改 + 區間查詢區間內的最大子段和。
+            這是個經典題目：給一個數列 <InlineMath math="A" />，支援單點修改 + 區間查詢區間內的最大子段和。
             線段樹節點存 4 個值：
           </p>
           <Code lang="cpp">{`struct Node {

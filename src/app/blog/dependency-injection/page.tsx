@@ -66,7 +66,7 @@ export default function DependencyInjection() {
           搞懂 Dependency Injection
         </h1>
         <p className="mb-8 text-text-muted">
-          我自己比較不把 DI 當成某種架構信仰，而是把它當成一個很務實的問題：
+          我自己比較不把 DI 當成某種架構信仰，而是把它當成很務實的問題：
           你的 business logic 到底有沒有被 DB、cache、HTTP client 這些東西綁死。
           這篇就從這個角度講。
         </p>
@@ -828,7 +828,7 @@ func InitializeApp(cfg Config) (*App, error) {
           <Heading id="item7">DI 在測試裡最容易看出效果</Heading>
 
           <p>
-            在 Item 2 我們已經看過沒有 DI 時，unit test 根本寫不了。
+            在 Item 2 已經看過沒有 DI 時，unit test 根本寫不了。
             現在來看有了 DI 之後，測試可以多簡潔。
           </p>
 

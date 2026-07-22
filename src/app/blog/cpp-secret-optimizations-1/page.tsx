@@ -293,13 +293,13 @@ int main() {
           </ul>
           <Callout>
             Boost 和 LLVM 提供了 <code>small_vector</code>，讓你自己指定 inline capacity。
-            標準庫選擇不做這件事，是一個刻意的設計取捨。
+            標準庫選擇不做這件事，是刻意的設計取捨。
           </Callout>
 
           <SubHeading>效能影響與陷阱</SubHeading>
           <p>
             SSO 在短字串密集的場景下效果顯著 - 例如 JSON parsing、symbol table、config
-            處理。但有一個需要注意的地方：<strong>效能懸崖（performance cliff）</strong>。
+            處理。但有個需要注意的地方：<strong>效能懸崖（performance cliff）</strong>。
           </p>
           <Code>{`字串長度:  10   12   14   15   16   18   20
            ──────────────────────────────────

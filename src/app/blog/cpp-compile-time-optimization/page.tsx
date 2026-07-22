@@ -69,7 +69,7 @@ export default function CppCompileTimeOptimization() {
         </h1>
         <p className="mb-8 text-text-muted">
           我自己在意的不是語法炫不炫，而是哪些東西真的值得提早到編譯期做。
-          這篇挑五個我覺得最常用、也最有感的點來講。
+          這篇挑五個最常用、也最有感的點來講。
         </p>
       </FadeIn>
 
