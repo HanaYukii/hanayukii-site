@@ -16,6 +16,15 @@
 
 export const posts: Post[] = [
   {
+    title: "用 AI 把影片整理成筆記與文章",
+    date: "2026-07-22",
+    summary:
+      "看完影片只記得結論。把影片變成逐字稿再變筆記：字幕、音訊轉錄、會員影片的抓法，指令可直接抄；整理大多時候直接丟 GPT，要發布才走查證流程。",
+    tags: ["AI", "Tooling"],
+    tagStyle: "bg-primary/10 text-primary",
+    href: "/blog/video-to-article-workflow",
+  },
+  {
     title: "讓 Codex 呼叫 Claude Code",
     date: "2026-07-21",
     summary:
@@ -164,8 +173,9 @@ export const posts: Post[] = [
   {
     title: "牛市放大效應與 KOL",
     date: "2026-05-02",
+    updated: "2026-07-22",
     summary:
-      "從 D 大、反 D 大的人和其他 KOL 類型，回頭看牛熊市怎麼放大個人魅力，以及我自己在配置和少賺上的反思。",
+      "從 D 大、JAM 到 Google RSU，回頭看牛市怎麼放大個人魅力，預測為什麼是一種沒有強制平倉的槓桿，以及我自己在配置上的反思。",
     tags: ["Life", "投資"],
     tagStyle: "bg-accent/10 text-accent",
     href: "/blog/kol-bull-market-amplifier",
