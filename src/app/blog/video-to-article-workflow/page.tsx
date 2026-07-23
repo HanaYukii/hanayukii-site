@@ -7,13 +7,13 @@ import PostJsonLd from "@/components/PostJsonLd";
 import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/video-to-article-workflow", {
-  title: "用 AI 把影片整理成筆記與文章 | 花雪 HanaYukii",
+  title: "把 YouTube 影片變成逐字稿，再整理成文章 | 花雪 HanaYukii",
   description:
-    "把影片變成逐字稿再變筆記的流程：yt-dlp 抓字幕與音訊、Whisper 系轉錄，指令可直接抄；整理大多時候直接丟 GPT，要成文再走內容卡與查證。",
+    "一套實際跑過的 YouTube 轉錄流程：先抓現成字幕，沒有才用 yt-dlp 下載音訊並交給 Whisper；包含會員影片、時間區段、常見錯誤與整理 prompt。",
   openGraph: {
-    title: "用 AI 把影片整理成筆記與文章",
+    title: "把 YouTube 影片變成逐字稿，再整理成文章",
     description:
-      "yt-dlp 抓字幕與音訊、Whisper 轉錄的可抄指令；整理大多時候直接丟 GPT。",
+      "先抓字幕，沒有才下載音訊跑 Whisper；從網址到逐字稿、筆記與文章的完整流程。",
     type: "article",
   },
 });
@@ -59,13 +59,13 @@ export default function VideoToArticleWorkflow() {
           </span>
         </div>
         <h1 className="mb-4 text-4xl font-bold tracking-tight">
-          用 AI 把影片整理成筆記與文章
+          把 YouTube 影片變成逐字稿，再整理成文章
         </h1>
         <p className="mb-2 text-sm text-text-muted">2026-07-22</p>
         <p className="mb-8 text-text-muted">
-          看影片吸收資訊的效率其實很差：重點散在幾十分鐘裡，看完常常只記得結論。
-          我現在的做法是先把影片變成逐字稿，再拿去整理。
-          這篇把每一步的指令寫清楚，照抄就能動；整理那段我自己最常做的其實就是丟給 GPT。
+          不必把影片完整播放一遍再錄音。先檢查 YouTube 有沒有字幕；沒有的話，
+          直接下載音訊交給 Whisper。這篇把我實際跑過的 Windows 指令、會員影片的處理方式、
+          常見錯誤，以及逐字稿接到筆記和文章的流程放在一起。
         </p>
       </FadeIn>
 
@@ -76,12 +76,13 @@ export default function VideoToArticleWorkflow() {
           </p>
           <div className="space-y-2">
             {[
-              { id: "overview", title: "流程總覽" },
-              { id: "transcribe", title: "拿到逐字稿：四種情況" },
-              { id: "tools", title: "轉錄工具怎麼選" },
-              { id: "files", title: "檔案怎麼放" },
-              { id: "digest", title: "整理：大多時候丟 GPT 就夠" },
-              { id: "article", title: "要發布成文章再走完整流程" },
+              { id: "overview", title: "先看最短流程" },
+              { id: "setup", title: "第一次安裝" },
+              { id: "transcribe", title: "字幕、音訊與 Whisper" },
+              { id: "members", title: "會員影片與失敗排查" },
+              { id: "example", title: "這次實測" },
+              { id: "organize", title: "從逐字稿到文章" },
+              { id: "article", title: "最後才改成文章" },
             ].map((item, i) => (
               <a
                 key={item.id}
@@ -99,137 +100,243 @@ export default function VideoToArticleWorkflow() {
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-primary [&_code]:text-sm">
 
         <FadeIn>
-          <Heading id="overview">流程總覽</Heading>
+          <Heading id="overview">先看最短流程</Heading>
           <p>
-            整條線是：影片 → 帶時間戳的逐字稿 → 筆記或文章。
-            前半段（拿逐字稿）全自動，工具都是現成的；後半段（整理）看需求，
-            大多時候丟給 GPT 問重點就結束，要發布成文章才走完整流程。
+            原則是能撿現成的就撿：字幕比音訊快，音訊比錄音快。優先順序照下面走，
+            一層不行才降到下一層：
+          </p>
+          <Code lang="text">{`yt-dlp 直接列得到字幕
+→ 直接用 yt-dlp 抓
+
+會員影片、yt-dlp 看不到，但播放器設定裡有字幕軌
+→ 從已登入的瀏覽器攔 timedtext（見會員影片一節）
+
+播放器也沒有字幕軌
+→ 下載音訊跑 Whisper
+
+下載音訊也不可行（DRM 之類）
+→ 最後才即時錄音`}</Code>
+          <p className="mt-4">
+            音訊下載通常遠快於影片長度，所以一支二十分鐘的影片不用播放二十分鐘。
+            如果只是想知道內容，流程走到筆記就夠；真的要公開發文，再多做查證與改寫。
+          </p>
+        </FadeIn>
+
+        <FadeIn>
+          <Heading id="setup">第一次安裝</Heading>
+          <p>
+            以下以 Windows PowerShell 為例。yt-dlp 負責拿字幕與音訊，FFmpeg 負責音訊轉換，
+            Deno 則是新版 YouTube 完整解析所需的 JavaScript runtime。
+          </p>
+          <Code lang="powershell">{`winget install yt-dlp.yt-dlp
+winget install Gyan.FFmpeg
+winget install DenoLand.Deno
+
+pip install -U openai-whisper`}</Code>
+          <p className="mt-4">安裝後重開 PowerShell，用下面三行確認路徑已生效：</p>
+          <Code lang="powershell">{`yt-dlp --version
+ffmpeg -version
+deno --version`}</Code>
+          <p className="mt-4">
+            yt-dlp 現在強烈建議同時準備 FFmpeg 與 JavaScript runtime；Whisper 需要系統裡真的有
+            FFmpeg 執行檔，不是安裝同名 Python 套件。版本或平台不同時，直接看{" "}
+            <a href="https://github.com/yt-dlp/yt-dlp" target="_blank" rel="noreferrer" className="text-primary hover:underline">
+              yt-dlp 官方文件
+            </a>{" "}
+            和{" "}
+            <a href="https://github.com/openai/whisper" target="_blank" rel="noreferrer" className="text-primary hover:underline">
+              OpenAI Whisper
+            </a>
+            。
+          </p>
+        </FadeIn>
+
+        <FadeIn>
+          <Heading id="transcribe">字幕、音訊與 Whisper</Heading>
+          <p>
+            每支影片都照同一個順序跑：先列出字幕，沒有才抓音訊。檔名一律使用影片 ID，
+            可以避開日文標題、特殊字元和同名檔案。
+          </p>
+
+          <SubHeading>第一步：永遠先看有沒有字幕</SubHeading>
+          <Code lang="powershell">{`$url = "https://www.youtube.com/watch?v=VIDEO_ID"
+yt-dlp --list-subs $url`}</Code>
+          <p>
+            看到人工字幕或 automatic captions，就不用跑語音辨識。把可能用到的繁中、中文、
+            日文和英文字幕抓下來：
+          </p>
+          <Code lang="powershell">{`yt-dlp --skip-download --write-subs --write-auto-subs ` + "`" + `
+  --sub-langs "zh-TW,zh-Hant,zh,ja.*,en" ` + "`" + `
+  -o "%(id)s.%(ext)s" $url`}</Code>
+          <p className="mt-4">
+            產出的 VTT 已經有時間碼，可以直接整理。原始字幕先留著，不要一開始就叫模型「潤稿」；
+            模型可能會把聽不清楚的地方順手補成一個看似合理、其實沒人說過的句子。
+          </p>
+
+          <SubHeading>第二步：沒有字幕才下載音訊</SubHeading>
+          <p>
+            <code>-x</code> 表示只取音訊，不會把整支影片載回來：
+          </p>
+          <Code lang="powershell">{`yt-dlp -x --audio-format m4a ` + "`" + `
+  -o "%(id)s.%(ext)s" $url`}</Code>
+          <p className="mt-4">
+            如果只需要前十分鐘，直接加
+            <code>--download-sections "*00:00-10:00"</code>，不必先下載整段再自己切。
+          </p>
+
+          <SubHeading>第三步：交給 Whisper</SubHeading>
+          <Code lang="powershell">{`whisper "VIDEO_ID.m4a" ` + "`" + `
+  --language Japanese ` + "`" + `
+  --task transcribe ` + "`" + `
+  --model turbo ` + "`" + `
+  --output_format all ` + "`" + `
+  --output_dir ".\\VIDEO_ID"`}</Code>
+          <p className="mt-4">
+            日文改 <code>Japanese</code>、中文改 <code>Chinese</code>；不確定語言也可以省略。
+            <code>turbo</code> 適合先拿草稿，訪談、多人閒聊或專有名詞很多時，再換
+            <code>large-v3</code>。第一次執行會先下載模型，之後才會快。
           </p>
           <p className="mt-4">
-            我常整理的是財經頻道的影片，之前在{" "}
+            已知會出現的人名、公司名或術語，可以加
+            <code>--initial_prompt "會出現的詞：私立恵比寿中学、えびチリ"</code>。
+            這不是保證正確，但通常比轉完後到處修同一個名字省事。
+          </p>
+
+        </FadeIn>
+
+        <FadeIn>
+          <Heading id="members">會員影片與失敗排查</Heading>
+          <SubHeading>帳號有觀看權限</SubHeading>
+          <p>
+            讓本機 yt-dlp 讀取 Chrome 的登入狀態即可，不需要把帳密交給第三方網站：
+          </p>
+          <Code lang="powershell">{`yt-dlp --cookies-from-browser "chrome:Default" ` + "`" + `
+  -x --audio-format m4a ` + "`" + `
+  -o "%(id)s.%(ext)s" $url`}</Code>
+          <p className="mt-4">
+            帳號在別的 Chrome 使用者中，就把 <code>Default</code> 改成 <code>Profile 1</code>；
+            cookie 資料庫被鎖住時，先完全關閉 Chrome 再跑。不要把 cookies 匯出後上傳給字幕網站、
+            模型或其他人，那份檔案等同一段可用的登入權限。
+          </p>
+
+          <SubHeading>yt-dlp 看不到，但播放器其實有字幕軌</SubHeading>
+          <p>
+            這次實際踩到的情況，有兩個很容易誤判的點。第一，會員影片剛載入時，CC
+            按鈕可能暫時顯示 unavailable，不能立刻斷定沒有字幕；等播放器初始化完，
+            打開「設定 → Subtitles/CC」看有沒有字幕軌才算數。選單裡出現
+            Subtitles/CC Chinese 這種選項，就是獨立的字幕軌，不只是壓在畫面上的字。
+          </p>
+          <p className="mt-4">
+            第二，頁面原始碼裡的字幕 <code>baseUrl</code> 不一定抓得到內容：少了播放器產生的{" "}
+            <code>pot</code> 這類參數時，伺服器會回 200 但內容是空的。
+            拿到 200 不等於下載成功，要看內容有沒有東西。
+          </p>
+          <p className="mt-4">
+            正確做法是攔播放器實際發出的請求：開 DevTools 的 Network、篩{" "}
+            <code>timedtext</code>，把 CC 打開，抓那條完整的{" "}
+            <code>{"/api/timedtext?...&pot=...&fmt=json3"}</code> 請求，把回應存下來。
+            一開始沒看到請求，就把 CC 關掉再打開，讓播放器重新載入字幕。
+          </p>
+          <p className="mt-4">
+            這條路不需要匯出 cookies。簽名過的 URL 通常有期限，抓到就立刻下載。
+          </p>
+
+          <SubHeading>常見錯誤</SubHeading>
+          <ul className="ml-6 mt-2 list-disc space-y-2">
+            <li>
+              <strong>No supported JavaScript runtime</strong>：先確認 Deno 安裝成功；如果已經有 Node 22 以上，
+              也可以在 yt-dlp 指令後加 <code>--js-runtimes node</code>。
+            </li>
+            <li>
+              <strong>ffmpeg not found</strong>：重開終端後再試；<code>-x</code> 和音訊格式轉換都依賴 FFmpeg。
+            </li>
+            <li>
+              <strong>faster-whisper 報 CUDA DLL 不存在</strong>：有 NVIDIA 顯卡不等於 cuBLAS、cuDNN
+              與 CTranslate2 已接好。Windows 可先安裝 <code>nvidia-cublas-cu12</code>、
+              <code>nvidia-cudnn-cu12</code>，並確認兩者的 bin 目錄在 PATH；只想先拿草稿，就暫時改用 CPU 或 turbo。
+            </li>
+            <li>
+              <strong>下載仍被擋</strong>：先更新 yt-dlp。真的碰到 DRM 或播放器專用串流，才退回 OBS／系統音訊錄製；
+              這不是一般 YouTube 影片的預設流程。
+            </li>
+          </ul>
+        </FadeIn>
+
+        <FadeIn>
+          <Heading id="example">這次實測</Heading>
+          <p>
+            我用 2026 年 7 月 22 日公開的{" "}
+            <a href="https://www.youtube.com/watch?v=G-owM38MEvI" target="_blank" rel="noreferrer" className="text-primary hover:underline">
+              「えびチリ、はじめました」MV 幕後影片
+            </a>{" "}
+            跑了一次。影片長 18:50，<code>--list-subs</code> 確認人工字幕與自動字幕都不存在；
+            接著直接下載 17.45 MiB 的 m4a 音訊，再以{" "}
+            <a href="https://github.com/SYSTRAN/faster-whisper" target="_blank" rel="noreferrer" className="text-primary hover:underline">
+              faster-whisper
+            </a>{" "}
+            的日文 <code>large-v3</code> 轉錄。
+          </p>
+          <Callout>
+            下載只花幾秒；補齊 CUDA runtime 後，RTX 5060 跑 large-v3 約 43 秒。
+            整段都不需要播放 18 分 50 秒，也不占用瀏覽器。
+          </Callout>
+          <p className="mt-4">
+            這類幕後花絮有多人同時說話、笑聲、遠距離收音和背景音樂，逐字稿一定要視為草稿。
+            我也試過 CPU small：不到一分鐘就跑完，但重複與誤聽明顯，不能直接使用。
+            人名、歌名和重疊對話仍要回到時間碼人工確認；模型大、輸出看起來流暢，也不代表每一句都是真的。
+          </p>
+        </FadeIn>
+
+        <FadeIn>
+          <Heading id="organize">從逐字稿到文章</Heading>
+          <p>
+            我會把原始輸出、整理稿和最後文章分開。原始稿不修改，之後才有辦法回頭核對：
+          </p>
+          <Code lang="text">{`VIDEO_ID/
+├── source.url       # 影片網址與基本資料
+├── source.srt       # Whisper 或 YouTube 的原始字幕
+├── transcript.md    # 人工修過的可讀稿
+├── notes.md         # 重點、疑問與待查證項目
+└── article.md       # 真的要發布時才建立`}</Code>
+
+          <SubHeading>先修辨識，不要先改寫</SubHeading>
+          <Code lang="text">{`保留所有時間碼與原意，修正明顯的語音辨識錯誤。
+不要摘要、不要補寫講者沒說的內容。
+無法確認的人名或句子標成 [聽不清]；多人同時說話標成 [重疊]。`}</Code>
+
+          <SubHeading>再整理成能看的筆記</SubHeading>
+          <Code lang="text">{`請根據逐字稿整理：
+1. 內容按主題分段，每段附時間範圍
+2. 核心主張、理由、例子與保留條件分開
+3. 標出前後矛盾、值得查證的數字與專有名詞
+4. 「講者實際說的」與「你的推論」分開
+5. 不確定的地方保留 [待確認]，不要猜`}</Code>
+          <p className="mt-4">
+            大部分影片停在 notes.md 就夠了。這一步的重點不是文筆，而是拿到一份可搜尋、
+            可回到時間碼核對，而且把事實與模型推論分開的筆記。
+          </p>
+        </FadeIn>
+
+        <FadeIn>
+          <Heading id="article">最後才改成文章</Heading>
+          <p>
+            公開文章尤其容易把摘要寫成講者原話。涉及人物評論、財經或技術判斷時，數字、日期、
+            引述與因果關係都要逐項查證。這也是我在{" "}
             <Link href="/blog/kol-bull-market-amplifier" className="text-primary hover:underline">
               KOL 言論要拆解不能照單全收
             </Link>{" "}
-            寫過原因。這套流程就是把「拆解」變成固定步驟：原話、摘要、自己的分析分開，數字列出來查。
+            裡採用的分法。
           </p>
-        </FadeIn>
-
-        <FadeIn>
-          <Heading id="transcribe">拿到逐字稿：四種情況</Heading>
-          <p>
-            先裝 yt-dlp（<code>pip install -U yt-dlp</code>，或 winget / brew 都有）。
-            依影片狀況分四種，由快到慢。
-          </p>
-
-          <SubHeading>情況一：公開影片、有字幕（幾秒鐘）</SubHeading>
-          <p>
-            不用下載影片，直接抓字幕檔。YouTube 的自動字幕也抓得到：
-          </p>
-          <Code lang="bash">{`yt-dlp --write-auto-subs --sub-langs "zh-TW,zh,en" --skip-download -o "sub" URL`}</Code>
+          <Code lang="text">{`把 notes.md 改寫成文章：
+- 按讀者理解順序重排，不照逐字稿逐句重述
+- 引述、摘要與作者分析明確分開
+- 待查證項目逐項查；查不到就寫「未確認」
+- 刪掉套話、重複結論與 AI 常見的空泛收尾
+- 保留具體細節與人的語氣，不替當事人補動機
+- 另附一版適合社群發布的 300 字短文`}</Code>
           <p className="mt-4">
-            產出 <code>sub.zh-TW.vtt</code> 之類的字幕檔，裡面就是帶時間戳的逐字稿。
-            .vtt 直接丟給 AI 沒問題，它讀得懂；想要乾淨純文字再叫它幫你去掉時間軸就好。
-          </p>
-
-          <SubHeading>情況二：公開影片、沒字幕（幾分鐘）</SubHeading>
-          <p>
-            先只抓音訊，再丟轉錄。轉錄用 whisper-ctranslate2（faster-whisper 的指令列版）：
-          </p>
-          <Code lang="bash">{`# 抓音訊(不下載影片,快很多)
-yt-dlp -x --audio-format m4a -o "audio.m4a" URL
-
-# 轉錄:輸出 txt + srt(帶時間戳)
-pip install whisper-ctranslate2
-whisper-ctranslate2 audio.m4a --model large-v3-turbo --language zh \\
-  --output_format txt srt`}</Code>
-          <p className="mt-4">
-            兩個中文的坑：第一，Whisper 輸出常是簡體，用 OpenCC 轉，或整份丟給 AI 叫它轉繁順便整理。
-            第二，專有名詞（幣種、公司名、技術詞）錯誤率高，
-            加 <code>--initial_prompt "會出現的詞: Solana, 聯準會, ETF"</code> 先餵給它，準確率會好很多。
-          </p>
-          <p className="mt-4">
-            沒有 GPU 的機器改走 Groq 的 API，跑一樣的模型，速度反而更快，一小時音訊只要幾美分：
-          </p>
-          <Code lang="bash">{`curl https://api.groq.com/openai/v1/audio/transcriptions \\
-  -H "Authorization: Bearer $GROQ_API_KEY" \\
-  -F "file=@audio.m4a" -F "model=whisper-large-v3-turbo" \\
-  -F "response_format=verbose_json"`}</Code>
-
-          <SubHeading>情況三：會員限定影片</SubHeading>
-          <p>
-            帳號有權限的話，讓 yt-dlp 帶著瀏覽器的 cookies 走，多半直接就能抓：
-          </p>
-          <Code lang="bash">{`yt-dlp --cookies-from-browser chrome -x --audio-format m4a URL`}</Code>
-          <p className="mt-4">
-            Windows 上 Chrome 要先完全關閉才讀得到 cookies；還是不行就改用 Firefox，
-            或用瀏覽器擴充功能把 cookies.txt 匯出來給 <code>--cookies</code> 用。
-          </p>
-
-          <SubHeading>情況四：真的抓不下來</SubHeading>
-          <p>
-            DRM 串流這類就是最後手段：邊播放邊錄系統音訊（OBS 或 Windows 的立體聲混音都行），
-            錄完的檔案照情況二轉錄。最慢，但一定通。
-          </p>
-        </FadeIn>
-
-        <FadeIn>
-          <Heading id="tools">轉錄工具怎麼選</Heading>
-          <ul className="ml-6 mt-2 list-disc space-y-2">
-            <li><strong>有 NVIDIA GPU</strong>：faster-whisper 配 large-v3。求快換 large-v3-turbo，解碼快很多，品質掉一點點。</li>
-            <li><strong>Mac</strong>：whisper.cpp，在 Apple silicon 上比 faster-whisper 快不少。</li>
-            <li><strong>要逐字時間戳或分講者</strong>：whisperX，在 faster-whisper 上加對齊跟 diarization。</li>
-            <li><strong>不想架環境</strong>：Groq API（上面那條 curl）；ElevenLabs Scribe 則是內建分講者。</li>
-            <li><strong>偷懶路線</strong>：Gemini API 可以直接吃 YouTube 網址（有每日時數上限）。快速摘要可以，認真整理還是先拿逐字稿比較穩，模型直接看影片容易只給表面層級的摘要。</li>
-          </ul>
-        </FadeIn>
-
-        <FadeIn>
-          <Heading id="files">檔案怎麼放</Heading>
-          <Code lang="text">{`video-id/
-├── source.txt    # 原始逐字稿,不修改
-├── notes.md      # 整理出來的筆記
-└── article.md    # 要發布才有:文章與短版`}</Code>
-          <p className="mt-4">
-            一支影片一個資料夾。<strong>原始逐字稿永不修改</strong>：AI 修稿常會順手改到語意，
-            出問題要能回頭對原話。另外轉錄的中間檔很容易堆在系統 Temp，那裡會被自動清掉，整理前記得搬走。
-          </p>
-        </FadeIn>
-
-        <FadeIn>
-          <Heading id="digest">整理：大多時候丟 GPT 就夠</Heading>
-          <p>
-            大部分影片我根本不會走到寫文章那步。最常做的就是把逐字稿（.vtt 原檔也行）直接丟給 GPT，
-            問幾個固定問題：
-          </p>
-          <ul className="ml-6 mt-2 list-disc space-y-1">
-            <li>這支影片的核心主張是什麼，各在幾分幾秒</li>
-            <li>他給了什麼理由跟數據</li>
-            <li>有沒有前後矛盾，或他自己講的保留條件</li>
-            <li>哪些數字跟說法值得查證</li>
-          </ul>
-          <p className="mt-4">
-            五分鐘就有一份能存的筆記，比看完影片記得的多得多。
-            唯一要盯的是：叫它把「講者實際說的」跟「它自己的推論」分開，不然 AI 很愛把兩者混在一起。
-          </p>
-        </FadeIn>
-
-        <FadeIn>
-          <Heading id="article">要發布成文章再走完整流程</Heading>
-          <p>
-            要公開發文（尤其會批評到別人觀點、或涉及投資判斷）標準就高了，多兩件事：
-            <strong>查證</strong>（數字、日期、對他人立場的轉述、因果關係，逐項查，查不到就寫「未確認」，不准假裝查過），
-            以及<strong>把原話、摘要、自己的分析分開呈現</strong>，不把推論寫成對方原話。
-            實際的 prompt 大概長這樣，照自己的領域調：
-          </p>
-          <Code lang="text">{`把這份逐字稿整理成一篇分析文章。要求:
-- 先列內容卡:核心主張(帶時間戳)、理由與數據、講者自己的保留條件
-- 「講者實際說的」「摘要」「你的分析」分開,不把推論寫成他的原話
-- 需要查證的主張列成清單逐項查,查不到就寫「未確認」,不准假裝查過
-- 文章按讀者理解的順序重排,不照逐字稿順序機械重述
-- 不杜撰他沒說過的內容;涉及投資,事實與推測分開,不寫成買賣建議
-- 最後另附一版 300 字的社群短文`}</Code>
-          <p className="mt-4">
-            整套跑下來，轉錄幾乎全自動，查證還是要人工把關，但比從零開始寫快非常多。
+            不是每支影片都值得變成長文。先取得可靠的文字，值得留下的內容再投入時間查證和成文，
+            這樣整條流程才不會反過來變成新的負擔。
           </p>
         </FadeIn>
 

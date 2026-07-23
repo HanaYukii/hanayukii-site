@@ -16,10 +16,11 @@
 
 export const posts: Post[] = [
   {
-    title: "用 AI 把影片整理成筆記與文章",
+    title: "把 YouTube 影片變成逐字稿，再整理成文章",
     date: "2026-07-22",
+    updated: "2026-07-23",
     summary:
-      "看完影片只記得結論。把影片變成逐字稿再變筆記：字幕、音訊轉錄、會員影片的抓法，指令可直接抄；整理大多時候直接丟 GPT，要發布才走查證流程。",
+      "實際跑過的 YouTube 轉錄流程：先抓現成字幕，會員影片從瀏覽器攔 timedtext，再來才是音訊跑 Whisper；含常見錯誤排查，跟逐字稿到筆記與文章的整理法。",
     tags: ["AI", "Tooling"],
     tagStyle: "bg-primary/10 text-primary",
     href: "/blog/video-to-article-workflow",
