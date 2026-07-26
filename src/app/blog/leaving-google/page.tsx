@@ -130,7 +130,7 @@ export default function LeavingGoogle() {
           <div className="mb-8 rounded-xl border border-primary/30 bg-primary/5 p-4">
             <p className="text-sm text-text-muted">
               <span className="font-bold text-primary">TL;DR：</span>
-              有不少人以為我還在待業，或是轉去量化了。實際上目前在一家 AI 新創，負責重要的技術工作，做的事情跟演算法和 AI 都有關。公司細節因為還在 early stage 暫時先不公開，時機合適會再分享，也有機會公開招募。
+              有不少人以為我還在待業，或是轉去量化了。實際上目前在一家 AI 新創，負責重要的技術工作，做的事情跟演算法和 AI 都有關。公司目前還在 stealth mode，等正式 out of stealth、比較適合公開更多資訊時，我會再分享，也可能會公開招募。
             </p>
           </div>
         </FadeIn>
@@ -337,9 +337,9 @@ export default function LeavingGoogle() {
           <Heading id="decision">近期發展</Heading>
           <div className="space-y-4">
             <p>
-              這家新創目前還在 early stage，細節不方便多說。
+              這家新創目前還在 stealth mode，現在還不適合公開太多資訊。
               但擔任了重要的技術職位，做的事情跟演算法和 AI 都有關。
-              等之後比較可以公開了，會再寫一篇分享新創生活，甚至 hiring。
+              等公司正式 out of stealth 後，我會再分享新創生活，以及可能的招募資訊。
             </p>
             <p>
               事後半年走過之後的體會，這份工作完全給了我當時想要的東西，也完全找回了野心與自信：
