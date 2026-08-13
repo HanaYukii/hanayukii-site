@@ -264,7 +264,89 @@ function FigBias() {
   );
 }
 
-/* 圖 3：full-prefix hash vs sliding window */
+/* 圖 3：detector 如何把 token 命中聚合成統計證據 */
+function FigDetector() {
+  const tokens = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+  const hits = [true, false, true, true, false, true, true, false, true, true];
+  const x0 = 44;
+  const step = 66;
+
+  return (
+    <svg viewBox="0 0 760 344" className="block h-auto w-full min-w-[640px]">
+      <text x="28" y="28" fontSize="14" fontWeight="700" fill={ink}>
+        Detector 用同一把 key，逐位置重建「當時偏好哪些 token」
+      </text>
+      <text x="28" y="49" fontSize="12.5" fill={muted}>
+        單一位置只是一次擲硬幣；重點是整段命中比例是否異常
+      </text>
+
+      {tokens.map((token, i) => (
+        <g key={token}>
+          <rect
+            x={x0 + i * step}
+            y="76"
+            width="50"
+            height="42"
+            rx="9"
+            fill={hits[i] ? greenSoft : surfaceAlt}
+            stroke={hits[i] ? green : border}
+            strokeWidth={hits[i] ? 1.8 : 1.2}
+          />
+          <text
+            x={x0 + i * step + 25}
+            y="103"
+            textAnchor="middle"
+            fontSize="16"
+            fontFamily={mono}
+            fontWeight="700"
+            fill={ink}
+          >
+            {token}
+          </text>
+          <text
+            x={x0 + i * step + 25}
+            y="139"
+            textAnchor="middle"
+            fontSize="14"
+            fontWeight="700"
+            fill={hits[i] ? green : red}
+          >
+            {hits[i] ? "命中" : "未中"}
+          </text>
+        </g>
+      ))}
+
+      <path d="M380 153 L380 177" fill="none" stroke={muted} strokeWidth="1.6" />
+      <path d="M374 171 L380 179 L386 171" fill="none" stroke={muted} strokeWidth="1.6" />
+
+      <rect x="34" y="184" width="210" height="118" rx="15" fill={surfaceAlt} stroke={border} strokeWidth="1.3" />
+      <text x="54" y="211" fontSize="12" fill={muted} fontFamily={mono}>null hypothesis</text>
+      <text x="54" y="239" fontSize="15" fontWeight="700" fill={ink}>正常預期：5 / 10</text>
+      <rect x="54" y="258" width="160" height="12" rx="6" fill={ghost} />
+      <rect x="54" y="258" width="80" height="12" rx="6" fill={muted} fillOpacity="0.5" />
+      <text x="54" y="289" fontSize="12" fill={muted}>green baseline γ = 0.5</text>
+
+      <rect x="275" y="184" width="210" height="118" rx="15" fill={greenWash} stroke={green} strokeWidth="1.5" />
+      <text x="295" y="211" fontSize="12" fill={green} fontFamily={mono}>observed</text>
+      <text x="295" y="239" fontSize="15" fontWeight="700" fill={ink}>實際命中：7 / 10</text>
+      <rect x="295" y="258" width="160" height="12" rx="6" fill={ghost} />
+      <rect x="295" y="258" width="112" height="12" rx="6" fill={green} fillOpacity="0.85" />
+      <text x="295" y="289" fontSize="12" fill={muted}>多出的命中 = watermark evidence</text>
+
+      <path d="M495 243 L525 243" fill="none" stroke={green} strokeWidth="1.8" />
+      <path d="M519 237 L527 243 L519 249" fill="none" stroke={green} strokeWidth="1.8" />
+      <rect x="535" y="202" width="190" height="82" rx="15" fill="var(--illustration-sky-wash)" stroke={sky} strokeWidth="1.5" />
+      <text x="630" y="231" textAnchor="middle" fontSize="13" fontWeight="700" fill={ink}>換成 z-score</text>
+      <text x="630" y="258" textAnchor="middle" fontSize="12.5" fill={muted}>離隨機預期有幾個標準差？</text>
+
+      <text x="380" y="329" textAnchor="middle" fontSize="11.5" fill={muted}>
+        10 個 token 只是畫法示意；真實偵測需要更長文字才能建立可靠統計訊號
+      </text>
+    </svg>
+  );
+}
+
+/* 圖 4：full-prefix hash vs sliding window */
 function FigResync() {
   const seq = ["A", "B", "X", "D", "E", "F", "G", "H", "I"];
   const x0 = 115;
@@ -355,7 +437,78 @@ function FigResync() {
   );
 }
 
-/* 圖 4：統計證據隨長度累積 */
+/* 圖 5：高 entropy 才有空間留下訊號 */
+function FigEntropy() {
+  const high = [
+    { t: "有效", p: 27, hit: true },
+    { t: "實用", p: 25, hit: false },
+    { t: "有趣", p: 21, hit: true },
+    { t: "強大", p: 18, hit: false },
+  ];
+  const low = [
+    { t: "2", p: 99.9 },
+    { t: "3", p: 0.05 },
+    { t: "其他", p: 0.01 },
+  ];
+
+  return (
+    <svg viewBox="0 0 720 334" className="block h-auto w-full min-w-[600px]">
+      <rect x="24" y="42" width="324" height="254" rx="16" fill={greenWash} stroke={green} strokeWidth="1.5" />
+      <text x="44" y="28" fontSize="14" fontWeight="700" fill={ink}>高 entropy：模型本來就在猶豫</text>
+      <text x="44" y="70" fontSize="13" fill={muted}>「這是一個非常 ___ 的方法」</text>
+      {high.map((r, i) => (
+        <g key={r.t}>
+          <text x="44" y={112 + i * 38} fontSize="13.5" fill={ink}>{r.t}</text>
+          <rect x="98" y={101 + i * 38} width="170" height="14" rx="7" fill={ghost} />
+          <rect
+            x="98"
+            y={101 + i * 38}
+            width={r.p * 5}
+            height="14"
+            rx="7"
+            fill={r.hit ? green : muted}
+            fillOpacity={r.hit ? 0.9 : 0.48}
+          />
+          <text x="281" y={112 + i * 38} fontSize="12" fill={muted} fontFamily={mono}>{r.p}%</text>
+          {r.hit && <text x="316" y={112 + i * 38} textAnchor="end" fontSize="12" fill={green}>+δ</text>}
+        </g>
+      ))}
+      <rect x="62" y="264" width="248" height="24" rx="12" fill={greenSoft} />
+      <text x="186" y="281" textAnchor="middle" fontSize="12.5" fontWeight="700" fill={green}>
+        多個近似答案 → 適合微調
+      </text>
+
+      <rect x="372" y="42" width="324" height="254" rx="16" fill={surfaceAlt} stroke={border} strokeWidth="1.5" />
+      <text x="392" y="28" fontSize="14" fontWeight="700" fill={ink}>低 entropy：幾乎只有一個答案</text>
+      <text x="392" y="70" fontSize="13" fill={muted}>「1 + 1 = ___」</text>
+      {low.map((r, i) => (
+        <g key={r.t}>
+          <text x="392" y={112 + i * 44} fontSize="13.5" fill={ink}>{r.t}</text>
+          <rect x="446" y={101 + i * 44} width="190" height="14" rx="7" fill={ghost} />
+          <rect
+            x="446"
+            y={101 + i * 44}
+            width={Math.max(2, r.p * 1.9)}
+            height="14"
+            rx="7"
+            fill={i === 0 ? sky : muted}
+            fillOpacity={i === 0 ? 0.85 : 0.45}
+          />
+          <text x="674" y={112 + i * 44} textAnchor="end" fontSize="12" fill={muted} fontFamily={mono}>{r.p}%</text>
+        </g>
+      ))}
+      <rect x="410" y="240" width="248" height="48" rx="12" fill={redSoft} />
+      <text x="534" y="260" textAnchor="middle" fontSize="12.5" fontWeight="700" fill={red}>跳過，不施加 watermark</text>
+      <text x="534" y="278" textAnchor="middle" fontSize="11.5" fill={muted}>硬偏只會把正確答案弄壞</text>
+
+      <text x="360" y="322" textAnchor="middle" fontSize="11.5" fill={muted}>
+        watermark 的空間來自「多個答案本來就差不多合理」
+      </text>
+    </svg>
+  );
+}
+
+/* 圖 6：統計證據隨長度累積 */
 function FigAccumulate() {
   const xOf = (n: number) => 90 + (560 * n) / 2000;
   const yOf = (z: number) => 290 - 46 * z;
@@ -410,7 +563,7 @@ function FigAccumulate() {
   );
 }
 
-/* 圖 5：三種修改對 evidence 的影響 */
+/* 圖 7：三種修改對 evidence 的影響 */
 function FigAttack() {
   const rows: { label: string; marks: ("ok" | "bad" | "gone")[]; note: string; tone: string }[] = [
     {
@@ -481,7 +634,7 @@ function FigAttack() {
   );
 }
 
-/* 圖 6：三角 trade-off */
+/* 圖 8：三角 trade-off */
 function FigTradeoff() {
   return (
     <svg viewBox="0 0 620 372" className="block h-auto w-full min-w-[460px]">
@@ -864,6 +1017,9 @@ z = (hits - gamma*total) / sqrt(total * gamma * (1-gamma))`}</Code>
             單看任何一個 token 都證明不了什麼——它落在 green list 的機率本來就有一半。
             但 1000 個位置一起看，多出 70 個命中就不像是運氣了。
           </p>
+          <Figure caption="圖 3：detector 不讀取隱藏資料，而是逐位置重建 secret pattern、數命中，再把與隨機基準的差距換成 z-score。10 個 token 只是流程示意。">
+            <FigDetector />
+          </Figure>
           <Guess>
             上面每個數字都是為了算給你看而編的，不是 Claude 的實際參數或效能。
             真實系統的 <InlineMath math="\gamma" />、<InlineMath math="\delta" />、
@@ -889,7 +1045,7 @@ z = (hits - gamma*total) / sqrt(total * gamma * (1-gamma))`}</Code>
           </p>
           <BlockMath math="s_t = H(K, x_{t-k}, \ldots, x_{t-1})" />
 
-          <Figure caption="圖 3：同一個修改，兩種 context 取法的差別。k=3 時只有三個位置受影響，之後自動重新同步。">
+          <Figure caption="圖 4：同一個修改，兩種 context 取法的差別。k=3 時只有三個位置受影響，之後自動重新同步。">
             <FigResync />
           </Figure>
 
@@ -965,6 +1121,9 @@ z = (hits - gamma*total) / sqrt(total * gamma * (1-gamma))`}</Code>
             這裡任何有意義的 bias 都是在把正確答案換掉。所以合理的設計會<strong>看分布的形狀決定要不要動手</strong>：
             低 entropy 的位置放過，不計分也不干預。
           </p>
+          <Figure caption="圖 5：高 entropy 的位置有多個近似答案，可以用很小的偏差留下訊號；低 entropy 的位置應直接跳過。機率是 toy example。">
+            <FigEntropy />
+          </Figure>
           <p>這對幾類輸出特別重要，因為它們幾乎整段都是低 entropy：</p>
           <ul className="my-3 list-disc space-y-1.5 pl-5">
             <li>
@@ -1005,7 +1164,7 @@ z = (hits - gamma*total) / sqrt(total * gamma * (1-gamma))`}</Code>
           </p>
           <BlockMath math="z = \frac{0.55N - 0.5N}{\sqrt{0.25N}} = 0.1\sqrt{N}" />
 
-          <Figure caption="圖 4：同樣的每步偏差，z-score 隨 √N 成長。橫軸是可計分位置數，不是總字數。數字為 toy 設定。">
+          <Figure caption="圖 6：同樣的每步偏差，z-score 隨 √N 成長。橫軸是可計分位置數，不是總字數。數字為 toy 設定。">
             <FigAccumulate />
           </Figure>
 
@@ -1058,7 +1217,7 @@ N = 4000   →  z ≈ 6.3     幾乎不可能是巧合`}</Code>
         <FadeIn>
           <Heading id="attack">什麼才真的洗得掉</Heading>
 
-          <Figure caption="圖 5：三種處理方式對 evidence 的影響。前兩種只是少掉一些命中位置，第三種是整排重新 sample。">
+          <Figure caption="圖 7：三種處理方式對 evidence 的影響。前兩種只是少掉一些命中位置，第三種是整排重新 sample。">
             <FigAttack />
           </Figure>
 
@@ -1103,7 +1262,7 @@ N = 4000   →  z ≈ 6.3     幾乎不可能是巧合`}</Code>
           <Heading id="tradeoff">三角 trade-off</Heading>
           <p>整篇最後會收斂到三個量互相拉扯：</p>
 
-          <Figure caption="圖 6：δ 只是在這條線上滑動——把偵測與耐改推高，就得吐出品質。">
+          <Figure caption="圖 8：δ 只是在這條線上滑動——把偵測與耐改推高，就得吐出品質。">
             <FigTradeoff />
           </Figure>
 
