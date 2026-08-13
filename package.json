@@ -14,7 +14,6 @@
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
-    "framer-motion": "^12.38.0",
     "katex": "^0.16.45",
     "next": "^16.2.1",
     "prism-react-renderer": "^2.4.1",
