@@ -44,8 +44,9 @@ export default async function Image() {
           display: "flex",
           flexDirection: "column",
           backgroundColor: "#0c0e14",
+          // 跟站上同一支背景配方（裝訂暗角），不再用已經刪掉的 aurora
           backgroundImage:
-            "linear-gradient(140deg, rgba(244,132,95,0.18) 0%, rgba(244,132,95,0.05) 24%, transparent 52%), linear-gradient(220deg, rgba(56,189,248,0.16) 0%, rgba(56,189,248,0.04) 26%, transparent 54%)",
+            "linear-gradient(90deg, rgba(0,0,0,0.42) 0%, transparent 22%, transparent 78%, rgba(0,0,0,0.42) 100%)",
           padding: "80px 90px",
           color: "#e4e7ef",
           fontFamily: "Inter",
@@ -54,12 +55,22 @@ export default async function Image() {
         <div
           style={{
             display: "flex",
+            alignItems: "center",
+            gap: 18,
             color: "#2ec4b6",
             fontSize: 24,
             letterSpacing: 4,
           }}
         >
-          / PERSONAL SITE
+          <svg width="36" height="36" viewBox="0 0 32 32">
+            <g stroke="#f4845f" strokeWidth="2.4" strokeLinecap="round">
+              <line x1="16" y1="6" x2="16" y2="26" />
+              <line x1="24.66" y1="11" x2="7.34" y2="21" />
+              <line x1="7.34" y1="11" x2="24.66" y2="21" />
+            </g>
+            <circle cx="16" cy="16" r="2.6" fill="#2ec4b6" />
+          </svg>
+          <span>PERSONAL SITE</span>
         </div>
 
         <div

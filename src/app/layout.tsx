@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Newsreader, Inter_Tight, JetBrains_Mono, Noto_Serif_TC } from "next/font/google";
 import { topics } from "@/data/topics";
 import ThemeToggle from "@/components/ThemeToggle";
+import Mark from "@/components/Mark";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -83,11 +84,14 @@ function Navbar() {
       <div className="mx-auto flex max-w-4xl items-center justify-between gap-4 px-6 py-4">
         <Link
           href="/"
-          className="shrink-0 text-xl font-bold text-text transition-colors hover:text-primary sm:text-2xl"
+          className="group flex shrink-0 items-center gap-2.5 text-xl font-bold text-text transition-colors hover:text-primary sm:text-2xl"
         >
-          花雪{" "}
-          <span className="hidden font-normal text-text/70 sm:inline">
-            (HanaYukii)
+          <Mark className="h-5 w-5 shrink-0 text-accent sm:h-[1.375rem] sm:w-[1.375rem]" />
+          <span>
+            花雪{" "}
+            <span className="hidden font-normal text-text/70 sm:inline">
+              (HanaYukii)
+            </span>
           </span>
         </Link>
         <div className="flex min-w-0 items-center gap-3 sm:gap-6">
