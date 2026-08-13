@@ -115,7 +115,7 @@ export default function Home() {
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className={`rounded-full px-2 py-0.5 text-[11px] font-medium ${post.tagStyle}`}
+                    className={`tag text-[11px] font-medium ${post.tagStyle}`}
                   >
                     {tag}
                   </span>
@@ -151,7 +151,7 @@ export default function Home() {
             >
               <div className="flex min-w-0 items-center gap-2">
                 <span
-                  className={`shrink-0 rounded-full px-1.5 py-0.5 text-[10px] font-medium ${post.tagStyle}`}
+                  className={`tag shrink-0 text-[10px] font-medium ${post.tagStyle}`}
                 >
                   {post.tags[0]}
                 </span>

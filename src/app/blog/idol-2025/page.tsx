@@ -22,7 +22,7 @@ function Heading({ date, children, id }: { date?: string; children: React.ReactN
   return (
     <div className="mb-4 mt-12 scroll-mt-20 border-t border-border/30 pt-8" id={id}>
       {date && (
-        <span className="mb-2 inline-block rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+        <span className="mb-2 inline-block tag text-xs font-medium text-accent">
           {date}
         </span>
       )}
@@ -46,10 +46,10 @@ export default function Idol2025() {
         </Link>
 
         <div className="mb-4 flex flex-wrap gap-2">
-          <span className="rounded-full bg-warm/10 px-2.5 py-0.5 text-xs font-medium text-warm">
+          <span className="tag text-xs font-medium text-warm">
             Life
           </span>
-          <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+          <span className="tag text-xs font-medium text-accent">
             Idol
           </span>
         </div>
@@ -495,7 +495,7 @@ export default function Idol2025() {
           {["Idol", "Life", "えびちゅう", "TEAM SHACHI", "高嶺のなでしこ", "ももクロ", "Live"].map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-surface px-3 py-1 text-text-muted"
+              className="tag text-text-muted"
             >
               {tag}
             </span>

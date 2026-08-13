@@ -33,8 +33,8 @@ function SubHeading({ children }: { children: React.ReactNode }) {
 
 function Fact({ children }: { children: React.ReactNode }) {
   return (
-    <div className="my-4 rounded-xl border border-primary/40 bg-primary/10 px-4 py-3 text-sm">
-      <span className="mr-2 inline-flex rounded-md bg-primary px-2 py-1 font-mono text-[11px] font-bold tracking-wider text-bg">
+    <div className="my-4 border-l-2 border-primary bg-primary/5 px-4 py-3 text-sm">
+      <span className="mr-2 font-mono text-[11px] font-bold tracking-wider text-primary">
         已公開
       </span>
       {children}
@@ -44,8 +44,8 @@ function Fact({ children }: { children: React.ReactNode }) {
 
 function Guess({ children }: { children: React.ReactNode }) {
   return (
-    <div className="my-4 rounded-xl border border-dashed border-warm/50 bg-warm/10 px-4 py-3 text-sm">
-      <span className="mr-2 inline-flex rounded-md bg-warm px-2 py-1 font-mono text-[11px] font-bold tracking-wider text-bg">
+    <div className="my-4 border-l-2 border-dashed border-warm/60 bg-warm/5 px-4 py-3 text-sm">
+      <span className="mr-2 font-mono text-[11px] font-bold tracking-wider text-warm">
         推測
       </span>
       {children}
@@ -728,10 +728,10 @@ export default function LlmTextWatermark() {
         </Link>
 
         <div className="mb-4 flex flex-wrap gap-2">
-          <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+          <span className="tag text-xs font-medium text-primary">
             AI
           </span>
-          <span className="rounded-full bg-sky/10 px-2.5 py-0.5 text-xs font-medium text-sky">
+          <span className="tag text-xs font-medium text-sky">
             Algorithm
           </span>
         </div>
@@ -750,7 +750,7 @@ export default function LlmTextWatermark() {
         </FadeIn>
 
         <FadeIn>
-          <div className="rounded-2xl border-2 border-primary/40 bg-primary/10 p-6 shadow-sm">
+          <div className="border-y border-primary/40 py-6">
             <div className="mb-5 flex items-center gap-3">
               <span className="h-px flex-1 bg-primary/30" />
               <div className="text-center">
@@ -825,7 +825,7 @@ export default function LlmTextWatermark() {
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <div className="mt-8 rounded-xl border border-border bg-surface/40 p-6">
+          <div className="mt-8 border-y border-border py-6">
             <p className="mb-3 text-sm font-bold uppercase tracking-wider text-text-muted">
               本文路線
             </p>
@@ -1380,7 +1380,7 @@ N = 4000   →  z ≈ 6.3     在理想模型下很強`}</Code>
         <FadeIn>
           <div className="mt-12 flex flex-wrap gap-2 text-xs">
             {["LLM Watermark", "PRF", "Statistical Detection", "C2PA", "Anthropic"].map((tag) => (
-              <span key={tag} className="rounded-full bg-surface px-3 py-1 text-text-muted">
+              <span key={tag} className="tag text-text-muted">
                 {tag}
               </span>
             ))}

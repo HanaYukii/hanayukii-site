@@ -86,7 +86,7 @@ export default function Tif2025ShachiRespectStage() {
           {["Idol", "TIF", "TEAM SHACHI"].map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent"
+              className="tag text-xs font-medium text-accent"
             >
               {tag}
             </span>
@@ -186,7 +186,7 @@ export default function Tif2025ShachiRespectStage() {
 
         <FadeIn>
           <Heading>Respect Stage 的七首歌</Heading>
-          <ul className="my-6 space-y-4 rounded-xl border border-border bg-surface/40 p-5 text-sm sm:p-6">
+          <ul className="my-6 space-y-4 border-y border-border py-5 text-sm">
             <li>
               <strong>ばってん少女隊｜〈カントリーガール〉</strong>
               <p className="mt-1">

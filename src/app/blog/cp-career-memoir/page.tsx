@@ -40,10 +40,10 @@ export default function CpCareerMemoir() {
         </Link>
 
         <div className="mb-4 flex flex-wrap gap-2">
-          <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+          <span className="tag text-xs font-medium text-accent">
             Competitive Programming
           </span>
-          <span className="rounded-full bg-warm/10 px-2.5 py-0.5 text-xs font-medium text-warm">
+          <span className="tag text-xs font-medium text-warm">
             Personal
           </span>
         </div>
@@ -57,7 +57,7 @@ export default function CpCareerMemoir() {
       </FadeIn>
 
       <FadeIn delay={0.1}>
-        <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
+        <nav className="mb-12 border-y border-border py-6">
           <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
             Agenda
           </p>
@@ -356,7 +356,7 @@ export default function CpCareerMemoir() {
             {["Competitive Programming", "ICPC", "NCPC", "Codeforces", "回憶"].map((tag) => (
               <span
                 key={tag}
-                className="rounded-full bg-surface px-3 py-1 text-text-muted"
+                className="tag text-text-muted"
               >
                 {tag}
               </span>

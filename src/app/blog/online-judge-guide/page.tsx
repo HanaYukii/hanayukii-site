@@ -47,7 +47,7 @@ export default function OnlineJudgeGuide() {
         </Link>
 
         <div className="mb-4 flex flex-wrap gap-2">
-          <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+          <span className="tag text-xs font-medium text-accent">
             Competitive Programming
           </span>
         </div>
@@ -58,7 +58,7 @@ export default function OnlineJudgeGuide() {
       </FadeIn>
 
       <FadeIn delay={0.05}>
-        <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
+        <nav className="mb-12 border-y border-border py-6">
           <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
             Agenda
           </p>

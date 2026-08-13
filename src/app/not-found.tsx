@@ -13,13 +13,13 @@ export default function NotFound() {
       <div className="mt-8 flex flex-wrap gap-3">
         <Link
           href="/"
-          className="inline-flex items-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:brightness-110"
+          className="inline-flex items-center rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:brightness-110"
         >
           回首頁
         </Link>
         <Link
           href="/blog"
-          className="inline-flex items-center rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-all hover:border-primary hover:text-primary"
+          className="inline-flex items-center rounded-md border border-border px-5 py-2.5 text-sm font-medium transition-all hover:border-primary hover:text-primary"
         >
           所有文章
         </Link>

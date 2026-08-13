@@ -35,15 +35,21 @@ function InlineLinks({ items }: { items: LinkItem[] }) {
   );
 }
 
+// tone 決定短橫線與文字的顏色；rating 是持續性的排名，contest 是單場成績。
 const cpBadges = [
-  { text: "ICPC Taipei Regional Gold — Team Leader & Main Coder (2020)", color: "bg-accent/10 text-accent" },
-  { text: "Codeforces 2300+ — International Master (Top 0.5%)", color: "bg-primary/10 text-primary" },
-  { text: "LeetCode 2800+ — Guardian", color: "bg-primary/10 text-primary" },
-  { text: "AtCoder 2000+ — 1 Dan", color: "bg-primary/10 text-primary" },
-  { text: "Google Code Jam Round 3 (x2)", color: "bg-accent/10 text-accent" },
-  { text: "Meta Hacker Cup Round 3 (x3)", color: "bg-accent/10 text-accent" },
-  { text: "Google Kick Start — Invited to Google Visit Program (2020)", color: "bg-accent/10 text-accent" },
-];
+  { text: "ICPC Taipei Regional Gold — Team Leader & Main Coder (2020)", tone: "contest" },
+  { text: "Codeforces 2300+ — International Master (Top 0.5%)", tone: "rating" },
+  { text: "LeetCode 2800+ — Guardian", tone: "rating" },
+  { text: "AtCoder 2000+ — 1 Dan", tone: "rating" },
+  { text: "Google Code Jam Round 3 (x2)", tone: "contest" },
+  { text: "Meta Hacker Cup Round 3 (x3)", tone: "contest" },
+  { text: "Google Kick Start — Invited to Google Visit Program (2020)", tone: "contest" },
+] as const;
+
+const cpTone = {
+  rating: { rule: "bg-primary", text: "text-primary" },
+  contest: { rule: "bg-accent", text: "text-accent" },
+} as const;
 
 const cpLinks: LinkItem[] = [
   { label: "Codeforces", href: "https://codeforces.com/profile/HanaYukii" },
@@ -128,12 +134,12 @@ export default function AboutContent() {
     <div lang={lang === "zh" ? "zh-Hant" : "en"} className="mx-auto max-w-3xl px-6 py-16">
       {/* ── Lang Toggle ── */}
       <div className="mb-8 flex justify-end">
-        <div className="inline-flex rounded-full border border-border p-1 text-sm">
+        <div className="inline-flex rounded-md border border-border p-1 text-sm">
           <button
             type="button"
             aria-pressed={lang === "zh"}
             onClick={() => setLang("zh")}
-            className={`rounded-full px-3 py-1 transition-all ${
+            className={`rounded-md px-3 py-1 transition-all ${
               lang === "zh" ? "bg-primary text-white" : "text-text-muted hover:text-text"
             }`}
           >
@@ -143,7 +149,7 @@ export default function AboutContent() {
             type="button"
             aria-pressed={lang === "en"}
             onClick={() => setLang("en")}
-            className={`rounded-full px-3 py-1 transition-all ${
+            className={`rounded-md px-3 py-1 transition-all ${
               lang === "en" ? "bg-primary text-white" : "text-text-muted hover:text-text"
             }`}
           >
@@ -184,7 +190,7 @@ export default function AboutContent() {
             href="https://calendly.com/islu245777/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110"
+            className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110"
           >
             {lang === "zh" ? "預約 1:1 交流" : "Book a 1:1 chat"}
             <svg aria-hidden="true" className="h-3 w-3 opacity-70" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2">
@@ -201,13 +207,17 @@ export default function AboutContent() {
       <FadeIn>
         <section className={sectionClass}>
           <h2 className="mb-5 text-2xl font-bold">Competitive Programming</h2>
-          <div className="flex flex-wrap gap-2.5">
+          <ul className="max-w-lg border-y border-border/80 py-2">
             {cpBadges.map((badge) => (
-              <span key={badge.text} className={`rounded-full px-3 py-1 text-sm font-medium ${badge.color}`}>
-                {badge.text}
-              </span>
+              <li
+                key={badge.text}
+                className="grid grid-cols-[1rem_1fr] items-baseline gap-3 py-2 text-sm"
+              >
+                <span className={`h-px w-4 translate-y-[0.5em] ${cpTone[badge.tone].rule}`} />
+                <span className={cpTone[badge.tone].text}>{badge.text}</span>
+              </li>
             ))}
-          </div>
+          </ul>
           <div className="mt-4">
             <InlineLinks items={cpLinks} />
           </div>
@@ -252,7 +262,7 @@ export default function AboutContent() {
           </div>
           <div className="mt-6 flex flex-wrap gap-2">
             {skills[lang].map((s) => (
-              <span key={s} className="rounded-full border border-border bg-surface/40 px-3 py-1 text-sm text-text-muted">{s}</span>
+              <span key={s} className="rounded-md border border-border bg-surface/40 px-3 py-1 text-sm text-text-muted">{s}</span>
             ))}
           </div>
         </section>
@@ -286,7 +296,7 @@ export default function AboutContent() {
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <a
               href="mailto:islu245777@gmail.com"
-              className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium transition-all hover:border-primary hover:text-primary"
+              className="inline-flex items-center gap-1.5 rounded-md border border-border px-4 py-2 text-sm font-medium transition-all hover:border-primary hover:text-primary"
             >
               islu245777@gmail.com
             </a>

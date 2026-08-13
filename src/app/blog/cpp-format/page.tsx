@@ -39,10 +39,10 @@ export default function CppFormat() {
         </Link>
 
         <div className="mb-4 flex flex-wrap gap-2">
-          <span className="rounded-full bg-sky/10 px-2.5 py-0.5 text-xs font-medium text-sky">
+          <span className="tag text-xs font-medium text-sky">
             C++
           </span>
-          <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+          <span className="tag text-xs font-medium text-primary">
             C++20
           </span>
         </div>

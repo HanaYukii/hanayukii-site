@@ -116,7 +116,7 @@ export default async function Blog({
                 {post.tags.map((t) => (
                   <span
                     key={t}
-                    className={`rounded-full px-2 py-0.5 text-[11px] font-medium ${post.tagStyle}`}
+                    className={`tag text-[11px] font-medium ${post.tagStyle}`}
                   >
                     {t}
                   </span>

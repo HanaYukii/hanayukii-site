@@ -39,10 +39,10 @@ export default function CursorBillingDispute() {
         </Link>
 
         <div className="mb-4 flex flex-wrap gap-2">
-          <span className="rounded-full bg-warm/10 px-2.5 py-0.5 text-xs font-medium text-warm">
+          <span className="tag text-xs font-medium text-warm">
             雜談
           </span>
-          <span className="rounded-full bg-warm/10 px-2.5 py-0.5 text-xs font-medium text-warm">
+          <span className="tag text-xs font-medium text-warm">
             SaaS
           </span>
         </div>

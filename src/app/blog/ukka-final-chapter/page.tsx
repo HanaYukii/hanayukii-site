@@ -52,13 +52,13 @@ export default function UkkaFinalChapter() {
         </Link>
 
         <div className="mb-4 flex flex-wrap gap-2">
-          <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+          <span className="tag text-xs font-medium text-accent">
             Idol
           </span>
-          <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+          <span className="tag text-xs font-medium text-accent">
             Live
           </span>
-          <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+          <span className="tag text-xs font-medium text-accent">
             Life
           </span>
         </div>

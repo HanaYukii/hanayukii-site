@@ -41,10 +41,10 @@ export default function Lc2463() {
         </Link>
 
         <div className="mb-4 flex flex-wrap gap-2">
-          <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+          <span className="tag text-xs font-medium text-accent">
             Algorithm
           </span>
-          <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+          <span className="tag text-xs font-medium text-accent">
             DP
           </span>
         </div>
@@ -165,7 +165,7 @@ public:
           {["Algorithm", "DP", "Greedy", "LeetCode Daily"].map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-surface px-3 py-1 text-text-muted"
+              className="tag text-text-muted"
             >
               {tag}
             </span>

@@ -34,7 +34,7 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={switchTheme}
-      className="rounded-full border border-border bg-surface/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-text-muted transition-colors hover:border-primary hover:text-primary"
+      className="rounded-md border border-border bg-surface/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-text-muted transition-colors hover:border-primary hover:text-primary"
       aria-label={`Switch to ${nextTheme} theme`}
     >
       {currentTheme === "dark" ? "Dark" : "Paper"}

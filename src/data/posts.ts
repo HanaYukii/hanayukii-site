@@ -10,9 +10,9 @@
   hot?: boolean;
 };
 
-// tagStyle convention:
-//   bg-primary/10 text-primary  →  technical writeups (CP, C++, SWE, Web3, system design)
-//   bg-accent/10 text-accent    →  personal essays / life / career narratives
+// tagStyle convention（只放文字色；tag 的〔〕外框由 globals.css 的 .tag 生成）:
+//   text-primary  →  technical writeups (CP, C++, SWE, Web3, system design)
+//   text-accent   →  personal essays / life / career narratives
 
 export const posts: Post[] = [
   {
@@ -21,7 +21,7 @@ export const posts: Post[] = [
     summary:
       "Anthropic 沒有公開 Claude 的實作；這篇從經典 green list 方法出發，整理 secret 如何控制 token sampling、detector 如何累積統計訊號，以及局部修改為什麼不一定會洗掉浮水印。",
     tags: ["AI", "Algorithm"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/llm-text-watermark",
   },
   {
@@ -31,7 +31,7 @@ export const posts: Post[] = [
     summary:
       "實際跑過的 YouTube 轉錄流程：先抓現成字幕，會員影片從瀏覽器攔 timedtext，再來才是音訊跑 Whisper；含常見錯誤排查，跟逐字稿到筆記與文章的整理法。",
     tags: ["AI", "Tooling"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/video-to-article-workflow",
   },
   {
@@ -40,7 +40,7 @@ export const posts: Post[] = [
     summary:
       "用 claude -p 把獨立的讀 code、查錯與 code review 交給 Claude Code，再做成 Codex skill 視情況自動委派。",
     tags: ["AI", "Tooling"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/codex-call-claude",
   },
   {
@@ -49,7 +49,7 @@ export const posts: Post[] = [
     summary:
       "又快到 TIF 的季節，重看去年 TEAM SHACHI 的 Respect Stage：一團一首歌，以及後來才知道也是最後一次 TIF 的 ukka。",
     tags: ["Idol", "TIF", "TEAM SHACHI"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "text-accent",
     href: "/blog/tif-2025-shachi-respect-stage",
   },
   {
@@ -58,7 +58,7 @@ export const posts: Post[] = [
     summary:
       "帶單點修改的「區間吃糖到 ≥ k 最少顆數」。merge-sort tree 每節點掛 Fenwick 支援改值，再把 index / value 對調、用 kth-element 式 descent 省掉外層二分的 log。",
     tags: ["Competitive Programming", "Segment Tree"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/abc467g-many-sweets",
   },
   {
@@ -67,7 +67,7 @@ export const posts: Post[] = [
     summary:
       "和朋友一起做的 JLPT 自習網站，從基礎變化一路練到 N1，也會把答錯的題目排進複習。這篇記錄目前的練習模式和設計。",
     tags: ["AI", "Frontend"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/jabiko-jlpt-app",
     hot: true,
   },
@@ -77,7 +77,7 @@ export const posts: Post[] = [
     summary:
       "我怎麼讓 subagent 和 Codex 平行出題、互相審查，再用 lint、dry-run 和讀音驗證擋掉近義雙解。",
     tags: ["AI", "Software Engineering"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/ai-exam-authoring-workflow",
   },
   {
@@ -87,7 +87,7 @@ export const posts: Post[] = [
     summary:
       "用官方的 codex-plugin-cc，在 Claude Code 裡直接叫 Codex 做 code review、對抗式審查、或把卡住的任務丟給它。完整安裝步驟、登入認證、設定，以及費用怎麼算。",
     tags: ["AI", "Tooling"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/claude-call-codex",
   },
   {
@@ -96,7 +96,7 @@ export const posts: Post[] = [
     summary:
       "同一介面、不同行為，C++ 有兩條路：動態多型（virtual，執行期分派）與靜態多型（template / CRTP，編譯期分派）。以例子對照，附 concept 與選用時機。",
     tags: ["C++", "Performance"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/cpp-polymorphism",
   },
   {
@@ -105,7 +105,7 @@ export const posts: Post[] = [
     summary:
       "反射就是程式檢視自己的型別與結構。C++ 一直做得克難：執行期靠 RTTI、編譯期靠 type_traits，要列欄位得靠第三方庫，而 C++26 的 static reflection 把它變成語言內建。搭配簡單例子，順便對照其他語言。",
     tags: ["C++", "Reflection"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/cpp-reflection",
   },
   {
@@ -114,7 +114,7 @@ export const posts: Post[] = [
     summary:
       "std::span 把 vector、array、指標加長度收成同一個介面：基本用法、subspan 切片、static extent，還有 span<const T> 跟 const span<T> 不是同一回事的坑。",
     tags: ["C++", "C++20"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/cpp-span",
   },
   {
@@ -123,7 +123,7 @@ export const posts: Post[] = [
     summary:
       "youth case 寫給 TEAM SHACHI 的畢業曲〈晴れ晴れ〉。在 THE FINAL 聽到這首歌後，整理了一些歌詞翻譯和自己的感想。",
     tags: ["Idol", "Live", "Life"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "text-accent",
     href: "/blog/shachi-harebare",
   },
   {
@@ -132,7 +132,7 @@ export const posts: Post[] = [
     summary:
       "std::format 格式語法速記：對齊寬度、浮點數的 precision 與 type，還有 precision 在浮點數跟字串上語義不同的坑。",
     tags: ["C++", "C++20"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/cpp-format",
   },
   {
@@ -141,7 +141,7 @@ export const posts: Post[] = [
     summary:
       "TEAM SHACHI「マジ感謝」歌詞翻譯與心得。解散、畢業、最後一場 live，都很適合拿它來收尾。",
     tags: ["Idol", "Life"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "text-accent",
     href: "/blog/maji-kansha",
   },
   {
@@ -150,7 +150,7 @@ export const posts: Post[] = [
     summary:
       "看完 ukka 最後一場 live 後的感想。才剛開始追就遇上解散，記下這一年的現場、喜歡上的成員，還有最後一天的不甘心。",
     tags: ["Idol", "Live", "Life"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "text-accent",
     href: "/blog/ukka-final-chapter",
   },
   {
@@ -159,7 +159,7 @@ export const posts: Post[] = [
     summary:
       "從 Stardust 起點，到現在主要在追、已解散的推、以前喜歡偶爾看、觀望中的團。成員名以代表色標示。",
     tags: ["Idol", "Life"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "text-accent",
     href: "/blog/oshi-list",
   },
   {
@@ -168,7 +168,7 @@ export const posts: Post[] = [
     summary:
       "高嶺のなでしこ「生きてりゃいい」歌詞翻譯。エースコック はるさめキャンペーン主題曲，shito・中西作詞作曲，HoneyWorks 編曲。",
     tags: ["Idol", "takaneko"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "text-accent",
     href: "/blog/takaneko-ikite-ryaii",
   },
   {
@@ -177,7 +177,7 @@ export const posts: Post[] = [
     summary:
       "把買假日問題轉成最大不相鄰省略和，並用線段樹「左右端狀態相依」模式維護動態查詢。順便整理 max subarray sum 同模式的對照。",
     tags: ["Competitive Programming", "Segment Tree"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/abc456f-plan-holidays",
   },
   {
@@ -187,7 +187,7 @@ export const posts: Post[] = [
     summary:
       "從 D 大、JAM 到 Google RSU，回頭看牛市怎麼放大個人魅力，預測為什麼是一種沒有強制平倉的槓桿，以及我自己在配置上的反思。",
     tags: ["Life", "投資"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "text-accent",
     href: "/blog/kol-bull-market-amplifier",
   },
   {
@@ -196,7 +196,7 @@ export const posts: Post[] = [
     summary:
       "公司用 Cursor Teams 年繳遇到的 seat billing 爭議：email rotation 被當成新增 seat，已付費 seat 沒人能用卻繼續被收錢。簡短紀錄一下。",
     tags: ["雜談", "SaaS"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "text-accent",
     href: "/blog/cursor-billing-dispute",
   },
   {
@@ -205,7 +205,7 @@ export const posts: Post[] = [
     summary:
       "以前不太想寫文件，現在卻常拿它當成團隊、AI 和未來自己共用的 context。整理我這幾年對文件 ROI 的看法。",
     tags: ["Software Engineering", "AI"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/documentation-ai-era",
   },
   {
@@ -214,7 +214,7 @@ export const posts: Post[] = [
     summary:
       "從台灣的 ZeroJudge、TIOJ 到 Codeforces、AtCoder、LeetCode，主流 OJ 的特色、適合誰、怎麼用。給想入坑 CP 或不知道往哪邊練的人。",
     tags: ["Competitive Programming"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/online-judge-guide",
     hot: true,
   },
@@ -224,7 +224,7 @@ export const posts: Post[] = [
     summary:
       "直觀的二維匹配 DP，但轉移的實作不太直觀。每日一題的好題。",
     tags: ["Algorithm", "DP"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/lc-2463",
   },
   {
@@ -233,7 +233,7 @@ export const posts: Post[] = [
     summary:
       "從計概作業太難開始刷題，一路打到 ICPC Gold。回頭記錄大學競賽、出國比賽，以及這段經歷後來怎麼影響我的工作。",
     tags: ["Competitive Programming", "Personal"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "text-accent",
     href: "/blog/cp-career-memoir",
     hot: true,
   },
@@ -243,7 +243,7 @@ export const posts: Post[] = [
     summary:
       "Segment Tree 維護 GCD，分 case 討論。值域限制讓拿掉誰 GCD 都不為 1 只在很小的 n 才可能。",
     tags: ["Competitive Programming", "Number Theory"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/lc-wc497-q4",
   },
   {
@@ -252,7 +252,7 @@ export const posts: Post[] = [
     summary:
       "去年我是粉絲，今年我換了角度。一場心理成長活動背後的包裝、銷售設計，以及我自己的反思。",
     tags: ["Life", "觀察"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "text-accent",
     href: "/blog/reset-influence-analysis",
   },
   {
@@ -261,7 +261,7 @@ export const posts: Post[] = [
     summary:
       "Nim + XOR 加法恆等式 + Digit DP。把區間博弈轉成 Nim，再用代數轉換拆解 counting。",
     tags: ["Competitive Programming", "Game Theory"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/cf2217f",
   },
   {
@@ -270,7 +270,7 @@ export const posts: Post[] = [
     summary:
       "2025 年重新開始跑偶像現場的紀錄。從桃草、蝦中、SHACHI 到高嶺のなでしこ，寫下看過哪些場，又是怎麼一路接回來的。",
     tags: ["Life", "Idol"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "text-accent",
     href: "/blog/idol-2025",
   },
   {
@@ -279,7 +279,7 @@ export const posts: Post[] = [
     summary:
       "用 Midnight Network 當例子，整理 ZK-SNARKs、雙狀態架構和選擇性揭露，也比較幾種隱私方案的差別。",
     tags: ["Web3", "Privacy"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/privacy-chain-midnight",
   },
   {
@@ -288,7 +288,7 @@ export const posts: Post[] = [
     summary:
       "在 Google Cloud 待了三年後裸辭。工作量不算大，但內容跟期待的落差越來越大，最後決定去早期 AI 新創。",
     tags: ["Career", "Personal"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "text-accent",
     href: "/blog/leaving-google",
     hot: true,
   },
@@ -298,7 +298,7 @@ export const posts: Post[] = [
     summary:
       "我想把這個很常被講得很玄的主題講清楚，所以直接用例子拆到夠細。",
     tags: ["Design Pattern", "Software Engineering"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/dependency-injection",
   },
   {
@@ -307,7 +307,7 @@ export const posts: Post[] = [
     summary:
       "從 constexpr 到 LUT 生成，整理五個實用技巧，以及哪些工作值得提前到編譯期做。",
     tags: ["C++", "Performance"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/cpp-compile-time-optimization",
   },
   {
@@ -316,7 +316,7 @@ export const posts: Post[] = [
     summary:
       "std::string 不一定用 heap？return 時加 std::move 反而更慢？拆解編譯器與標準庫在背後做的事。",
     tags: ["C++", "Performance", "Memory"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/cpp-secret-optimizations-1",
   },
   {
@@ -325,7 +325,7 @@ export const posts: Post[] = [
     summary:
       "sizeof 不是你想的那樣、virtual 讓物件膨脹 4 倍、shared_ptr 的隱藏原子操作代價。",
     tags: ["C++", "Performance", "Memory"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/cpp-secret-optimizations-2",
   },
   {
@@ -334,7 +334,7 @@ export const posts: Post[] = [
     summary:
       "世界頂級量化交易公司的面試，面試官劍橋畢業，從零實作 inplace_vector：aligned storage、placement new、Rule of Five。",
     tags: ["C++", "C++26", "Interview"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/cpp-inplace-vector",
   },
   {
@@ -343,7 +343,7 @@ export const posts: Post[] = [
     summary:
       "我親身參與的某知名 Crypto / HFT 公司 C++ 面試，涵蓋 string 傳遞、lambda 捕獲、Order Book 設計等六道效能分析題。",
     tags: ["C++", "Interview", "HFT"],
-    tagStyle: "bg-primary/10 text-primary",
+    tagStyle: "text-primary",
     href: "/blog/cpp-interview-performance-analysis",
   },
 ];

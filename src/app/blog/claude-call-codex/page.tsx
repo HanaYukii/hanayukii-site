@@ -39,10 +39,10 @@ export default function ClaudeCallCodex() {
         </Link>
 
         <div className="mb-4 flex flex-wrap gap-2">
-          <span className="rounded-full bg-sky/10 px-2.5 py-0.5 text-xs font-medium text-sky">
+          <span className="tag text-xs font-medium text-sky">
             AI
           </span>
-          <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+          <span className="tag text-xs font-medium text-primary">
             Tooling
           </span>
         </div>

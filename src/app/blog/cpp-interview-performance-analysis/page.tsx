@@ -90,13 +90,13 @@ export default function CppInterviewPerformanceAnalysis() {
 
         {/* Header */}
         <div className="mb-4 flex flex-wrap gap-2">
-          <span className="rounded-full bg-sky/10 px-2.5 py-0.5 text-xs font-medium text-sky">
+          <span className="tag text-xs font-medium text-sky">
             C++
           </span>
-          <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+          <span className="tag text-xs font-medium text-primary">
             Performance
           </span>
-          <span className="rounded-full bg-warm/10 px-2.5 py-0.5 text-xs font-medium text-warm">
+          <span className="tag text-xs font-medium text-warm">
             Interview
           </span>
         </div>
@@ -733,7 +733,7 @@ void applyDelta(
           {["C++", "Performance", "Interview", "HFT", "Move Semantics", "Lambda", "Order Book"].map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-surface px-3 py-1 text-text-muted"
+              className="tag text-text-muted"
             >
               {tag}
             </span>

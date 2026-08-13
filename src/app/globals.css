@@ -20,6 +20,17 @@
     "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
   --font-mono: var(--font-jetbrains-mono), "SF Mono", Menlo, Consolas,
     "Courier New", monospace;
+
+  /* 圓角只有兩檔：3px，以及真正需要圓形的 rounded-full。
+     Tailwind 的 rounded-md/lg/xl/2xl 都是從這些 token 衍生的，
+     所以改這裡等於一次收斂全站 155 處，不用去動每個 className。 */
+  --radius-xs: 2px;
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 3px;
+  --radius-xl: 3px;
+  --radius-2xl: 3px;
+  --radius-3xl: 3px;
 }
 
 :root,
@@ -38,13 +49,9 @@ html[data-theme="stationery"] {
   --color-text-muted: #615a50;
   --color-border: #d4c6b1;
 
-  --site-body-background:
-    linear-gradient(90deg, rgba(104, 72, 38, 0.16), rgba(104, 72, 38, 0.04) 13%, transparent 28%, transparent 72%, rgba(104, 72, 38, 0.05) 87%, rgba(104, 72, 38, 0.16)),
-    radial-gradient(circle at 18% 8%, rgba(255, 255, 255, 0.72), transparent 32rem),
-    linear-gradient(180deg, rgba(255, 252, 244, 0.76), rgba(243, 234, 220, 0.68) 34rem, transparent 70rem),
-    repeating-linear-gradient(90deg, rgba(95, 66, 37, 0.035) 0 1px, transparent 1px 15px),
-    repeating-linear-gradient(0deg, rgba(45, 41, 35, 0.025) 0 1px, transparent 1px 10px),
-    var(--color-bg);
+  /* 背景配方在下面只寫一次，兩個主題只換這兩個輸入值 */
+  --paper-vignette: rgba(104, 72, 38, 0.15);
+  --paper-rule: rgba(45, 41, 35, 0.032);
   --site-selection-bg: rgba(168, 62, 44, 0.24);
   --site-selection-text: var(--color-text);
   --nav-shadow: rgba(95, 66, 37, 0.06);
@@ -86,11 +93,10 @@ html[data-theme="dark"] {
   --color-text-muted: #9ba1b8;
   --color-border: #1e2235;
 
-  --site-body-background:
-    linear-gradient(140deg, rgba(244, 132, 95, 0.22), rgba(244, 132, 95, 0.1) 30%, transparent 68%),
-    linear-gradient(220deg, rgba(56, 189, 248, 0.2), rgba(56, 189, 248, 0.08) 32%, transparent 70%),
-    linear-gradient(180deg, rgba(46, 196, 182, 0.08), rgba(46, 196, 182, 0.03) 520px, transparent 900px),
-    var(--color-bg);
+  /* 同一張有行線的紙，只是在夜燈下。aurora 那三層漸層拿掉了：
+     那是 2023-2025 dark SaaS 的預設值，而且和淺色主題的稿紙毫無關係。 */
+  --paper-vignette: rgba(0, 0, 0, 0.42);
+  --paper-rule: rgba(228, 231, 239, 0.03);
   --site-selection-bg: rgba(46, 196, 182, 0.3);
   --site-selection-text: #fff;
   --nav-shadow: rgba(255, 255, 255, 0.04);
@@ -119,10 +125,25 @@ html[data-theme="dark"] {
 
 html {
   scroll-behavior: smooth;
+
+  /* 全站唯一一支背景配方，三層：裝訂暗角、行線、底色。
+     兩個主題共用它，只有 --paper-vignette 與 --paper-rule 不同，
+     所以切換主題是同一張紙換一盞燈，不是換一個網站。 */
+  --site-body-background:
+    linear-gradient(
+      90deg,
+      var(--paper-vignette),
+      transparent 22%,
+      transparent 78%,
+      var(--paper-vignette)
+    ),
+    repeating-linear-gradient(0deg, var(--paper-rule) 0 1px, transparent 1px 30px),
+    var(--color-bg);
 }
 
 body {
   background: var(--site-body-background);
+  background-attachment: fixed;
   color: var(--color-text);
   font-family: var(--font-sans);
 }
@@ -214,12 +235,46 @@ a:focus-visible {
 .prose-custom :not(pre) > code {
   font-size: 0.9em;
   overflow-wrap: break-word;
+  /* 裸 rounded 是 4px，全站只留 3px 這一檔 */
+  border-radius: 3px;
+}
+
+/* wrapper 上的 [&_code]:bg-surface / px-1.5 / text-primary 是給行內 code 的，
+   卻連 pre 裡面的 code 一起打到——等於在程式碼區塊底上再蓋一層 surface 色塊。
+   這裡把它清掉，區塊內的顏色交給 .code-block 的 token 規則。 */
+.prose-custom pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
 }
 
 @supports (text-spacing-trim: trim-both) {
   .prose-custom {
     text-spacing-trim: trim-both;
   }
+}
+
+/* ---------------------------------------------------------------
+   tag
+
+   從 rounded-full 的彩色 pill 換成中文標點語彙〔像這樣〕。
+   括號由 CSS 生成，不用把它寫進一百個 JSX 字串裡；
+   顏色仍然由各自的 text-* utility 決定。
+   --------------------------------------------------------------- */
+
+.tag::before {
+  content: "〔";
+}
+
+.tag::after {
+  content: "〕";
+}
+
+.tag::before,
+.tag::after {
+  opacity: 0.45;
 }
 
 /* ---------------------------------------------------------------

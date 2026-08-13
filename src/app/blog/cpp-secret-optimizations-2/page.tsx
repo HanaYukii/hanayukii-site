@@ -88,13 +88,13 @@ export default function CppSecretOptimizations2() {
 
         {/* Header */}
         <div className="mb-4 flex flex-wrap gap-2">
-          <span className="rounded-full bg-sky/10 px-2.5 py-0.5 text-xs font-medium text-sky">
+          <span className="tag text-xs font-medium text-sky">
             C++
           </span>
-          <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+          <span className="tag text-xs font-medium text-primary">
             Performance
           </span>
-          <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+          <span className="tag text-xs font-medium text-accent">
             Memory
           </span>
         </div>
@@ -118,7 +118,7 @@ export default function CppSecretOptimizations2() {
 
       <FadeIn delay={0.1}>
         {/* TOC */}
-        <nav className="mb-12 rounded-xl border border-border bg-surface/40 p-6">
+        <nav className="mb-12 border-y border-border py-6">
           <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
             Agenda
           </p>

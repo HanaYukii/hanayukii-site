@@ -39,10 +39,10 @@ export default function JabikoJlptApp() {
         </Link>
 
         <div className="mb-4 flex flex-wrap gap-2">
-          <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+          <span className="tag text-xs font-medium text-primary">
             AI
           </span>
-          <span className="rounded-full bg-sky/10 px-2.5 py-0.5 text-xs font-medium text-sky">
+          <span className="tag text-xs font-medium text-sky">
             Frontend
           </span>
         </div>
@@ -73,7 +73,7 @@ export default function JabikoJlptApp() {
       </FadeIn>
 
       <FadeIn delay={0.1}>
-        <nav className="my-10 rounded-xl border border-border bg-surface/40 p-5">
+        <nav className="my-10 border-y border-border py-5">
           <p className="mb-3 text-xs font-bold uppercase tracking-wider text-text-muted">
             功能一覽
           </p>
