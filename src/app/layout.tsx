@@ -5,7 +5,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Newsreader, Inter_Tight, JetBrains_Mono, Noto_Serif_TC } from "next/font/google";
 import { topics } from "@/data/topics";
 import ThemeToggle from "@/components/ThemeToggle";
-import MouseGlow from "@/components/MouseGlow";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -230,7 +229,6 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="flex min-h-screen flex-col antialiased">
-        <MouseGlow />
         <Navbar />
         <main className="min-w-0 flex-1">{children}</main>
         <Footer />

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { hotPosts, recentPosts } from "@/data/posts";
-import Typewriter from "@/components/Typewriter";
 import { SITE_URL, AUTHOR } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -55,7 +54,7 @@ export default function Home() {
             </span>
           </h1>
           <p className="mt-3 text-sm italic text-accent/80">
-            <Typewriter text="Starmine, still becoming." />
+            Starmine, still becoming.
           </p>
 
           <div className="mt-10 space-y-3 text-base leading-relaxed text-text-muted sm:text-lg">
