@@ -28,7 +28,7 @@ export const posts: Post[] = [
     title: "Claude 文字浮水印：從 token sampling 理解原理",
     date: "2026-08-13",
     summary:
-      "Anthropic 沒有公開 Claude 的實作；這篇從經典 green list 方法出發，整理 secret 如何控制 token sampling、detector 如何累積統計訊號，以及局部修改為什麼不一定會洗掉浮水印。",
+      "先從 LLM 如何替下一個 token 分配機率講起，再用 green / red list 的簡單例子解釋文字浮水印如何留下統計訊號，以及局部修改為什麼不一定會洗掉它。",
     tags: ["AI", "Algorithm"],
     tagStyle: "text-primary",
     href: "/blog/llm-text-watermark",
