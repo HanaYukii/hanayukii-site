@@ -33,8 +33,8 @@ function SubHeading({ children }: { children: React.ReactNode }) {
 
 function Fact({ children }: { children: React.ReactNode }) {
   return (
-    <div className="my-4 rounded-lg border-l-2 border-primary bg-primary/5 px-4 py-3 text-sm">
-      <span className="mr-2 font-mono text-xs font-bold uppercase tracking-wider text-primary">
+    <div className="my-4 rounded-xl border border-primary/40 bg-primary/10 px-4 py-3 text-sm">
+      <span className="mr-2 inline-flex rounded-md bg-primary px-2 py-1 font-mono text-[11px] font-bold tracking-wider text-bg">
         已公開
       </span>
       {children}
@@ -44,11 +44,48 @@ function Fact({ children }: { children: React.ReactNode }) {
 
 function Guess({ children }: { children: React.ReactNode }) {
   return (
-    <div className="my-4 rounded-lg border-l-2 border-dashed border-warm/40 bg-warm/5 px-4 py-3 text-sm">
-      <span className="mr-2 font-mono text-xs font-bold uppercase tracking-wider text-warm">
+    <div className="my-4 rounded-xl border border-dashed border-warm/50 bg-warm/10 px-4 py-3 text-sm">
+      <span className="mr-2 inline-flex rounded-md bg-warm px-2 py-1 font-mono text-[11px] font-bold tracking-wider text-bg">
         推測
       </span>
       {children}
+    </div>
+  );
+}
+
+function QuickAnswer({
+  number,
+  question,
+  children,
+}: {
+  number: number;
+  question: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="grid grid-cols-[auto_1fr] gap-x-3 border-t border-primary/20 py-5 first:border-t-0 first:pt-0 last:pb-0">
+      <span className="mt-0.5 flex h-7 min-w-7 items-center justify-center rounded-md bg-primary px-1.5 font-mono text-xs font-bold text-bg">
+        Q{number}
+      </span>
+      <div>
+        <h3 className="mb-2 text-lg font-bold text-text">{question}</h3>
+        <div className="text-text-muted">{children}</div>
+      </div>
+    </div>
+  );
+}
+
+function GlossaryItem({
+  term,
+  children,
+}: {
+  term: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="rounded-lg border border-sky/25 bg-surface/70 p-4">
+      <p className="mb-1.5 font-mono text-sm font-bold text-sky">{term}</p>
+      <p className="text-sm leading-relaxed text-text-muted">{children}</p>
     </div>
   );
 }
@@ -706,45 +743,84 @@ export default function LlmTextWatermark() {
 
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-primary [&_code]:text-sm">
         <FadeIn>
-          <div className="rounded-xl border border-border bg-surface/40 p-6">
-            <p className="mb-4 text-sm font-bold uppercase tracking-wider text-text-muted">
-              TL;DR
-            </p>
+          <div className="rounded-2xl border-2 border-primary/40 bg-primary/10 p-6 shadow-sm">
+            <div className="mb-5 flex items-center gap-3">
+              <span className="h-px flex-1 bg-primary/30" />
+              <div className="text-center">
+                <p className="font-bold text-primary">常見問題先回答</p>
+                <p className="mt-0.5 text-xs text-text-muted">先抓住直覺，再往下看演算法</p>
+              </div>
+              <span className="h-px flex-1 bg-primary/30" />
+            </div>
 
-            <SubHeading>浮水印是偷偷在文字裡加字元嗎？</SubHeading>
-            <p>
-              不是。這類 watermark 不多塞任何字元，也不靠 metadata。輸出的每個字都是正常的字，
-              訊號在<strong>「模型選了哪些 token」的統計分布</strong>裡。所以純文字複製貼上，訊號跟著走。
-            </p>
+            <QuickAnswer number={1} question="浮水印是偷偷在文字裡加字元嗎？">
+              <p>
+                不是。這類 watermark 不多塞任何字元，也不靠 metadata。輸出的每個字都是正常的字，
+                訊號在<strong>「模型選了哪些 token」的統計分布</strong>裡。所以純文字複製貼上，訊號跟著走。
+              </p>
+            </QuickAnswer>
 
-            <SubHeading>為什麼目前只有 Anthropic 驗得出來？</SubHeading>
-            <p>
-              因為決定「偏好哪些 token」的那把 secret 只有它有。這不是加密——內容照樣看得懂、沒有任何東西被藏起來；
-              比較像是拿著同一把 key 把生成過程重跑一次，檢查這篇文章符合那套偏好的比例是不是異常高。
-              Anthropic 說會開放第三方偵測，但截至寫這篇時，公開的偵測工具和演算法細節都還沒出來。
-            </p>
+            <QuickAnswer number={2} question="為什麼目前只有 Anthropic 驗得出來？">
+              <p>
+                因為決定「偏好哪些 token」的那把 secret 只有它有。這不是加密——內容照樣看得懂、沒有任何東西被藏起來；
+                比較像是拿著同一把 key 把生成過程重跑一次，檢查這篇文章符合那套偏好的比例是不是異常高。
+                Anthropic 說會開放第三方偵測，但截至寫這篇時，公開的偵測工具和演算法細節都還沒出來。
+              </p>
+            </QuickAnswer>
 
-            <SubHeading>手動改幾個字，不就把 hash 全打亂了？</SubHeading>
-            <p>
-              如果每一步都拿整個前綴去 hash，確實會——改一個 token，後面全部 desync。
-              所以實務上的設計不會把命運綁在無限長的前綴上，而是只看最近幾個 token，
-              並把訊號分散到大量位置。改一個字只毀掉附近幾個位置，過幾個 token 就重新同步。
-            </p>
+            <QuickAnswer number={3} question="手動改幾個字，不就把 hash 全打亂了？">
+              <p>
+                如果每一步都拿整個前綴去 hash，確實會——改一個 token，後面全部 desync。
+                所以實務上的設計不會把命運綁在無限長的前綴上，而是只看最近幾個 token，
+                並把訊號分散到大量位置。改一個字只毀掉附近幾個位置，過幾個 token 就重新同步。
+              </p>
+            </QuickAnswer>
 
-            <SubHeading>改 sampling 機率不會傷品質嗎？</SubHeading>
-            <p>
-              一定有 trade-off，但不代表看得出來。關鍵是<strong>只在模型本來就猶豫的地方偏</strong>：
-              「有效 / 實用 / 有用」三選一時偏個兩三個百分點，讀起來沒差；
-              <code>1 + 1 =</code> 這種只有一個答案的位置就不該碰。
-            </p>
+            <QuickAnswer number={4} question="改 sampling 機率不會傷品質嗎？">
+              <p>
+                一定有 trade-off，但不代表看得出來。關鍵是<strong>只在模型本來就猶豫的地方偏</strong>：
+                「有效 / 實用 / 有用」三選一時偏個兩三個百分點，讀起來沒差；
+                <code>1 + 1 =</code> 這種只有一個答案的位置就不該碰。
+              </p>
+            </QuickAnswer>
 
-            <SubHeading>所以文章要夠長？</SubHeading>
-            <p>
-              對。每個位置只帶一點點證據，訊號隨 <InlineMath math="N" /> 累積、雜訊只隨{" "}
-              <InlineMath math="\sqrt{N}" /> 累積，所以可信度大致按{" "}
-              <InlineMath math="\sqrt{N}" /> 成長。十幾個 token 幾乎沒有統計能力，上千個才談得上證據。
-            </p>
+            <QuickAnswer number={5} question="所以文章要夠長？">
+              <p>
+                對。每個位置只帶一點點證據，訊號隨 <InlineMath math="N" /> 累積、雜訊只隨{" "}
+                <InlineMath math="\sqrt{N}" /> 累積，所以可信度大致按{" "}
+                <InlineMath math="\sqrt{N}" /> 成長。十幾個 token 幾乎沒有統計能力，上千個才談得上證據。
+              </p>
+            </QuickAnswer>
           </div>
+        </FadeIn>
+
+        <FadeIn delay={0.06}>
+          <section className="mt-8 rounded-xl border border-sky/35 bg-sky/5 p-6">
+            <h2 className="text-xl font-bold text-text">先認識幾個會出現的詞</h2>
+            <p className="mb-5 mt-1 text-sm text-text-muted">
+              不用先讀 watermark 論文；下面六個概念夠我們把整篇走完。
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <GlossaryItem term="Token">
+                LLM 實際 sampling 的單位，不一定等於一個中文字或一個英文單字。
+              </GlossaryItem>
+              <GlossaryItem term="Logit / Softmax">
+                Logit 是模型給候選 token 的原始分數；softmax 再把它們轉成總和為 1 的機率。
+              </GlossaryItem>
+              <GlossaryItem term="Entropy">
+                這裡只要理解成模型的猶豫程度：候選越平均，entropy 越高；答案越唯一，entropy 越低。
+              </GlossaryItem>
+              <GlossaryItem term="Secret / PRF">
+                PRF 可以先想成帶 secret key 的 hash：知道 key 就能重現同一組偽隨機規則，外界則難以預測。
+              </GlossaryItem>
+              <GlossaryItem term="Green list">
+                經典 toy algorithm 裡，由 secret 規則選出的偏好 token 集合；只是加一點分數，不代表禁止其他 token。
+              </GlossaryItem>
+              <GlossaryItem term="z-score">
+                「實際命中數離隨機預期有幾個標準差？」數字越大，越不像只是運氣。
+              </GlossaryItem>
+            </div>
+          </section>
         </FadeIn>
 
         <FadeIn delay={0.1}>
