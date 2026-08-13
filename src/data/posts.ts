@@ -16,10 +16,10 @@
 
 export const posts: Post[] = [
   {
-    title: "Claude 加了文字浮水印，演算法可能怎麼做",
+    title: "Claude 文字浮水印：從 token sampling 理解原理",
     date: "2026-08-13",
     summary:
-      "訊號不在字裡，在「選了哪些 token」的統計裡。分三層寫：Anthropic 官方確認了什麼、學界的 LLM watermark 怎麼做、據此能推測到哪。含 green list、z-score 偵測、sliding window 重新同步與三角 trade-off 的圖解。",
+      "Anthropic 沒有公開 Claude 的實作；這篇從經典 green list 方法出發，整理 secret 如何控制 token sampling、detector 如何累積統計訊號，以及局部修改為什麼不一定會洗掉浮水印。",
     tags: ["AI", "Algorithm"],
     tagStyle: "bg-primary/10 text-primary",
     href: "/blog/llm-text-watermark",

@@ -8,13 +8,13 @@ import PostJsonLd from "@/components/PostJsonLd";
 import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/llm-text-watermark", {
-  title: "Claude 加了文字浮水印，演算法可能怎麼做 | 花雪 HanaYukii",
+  title: "Claude 文字浮水印：從 token sampling 理解原理 | 花雪 HanaYukii",
   description:
-    "Anthropic 從 2026-08-02 起在 Claude 的輸出裡嵌文字浮水印，但沒有公開演算法。這篇分三層寫：官方確認了什麼、學界既有的 LLM watermark 怎麼做、以及據此可以合理推測到哪裡。含 green list、z-score 偵測、sliding window 重新同步與三角 trade-off 的圖解。",
+    "Anthropic 尚未公開 Claude 文字浮水印的演算法。從經典 green list 方法出發，整理 secret 如何控制 token sampling、detector 如何累積統計訊號，以及局部修改為什麼不一定會洗掉浮水印。",
   openGraph: {
-    title: "Claude 加了文字浮水印，演算法可能怎麼做",
+    title: "Claude 文字浮水印：從 token sampling 理解原理",
     description:
-      "訊號不在字裡，在「選了哪些 token」的統計裡。從 green list、PRF、z-score 到局部修改為何不致命。",
+      "浮水印不靠隱藏字元，而是靠 token sampling 的微小偏差。從 green list、z-score 到 sliding window。",
     type: "article",
   },
 });
@@ -736,59 +736,62 @@ export default function LlmTextWatermark() {
           </span>
         </div>
         <h1 className="mb-2 text-4xl font-bold tracking-tight">
-          Claude 加了文字浮水印，演算法可能怎麼做
+          Claude 文字浮水印：從 token sampling 理解原理
         </h1>
         <p className="mb-8 text-sm text-text-muted">2026-08-13</p>
       </FadeIn>
 
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-primary [&_code]:text-sm">
         <FadeIn>
+          <p className="mb-8 text-lg leading-relaxed text-text">
+            看到公告時，我先想到兩個問題：文字裡沒有多出任何東西，detector 到底在驗什麼？
+            中間改一個字，後面的 hash 不會全部亂掉嗎？答案都跟 token sampling 的統計有關。
+          </p>
+        </FadeIn>
+
+        <FadeIn>
           <div className="rounded-2xl border-2 border-primary/40 bg-primary/10 p-6 shadow-sm">
             <div className="mb-5 flex items-center gap-3">
               <span className="h-px flex-1 bg-primary/30" />
               <div className="text-center">
                 <p className="font-bold text-primary">常見問題先回答</p>
-                <p className="mt-0.5 text-xs text-text-muted">先抓住直覺，再往下看演算法</p>
+                <p className="mt-0.5 text-xs text-text-muted">先處理幾個最容易誤會的地方</p>
               </div>
               <span className="h-px flex-1 bg-primary/30" />
             </div>
 
             <QuickAnswer number={1} question="浮水印是偷偷在文字裡加字元嗎？">
               <p>
-                不是。這類 watermark 不多塞任何字元，也不靠 metadata。輸出的每個字都是正常的字，
-                訊號在<strong>「模型選了哪些 token」的統計分布</strong>裡。所以純文字複製貼上，訊號跟著走。
+                不是。文字本身完全正常，訊號藏在<strong>模型選了哪些 token</strong>的統計裡。
+                因此複製成純文字之後仍可能驗得到。
               </p>
             </QuickAnswer>
 
-            <QuickAnswer number={2} question="為什麼目前只有 Anthropic 驗得出來？">
+            <QuickAnswer number={2} question="為什麼現在外界還驗不了？">
               <p>
-                因為決定「偏好哪些 token」的那把 secret 只有它有。這不是加密——內容照樣看得懂、沒有任何東西被藏起來；
-                比較像是拿著同一把 key 把生成過程重跑一次，檢查這篇文章符合那套偏好的比例是不是異常高。
-                Anthropic 說會開放第三方偵測，但截至寫這篇時，公開的偵測工具和演算法細節都還沒出來。
+                Anthropic 尚未公開 detector；一種典型設計會用 secret 決定每一步偏好的 token，
+                偵測時再用同一套規則回頭計分。這跟加密無關，內容從頭到尾都看得懂。
               </p>
             </QuickAnswer>
 
             <QuickAnswer number={3} question="手動改幾個字，不就把 hash 全打亂了？">
               <p>
-                如果每一步都拿整個前綴去 hash，確實會——改一個 token，後面全部 desync。
-                所以實務上的設計不會把命運綁在無限長的前綴上，而是只看最近幾個 token，
-                並把訊號分散到大量位置。改一個字只毀掉附近幾個位置，過幾個 token 就重新同步。
+                如果 hash 的輸入是完整前綴，會。但只看最近幾個 token 時，修改造成的錯位會在滑出窗口後結束；
+                其他位置累積的證據仍然有效。
               </p>
             </QuickAnswer>
 
             <QuickAnswer number={4} question="改 sampling 機率不會傷品質嗎？">
               <p>
-                一定有 trade-off，但不代表看得出來。關鍵是<strong>只在模型本來就猶豫的地方偏</strong>：
-                「有效 / 實用 / 有用」三選一時偏個兩三個百分點，讀起來沒差；
-                <code>1 + 1 =</code> 這種只有一個答案的位置就不該碰。
+                會有代價，只是可以很小。模型若本來就在「有效／實用／有用」之間猶豫，稍微偏向其中幾個通常不影響意思；
+                <code>1 + 1 =</code> 這種答案固定的位置就不適合介入。
               </p>
             </QuickAnswer>
 
             <QuickAnswer number={5} question="所以文章要夠長？">
               <p>
-                對。每個位置只帶一點點證據，訊號隨 <InlineMath math="N" /> 累積、雜訊只隨{" "}
-                <InlineMath math="\sqrt{N}" /> 累積，所以可信度大致按{" "}
-                <InlineMath math="\sqrt{N}" /> 成長。十幾個 token 幾乎沒有統計能力，上千個才談得上證據。
+                通常要。單一 token 幾乎沒有判斷力；把許多微弱偏差加總後，才看得出它不像隨機波動。
+                Anthropic 目前沒有公布最低長度。
               </p>
             </QuickAnswer>
           </div>
@@ -797,27 +800,25 @@ export default function LlmTextWatermark() {
         <FadeIn delay={0.06}>
           <section className="mt-8 rounded-xl border border-sky/35 bg-sky/5 p-6">
             <h2 className="text-xl font-bold text-text">先認識幾個會出現的詞</h2>
-            <p className="mb-5 mt-1 text-sm text-text-muted">
-              不用先讀 watermark 論文；下面六個概念夠我們把整篇走完。
-            </p>
+            <p className="mb-5 mt-1 text-sm text-text-muted">後面只會用到這六個概念。</p>
             <div className="grid gap-3 sm:grid-cols-2">
               <GlossaryItem term="Token">
-                LLM 實際 sampling 的單位，不一定等於一個中文字或一個英文單字。
+                LLM 取樣的單位，不一定等於一個中文字或一個英文單字。
               </GlossaryItem>
               <GlossaryItem term="Logit / Softmax">
-                Logit 是模型給候選 token 的原始分數；softmax 再把它們轉成總和為 1 的機率。
+                Logit 是候選 token 的原始分數；softmax 把分數轉成機率。
               </GlossaryItem>
               <GlossaryItem term="Entropy">
-                這裡只要理解成模型的猶豫程度：候選越平均，entropy 越高；答案越唯一，entropy 越低。
+                模型的猶豫程度。候選越平均，entropy 越高；答案越固定，entropy 越低。
               </GlossaryItem>
               <GlossaryItem term="Secret / PRF">
-                PRF 可以先想成帶 secret key 的 hash：知道 key 就能重現同一組偽隨機規則，外界則難以預測。
+                PRF 可以先當成帶 secret 的 hash；知道 secret 才能重現同一組偽隨機規則。
               </GlossaryItem>
               <GlossaryItem term="Green list">
-                經典 toy algorithm 裡，由 secret 規則選出的偏好 token 集合；只是加一點分數，不代表禁止其他 token。
+                經典示意演算法裡，每一步得到額外分數的 token 集合。
               </GlossaryItem>
               <GlossaryItem term="z-score">
-                「實際命中數離隨機預期有幾個標準差？」數字越大，越不像只是運氣。
+                實際命中數離隨機預期有幾個標準差。數字越大，越不像巧合。
               </GlossaryItem>
             </div>
           </section>
@@ -826,7 +827,7 @@ export default function LlmTextWatermark() {
         <FadeIn delay={0.1}>
           <div className="mt-8 rounded-xl border border-border bg-surface/40 p-6">
             <p className="mb-3 text-sm font-bold uppercase tracking-wider text-text-muted">
-              Agenda
+              本文路線
             </p>
             <div className="space-y-2">
               {[
@@ -835,10 +836,10 @@ export default function LlmTextWatermark() {
                 { id: "bias", title: "一個 token 怎麼被偏" },
                 { id: "detect", title: "Detector 在算什麼" },
                 { id: "resync", title: "為什麼改幾個字不會整篇失效" },
-                { id: "quality", title: "為什麼微調機率不一定傷品質" },
+                { id: "quality", title: "偏一點，品質會掉嗎" },
                 { id: "length", title: "長度、門檻與誤判" },
-                { id: "attack", title: "什麼才真的洗得掉" },
-                { id: "tradeoff", title: "三角 trade-off" },
+                { id: "attack", title: "編輯會留下多少訊號" },
+                { id: "tradeoff", title: "三個一起拉扯的量" },
                 { id: "refs", title: "參考" },
               ].map((item, i) => (
                 <a
@@ -857,65 +858,59 @@ export default function LlmTextWatermark() {
         <FadeIn>
           <Heading id="facts">Anthropic 公開了什麼、沒公開什麼</Heading>
           <p>
-            這篇的切入點是 Claude 新加的文字浮水印，但演算法本身 Anthropic 沒有公開。
-            為了不把論文裡的做法講成「Claude 就是這樣做」，全文分三層，並且會用標籤標出來：
+            Anthropic 公開了產品行為，沒有公開演算法。下文提到 green list、PRF 與 sliding window 時，
+            講的是已有論文裡的做法，不是 Claude 的實作細節。
           </p>
           <Fact>Anthropic 官方文件確認的內容。</Fact>
-          <Guess>學界既有做法，以及據此對 Claude 的合理推測——不是逆向工程的結論。</Guess>
-          <p>沒有標籤的段落就是 LLM watermark 這個領域的公開常識。先把已知事實列清楚：</p>
+          <Guess>論文中的已知方法，或由公開資訊延伸出的推測。</Guess>
           <Fact>
             <ul className="mt-2 list-disc space-y-1.5 pl-5">
               <li>
-                Claude 用<strong>兩套互補</strong>的標記：文字走 watermark，
-                產生的 <code>.svg</code> / <code>.png</code> / <code>.jpg</code> 檔案走 C2PA 簽章 metadata。
-                這是兩件不同的事，後面會說差在哪。
+                Claude 的純文字使用 watermark；產生的 <code>.svg</code>、<code>.png</code>、<code>.jpg</code>{" "}
+                則附上 C2PA 簽章 metadata。兩者不是同一套機制。
               </li>
               <li>
                 2026-08-02 之後推出的 Claude 模型上線即支援，先前的模型陸續補上。
               </li>
               <li>
-                標記做在<strong>模型層</strong>，所以 API、Claude、Claude Code、Claude Cowork、Claude Tag，
-                以及 AWS / Google Cloud / Microsoft Foundry 上的 Claude 都涵蓋，全球一致。
+                標記做在<strong>模型層</strong>，涵蓋 API、Claude、Claude Code、Claude Cowork、Claude Tag，
+                以及雲端平台上的 Claude。
               </li>
               <li>
-                官方措辭是浮水印「是文字的一部分」，所以<strong>複製貼上會跟著走</strong>，
-                而且「<strong>可能</strong>撐過一些編輯」（may persist through some editing）——用的是可能，不是保證。
+                浮水印「是文字的一部分」，所以<strong>複製貼上會保留</strong>，也可能撐過部分編輯。
+                官方沒有保證能承受多少修改。
               </li>
               <li>
-                驗到浮水印只代表這段內容<strong>可能被 Claude 處理過</strong>，不代表 Claude 是作者——
-                因為很多人拿 Claude 潤稿、翻譯、改寫自己的文章。反過來，沒驗到也不代表不是 AI 寫的。
+                驗到浮水印只代表內容<strong>可能被 Claude 處理過</strong>。拿 Claude 潤稿的人仍是原作者；
+                沒驗到也不能反推內容一定由人寫成。
               </li>
               <li>
                 太短的文字不會有可靠訊號。官方沒有給具體字數門檻。
               </li>
               <li>
-                Anthropic 說正在讓使用者與第三方能夠偵測，細節「之後的技術文件會說明」。
-                <strong>截至 2026-08-13，演算法與公開偵測工具都還沒釋出。</strong>
+                Anthropic 正在準備第三方偵測方式。<strong>截至 2026-08-13，演算法與公開 detector 都還沒釋出。</strong>
               </li>
             </ul>
           </Fact>
           <p>
-            動機方面，多家媒體報導與歐盟 AI Act 的透明度義務有關；Anthropic 自己的說法比較泛，
-            提到的是合規與透明度承諾。
-          </p>
-          <p>
-            剩下的就是這篇要談的：<strong>在這些約束下，演算法可以怎麼設計。</strong>
+            多家媒體把上線時點連到歐盟 AI Act 的透明度義務；Anthropic 官方只寫合規與透明度承諾。
+            能確定的大致到這裡。接下來從經典演算法反推一套可行的設計。
           </p>
         </FadeIn>
 
         <FadeIn>
           <Heading id="where">訊號不在字裡，在選字裡</Heading>
           <p>
-            先排掉幾個容易混在一起的東西。「AI 浮水印」常被想成在文字裡塞看不見的字元（zero-width space 之類），
-            或是在檔案裡寫 metadata。這兩種都有人做，但都不是 Claude 文字浮水印的路子——
-            官方明說浮水印「是文字的一部分」，而塞字元跟 metadata 都會被純文字複製、重新排版洗掉。
+            這裡談的不是 zero-width space，也不是檔案 metadata。那些方法都依賴額外載體，
+            清成純文字或重新排版就可能消失。統計式 watermark 直接利用生成時的選字，
+            因此畫面上看不到多出來的內容。
           </p>
 
           <Figure caption="圖 1：兩種完全不同的做法。左邊靠額外的載體，右邊靠文字本身的統計結構。">
             <FigWhere />
           </Figure>
 
-          <p>四個常被混為一談的技術，攤開來看：</p>
+          <p>幾種常被叫作「AI 浮水印」的技術差很多：</p>
 
           <div className="my-6 overflow-x-auto rounded-xl border border-border">
             <table className="w-full min-w-[640px] border-collapse text-sm">
@@ -969,52 +964,43 @@ export default function LlmTextWatermark() {
           </div>
 
           <p>
-            最後兩列特別容易被混淆。<strong>C2PA 是密碼學簽章</strong>：對檔案 bytes 做 hash、寫進 manifest、
-            用私鑰簽名，驗證時重新 hash 再驗簽。它能給出「未被竄改」這種強保證，但前提是有檔案、而且 metadata 沒被剝掉。
-            <strong>AI detector 則完全沒有訊號可言</strong>，它只是個文風分類器，說的是「這看起來像 AI 寫的」。
-            統計式 watermark 夾在中間：沒有簽章那麼強的保證，但只要文字還在就跟著走。
+            C2PA 對檔案 bytes 做 hash，再用私鑰簽 manifest；它驗的是來源與檔案是否被改過。
+            一般 AI detector 沒有預先埋入的訊號，只能從文風猜來源。統計式 watermark 則需要生成端配合，
+            能跨過純文字複製，但提供的仍是統計判斷，不是簽章。
           </p>
         </FadeIn>
 
         <FadeIn>
           <Heading id="bias">一個 token 怎麼被偏</Heading>
           <p>
-            LLM 生成時，每一步會對詞表裡每個候選 token 給一個未正規化的分數（logit），再過 softmax 變成機率：
+            LLM 每一步先替候選 token 算 logit，再用 softmax 轉成機率：
           </p>
           <BlockMath math="p_i = \frac{e^{z_i/T}}{\sum_j e^{z_j/T}}" />
           <p>
-            白話說就是「分數高的機率大，但不是贏者全拿」，溫度 <InlineMath math="T" /> 控制拉開的程度。
-            接下來只需要記得一件事：<strong>watermark 最自然的插入點，就是在 softmax 之前動 logit。</strong>
+            分數高的 token 比較容易被抽到，溫度 <InlineMath math="T" /> 控制分布有多集中。
+            Watermark 可以在 softmax 前替一部分候選加分。
           </p>
 
-          <SubHeading>經典做法：green list</SubHeading>
+          <SubHeading>拿 green list 當例子</SubHeading>
           <Guess>
-            以下是 Kirchenbauer 等人 2023 年那篇論文的做法，也是這個領域最好懂的模型。
-            <strong>不代表 Claude 採用了它</strong>，只是用來建立直覺。
+            以下採用 Kirchenbauer 等人 2023 年的 green list 方法。Claude 是否使用這套做法仍未知。
           </Guess>
           <p>
-            持有 secret key <InlineMath math="K" /> 的一方，在每一步先算一個偽隨機狀態：
+            每一步先把 secret <InlineMath math="K" /> 和目前的 context <InlineMath math="c_t" /> 送進 PRF：
           </p>
           <BlockMath math="s_t = \mathrm{PRF}_K(c_t)" />
           <p>
-            <InlineMath math="\mathrm{PRF}" />（偽隨機函數）可以先當成「帶 key 的 hash」：
-            沒有 key 的人看輸出像亂數，知道 key 的人可以穩定重現同一個結果。
-            <InlineMath math="c_t" /> 是這一步用到的 context——選什麼很關鍵，第五節整節在談這件事。
+            同一組 secret 與 context 會得到相同的 <InlineMath math="s_t" />；
+            不知道 secret 的人則難以預測結果。
           </p>
           <p>
-            用 <InlineMath math="s_t" /> 當種子，把整個詞表偽隨機切成兩半：green list{" "}
-            <InlineMath math="G_t" />（比例 <InlineMath math="\gamma" />）和其餘的 red list。
-            然後給 green 的 token 一點分數：
+            接著用 <InlineMath math="s_t" /> 把詞表切出一組 green list <InlineMath math="G_t" />，
+            讓其中的 token 各拿到 <InlineMath math="\delta" /> 分：
           </p>
           <BlockMath math="z'_i = z_i + \delta \cdot \mathbf{1}[i \in G_t]" />
           <p>
-            <InlineMath math="\mathbf{1}[\cdot]" /> 是 indicator：在 green list 裡就是 1，否則 0。
-            所以整條式子只是說「green 的加 <InlineMath math="\delta" />，其他不動」，再重新 softmax。
-          </p>
-          <p>
-            要強調的是：<strong>red token 沒有被禁止</strong>。如果某個 red token 原本機率 90%，
-            加了 <InlineMath math="\delta" /> 的競爭者也很難翻盤——它照樣會被選中。
-            這正是品質不會崩掉的原因。
+            <InlineMath math="\mathbf{1}[i \in G_t]" /> 在 token 屬於 green list 時為 1，否則為 0。
+            Red token 仍然可以被抽到；若它原本遙遙領先，這點 bonus 通常不會改變結果。
           </p>
 
           <Figure caption="圖 2：secret 與最近幾個 token 決定這一步的 green list，green 候選各加 δ 再重新 softmax。數字是 toy example。">
@@ -1022,8 +1008,7 @@ export default function LlmTextWatermark() {
           </Figure>
 
           <p>
-            注意每一步的 green list 都不一樣——context 換了，PRF 輸出就換了，切法也跟著換。
-            所以不存在「某些詞永遠被偏好」這種可以直接觀察出來的模式。
+            Context 每前進一步，green list 也跟著換。外界不會看到某幾個詞固定被偏好。
           </p>
 
           <p>產生端大概十行：</p>
@@ -1037,8 +1022,8 @@ for _ in range(max_new_tokens):
     tok = sample(softmax(logits / T))        # 照常 sampling
     ctx.append(tok)`}</Code>
           <p>
-            除了兩行，其餘跟一般的 decode loop 一樣。這也是為什麼這類方法可以做在模型層、
-            不必動上層產品——跟官方說的「標記做在模型層，所有產品都涵蓋」是吻合的。
+            實際多出的工作只有算 <code>G</code> 與調整 logits。這類方法可以放在模型的 decoding 階段，
+            上層產品不必各自實作。
           </p>
         </FadeIn>
 
@@ -1057,16 +1042,13 @@ for t in range(k, len(toks)):
 
 z = (hits - gamma*total) / sqrt(total * gamma * (1-gamma))`}</Code>
           <p>
-            這裡沒有「解密」任何東西，只是重跑一次規則再數數。統計上要問的是：
-            如果這篇文章跟 watermark 無關，命中數會長什麼樣？
-            那就是每個位置獨立以機率 <InlineMath math="\gamma" /> 命中，也就是
+            Detector 只重建每一步的 green list，再檢查實際 token 是否命中。若文章沒有 watermark，
+            每個位置命中的基準機率是 <InlineMath math="\gamma" />：
           </p>
           <BlockMath math="G \sim \mathrm{Binomial}(N, \gamma)" />
-          <p>
-            拿實際命中數跟這個基準比，換算成 z-score：
-          </p>
+          <p>把實際命中數 <InlineMath math="G" /> 與基準比較：</p>
           <BlockMath math="z = \frac{G - \gamma N}{\sqrt{N\gamma(1-\gamma)}}" />
-          <p>逐項拆開來看，這條式子其實沒什麼玄機：</p>
+          <p>式子裡各項的意義：</p>
           <ul className="my-3 list-disc space-y-1.5 pl-5">
             <li>
               <InlineMath math="\gamma N" />：沒有 watermark 時，預期命中幾個。
@@ -1075,49 +1057,43 @@ z = (hits - gamma*total) / sqrt(total * gamma * (1-gamma))`}</Code>
               分子 <InlineMath math="G - \gamma N" />：實際比預期多命中了幾個。
             </li>
             <li>
-              分母 <InlineMath math="\sqrt{N\gamma(1-\gamma)}" />：純靠運氣的話，命中數本來就會上下晃動，
-              這是晃動的標準差。
+              分母 <InlineMath math="\sqrt{N\gamma(1-\gamma)}" />：隨機命中數的標準差。
             </li>
             <li>
-              整體：<strong>多出來的部分，相當於幾個標準差</strong>。
+              z-score：實際命中數離預期有幾個標準差。
             </li>
           </ul>
           <p>
-            舉個 toy example。<InlineMath math="\gamma = 0.5" />、1000 個可計分位置，
-            一篇沒被 watermark 的文章預期命中 500，標準差{" "}
-            <InlineMath math="\sqrt{1000 \times 0.25} \approx 15.8" />。也就是說 470～530 都很正常。
-            如果實際數到 570：
+            假設 <InlineMath math="\gamma = 0.5" />，共有 1000 個可計分位置。隨機文字預期命中 500，
+            標準差是 <InlineMath math="\sqrt{1000 \times 0.25} \approx 15.8" />。若實際命中 570：
           </p>
           <BlockMath math="z = \frac{570 - 500}{15.8} \approx 4.4" />
           <p>
-            單看任何一個 token 都證明不了什麼——它落在 green list 的機率本來就有一半。
-            但 1000 個位置一起看，多出 70 個命中就不像是運氣了。
+            一個 token 命中毫無意義；1000 個位置多出 70 次命中，才形成可用的證據。
           </p>
           <Figure caption="圖 3：detector 不讀取隱藏資料，而是逐位置重建 secret pattern、數命中，再把與隨機基準的差距換成 z-score。10 個 token 只是流程示意。">
             <FigDetector />
           </Figure>
           <Guess>
-            上面每個數字都是為了算給你看而編的，不是 Claude 的實際參數或效能。
-            真實系統的 <InlineMath math="\gamma" />、<InlineMath math="\delta" />、
-            context 長度、甚至是不是用 green list 這條路，都未公開。
+            以上是示意數字。Claude 的 <InlineMath math="\gamma" />、<InlineMath math="\delta" />、
+            context 長度與檢定方式都未公開。
           </Guess>
         </FadeIn>
 
         <FadeIn>
           <Heading id="resync">為什麼改幾個字不會整篇失效</Heading>
           <p>
-            這是我一開始最卡的地方。既然每一步的 green list 由 hash 決定，那把中間某個 token 改掉，
-            後面所有 hash 輸入不就全變了嗎？
+            我一開始卡在這裡：中間改掉一個 token，後面的 hash 輸入不是會全部改變嗎？
           </p>
           <p>如果 context 取整個前綴，這個擔心完全正確：</p>
           <BlockMath math="s_t = H(K, x_1, x_2, \ldots, x_{t-1})" />
           <p>
-            hash 的雪崩效應保證輸入差一個 bit、輸出就完全不同。所以改掉第 3 個 token，
+            Hash 的雪崩效應讓輸入稍有變化，輸出就完全不同。改掉第 3 個 token，
             第 4 個之後每一步重算出來的 green list 都跟當初生成時不一樣，命中率直接掉回{" "}
-            <InlineMath math="\gamma" />。整篇的證據從修改點開始歸零。
+            <InlineMath math="\gamma" />。
           </p>
           <p>
-            所以 robust 的設計不會把命運綁在無限長的前綴上。最容易理解的改法是<strong>只看最近 k 個 token</strong>：
+            一種改法是<strong>只看最近 k 個 token</strong>：
           </p>
           <BlockMath math="s_t = H(K, x_{t-k}, \ldots, x_{t-1})" />
 
@@ -1142,43 +1118,37 @@ z = (hits - gamma*total) / sqrt(total * gamma * (1-gamma))`}</Code>
             </li>
           </ul>
           <p>
-            一次修改的破壞半徑就是 <InlineMath math="k" />，不是「到文章結尾」。
-            這就是 self-synchronization：不需要任何額外的同步機制，
-            單純因為 context 是滑動窗口，錯誤自己會滑出去。
+            修改影響接下來 <InlineMath math="k" /> 個位置；舊 token 滑出窗口後，detector 便重新對齊。
+            這就是 self-synchronization。
           </p>
           <p>
-            代價也很明顯：<InlineMath math="k" /> 越小越耐改，但 context 太短會讓同一組 window 頻繁重複，
+            <InlineMath math="k" /> 越小，重新同步越快；但 context 太短會讓同一組 window 頻繁重複，
             green list 的切法跟著重複，「每個位置獨立」這個統計假設就開始失真。
-            <InlineMath math="k = 1" /> 是最耐改的極端，也是統計上最不乾淨的極端。
+            <InlineMath math="k = 1" /> 就是這個問題的極端。
           </p>
           <Guess>
-            這個方向還有更進階的做法：多組 window 疊加、把訊號做成有冗餘的編碼、
-            改用不動到期望分布的 sampling（Google 的 SynthID-Text 就是走 tournament sampling 這條路）。
-            Claude 用的是哪一種、或哪幾種的組合，目前無從得知。
+            其他論文還會疊加多組 window、加入冗餘編碼，或改用 tournament sampling。
+            Claude 採用哪一類方法仍未知。
           </Guess>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="quality">為什麼微調機率不一定傷品質</Heading>
-          <p>先講一個沒得繞過的事實。設原始輸出分布是 <InlineMath math="P" />、加了 watermark 之後是{" "}
+          <Heading id="quality">偏一點，品質會掉嗎</Heading>
+          <p>設原始輸出分布是 <InlineMath math="P" />、加上 watermark 後是{" "}
             <InlineMath math="Q" />。如果
           </p>
           <BlockMath math="P = Q" />
           <p>
-            那麼一個只看得到輸出文字的 detector，<strong>理論上不可能</strong>區分兩者——
-            它拿到的樣本來自同一個分布，沒有任何資訊可用。所以想要可偵測，就必須{" "}
-            <InlineMath math="P \neq Q" />。「完全零影響又能可靠偵測」是矛盾的。
+            只看輸出文字的 detector 就沒有資訊可用。因此可偵測的 watermark 必須讓{" "}
+            <InlineMath math="P \neq Q" />，差別只在分布被推了多遠。
           </p>
           <p>
-            真正的工程問題因此不是「怎麼做到零影響」，而是：
-            <strong>怎麼讓單步的 <InlineMath math="P" /> 與 <InlineMath math="Q" /> 差距小到讀不出來，
-            但幾百上千步累積後統計上分得開。</strong>
-            衡量那個差距常用 KL divergence <InlineMath math="D_{\mathrm{KL}}(Q \,\|\, P)" />，
-            直覺就是「兩個分布差多遠」，這裡不需要展開。
+            實作上希望每一步只移動一點，單看一句話感覺不出差異；
+            detector 則靠長序列把這些小差距累積起來。
           </p>
 
-          <SubHeading>把 bias 放在模型本來就猶豫的地方</SubHeading>
-          <p>關鍵在於分布形狀差很多。有些位置模型本來就沒主見：</p>
+          <SubHeading>挑模型本來就猶豫的位置</SubHeading>
+          <p>例如下一個 token 有幾個相近的候選：</p>
           <Code lang="text">{`「這是一個非常 ___ 的方法」
   有效  27%
   實用  25%
@@ -1186,40 +1156,21 @@ z = (hits - gamma*total) / sqrt(total * gamma * (1-gamma))`}</Code>
   強大  18%
   ...`}</Code>
           <p>
-            四個都合理，換哪個都不影響句子品質。這種位置（高 entropy，也就是不確定性大）
-            偏個兩三個百分點，讀者不可能察覺。
+            四個詞都通順。這種高 entropy 的位置，挪動幾個百分點通常不會改變句意。
           </p>
           <p>但有些位置只有一個答案：</p>
           <Code lang="text">{`「1 + 1 =」
   2      99.99%
   其他    0.01%`}</Code>
           <p>
-            這裡任何有意義的 bias 都是在把正確答案換掉。所以合理的設計會<strong>看分布的形狀決定要不要動手</strong>：
-            低 entropy 的位置放過，不計分也不干預。
+            這種低 entropy 的位置幾乎沒有操作空間，合理做法是跳過，不介入也不計分。
           </p>
           <Figure caption="圖 5：高 entropy 的位置有多個近似答案，可以用很小的偏差留下訊號；低 entropy 的位置應直接跳過。機率是 toy example。">
             <FigEntropy />
           </Figure>
-          <p>這對幾類輸出特別重要，因為它們幾乎整段都是低 entropy：</p>
-          <ul className="my-3 list-disc space-y-1.5 pl-5">
-            <li>
-              <strong>程式碼</strong>：變數名、關鍵字、括號結構，改一個 token 就是 bug。
-            </li>
-            <li>
-              <strong>數學與計算</strong>：答案唯一。
-            </li>
-            <li>
-              <strong>JSON / URL / 結構化輸出</strong>：格式錯了就不能用。
-            </li>
-            <li>
-              <strong>逐字引用、專有名詞、事實性答案</strong>：改掉就是錯的。
-            </li>
-          </ul>
           <p>
-            反過來說，這也直接解釋了官方那句「太短的文字沒有可靠訊號」：
-            一段文字裡真正能承載 watermark 的，只有高 entropy 的那些位置。
-            一段幾乎全是程式碼的回覆，可計分的位置可能少到根本驗不出來——
-            這裡的 <InlineMath math="N" /> 從來就不等於 token 總數。
+            程式碼、算式、JSON、URL 與逐字引用都有大量受限制的 token，可介入的位置往往比自然語言少。
+            因此後面公式裡的 <InlineMath math="N" /> 指的是「可計分位置」，不是 token 總數。
           </p>
         </FadeIn>
 
@@ -1231,12 +1182,11 @@ z = (hits - gamma*total) / sqrt(total * gamma * (1-gamma))`}</Code>
           </p>
           <BlockMath math="\text{signal} \propto N, \qquad \text{noise} \propto \sqrt{N} \quad \Longrightarrow \quad \text{SNR} \propto \sqrt{N}" />
           <p>
-            白話說：<strong>文章長 100 倍，辨識能力大概只強 10 倍。</strong>
-            證據會一直累積，隨機波動也會，只是波動長得比較慢。
+            長度增加 100 倍，訊噪比約增加 10 倍。訊號和隨機波動都會變大，
+            但訊號累積得比較快。
           </p>
           <p>
-            延續前面的 toy 設定（<InlineMath math="\gamma = 0.5" />，watermark 把命中率從 50% 推到 55%），
-            z-score 剛好有個很乾淨的形式：
+            延續前面的示意設定：<InlineMath math="\gamma = 0.5" />，watermark 把命中率從 50% 推到 55%。
           </p>
           <BlockMath math="z = \frac{0.55N - 0.5N}{\sqrt{0.25N}} = 0.1\sqrt{N}" />
 
@@ -1244,20 +1194,19 @@ z = (hits - gamma*total) / sqrt(total * gamma * (1-gamma))`}</Code>
             <FigAccumulate />
           </Figure>
 
-          <p>代進幾個長度：</p>
-          <Code lang="text">{`N =   20   →  z ≈ 0.45    什麼都證明不了
-N =  100   →  z ≈ 1.0     還在雜訊範圍內
-N =  400   →  z ≈ 2.0     有點意思，但遠遠不夠
-N = 1000   →  z ≈ 3.2     開始像回事
-N = 4000   →  z ≈ 6.3     幾乎不可能是巧合`}</Code>
+          <p>代入不同長度：</p>
+          <Code lang="text">{`N =   20   →  z ≈ 0.45    幾乎沒有判斷力
+N =  100   →  z ≈ 1.0     仍在常見波動內
+N =  400   →  z ≈ 2.0     有訊號，但不足以單獨判定
+N = 1000   →  z ≈ 3.2     訊號開始明顯
+N = 4000   →  z ≈ 6.3     在理想模型下很強`}</Code>
           <Guess>
-            這張表是上面那條式子的直接代入，用來感受 <InlineMath math="\sqrt{N}" /> 的形狀，
-            不是 Claude 的門檻。官方沒有公布任何長度數字。
+            這是理想化模型，不是 Claude 的門檻。Anthropic 沒有公布最低長度。
           </Guess>
 
           <SubHeading>門檻怎麼定，誤判怎麼算</SubHeading>
           <p>
-            偵測就是選一個門檻 <InlineMath math="z^*" />，超過就判「有 watermark」。兩種錯誤方向相反：
+            Detector 需要選一個門檻 <InlineMath math="z^*" />。門檻以下當作沒有訊號，以上才判為命中：
           </p>
           <ul className="my-3 list-disc space-y-1.5 pl-5">
             <li>
@@ -1272,26 +1221,22 @@ N = 4000   →  z ≈ 6.3     幾乎不可能是巧合`}</Code>
             </li>
           </ul>
           <p>
-            門檻拉高，false positive 變少但 false negative 變多，反之亦然。這裡沒有兩全的選項。
-            而且真實場景是「拿去掃幾百萬份文件」，那個看起來很小的{" "}
-            <InlineMath math="3 \times 10^{-5}" /> 乘上一百萬份就是幾十份冤枉——
-            所以實務門檻通常訂得比直覺高很多。
+            門檻提高會減少 false positive，同時增加 false negative。大量掃描文件時還要考慮多重比較：
+            <InlineMath math="3 \times 10^{-5}" /> 乘上一百萬份，期望值就是幾十次誤判。
           </p>
           <p>
-            還有一個容易被忽略的坑：上面整套推導假設每個位置獨立，但自然語言會重複。
+            上面的二項分布還假設各位置獨立，但自然語言會重複。
             同一個片語出現兩次，window 一樣、green list 就一樣，兩次命中並不是獨立事件，
-            這會讓 z-score 被高估。實作上通常要對重複的 window 去重之後再算，
-            論文裡也是這樣處理的。
+            z-score 可能因此被高估。常見處理方式是先把重複 window 去重。
           </p>
           <p>
-            這一節的結論，也正好對上官方那句「驗到浮水印只代表可能被 Claude 處理過」：
-            這是統計證據，不是簽章。它給的是「這篇文章符合某套祕密偏好到不太可能是巧合」，
-            而不是「這篇文章由誰產生」的密碼學證明。
+            所以 detector 回答的是「這段文字符合某套 secret pattern 到不像巧合嗎」，
+            不是「作者是誰」。這也是官方只說內容可能被 Claude 處理過的原因。
           </p>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="attack">什麼才真的洗得掉</Heading>
+          <Heading id="attack">編輯會留下多少訊號</Heading>
 
           <Figure caption="圖 7：三種處理方式對 evidence 的影響。前兩種只是少掉一些命中位置，第三種是整排重新 sample。">
             <FigAttack />
@@ -1299,46 +1244,37 @@ N = 4000   →  z ≈ 6.3     幾乎不可能是巧合`}</Code>
 
           <SubHeading>複製貼上</SubHeading>
           <p>
-            文字完全沒變，可計分位置一個不少，z-score 原則上一樣。這是統計式 watermark 相對於 metadata 的主要優勢，
-            也是官方明確講的行為。
+            Token 序列沒有變，計分結果原則上也不變。Anthropic 已明確確認這點。
           </p>
 
           <SubHeading>局部修改</SubHeading>
           <p>
-            改幾個詞、刪一兩句、調換段落。如果 context 是滑動窗口，
-            每處修改大約毀掉 <InlineMath math="k" /> 個位置的證據，其餘不受影響。
-            2000 個位置裡毀掉 60 個，z 會掉但不會歸零。
+            若使用長度 <InlineMath math="k" /> 的滑動窗口，每處 token 替換會直接影響附近約{" "}
+            <InlineMath math="k" /> 個位置。刪除、插入和移動句子則還會改變 token 對齊，影響範圍更難估。
           </p>
           <p>
-            不過有個工程細節值得一提：detector 必須重新 tokenize。
-            編輯過的文字切出來的 token 邊界可能跟原本不同，這種 misalignment 造成的損失
-            比「被改掉的字數」本身更難預測。
+            只要大部分原序列保留，剩餘位置仍可提供證據；是否還過門檻取決於原文長度、修改位置與 detector 設計。
           </p>
 
           <SubHeading>整篇改寫、翻譯、丟給另一個模型重寫</SubHeading>
           <p>
-            這是本質上不同的攻擊。前兩者是<strong>保留大部分原 token 序列</strong>，
-            這一種是讓另一個模型從頭 sample 一遍——新的 token 沒有經過原本的 green list 偏好，
-            命中率就是 <InlineMath math="\gamma" />。剩下的訊號只來自碰巧沒被改掉的片段。
+            這類操作會重新 sample 大量 token。新序列沒有遵循原本的 secret pattern，
+            留下的訊號主要來自未被改寫的片段。
           </p>
           <p>
-            官方對這點的說法也很保留，只說「可能撐過一些編輯」，
-            並列出「大幅編輯、改寫、翻譯、混合」是驗不出來的情況之一。沒有給任何比例數字，
-            我這裡也不編一個。
+            官方將大幅編輯、改寫、翻譯與混合列為可能驗不到的情況，沒有提供修改比例或成功率。
           </p>
           <p>
-            順帶一提，這個領域有個結構性難題：一旦公開偵測工具，
-            想洗掉浮水印的人就有了 oracle——反覆微調直到分數低於門檻即可。
-            這是「開放第三方驗證」與「防規避」之間的真實矛盾，也可能是 Anthropic 的偵測工具
-            還沒直接公開的原因之一。<span className="text-text-muted">（這句是我的推測。）</span>
+            公開 detector 還有另一個問題：它可能變成攻擊者的 oracle。反覆修改文字並查詢分數，
+            就能逐步找到低於門檻的版本。第三方可驗證與防規避之間本來就有衝突。
           </p>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="tradeoff">三角 trade-off</Heading>
-          <p>整篇最後會收斂到三個量互相拉扯：</p>
+          <Heading id="tradeoff">三個一起拉扯的量</Heading>
+          <p>Watermark 的參數最後都在調整三件事：</p>
 
-          <Figure caption="圖 8：δ 只是在這條線上滑動——把偵測與耐改推高，就得吐出品質。">
+          <Figure caption="圖 8：提高 watermark 強度通常會增加可偵測性與耐改性，也會拉大輸出分布的偏移。">
             <FigTradeoff />
           </Figure>
 
@@ -1354,35 +1290,29 @@ N = 4000   →  z ≈ 6.3     幾乎不可能是巧合`}</Code>
             </li>
           </ul>
           <p>
-            用 <InlineMath math="\delta" /> 當旋鈕就看得很清楚。<InlineMath math="\delta" /> 調大，
-            每步命中率提高，短文就能累積到門檻，改掉一部分也還撐得住；代價是模型越來越常放棄它原本最想選的詞，
-            用字開始被拉走。<InlineMath math="\delta" /> 調小，品質幾乎不受影響，
-            但需要更長的文章才驗得出來，而且稍微改一改就掉到門檻以下。
+            在 green list 例子中，<InlineMath math="\delta" /> 越大，命中率越高，短文較容易過門檻，
+            被改掉一部分後也可能保留訊號；但生成分布會離原模型更遠。<InlineMath math="\delta" /> 越小，
+            對輸出的影響越低，代價是需要更長的文字。
           </p>
           <p>
-            這也是為什麼近年研究往「不動到期望分布」的方向走——
-            例如 SynthID-Text 的 tournament sampling，在期望上不改變輸出分布，
-            等於試圖把品質那一角從這個三角裡拿掉。代價是演算法複雜不少。
+            SynthID-Text 等後續方法改用 tournament sampling，目的之一就是降低分布扭曲。
+            訊號如何嵌入、如何檢定，也因此比 green list 例子複雜。
           </p>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="closing">收尾</Heading>
+          <Heading id="closing">我目前的理解</Heading>
           <p>
-            真正巧妙的地方不是「把一串祕密資料藏進文字」。
-            而是：<strong>在大量原本就幾乎等價的 token 選擇裡，按照只有 watermark 持有者知道的微弱偏好去 sampling；
-            任何單一次選擇都看不出異常，但幾百上千次累積之後，
-            知道 secret 的人可以看到統計上異常一致的 pattern。</strong>
+            我現在會把文字浮水印想成一套帶 secret 的抽樣規則。模型遇到幾個都合理的 token 時，
+            對其中一部分稍微加權；detector 用同一把 secret 重建規則，再看整段文字命中了多少次。
           </p>
           <p>
-            這也決定了它的能力邊界：它是統計證據不是簽章，需要長度，
-            怕整篇改寫，而且只能說「這段文字可能經過某個系統」，不能說「這是誰寫的」。
-            官方文件其實把這幾點都寫得很清楚，只是容易被「隱形浮水印」這個詞蓋過去。
+            單次選擇看不出異常，累積到長文才有判斷力。局部編輯會損失部分命中，整篇重寫則可能讓訊號消失。
+            即使驗到，也只能說文字可能經過該系統，不能證明作者身分。
           </p>
           <Guess>
-            最後再說一次：除了第一節列的官方事實，這篇描述的是 LLM watermark 這個領域
-            為什麼可行的核心演算法模型，<strong>不是對 Claude 私有實作的逆向確認</strong>。
-            Anthropic 說會出技術文件，等真的出來，這篇該改的地方我再回來改。
+            Green list、sliding window 與本文中的參數都只是理解用的模型，不是 Claude 實作的逆向結果。
+            Anthropic 公開技術文件後再回來核對。
           </Guess>
         </FadeIn>
 
