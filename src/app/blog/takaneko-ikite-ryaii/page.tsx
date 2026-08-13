@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import Parallel from "@/components/Parallel";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
 import RelatedPosts from "@/components/RelatedPosts";
@@ -248,20 +249,7 @@ export default function IkiteRyaii() {
         </div>
       </FadeIn>
 
-      <div className="space-y-10">
-        {verses.map((v, i) => (
-          <FadeIn key={i}>
-            <div className="grid gap-x-8 gap-y-3 sm:grid-cols-2">
-              <p className="whitespace-pre-line leading-relaxed text-text">
-                {v.ja}
-              </p>
-              <p className="whitespace-pre-line leading-relaxed text-text-muted">
-                {v.zh}
-              </p>
-            </div>
-          </FadeIn>
-        ))}
-      </div>
+      <Parallel rows={verses.map((v) => ({ lead: v.ja, echo: v.zh }))} />
       <RelatedPosts href="/blog/takaneko-ikite-ryaii" />
     </article>
   );

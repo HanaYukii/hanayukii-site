@@ -4,6 +4,7 @@ import PostJsonLd from "@/components/PostJsonLd";
 import RelatedPosts from "@/components/RelatedPosts";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import PostMeta from "@/components/PostMeta";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { InlineMath, BlockMath } from "@/components/Math";
@@ -72,17 +73,7 @@ export default function CF2217F() {
         <p className="mb-2 text-sm text-text-muted">
           第一眼以為要同時處理機率和區間；拆成 Nim 之後，就只剩 XOR 分佈的 counting。
         </p>
-        <p className="mb-8 text-sm text-text-muted">
-          2026-04-08 ·{" "}
-          <a
-            href="https://codeforces.com/contest/2217/problem/F"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="prose-link"
-          >
-            Problem Link
-          </a>
-        </p>
+        <PostMeta href="/blog/cf2217f" />
       </FadeIn>
 
       {/* TOC */}

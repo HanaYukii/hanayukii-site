@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import Parallel from "@/components/Parallel";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
 import RelatedPosts from "@/components/RelatedPosts";
@@ -261,20 +262,7 @@ export default function MajiKansha() {
       </FadeIn>
 
       {/* 歌詞對照（verses 填好後自動顯示） */}
-      <div className="space-y-10">
-        {verses.map((v, i) => (
-          <FadeIn key={i}>
-            <div className="grid gap-x-8 gap-y-3 sm:grid-cols-2">
-              <p className="whitespace-pre-line leading-relaxed text-text">
-                {v.ja}
-              </p>
-              <p className="whitespace-pre-line leading-relaxed text-text-muted">
-                {v.zh}
-              </p>
-            </div>
-          </FadeIn>
-        ))}
-      </div>
+      <Parallel rows={verses.map((v) => ({ lead: v.ja, echo: v.zh }))} />
 
       <FadeIn>
         <div className="mt-16 border-t border-border/30 pt-6 text-sm text-text-muted">

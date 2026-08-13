@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import Figure from "@/components/Figure";
 import Code from "@/components/CodeBlock";
 import { InlineMath, BlockMath } from "@/components/Math";
 import { articleMetadata } from "@/lib/seo";
@@ -87,25 +88,6 @@ function GlossaryItem({
       <p className="mb-1.5 font-mono text-sm font-bold text-sky">{term}</p>
       <p className="text-sm leading-relaxed text-text-muted">{children}</p>
     </div>
-  );
-}
-
-function Figure({
-  caption,
-  children,
-}: {
-  caption: React.ReactNode;
-  children: React.ReactNode;
-}) {
-  return (
-    <figure className="my-8">
-      <div className="overflow-x-auto rounded-xl border border-border bg-[var(--illustration-surface)]">
-        {children}
-      </div>
-      <figcaption className="mt-2 text-center text-xs text-text-muted">
-        {caption}
-      </figcaption>
-    </figure>
   );
 }
 

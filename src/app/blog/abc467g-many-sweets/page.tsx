@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import PostMeta from "@/components/PostMeta";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { InlineMath } from "@/components/Math";
@@ -66,7 +67,7 @@ export default function Abc467gManySweets() {
         <h1 className="mb-2 text-4xl font-bold">
           AtCoder ABC 467 G Many Sweets Problem
         </h1>
-        <p className="mb-8 text-sm text-text-muted">2026-07-19</p>
+        <PostMeta href="/blog/abc467g-many-sweets" />
       </FadeIn>
 
       <FadeIn delay={0.1}>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import PostMeta from "@/components/PostMeta";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { InlineMath } from "@/components/Math";
@@ -51,9 +52,7 @@ export default function Lc2463() {
         <h1 className="mb-2 text-4xl font-bold">
           LeetCode 2463 Minimum Total Distance Traveled
         </h1>
-        <p className="mb-8 text-sm text-text-muted">
-          2026-04-15
-        </p>
+        <PostMeta href="/blog/lc-2463" />
       </FadeIn>
 
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-primary [&_code]:text-sm">

@@ -1,8 +1,17 @@
 ﻿export type Post = {
   title: string;
+  /** 寫下來的那天 */
   date: string;
   /** Optional last-revised date (ISO). Falls back to `date` for dateModified. */
   updated?: string;
+  /**
+   * 事情發生的那天：contest round 的日期、live 的日期、離職的那天。
+   * 跟 date 是兩回事——CF2217F 是某一場 round，TIF 是八月的某一天在お台場，
+   * 但站上目前只記得我坐下來打字的那天。有值才會顯示。
+   */
+  occurred?: string;
+  /** 外部識別碼與原題／原場次連結 */
+  source?: { id: string; url: string };
   summary: string;
   tags: string[];
   tagStyle: string;
@@ -59,6 +68,7 @@ export const posts: Post[] = [
       "帶單點修改的「區間吃糖到 ≥ k 最少顆數」。merge-sort tree 每節點掛 Fenwick 支援改值，再把 index / value 對調、用 kth-element 式 descent 省掉外層二分的 log。",
     tags: ["Competitive Programming", "Segment Tree"],
     tagStyle: "text-primary",
+    source: { id: "ABC 467 G", url: "https://atcoder.jp/contests/abc467/tasks/abc467_g" },
     href: "/blog/abc467g-many-sweets",
   },
   {
@@ -178,6 +188,7 @@ export const posts: Post[] = [
       "把買假日問題轉成最大不相鄰省略和，並用線段樹「左右端狀態相依」模式維護動態查詢。順便整理 max subarray sum 同模式的對照。",
     tags: ["Competitive Programming", "Segment Tree"],
     tagStyle: "text-primary",
+    source: { id: "ABC 456 F", url: "https://atcoder.jp/contests/abc456/tasks/abc456_f" },
     href: "/blog/abc456f-plan-holidays",
   },
   {
@@ -225,6 +236,7 @@ export const posts: Post[] = [
       "直觀的二維匹配 DP，但轉移的實作不太直觀。每日一題的好題。",
     tags: ["Algorithm", "DP"],
     tagStyle: "text-primary",
+    source: { id: "LC 2463", url: "https://leetcode.com/problems/minimum-total-distance-traveled/" },
     href: "/blog/lc-2463",
   },
   {
@@ -244,6 +256,7 @@ export const posts: Post[] = [
       "Segment Tree 維護 GCD，分 case 討論。值域限制讓拿掉誰 GCD 都不為 1 只在很小的 n 才可能。",
     tags: ["Competitive Programming", "Number Theory"],
     tagStyle: "text-primary",
+    source: { id: "LC WC 497 Q4", url: "https://leetcode.com/contest/weekly-contest-497/" },
     href: "/blog/lc-wc497-q4",
   },
   {
@@ -262,6 +275,7 @@ export const posts: Post[] = [
       "Nim + XOR 加法恆等式 + Digit DP。把區間博弈轉成 Nim，再用代數轉換拆解 counting。",
     tags: ["Competitive Programming", "Game Theory"],
     tagStyle: "text-primary",
+    source: { id: "CF 2217F", url: "https://codeforces.com/contest/2217/problem/F" },
     href: "/blog/cf2217f",
   },
   {

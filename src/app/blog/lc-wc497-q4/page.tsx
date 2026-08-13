@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import PostMeta from "@/components/PostMeta";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { InlineMath, BlockMath } from "@/components/Math";
@@ -66,9 +67,7 @@ export default function LcWc497Q4() {
         <h1 className="mb-2 text-4xl font-bold">
           LeetCode Weekly Contest 497 Q4 Good Subsequence Queries
         </h1>
-        <p className="mb-8 text-sm text-text-muted">
-          2026-04-12
-        </p>
+        <PostMeta href="/blog/lc-wc497-q4" />
       </FadeIn>
 
       {/* TOC */}
