@@ -59,8 +59,8 @@ export default function Home() {
 
           <div className="mt-10 space-y-3 text-base leading-relaxed text-text-muted sm:text-lg">
             <p>
-              After three years at Google, I now work at an AI startup. I still
-              solve programming contests for fun and write down whatever else catches my attention.
+              競賽程式出身，在 Google 待過三年，現在在一間 AI 新創。
+              這裡主要寫技術文章，偶爾也寫偶像現場和隨筆，topic 會隨心所欲跳來跳去。
             </p>
           </div>
 
