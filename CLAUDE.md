@@ -32,14 +32,14 @@ Repo: HanaYukii/hanayukii-site（部署 hanayukii.dev）。
 ## Commit 紀律
 
 - **一個交付物 = 一個 commit**（「一篇一 commit」）。訊息格式：`Add /blog/<slug> — <標題>`。
-- 預設**先給作者看過、說 OK 再 commit**（除非他說「直接推」）。
+- typecheck / build 過了就直接 commit + push，不用先等作者看過；作者會在站上自己修。
 - **只 `git add` 改到的指定路徑**，**不要 `git add -A` / `git add .`**——工作區常有未完成的 WIP（例如 jabiko 的圖與草稿），別掃進 commit。
 
 ## 驗證流程
 
-- 指令要在 repo 根目錄跑：`Set-Location "C:\Users\islu2\Documents\Projects\hanayuki-site"`（否則 git/tsc 會失敗）。
+- 指令要在 repo 根目錄跑：`Set-Location "C:\Users\yukilu\Documents\hanayukii-site"`（否則 git/tsc 會失敗）。
 - typecheck：`npx tsc --noEmit`；build：`npm run build`。
-- 預覽：preview 工具，launch.json 的 server 名是 `hanayuki-dev`（port 3000）。隱藏視窗的 `preview_screenshot` 會 timeout，改用 `preview_eval` / `preview_snapshot` 驗證內容。
+- 預覽：preview 工具，launch.json 的 server 名是 `dev`（port 3000）。視窗沒顯示時 `screenshot` 會 timeout，改用 `get_page_text` / `read_page` / `javascript_tool` 驗證內容。
 - 刪 route 後 build 若報 `.next` 舊型別錯，清掉 `.next` 重 build。
 
 ## 語法雷
