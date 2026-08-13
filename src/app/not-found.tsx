@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-24">
       <p className="font-mono text-sm text-primary">404</p>
-      <h1 className="mt-3 text-4xl font-bold tracking-tight">這裡沒有東西</h1>
+      <h1 className="mt-3 text-4xl font-bold">這裡沒有東西</h1>
       <p className="mt-4 text-text-muted">
         頁面可能被移動或刪掉了。回首頁，或看看這幾篇：
       </p>

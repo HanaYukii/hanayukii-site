@@ -50,7 +50,7 @@ export default function LeavingGoogle() {
           離開 Google 半年後的轉職紀錄
         </h1>
         <p className="mb-2 text-sm text-text-muted">2026-04-06</p>
-        <blockquote className="mb-8 border-l-2 border-primary pl-4 text-text-muted italic">
+        <blockquote className="mb-8 border-l-2 border-primary pl-4 text-text-muted">
           這篇純粹回顧這幾年，無意批評任何人——遇到的人幾乎都很好，只是這個環境不適合當時的我。
         </blockquote>
       </FadeIn>

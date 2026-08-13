@@ -3,7 +3,7 @@
 @theme {
   --color-primary: #2f675d;
   --color-primary-dark: #244f48;
-  --color-accent: #b54734;
+  --color-accent: #a83e2c;
   --color-warm: #9d762d;
   --color-sky: #486f89;
   --color-rose: #8c4d5a;
@@ -11,7 +11,7 @@
   --color-surface: #fbf6ec;
   --color-surface-hover: #efe3d1;
   --color-text: #2d2923;
-  --color-text-muted: #70685d;
+  --color-text-muted: #615a50;
   --color-border: #d4c6b1;
 
   --font-serif: var(--font-newsreader), var(--font-noto-serif-tc), Georgia,
@@ -27,7 +27,7 @@ html[data-theme="stationery"] {
   color-scheme: light;
   --color-primary: #2f675d;
   --color-primary-dark: #244f48;
-  --color-accent: #b54734;
+  --color-accent: #a83e2c;
   --color-warm: #9d762d;
   --color-sky: #486f89;
   --color-rose: #8c4d5a;
@@ -35,7 +35,7 @@ html[data-theme="stationery"] {
   --color-surface: #fbf6ec;
   --color-surface-hover: #efe3d1;
   --color-text: #2d2923;
-  --color-text-muted: #70685d;
+  --color-text-muted: #615a50;
   --color-border: #d4c6b1;
 
   --site-body-background:
@@ -45,7 +45,7 @@ html[data-theme="stationery"] {
     repeating-linear-gradient(90deg, rgba(95, 66, 37, 0.035) 0 1px, transparent 1px 15px),
     repeating-linear-gradient(0deg, rgba(45, 41, 35, 0.025) 0 1px, transparent 1px 10px),
     var(--color-bg);
-  --site-selection-bg: rgba(181, 71, 52, 0.24);
+  --site-selection-bg: rgba(168, 62, 44, 0.24);
   --site-selection-text: var(--color-text);
   --nav-shadow: rgba(95, 66, 37, 0.06);
 
@@ -53,14 +53,14 @@ html[data-theme="stationery"] {
   --illustration-accent-soft: rgba(47, 103, 93, 0.14);
   --illustration-accent-wash: rgba(47, 103, 93, 0.08);
   --illustration-accent-haze: rgba(47, 103, 93, 0.08);
-  --illustration-warm: #b54734;
-  --illustration-warm-soft: rgba(181, 71, 52, 0.13);
-  --illustration-warm-haze: rgba(181, 71, 52, 0.06);
+  --illustration-warm: #a83e2c;
+  --illustration-warm-soft: rgba(168, 62, 44, 0.13);
+  --illustration-warm-haze: rgba(168, 62, 44, 0.06);
   --illustration-sky: #486f89;
   --illustration-sky-soft: rgba(72, 111, 137, 0.13);
   --illustration-sky-wash: rgba(72, 111, 137, 0.1);
   --illustration-ink: #2d2923;
-  --illustration-muted: #70685d;
+  --illustration-muted: #615a50;
   --illustration-border: #d4c6b1;
   --illustration-surface: #f3eadc;
   --illustration-surface-alt: #fbf6ec;
@@ -134,7 +134,8 @@ h4,
 h5,
 h6 {
   font-family: var(--font-serif);
-  letter-spacing: -0.02em;
+  /* 負字距是拉丁字型的慣例；方塊字擠在一起只會糊，所以標題一律不收字距 */
+  letter-spacing: normal;
 }
 
 code,
@@ -174,4 +175,191 @@ a:focus-visible {
 .prose-link:hover {
   color: var(--color-primary);
   text-decoration-color: currentColor;
+}
+
+/* ---------------------------------------------------------------
+   長文排版
+
+   .prose-custom 掛在 30 個文章頁的 wrapper 上，這裡是它唯一的定義。
+   分兩層寫，是刻意的：
+
+   - 未分層（本區塊）：優先度高過 @layer utilities，用來蓋掉 wrapper
+     自己帶的 text-text-muted / leading-relaxed / space-y-2。
+   - @layer components：優先度低於 utilities，所以個別元素上的
+     text-sm、mb-3 這類 utility 仍然贏得過——圖說、目錄框那些
+     刻意做小的段落不會被一起壓成正文。
+
+   改這裡等於同時改 36 篇，不要在文章檔裡重複這些設定。
+   --------------------------------------------------------------- */
+
+.prose-custom {
+  color: var(--color-text);
+  font-size: 17px;
+  line-height: 1.76;
+  /* 方塊字不收字距 */
+  letter-spacing: normal;
+  /* 中文禁則：不要讓標點掉到行首 */
+  line-break: strict;
+  text-wrap: pretty;
+  /* std::ranges::views::transform 這種長識別字不要撐破版 */
+  overflow-wrap: break-word;
+}
+
+/* section 之間不再塞 space-y-2 的 8px，改由段落與標題自己的節奏決定 */
+.prose-custom > * + * {
+  margin-block-start: 0;
+}
+
+/* 行內 code 夾在 CJK 內文裡；pre 內的不動（CodeBlock 自己管） */
+.prose-custom :not(pre) > code {
+  font-size: 0.9em;
+  overflow-wrap: break-word;
+}
+
+@supports (text-spacing-trim: trim-both) {
+  .prose-custom {
+    text-spacing-trim: trim-both;
+  }
+}
+
+/* ---------------------------------------------------------------
+   程式碼區塊
+
+   原本寫死 GitHub Dark 的 #0d1117：那是冷藍黑，在紙感主題下每一塊
+   都是挖進紙裡的洞，而且是別人家的配色。改成兩個主題各一組、
+   全部取自本站色票。語法色走 class 不走 inline style，見 CodeBlock.tsx。
+   --------------------------------------------------------------- */
+
+.code-block {
+  --code-bg: #efe6d6;
+  --code-fg: #2d2923;
+  --code-border: #ddceb6;
+  /* 以下全部量過 on #efe6d6：4.84 / 4.62 / 5.00 / 5.27 / 5.02 / 6.47 / 5.08 / 4.78 */
+  --code-muted: #6b6255;
+  --code-comment: #6f6555;
+  --code-keyword: #a83e2c;
+  --code-string: #2f675d;
+  --code-number: #7a5c1f;
+  --code-function: #39536b;
+  --code-type: #41647c;
+  --code-punct: #6b6357;
+
+  background: var(--code-bg);
+  color: var(--code-fg);
+  border-color: var(--code-border);
+}
+
+html[data-theme="dark"] .code-block {
+  --code-bg: #0f1320;
+  --code-fg: #e4e7ef;
+  --code-border: #232a40;
+  /* 量過 on #0f1320：5.16 / 5.01 起跳 */
+  --code-muted: #7d86a3;
+  --code-comment: #7b83a6;
+  --code-keyword: #f4845f;
+  --code-string: #2ec4b6;
+  --code-number: #fbbf24;
+  --code-function: #82aaff;
+  --code-type: #38bdf8;
+  --code-punct: #8f96ad;
+}
+
+.code-block-lang {
+  color: var(--code-muted);
+  border-bottom: 1px solid var(--code-border);
+}
+
+.code-block-copy {
+  background: color-mix(in srgb, var(--code-fg) 10%, transparent);
+  color: var(--code-muted);
+}
+
+.code-block-copy:hover {
+  background: color-mix(in srgb, var(--code-fg) 18%, transparent);
+  color: var(--code-fg);
+}
+
+.code-block .token.comment,
+.code-block .token.prolog,
+.code-block .token.cdata {
+  color: var(--code-comment);
+}
+
+.code-block .token.punctuation,
+.code-block .token.operator {
+  color: var(--code-punct);
+}
+
+.code-block .token.keyword,
+.code-block .token.atrule,
+.code-block .token.important,
+.code-block .token.selector {
+  color: var(--code-keyword);
+}
+
+.code-block .token.string,
+.code-block .token.char,
+.code-block .token.attr-value,
+.code-block .token.regex,
+.code-block .token.url {
+  color: var(--code-string);
+}
+
+.code-block .token.number,
+.code-block .token.boolean,
+.code-block .token.constant,
+.code-block .token.symbol,
+.code-block .token.property,
+.code-block .token.attr-name {
+  color: var(--code-number);
+}
+
+.code-block .token.function,
+.code-block .token.macro {
+  color: var(--code-function);
+}
+
+.code-block .token.class-name,
+.code-block .token.builtin,
+.code-block .token.tag,
+.code-block .token.namespace {
+  color: var(--code-type);
+}
+
+.code-block .token.deleted {
+  color: var(--code-keyword);
+}
+
+.code-block .token.inserted {
+  color: var(--code-string);
+}
+
+@layer components {
+  /* 段落之間空一整行。原本是 0（preflight 把 p 的 margin 清掉了），
+     整段文字擠成一塊，這是全站最嚴重的可讀性問題。 */
+  .prose-custom p {
+    margin-block-end: 1.75em;
+  }
+
+  .prose-custom p:last-child,
+  .prose-custom blockquote p:last-child,
+  .prose-custom figure p:last-child,
+  .prose-custom li p:last-child {
+    margin-block-end: 0;
+  }
+
+  .prose-custom li p {
+    margin-block-end: 0.5em;
+  }
+}
+
+/* KaTeX 預設 1.21em，比中文內文大 21%，行內數學會把行框頂開。
+   katex.min.css 是未分層的，所以這條也必須未分層＋更高特異性才蓋得掉。 */
+.prose-custom .katex {
+  font-size: 1.08em;
+}
+
+/* 區塊數學的外距交給外層 wrapper 的 my-4，避免和 KaTeX 自己的 1em 疊加 */
+.prose-custom .katex-display {
+  margin-block: 0;
 }

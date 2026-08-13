@@ -46,7 +46,7 @@ export default function CppSpan() {
             C++20
           </span>
         </div>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight">
+        <h1 className="mb-4 text-4xl font-bold">
           C++20 的 std::span 應用整理
         </h1>
         <p className="mb-8 text-text-muted">

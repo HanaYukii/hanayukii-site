@@ -34,7 +34,7 @@ function SubHeading({ children }: { children: React.ReactNode }) {
 
 function Callout({ children }: { children: React.ReactNode }) {
   return (
-    <blockquote className="my-4 border-l-2 border-primary pl-4 text-text-muted italic">
+    <blockquote className="my-4 border-l-2 border-primary pl-4 text-text-muted">
       {children}
     </blockquote>
   );
@@ -63,7 +63,7 @@ export default function Abc467gManySweets() {
             Fenwick Tree
           </span>
         </div>
-        <h1 className="mb-2 text-4xl font-bold tracking-tight">
+        <h1 className="mb-2 text-4xl font-bold">
           AtCoder ABC 467 G Many Sweets Problem
         </h1>
         <p className="mb-8 text-sm text-text-muted">2026-07-19</p>

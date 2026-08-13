@@ -33,7 +33,7 @@ function SubHeading({ children }: { children: React.ReactNode }) {
 
 function Callout({ children }: { children: React.ReactNode }) {
   return (
-    <blockquote className="my-4 border-l-2 border-primary pl-4 text-text-muted italic">
+    <blockquote className="my-4 border-l-2 border-primary pl-4 text-text-muted">
       {children}
     </blockquote>
   );
@@ -100,7 +100,7 @@ export default function CppSecretOptimizations1() {
             Memory
           </span>
         </div>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight">
+        <h1 className="mb-4 text-4xl font-bold">
           SSO 跟 Copy Elision：編譯器與標準庫做的事
         </h1>
         <p className="mb-2 text-sm text-text-muted">2026-03-31</p>

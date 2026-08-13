@@ -33,7 +33,7 @@ function SubHeading({ children }: { children: React.ReactNode }) {
 
 function Callout({ children }: { children: React.ReactNode }) {
   return (
-    <blockquote className="my-4 border-l-2 border-primary pl-4 text-text-muted italic">
+    <blockquote className="my-4 border-l-2 border-primary pl-4 text-text-muted">
       {children}
     </blockquote>
   );
@@ -64,7 +64,7 @@ export default function CppCompileTimeOptimization() {
             Compile-time
           </span>
         </div>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight">
+        <h1 className="mb-4 text-4xl font-bold">
           C++ 編譯期可以做的五件事
         </h1>
         <p className="mb-8 text-text-muted">

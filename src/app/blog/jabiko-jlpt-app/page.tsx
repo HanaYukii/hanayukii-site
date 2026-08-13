@@ -46,7 +46,7 @@ export default function JabikoJlptApp() {
             Frontend
           </span>
         </div>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight">
+        <h1 className="mb-4 text-4xl font-bold">
           Jabiko：JLPT 自習網站
         </h1>
         <p className="mb-8 text-text-muted">

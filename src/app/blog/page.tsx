@@ -55,7 +55,7 @@ export default async function Blog({
       />
       <FadeIn>
         <div className="mb-2 flex items-center gap-3">
-          <h1 className="text-4xl font-bold tracking-tight">Blog</h1>
+          <h1 className="text-4xl font-bold">Blog</h1>
           <a
             href="/feed.xml"
             target="_blank"

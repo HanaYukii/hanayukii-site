@@ -35,7 +35,7 @@ function Heading({ date, children, id }: { date?: string; children: React.ReactN
 
 export default function Idol2025() {
   return (
-    <article className="mx-auto max-w-3xl px-6 py-16">
+    <article className="prose-custom mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/idol-2025" />
       <FadeIn>
         <Link
@@ -53,7 +53,7 @@ export default function Idol2025() {
             Idol
           </span>
         </div>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight">
+        <h1 className="mb-4 text-4xl font-bold">
           2025 偶像現場全紀錄
         </h1>
         <p className="mb-2 text-lg text-text-muted">
@@ -444,7 +444,7 @@ export default function Idol2025() {
               希望大家多年後回到名古屋的時候，可以想起來當年在名古屋玩得很開心。感動落淚。
             </p>
           </blockquote>
-          <blockquote className="border-l-2 border-accent/40 bg-surface/40 rounded-r-lg px-4 py-3 italic text-text-muted">
+          <blockquote className="border-l-2 border-accent/40 bg-surface/40 rounded-r-lg px-4 py-3 text-text-muted">
             会えなくても 寂しくても<br />
             それでも地球は回ってゆく<br />
             君と僕の新しい物語をはじめよう

@@ -33,7 +33,7 @@ function SubHeading({ children }: { children: React.ReactNode }) {
 
 function Callout({ children }: { children: React.ReactNode }) {
   return (
-    <blockquote className="my-4 border-l-2 border-primary pl-4 text-text-muted italic">
+    <blockquote className="my-4 border-l-2 border-primary pl-4 text-text-muted">
       {children}
     </blockquote>
   );
@@ -77,7 +77,7 @@ function VerdictBox({
 
 export default function CppInterviewPerformanceAnalysis() {
   return (
-    <article className="mx-auto max-w-3xl px-6 py-16">
+    <article className="prose-custom mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/cpp-interview-performance-analysis" />
       <FadeIn>
         {/* Back link */}

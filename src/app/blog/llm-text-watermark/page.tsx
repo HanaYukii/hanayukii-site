@@ -735,7 +735,7 @@ export default function LlmTextWatermark() {
             Algorithm
           </span>
         </div>
-        <h1 className="mb-2 text-4xl font-bold tracking-tight">
+        <h1 className="mb-2 text-4xl font-bold">
           Claude 文字浮水印：從 token sampling 理解原理
         </h1>
         <p className="mb-8 text-sm text-text-muted">2026-08-13</p>

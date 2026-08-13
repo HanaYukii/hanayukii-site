@@ -96,7 +96,7 @@ export default function Tif2025ShachiRespectStage() {
         <h1 className="mb-3 text-3xl font-bold leading-tight sm:text-4xl">
           又快到 TIF 的季節，重看去年的 TEAM SHACHI Respect Stage
         </h1>
-        <p className="mb-3 text-base italic text-accent/80">
+        <p className="mb-3 text-base text-accent/80">
           一團一首，有眼淚，也有一堆熟人才會有的吐槽。
         </p>
         <p className="mb-8 text-sm text-text-muted">2026-07-19</p>

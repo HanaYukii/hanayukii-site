@@ -46,7 +46,7 @@ export default function CppPolymorphism() {
             Performance
           </span>
         </div>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight">
+        <h1 className="mb-4 text-4xl font-bold">
           C++ 多型：靜態(template) vs 動態(virtual)
         </h1>
         <p className="mb-8 text-text-muted">

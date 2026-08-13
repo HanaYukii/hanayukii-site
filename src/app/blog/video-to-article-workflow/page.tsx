@@ -32,7 +32,7 @@ function SubHeading({ children }: { children: React.ReactNode }) {
 
 function Callout({ children }: { children: React.ReactNode }) {
   return (
-    <blockquote className="my-4 border-l-2 border-primary pl-4 text-text-muted italic">
+    <blockquote className="my-4 border-l-2 border-primary pl-4 text-text-muted">
       {children}
     </blockquote>
   );
@@ -58,7 +58,7 @@ export default function VideoToArticleWorkflow() {
             Tooling
           </span>
         </div>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight">
+        <h1 className="mb-4 text-4xl font-bold">
           把 YouTube 影片變成逐字稿，再整理成文章
         </h1>
         <p className="mb-2 text-sm text-text-muted">2026-07-22</p>

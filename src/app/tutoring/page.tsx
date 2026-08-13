@@ -21,7 +21,7 @@ export default function Tutoring() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
       <FadeIn>
-        <h1 className="mb-2 text-4xl font-bold tracking-tight">
+        <h1 className="mb-2 text-4xl font-bold">
           演算法家教簡歷
         </h1>
         <p className="mb-12 text-text-muted">

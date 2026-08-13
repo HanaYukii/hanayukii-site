@@ -55,7 +55,7 @@ function SectionHeading({ children, id }: { children: React.ReactNode; id: strin
 
 export default function OshiList() {
   return (
-    <article className="mx-auto max-w-3xl px-6 py-16">
+    <article className="prose-custom mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/oshi-list" />
       <FadeIn>
         <Link
@@ -73,8 +73,8 @@ export default function OshiList() {
             Life
           </span>
         </div>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight">推し清單</h1>
-        <p className="mb-3 text-base italic text-accent/80">
+        <h1 className="mb-4 text-4xl font-bold">推し清單</h1>
+        <p className="mb-3 text-base text-accent/80">
           寫在剛看完 ukka 解散 live 的今天。
         </p>
         <p className="mb-8 text-sm text-text-muted">2026-05-25</p>

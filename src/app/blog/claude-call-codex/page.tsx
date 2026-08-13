@@ -46,7 +46,7 @@ export default function ClaudeCallCodex() {
             Tooling
           </span>
         </div>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight">
+        <h1 className="mb-4 text-4xl font-bold">
           讓 Claude Code 呼叫 Codex
         </h1>
         <p className="mb-8 text-text-muted">

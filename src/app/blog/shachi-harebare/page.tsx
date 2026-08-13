@@ -169,7 +169,7 @@ export default function ShachiHarebare() {
         <h1 className="mb-3 text-3xl font-bold leading-tight sm:text-4xl">
           TEAM SHACHI 最終曲「晴れ晴れ」歌詞翻譯與心得
         </h1>
-        <p className="mb-3 text-base italic text-accent/80">
+        <p className="mb-3 text-base text-accent/80">
           寫給曾經一起走過一段路的人。
         </p>
         <p className="mb-8 text-sm text-text-muted">2026-05-27</p>

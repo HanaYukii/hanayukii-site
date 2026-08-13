@@ -229,7 +229,7 @@ export default function MajiKansha() {
         <h1 className="mb-3 text-3xl font-bold leading-tight sm:text-4xl">
           TEAM SHACHI —「マジ感謝」歌詞翻譯
         </h1>
-        <p className="mb-3 text-base italic text-accent/80">
+        <p className="mb-3 text-base text-accent/80">
           即使結束了，能相遇過就值得說一萬次 ありがとう。
         </p>
         <p className="mb-8 text-sm text-text-muted">2026-05-25</p>

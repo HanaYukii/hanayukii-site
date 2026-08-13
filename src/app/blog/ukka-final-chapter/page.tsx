@@ -41,7 +41,7 @@ function SectionHeading({ children, id }: { children: React.ReactNode; id: strin
 
 export default function UkkaFinalChapter() {
   return (
-    <article className="mx-auto max-w-3xl px-6 py-16">
+    <article className="prose-custom mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/ukka-final-chapter" />
       <FadeIn>
         <Link
@@ -62,7 +62,7 @@ export default function UkkaFinalChapter() {
             Life
           </span>
         </div>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight">
+        <h1 className="mb-4 text-4xl font-bold">
           ukka Final Chapter
         </h1>
         <p className="mb-8 text-sm text-text-muted">2026-05-25</p>

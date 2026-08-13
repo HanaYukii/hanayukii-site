@@ -46,7 +46,7 @@ export default function CppReflection() {
             Reflection
           </span>
         </div>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight">C++ 反射入門</h1>
+        <h1 className="mb-4 text-4xl font-bold">C++ 反射入門</h1>
         <p className="mb-8 text-text-muted">
           反射（reflection）就是程式在執行或編譯期「檢視自己」的能力——問一個值是什麼型別、
           一個 struct 有哪些欄位、一個 enum 有哪些名字。序列化、ORM、debug 印整包物件這些事，
