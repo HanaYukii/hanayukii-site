@@ -4,6 +4,7 @@ import FadeIn from "@/components/FadeIn";
 import ArticleBlocks from "@/components/ArticleBlocks";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
+import PostMeta from "@/components/PostMeta";
 import RelatedPosts from "@/components/RelatedPosts";
 import { restaurantOrderingBody } from "@/data/articles/restaurantOrdering";
 
@@ -34,7 +35,7 @@ export default function JapaneseRestaurantOrderingPhrases() {
           &larr; Back to Blog
         </Link>
         <h1 className="mb-4 text-4xl font-bold tracking-tight">{TITLE}</h1>
-        <p className="mb-8 text-sm text-text-muted">2026-07-13</p>
+        <PostMeta href={HREF} />
       </FadeIn>
       <ArticleBlocks blocks={restaurantOrderingBody} />
       <RelatedPosts href={HREF} />

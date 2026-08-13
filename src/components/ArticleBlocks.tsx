@@ -109,7 +109,7 @@ function Links({ block }: { block: Extract<ArticleBlock, { kind: "links" }> }) {
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-text-muted underline decoration-border underline-offset-4 transition-colors hover:text-primary"
+              className="prose-link text-sm text-text-muted"
             >
               {item.label} &nearr;
             </a>

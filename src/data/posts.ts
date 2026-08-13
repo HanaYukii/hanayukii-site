@@ -59,7 +59,7 @@ export const posts: Post[] = [
     summary:
       "整理ドイツ、イギリス、オランダ等日文國名的來源，以及米・英・独・仏等縮寫、「国」的讀法和常見後綴。",
     tags: ["Japanese"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "text-accent",
     href: null,
   },
   {
@@ -87,7 +87,7 @@ export const posts: Post[] = [
     summary:
       "從進店、點餐、套餐與袋子一路到結帳，整理日本餐廳、咖啡店和便利商店常見問句、自然回答與店規注意事項。",
     tags: ["Japanese", "Travel"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "text-accent",
     href: null,
   },
   {
@@ -96,7 +96,7 @@ export const posts: Post[] = [
     summary:
       "整理あっさり、こってり、サクサク、もちもち等味道與口感日文，也收錄吃完拉麵後對店員說的自然句子。",
     tags: ["Japanese"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "text-accent",
     href: null,
   },
   {
@@ -105,7 +105,7 @@ export const posts: Post[] = [
     summary:
       "從私立恵比寿中学簡稱「エビ中」的由來開始，拆解〈えびチリ、はじめました〉裡的町中華、中文、麻將、南美國名、流行甜點與實用口語。",
     tags: ["Japanese", "Idol", "エビ中"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "text-accent",
     href: null,
   },
   {
@@ -114,7 +114,7 @@ export const posts: Post[] = [
     summary:
       "從 SWEET STEADY〈SWEET STEP〉學 ありのまま、強がる、素直、口上常見詞與偶像歌裡的細膩語感。",
     tags: ["Japanese", "Idol", "SWEET STEADY"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "text-accent",
     href: null,
   },
   {
@@ -123,7 +123,7 @@ export const posts: Post[] = [
     summary:
       "從超ときめき♡宣伝部〈超最強〉學推し活、布教、トレカ、レス、尊い、過去一等偶像歌常見日文，理解かわいい call 和推し活的雙向循環。",
     tags: ["Japanese", "Idol", "超ときめき♡宣伝部"],
-    tagStyle: "bg-accent/10 text-accent",
+    tagStyle: "text-accent",
     href: null,
   },
   {
