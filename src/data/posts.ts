@@ -16,6 +16,15 @@
 
 export const posts: Post[] = [
   {
+    title: "Claude 加了文字浮水印，演算法可能怎麼做",
+    date: "2026-08-13",
+    summary:
+      "訊號不在字裡，在「選了哪些 token」的統計裡。分三層寫：Anthropic 官方確認了什麼、學界的 LLM watermark 怎麼做、據此能推測到哪。含 green list、z-score 偵測、sliding window 重新同步與三角 trade-off 的圖解。",
+    tags: ["AI", "Algorithm"],
+    tagStyle: "bg-primary/10 text-primary",
+    href: "/blog/llm-text-watermark",
+  },
+  {
     title: "把 YouTube 影片變成逐字稿，再整理成文章",
     date: "2026-07-22",
     updated: "2026-07-23",
