@@ -130,7 +130,7 @@ export const posts: Post[] = [
     title: "Jabiko：JLPT 自習網站",
     date: "2026-06-24",
     summary:
-      "和朋友一起做的 JLPT 自習網站，從基礎變化一路練到 N1，也會把答錯的題目排進複習。這篇記錄目前的練習模式和設計。",
+      "我做的 JLPT 自習網站，從基礎變化一路練到 N1，答錯的題目會自動排進複習。這篇記錄目前的練習模式和設計。",
     tags: ["AI", "Frontend"],
     tagStyle: "text-primary",
     href: "/blog/jabiko-jlpt-app",

@@ -9,11 +9,11 @@ import RelatedPosts from "@/components/RelatedPosts";
 export const metadata: Metadata = articleMetadata("/blog/jabiko-jlpt-app", {
   title: "Jabiko：JLPT 自習網站 | 花雪 HanaYukii",
   description:
-    "和朋友一起做的 JLPT 自習網站，包含分章練習、題庫、文型資料庫和錯題複習。",
+    "我做的 JLPT 自習網站，包含分章練習、題庫、文型資料庫和錯題複習。",
   openGraph: {
     title: "Jabiko：JLPT 自習網站",
     description:
-      "和朋友一起做的 JLPT 自習網站，包含分章練習、題庫、文型資料庫和錯題複習。",
+      "我做的 JLPT 自習網站，包含分章練習、題庫、文型資料庫和錯題複習。",
     type: "article",
   },
 });
@@ -50,7 +50,7 @@ export default function JabikoJlptApp() {
           Jabiko：JLPT 自習網站
         </h1>
         <p className="mb-8 text-text-muted">
-          Jabiko 是我和朋友一起做的 JLPT（日本語能力試驗）自習網站，
+          Jabiko 是我做的 JLPT（日本語能力試驗）自習網站，
           從五十音、動詞變化這些基礎，一路練到 N1 的文法、單字與漢字讀音。打開{" "}
           <a
             href="https://jabiko.app/"
@@ -60,8 +60,8 @@ export default function JabikoJlptApp() {
           >
             jabiko.app
           </a>{" "}
-          就能用，不用註冊，進度存在瀏覽器本機；想跨裝置的話，用 Google 登入就能同步。
-          介面深色淺色都有，中／日／英三種語言也能切，挑順眼的用。
+          就能用，不用註冊，進度直接存在瀏覽器；想跨裝置的話，用 Google 登入就能同步。
+          深色淺色、中／日／英三種語言都能切，挑順眼的用。
         </p>
         <Image
           src="/images/jabiko-home-current-top.jpg"
@@ -111,7 +111,7 @@ export default function JabikoJlptApp() {
         <FadeIn>
           <Heading id="why">為什麼做這個</Heading>
           <p>
-            會做這個，是因為我自己要考 N1、一個朋友要考 N2，乾脆一起弄了一個來用。
+            會做這個，是因為我自己要考 N1，乾脆弄了一個來用。
           </p>
           <p>
             我學各種東西都習慣從刷題裡學，所以做的時候重心一直放在題庫——
