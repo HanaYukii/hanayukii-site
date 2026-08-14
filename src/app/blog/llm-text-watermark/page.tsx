@@ -9,13 +9,13 @@ import PostJsonLd from "@/components/PostJsonLd";
 import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/llm-text-watermark", {
-  title: "Claude 文字浮水印：從 token sampling 理解原理 | 花雪 HanaYukii",
+  title: "Claude 文字浮水印：從選字機率理解原理 | 花雪 HanaYukii",
   description:
-    "先從 LLM 如何替下一個 token 分配機率講起，再用 green / red list 的簡單例子解釋文字浮水印如何留下統計訊號，以及局部修改為什麼不一定會洗掉它。",
+    "先從 LLM 如何替下一個 token 分配機率講起，再用 green / red 分組解釋文字浮水印如何留下統計訊號，以及局部修改為什麼不一定會洗掉它。",
   openGraph: {
-    title: "Claude 文字浮水印：從 token sampling 理解原理",
+    title: "Claude 文字浮水印：從選字機率理解原理",
     description:
-      "LLM 每次替候選 token 算機率；watermark 只要偷偷偏一點，長文裡就會累積成可辨識的統計訊號。",
+      "LLM 每次替候選 token 算機率；浮水印只要偷偷偏一點，長文裡就會累積成可辨識的統計訊號。",
     type: "article",
   },
 });
@@ -242,7 +242,7 @@ function FigSampling() {
   );
 }
 
-/* 一個 token 怎麼被 watermark 偏 */
+/* 一個 token 怎麼被浮水印偏 */
 function FigBias() {
   const before = [
     { t: "有效", p: 31, hit: true },
@@ -289,7 +289,7 @@ function FigBias() {
   return (
     <svg viewBox="0 0 720 356" className="block h-auto w-full min-w-[600px]">
       {panel(before, 24, "原始機率分布", surfaceAlt)}
-      {panel(after, 436, "加上 watermark bias", greenWash)}
+      {panel(after, 436, "加入一點選字偏好", greenWash)}
 
       <rect x="300" y="20" width="120" height="30" rx="8" fill={surfaceAlt} stroke={border} />
       <text x="360" y="40" fontSize="12.5" textAnchor="middle" fill={ink} fontFamily={mono}>
@@ -304,21 +304,21 @@ function FigBias() {
 
       <rect x="286" y="110" width="148" height="34" rx="8" fill="var(--illustration-sky-wash)" stroke={sky} strokeWidth="1.5" />
       <text x="360" y="132" fontSize="13" textAnchor="middle" fill={ink} fontFamily={mono}>
-        PRF / keyed hash
+        hash 規則
       </text>
       <path d="M360 144 L360 162" fill="none" stroke={muted} strokeWidth="1.5" />
       <path d="M354 156 L360 164 L366 156" fill="none" stroke={muted} strokeWidth="1.5" />
 
       <rect x="286" y="164" width="148" height="34" rx="8" fill={greenSoft} stroke={green} strokeWidth="1.5" />
       <text x="360" y="186" fontSize="13" textAnchor="middle" fill={ink}>
-        這一步的 green list
+        這輪要加分的候選
       </text>
       <path d="M360 198 L360 218" fill="none" stroke={green} strokeWidth="1.5" />
       <path d="M354 212 L360 220 L366 212" fill="none" stroke={green} strokeWidth="1.5" />
 
       <circle cx="360" cy="244" r="24" fill={greenSoft} stroke={green} strokeWidth="2" />
       <text x="360" y="250" fontSize="15" textAnchor="middle" fill={ink} fontFamily={mono}>
-        +δ
+        + 一點
       </text>
       <path d="M284 244 L330 244" fill="none" stroke={muted} strokeWidth="1.8" />
       <path d="M324 238 L332 244 L324 250" fill="none" stroke={muted} strokeWidth="1.8" />
@@ -326,13 +326,13 @@ function FigBias() {
       <path d="M424 238 L432 244 L424 250" fill="none" stroke={green} strokeWidth="1.8" />
 
       <text x="360" y="336" fontSize="12" textAnchor="middle" fill={muted}>
-        綠色 = 這一步落在 green list 的候選；沒有任何候選被禁止，只是分數差了一點
+        綠色候選只多拿一點分數；其他候選仍然可以被抽到
       </text>
     </svg>
   );
 }
 
-/* 圖 3：detector 如何把 token 命中聚合成統計證據 */
+/* 圖 3：驗證工具如何把 token 命中聚合成統計證據 */
 function FigDetector() {
   const tokens = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
   const hits = [true, false, true, true, false, true, true, false, true, true];
@@ -342,7 +342,7 @@ function FigDetector() {
   return (
     <svg viewBox="0 0 760 344" className="block h-auto w-full min-w-[640px]">
       <text x="28" y="28" fontSize="14" fontWeight="700" fill={ink}>
-        Detector 用同一把 key，逐位置重建「當時偏好哪些 token」
+        驗證工具用同一把 secret，逐位置重建「當時偏好哪些 token」
       </text>
       <text x="28" y="49" fontSize="12.5" fill={muted}>
         單一位置只是一次擲硬幣；重點是整段命中比例是否異常
@@ -388,23 +388,23 @@ function FigDetector() {
       <path d="M374 171 L380 179 L386 171" fill="none" stroke={muted} strokeWidth="1.6" />
 
       <rect x="34" y="184" width="210" height="118" rx="15" fill={surfaceAlt} stroke={border} strokeWidth="1.3" />
-      <text x="54" y="211" fontSize="12" fill={muted} fontFamily={mono}>null hypothesis</text>
+      <text x="54" y="211" fontSize="12" fill={muted}>正常情況</text>
       <text x="54" y="239" fontSize="15" fontWeight="700" fill={ink}>正常預期：5 / 10</text>
       <rect x="54" y="258" width="160" height="12" rx="6" fill={ghost} />
       <rect x="54" y="258" width="80" height="12" rx="6" fill={muted} fillOpacity="0.5" />
-      <text x="54" y="289" fontSize="12" fill={muted}>green baseline γ = 0.5</text>
+      <text x="54" y="289" fontSize="12" fill={muted}>正常命中率 = 50%</text>
 
       <rect x="275" y="184" width="210" height="118" rx="15" fill={greenWash} stroke={green} strokeWidth="1.5" />
-      <text x="295" y="211" fontSize="12" fill={green} fontFamily={mono}>observed</text>
+      <text x="295" y="211" fontSize="12" fill={green}>實際結果</text>
       <text x="295" y="239" fontSize="15" fontWeight="700" fill={ink}>實際命中：7 / 10</text>
       <rect x="295" y="258" width="160" height="12" rx="6" fill={ghost} />
       <rect x="295" y="258" width="112" height="12" rx="6" fill={green} fillOpacity="0.85" />
-      <text x="295" y="289" fontSize="12" fill={muted}>多出的命中 = watermark evidence</text>
+      <text x="295" y="289" fontSize="12" fill={muted}>多出的命中 = 浮水印訊號</text>
 
       <path d="M495 243 L525 243" fill="none" stroke={green} strokeWidth="1.8" />
       <path d="M519 237 L527 243 L519 249" fill="none" stroke={green} strokeWidth="1.8" />
       <rect x="535" y="202" width="190" height="82" rx="15" fill="var(--illustration-sky-wash)" stroke={sky} strokeWidth="1.5" />
-      <text x="630" y="231" textAnchor="middle" fontSize="13" fontWeight="700" fill={ink}>換成 z-score</text>
+      <text x="630" y="231" textAnchor="middle" fontSize="13" fontWeight="700" fill={ink}>換成統計分數</text>
       <text x="630" y="258" textAnchor="middle" fontSize="12.5" fill={muted}>離隨機預期有幾個標準差？</text>
 
       <text x="380" y="329" textAnchor="middle" fontSize="11.5" fill={muted}>
@@ -505,7 +505,7 @@ function FigResync() {
   );
 }
 
-/* 圖 5：高 entropy 才有空間留下訊號 */
+/* 圖 5：有多個合理選項才有空間留下訊號 */
 function FigEntropy() {
   const high = [
     { t: "有效", p: 27, hit: true },
@@ -522,7 +522,7 @@ function FigEntropy() {
   return (
     <svg viewBox="0 0 720 334" className="block h-auto w-full min-w-[600px]">
       <rect x="24" y="42" width="324" height="254" rx="16" fill={greenWash} stroke={green} strokeWidth="1.5" />
-      <text x="44" y="28" fontSize="14" fontWeight="700" fill={ink}>高 entropy：模型本來就在猶豫</text>
+      <text x="44" y="28" fontSize="14" fontWeight="700" fill={ink}>多個選項：模型本來就在猶豫</text>
       <text x="44" y="70" fontSize="13" fill={muted}>「這是一個非常 ___ 的方法」</text>
       {high.map((r, i) => (
         <g key={r.t}>
@@ -538,7 +538,7 @@ function FigEntropy() {
             fillOpacity={r.hit ? 0.9 : 0.48}
           />
           <text x="281" y={112 + i * 38} fontSize="12" fill={muted} fontFamily={mono}>{r.p}%</text>
-          {r.hit && <text x="316" y={112 + i * 38} textAnchor="end" fontSize="12" fill={green}>+δ</text>}
+          {r.hit && <text x="316" y={112 + i * 38} textAnchor="end" fontSize="12" fill={green}>+一點</text>}
         </g>
       ))}
       <rect x="62" y="264" width="248" height="24" rx="12" fill={greenSoft} />
@@ -547,7 +547,7 @@ function FigEntropy() {
       </text>
 
       <rect x="372" y="42" width="324" height="254" rx="16" fill={surfaceAlt} stroke={border} strokeWidth="1.5" />
-      <text x="392" y="28" fontSize="14" fontWeight="700" fill={ink}>低 entropy：幾乎只有一個答案</text>
+      <text x="392" y="28" fontSize="14" fontWeight="700" fill={ink}>固定答案：幾乎沒有選擇空間</text>
       <text x="392" y="70" fontSize="13" fill={muted}>「1 + 1 = ___」</text>
       {low.map((r, i) => (
         <g key={r.t}>
@@ -566,11 +566,11 @@ function FigEntropy() {
         </g>
       ))}
       <rect x="410" y="240" width="248" height="48" rx="12" fill={redSoft} />
-      <text x="534" y="260" textAnchor="middle" fontSize="12.5" fontWeight="700" fill={red}>跳過，不施加 watermark</text>
+      <text x="534" y="260" textAnchor="middle" fontSize="12.5" fontWeight="700" fill={red}>跳過，不調整機率</text>
       <text x="534" y="278" textAnchor="middle" fontSize="11.5" fill={muted}>硬偏只會把正確答案弄壞</text>
 
       <text x="360" y="322" textAnchor="middle" fontSize="11.5" fill={muted}>
-        watermark 的空間來自「多個答案本來就差不多合理」
+        浮水印的空間來自「多個答案本來就差不多合理」
       </text>
     </svg>
   );
@@ -637,19 +637,19 @@ function FigAttack() {
     {
       label: "原文複製",
       marks: Array<"ok">(16).fill("ok"),
-      note: "z 幾乎不變",
+      note: "命中率幾乎不變",
       tone: green,
     },
     {
       label: "局部修改",
       marks: ["ok", "ok", "ok", "bad", "bad", "ok", "ok", "ok", "bad", "ok", "ok", "bad", "ok", "ok", "ok", "ok"],
-      note: "z 下降，通常還在",
+      note: "命中率下降，訊號還在",
       tone: ink,
     },
     {
       label: "整篇改寫",
       marks: ["gone", "ok", "gone", "gone", "ok", "gone", "gone", "gone", "ok", "gone", "gone", "gone", "gone", "ok", "gone", "gone"],
-      note: "z 掉回雜訊",
+      note: "命中率接近隨機",
       tone: red,
     },
   ];
@@ -696,34 +696,34 @@ function FigAttack() {
       </text>
       <circle cx="430" cy="276" r="6.5" fill="none" stroke={muted} strokeWidth="1.5" strokeDasharray="2.5 2.5" />
       <text x="446" y="281" fontSize="12" fill={muted}>
-        重新 sample 過，等同隨機
+        重新抽過，等同隨機
       </text>
     </svg>
   );
 }
 
-/* 圖 8：三角 trade-off */
+/* 圖 8：三個取捨 */
 function FigTradeoff() {
   return (
     <svg viewBox="0 0 620 372" className="block h-auto w-full min-w-[460px]">
       <polygon points="310,68 110,300 510,300" fill={greenWash} stroke={border} strokeWidth="1.5" />
 
       <text x="310" y="46" fontSize="14" fontWeight="700" textAnchor="middle" fill={ink}>
-        Detectability
+        好不好驗
       </text>
       <text x="310" y="30" fontSize="11.5" textAnchor="middle" fill={muted}>
         短文也驗得出來嗎
       </text>
 
       <text x="102" y="326" fontSize="14" fontWeight="700" textAnchor="middle" fill={ink}>
-        Robustness
+        耐不耐修改
       </text>
       <text x="102" y="344" fontSize="11.5" textAnchor="middle" fill={muted}>
         被改過還剩多少訊號
       </text>
 
       <text x="518" y="326" fontSize="14" fontWeight="700" textAnchor="middle" fill={ink}>
-        Quality
+        生成品質
       </text>
       <text x="518" y="344" fontSize="11.5" textAnchor="middle" fill={muted}>
         用詞被拉走多少
@@ -731,16 +731,16 @@ function FigTradeoff() {
 
       <circle cx="228" cy="196" r="7" fill={red} />
       <text x="228" y="180" fontSize="13.5" textAnchor="middle" fill={red} fontWeight="700" fontFamily={mono}>
-        δ 大
+        加分較多
       </text>
       <circle cx="404" cy="258" r="7" fill={sky} />
       <text x="404" y="242" fontSize="13.5" textAnchor="middle" fill={sky} fontWeight="700" fontFamily={mono}>
-        δ 小
+        加分較少
       </text>
 
       <line x1="228" y1="196" x2="404" y2="258" stroke={muted} strokeWidth="1.2" strokeDasharray="5 6" />
       <text x="316" y="238" fontSize="11.5" textAnchor="middle" fill={muted}>
-        調 δ 只是在同一條線上移動
+        調整加分強度，就是在三者之間移動
       </text>
     </svg>
   );
@@ -767,7 +767,7 @@ export default function LlmTextWatermark() {
           </span>
         </div>
         <h1 className="mb-2 text-4xl font-bold">
-          Claude 文字浮水印：從 token sampling 理解原理
+          Claude 文字浮水印：從選字機率理解原理
         </h1>
         <p className="mb-8 text-sm text-text-muted">2026-08-13</p>
       </FadeIn>
@@ -775,8 +775,8 @@ export default function LlmTextWatermark() {
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-primary [&_code]:text-sm">
         <FadeIn>
           <p className="mb-8 text-lg leading-relaxed text-text">
-            看到公告時，我先想到兩個問題：文字裡沒有多出任何東西，detector 到底在驗什麼？
-            中間改一個字，後面的 hash 不會全部亂掉嗎？答案都跟模型每次怎麼選下一個 token 有關。
+            Claude 說會在生成文字裡加入浮水印，但文字裡顯然沒有多加東西，到底怎麼做到？
+            從模型本來就會依機率選下一個 token 這件事開始，其實很好理解。
           </p>
         </FadeIn>
 
@@ -799,8 +799,8 @@ export default function LlmTextWatermark() {
           </Figure>
 
           <p>
-            模型內部先產生一組分數（logits），softmax 再把分數換成機率。
-            理解 watermark 不需要推 softmax；只要知道<strong>分數稍微變動，抽到各 token 的機率就會跟著變</strong>。
+            模型內部會先替候選打分，再把分數換成機率。理解浮水印不需要知道換算公式；
+            只要記得<strong>分數稍微改變，抽到各 token 的機率也會跟著變</strong>。
           </p>
         </FadeIn>
 
@@ -817,36 +817,35 @@ export default function LlmTextWatermark() {
 
             <QuickAnswer number={1} question="浮水印是偷偷在文字裡加字元嗎？">
               <p>
-                不是。文字本身完全正常，訊號藏在<strong>模型選了哪些 token</strong>的統計裡。
-                因此複製成純文字之後仍可能驗得到。
+                不是。模型本來就會依機率抽選下一個 token；一種典型做法是用 hash 規則決定這一輪要稍微提高哪些 token 的機率。
+                單次看不出來，整段文字累積後就可能出現明顯差距。Claude 是否採用這個做法尚未公開。
               </p>
             </QuickAnswer>
 
             <QuickAnswer number={2} question="為什麼現在外界還驗不了？">
               <p>
-                Anthropic 尚未公開 detector；一種典型設計會用 secret 決定每一步偏好的 token，
-                偵測時再用同一套規則回頭計分。這跟加密無關，內容從頭到尾都看得懂。
+                Anthropic 還沒公開實作細節與驗證工具。如果採用本文這類做法，驗證時需要重建每一步偏好的 token，
+                再看整段文字的命中比例是不是高得不像巧合。
               </p>
             </QuickAnswer>
 
             <QuickAnswer number={3} question="手動改幾個字，不就把 hash 全打亂了？">
               <p>
-                如果 hash 的輸入是完整前綴，會。但只看最近幾個 token 時，修改造成的錯位會在滑出窗口後結束；
-                其他位置累積的證據仍然有效。
+                實作細節還沒公開。不過一種常見做法只看最近 <InlineMath math="k" /> 個 token，
+                局部修改只會影響附近幾步；要洗掉整段累積的訊號，通常需要更大幅度地改寫。
               </p>
             </QuickAnswer>
 
-            <QuickAnswer number={4} question="改 sampling 機率不會傷品質嗎？">
+            <QuickAnswer number={4} question="為什麼短文不容易驗？">
               <p>
-                會有代價，只是可以很小。模型若本來就在「有效／實用／有用」之間猶豫，稍微偏向其中幾個通常不影響意思；
-                <code>1 + 1 =</code> 這種答案固定的位置就不適合介入。
+                單一 token 幾乎沒有證據。樣本累積得夠多，許多很小的偏差才看得出異常。
               </p>
             </QuickAnswer>
 
-            <QuickAnswer number={5} question="所以文章要夠長？">
+            <QuickAnswer number={5} question="調整選字機率不會傷品質嗎？">
               <p>
-                通常要。單一 token 幾乎沒有判斷力；把許多微弱偏差加總後，才看得出它不像隨機波動。
-                Anthropic 目前沒有公布最低長度。
+                會，所以比較適合在模型本來就有多個合理選項的位置微調。
+                幾乎只有一個正確答案時，就不適合硬改機率。
               </p>
             </QuickAnswer>
           </div>
@@ -854,26 +853,20 @@ export default function LlmTextWatermark() {
 
         <FadeIn delay={0.06}>
           <section className="mt-8 rounded-xl border border-sky/35 bg-sky/5 p-6">
-            <h2 className="text-xl font-bold text-text">先認識幾個會出現的詞</h2>
-            <p className="mb-5 mt-1 text-sm text-text-muted">後面只會用到這六個概念。</p>
+            <h2 className="text-xl font-bold text-text">幾個會用到的詞</h2>
+            <p className="mb-5 mt-1 text-sm text-text-muted">先知道這四個就夠了。</p>
             <div className="grid gap-3 sm:grid-cols-2">
               <GlossaryItem term="Token">
                 LLM 取樣的單位，不一定等於一個中文字或一個英文單字。
               </GlossaryItem>
-              <GlossaryItem term="Logit / Softmax">
-                Logit 是候選 token 的原始分數；softmax 把分數轉成機率。
+              <GlossaryItem term="選字機率">
+                模型會替下一個 token 的每個候選分配機率，再從中抽選。
               </GlossaryItem>
-              <GlossaryItem term="Entropy">
-                模型的猶豫程度。候選越平均，entropy 越高；答案越固定，entropy 越低。
+              <GlossaryItem term="Secret / hash 規則">
+                Secret 是未公開的值；知道它才能重建每一輪哪些 token 會被稍微加分。
               </GlossaryItem>
-              <GlossaryItem term="Secret / PRF">
-                PRF 可以先當成帶 secret 的 hash；知道 secret 才能重現同一組偽隨機規則。
-              </GlossaryItem>
-              <GlossaryItem term="Green list">
-                經典示意演算法裡，每一步得到額外分數的 token 集合。
-              </GlossaryItem>
-              <GlossaryItem term="z-score">
-                實際命中數離隨機預期有幾個標準差。數字越大，越不像巧合。
+              <GlossaryItem term="命中率">
+                實際選到偏好 token 的比例。明顯高過正常比例，才算有浮水印訊號。
               </GlossaryItem>
             </div>
           </section>
@@ -888,13 +881,13 @@ export default function LlmTextWatermark() {
               {[
                 { id: "where", title: "LLM 平常怎麼選下一個 token" },
                 { id: "facts", title: "Anthropic 公開了什麼、沒公開什麼" },
-                { id: "bias", title: "Green / red 如何偷偷改變機率" },
-                { id: "detect", title: "很多次小偏差，最後就會離群" },
-                { id: "resync", title: "為什麼改幾個字不會整篇失效" },
-                { id: "quality", title: "偏一點，品質會掉嗎" },
+                { id: "bias", title: "怎麼偷偷把選字機率調高" },
+                { id: "detect", title: "驗證工具在看什麼" },
+                { id: "resync", title: "改幾個字為什麼不會整篇失效" },
+                { id: "quality", title: "調機率會不會傷品質" },
                 { id: "length", title: "為什麼文字要夠長" },
-                { id: "attack", title: "編輯會留下多少訊號" },
-                { id: "tradeoff", title: "三個一起拉扯的量" },
+                { id: "attack", title: "改多少會洗掉訊號" },
+                { id: "tradeoff", title: "最後就是三個取捨" },
                 { id: "refs", title: "參考" },
               ].map((item, i) => (
                 <a
@@ -918,31 +911,31 @@ export default function LlmTextWatermark() {
           <Fact>
             <ul className="mt-2 list-disc space-y-1.5 pl-5">
               <li>
-                文字標記做在模型層，所以不同 Claude 產品與 API 產生的內容都能帶上 watermark。
+                文字標記做在模型層，所以不同 Claude 產品與 API 產生的內容都能帶上浮水印。
               </li>
               <li>
                 複製貼上會保留訊號，也可能撐過部分編輯；太短、大幅改寫或翻譯後則可能驗不到。
               </li>
               <li>
                 驗到只代表內容<strong>可能被 Claude 處理過</strong>，不代表 Claude 是作者。
-                截至 2026-08-13，公開 detector 與演算法細節都還沒釋出。
+                截至 2026-08-13，公開驗證工具與演算法細節都還沒釋出。
               </li>
             </ul>
           </Fact>
-          <Guess>下面的 green list 與 sliding window 來自既有研究，是理解用的模型，不是 Claude 的實作說明。</Guess>
+          <Guess>下面的 green / red 分組與「只看最近幾個 token」來自既有研究，是理解用的模型，不是 Claude 的實作說明。</Guess>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="bias">Green / red 如何偷偷改變機率</Heading>
+          <Heading id="bias">怎麼偷偷把選字機率調高</Heading>
           <Guess>
-            這裡用 2023 年論文中的 green list 方法解釋。它很好懂，但不代表 Claude 採用同一套演算法。
+            這裡用論文常見的 green / red 分組解釋。Claude 是否採用同一套做法仍未公開。
           </Guess>
           <p>
-            一個最簡單的做法，是在每一輪把候選 token 偷偷分成兩組：
+            一個最簡單的做法，是在每一輪把候選 token 偷偷分成兩組。為了方便畫圖，先叫它們 green 和 red：
           </p>
           <ul className="my-3 list-disc space-y-1.5 pl-5">
-            <li><strong>Green list</strong>：多拿一點分數，機率稍微提高。</li>
-            <li><strong>Red list</strong>：分數不變，仍然可以被抽到。</li>
+            <li><strong>Green 組</strong>：多拿一點分數，機率稍微提高。</li>
+            <li><strong>Red 組</strong>：分數不變，仍然可以被抽到。</li>
           </ul>
           <p>
             假設這一輪「有效」與「有用」被分到 green，其餘在 red。原本 31%、28%、24%、10%
@@ -950,54 +943,47 @@ export default function LlmTextWatermark() {
             只是 green 被抽到的機會合計高了一點。
           </p>
 
-          <Figure caption="圖 2：secret 與目前的 context 決定這一輪的 green list；green 候選拿到一點 bonus，再重新換算機率。數字只是示意。">
+          <Figure caption="圖 2：secret 與最近幾個 token 決定這一輪哪些候選會被加分，再重新換算機率。數字只是示意。">
             <FigBias />
           </Figure>
 
           <p>
-            哪些 token 是 green，由 secret 和目前的 context 經過 hash-like 規則決定。
-            Context 每前進一步，分組也跟著換，因此不是某幾個詞永遠比較常出現。
+            哪些 token 被分到 green，由 secret 和最近幾個 token 經過 hash 決定。
+            每寫出一個 token，分組就重新計算，因此不是某幾個詞永遠比較常出現。
           </p>
           <p>
-            用 logit 寫就是下面這行；<InlineMath math="\delta" /> 代表給 green token 的小額 bonus：
+            把它壓成一行，就是：<strong>green 候選的分數 += 一點點</strong>。
           </p>
-          <BlockMath math="z'_i = z_i + \delta \cdot \mathbf{1}[i \in G_t]" />
-
-          <p>產生端大概十行：</p>
-          <Code lang="python">{`# toy watermark — 產生端
-ctx = prompt_tokens
-for _ in range(max_new_tokens):
-    logits = model(ctx)                      # 原始 logits
-    s      = PRF(K, ctx[-k:])                # 只餵最近 k 個 token
-    G      = green_set(s, vocab_size, gamma) # 偽隨機挑出 gamma 比例的詞表
-    logits[G] += delta                       # green 的各加一點分數
-    tok = sample(softmax(logits / T))        # 照常 sampling
-    ctx.append(tok)`}</Code>
+          <p>產生端的概念大概只有四步：</p>
+          <Code lang="text">{`候選機率 = 模型計算目前文字
+green 組 = hash(secret, 最近 k 個 token)
+候選機率 = 把 green 組稍微調高，再整理回總和 100%
+下一個 token = 依調整後的機率抽選`}</Code>
           <p>
-            實際多出的工作只有算 <code>G</code> 與調整 logits。這類方法可以放在模型的 decoding 階段，
-            上層產品不必各自實作。
+            實際多出的工作只有決定分組、替 green 加分，之後照常抽選。
+            這些步驟可以直接放在模型產生文字的那一層。
           </p>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="detect">很多次小偏差，最後就會離群</Heading>
+          <Heading id="detect">驗證工具在看什麼</Heading>
           <p>
-            假設正常情況下，每個 token 落進 green list 的機率是 50%。
-            Watermark 沒有讓它變成 100%，可能只推到 55%。
+            假設正常情況下，每個 token 落進 green 組的機率是 50%。
+            浮水印沒有讓它變成 100%，可能只推到 55%。
           </p>
           <p>
-            只看 20 個 token，正常大約命中 10 次，watermark 大約 11 次，根本分不出來。
-            換成 1000 個 token，正常約 500 次，watermark 約 550 次，差距就比較難用運氣解釋。
+            只看 20 個 token，正常大約命中 10 次，浮水印大約 11 次，根本分不出來。
+            換成 1000 個 token，正常約 500 次，浮水印約 550 次，差距就比較難用運氣解釋。
           </p>
           <p>
-            Detector 知道 secret，可以把每一步的 green / red 分組重建出來，然後一路數：
+            驗證工具知道 secret，可以把每一步的 green / red 分組重建出來，然後一路數：
             實際 token 落在 green 的比例，是否高得不正常？
           </p>
-          <Figure caption="圖 3：detector 用同一把 secret 重建每一輪的分組，再把 green 命中率和正常預期比較。10 個 token 只是流程示意。">
+          <Figure caption="圖 3：驗證工具用同一把 secret 重建每一輪的分組，再把 green 命中率和正常預期比較。10 個 token 只是流程示意。">
             <FigDetector />
           </Figure>
           <p>
-            實作上常把差距換成 z-score，也就是「離正常值有幾個標準差」。
+            實作上常把差距換成統計分數，也就是「離正常值有幾個標準差」。
             文章越長，這個統計判斷通常越穩；短句幾乎沒有辨識力。
           </p>
           <Guess>
@@ -1006,23 +992,22 @@ for _ in range(max_new_tokens):
         </FadeIn>
 
         <FadeIn>
-          <Heading id="resync">為什麼改幾個字不會整篇失效</Heading>
+          <Heading id="resync">改幾個字為什麼不會整篇失效</Heading>
           <p>
             我一開始卡在這裡：中間改掉一個 token，後面的 hash 輸入不是會全部改變嗎？
           </p>
-          <p>如果 context 取整個前綴，這個擔心完全正確：</p>
+          <p>如果每一步都拿前面整段文字去 hash，這個擔心完全正確：</p>
           <BlockMath math="s_t = H(K, x_1, x_2, \ldots, x_{t-1})" />
           <p>
             Hash 的雪崩效應讓輸入稍有變化，輸出就完全不同。改掉第 3 個 token，
-            第 4 個之後每一步重算出來的 green list 都跟當初生成時不一樣，命中率直接掉回{" "}
-            <InlineMath math="\gamma" />。
+            第 4 個之後每一步重算出來的 green 分組都跟當初生成時不一樣，命中率會掉回正常比例。
           </p>
           <p>
-            一種改法是<strong>只看最近 k 個 token</strong>：
+            典型改法是<strong>只看最近 k 個 token</strong>：
           </p>
           <BlockMath math="s_t = H(K, x_{t-k}, \ldots, x_{t-1})" />
 
-          <Figure caption="圖 4：同一個修改，兩種 context 取法的差別。k=3 時只有三個位置受影響，之後自動重新同步。">
+          <Figure caption="圖 4：每次 hash 整段前文時，改一個字會讓後面全亂；只看最近 3 個 token 時，影響會在三步後結束。">
             <FigResync />
           </Figure>
 
@@ -1032,37 +1017,36 @@ for _ in range(max_new_tokens):
           </p>
           <ul className="my-3 list-disc space-y-1.5 pl-5">
             <li>
-              位置 D 的 window 是 <code>{"{A, B, X}"}</code> → 含 X，算出來的 green list 錯了。
+              位置 D 看到最近三個 token <code>{"{A, B, X}"}</code> → 含 X，分組和原文不同。
             </li>
             <li>
-              E 的 window 是 <code>{"{B, X, D}"}</code>、F 的是 <code>{"{X, D, E}"}</code> → 一樣受影響。
+              E 看到 <code>{"{B, X, D}"}</code>、F 看到 <code>{"{X, D, E}"}</code> → 一樣受影響。
             </li>
             <li>
-              G 的 window 是 <code>{"{D, E, F}"}</code> → <strong>X 已經滑出去了</strong>，
+              G 看到 <code>{"{D, E, F}"}</code> → <strong>X 已經滑出去了</strong>，
               跟生成時完全一致，命中判斷恢復正常。
             </li>
           </ul>
           <p>
-            修改影響接下來 <InlineMath math="k" /> 個位置；舊 token 滑出窗口後，detector 便重新對齊。
-            這就是 self-synchronization。
+            修改影響接下來約 <InlineMath math="k" /> 個位置；舊 token 滑出去後，驗證規則就重新對齊。
           </p>
           <p>
             真實方法還可以疊加多組 window 或加入冗餘，讓局部修改更難一次破壞全部訊號；
             這裡不再往下展開。
           </p>
           <Guess>
-            Local context 是一種典型可行設計，不是 Anthropic 已確認的實作。
+            只看最近幾個 token 是一種典型可行設計，不是 Anthropic 已確認的實作。
           </Guess>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="quality">偏一點，品質會掉嗎</Heading>
+          <Heading id="quality">調機率會不會傷品質</Heading>
           <p>
-            機率完全不變，detector 就不可能只看輸出分辨兩者。因此 watermark 一定會動到生成分布，
-            問題只是能不能把改動放在不太影響內容的地方。
+            機率完全不變，驗證工具就沒有東西可驗。因此浮水印一定會動到選字機率，
+            問題是怎麼把影響壓小。
           </p>
 
-          <SubHeading>挑模型本來就猶豫的位置</SubHeading>
+          <SubHeading>挑模型本來就在猶豫的位置</SubHeading>
           <p>例如下一個 token 有幾個相近的候選：</p>
           <Code lang="text">{`「這是一個非常 ___ 的方法」
   有效  27%
@@ -1071,21 +1055,21 @@ for _ in range(max_new_tokens):
   強大  18%
   ...`}</Code>
           <p>
-            四個詞都通順。這種高 entropy 的位置，挪動幾個百分點通常不會改變句意。
+            四個詞都通順。這種位置挪動幾個百分點，通常不會改變句意。
           </p>
           <p>但有些位置只有一個答案：</p>
           <Code lang="text">{`「1 + 1 =」
   2      99.99%
   其他    0.01%`}</Code>
           <p>
-            這種低 entropy 的位置幾乎沒有操作空間，合理做法是跳過，不介入也不計分。
+            這種位置幾乎沒有操作空間，合理做法是跳過，不調整也不計分。
           </p>
-          <Figure caption="圖 5：高 entropy 的位置有多個近似答案，可以用很小的偏差留下訊號；低 entropy 的位置應直接跳過。機率是 toy example。">
+          <Figure caption="圖 5：有多個合理選項時可以微調；幾乎只有一個答案時就跳過。機率只是示意。">
             <FigEntropy />
           </Figure>
           <p>
             程式碼、算式、JSON、URL 與逐字引用都有大量固定答案，可介入的位置通常比自然語言少。
-            這也是為什麼不是每個 token 都適合留下 watermark。
+            這也是為什麼不是每個 token 都適合留下浮水印。
           </p>
         </FadeIn>
 
@@ -1100,22 +1084,22 @@ for _ in range(max_new_tokens):
           </p>
           <ul className="my-3 list-disc space-y-1.5 pl-5">
             <li>
-              <strong>門檻設低</strong>：短文比較容易驗出，但也更容易把正常文字誤判成 watermark。
+              <strong>門檻設低</strong>：短文比較容易驗出，但也更容易把正常文字誤判成浮水印。
             </li>
             <li>
               <strong>門檻設高</strong>：誤判較少，但需要更長文字，編輯後也更容易掉到門檻以下。
             </li>
           </ul>
           <p>
-            Detector 最後仍然只是統計判斷。它可以說「這段文字的 green 命中率高得不太像巧合」，
+            驗證工具最後仍然只是在做統計判斷。它可以說「這段文字的 green 命中率高得不太像巧合」，
             不能證明作者是誰。
           </p>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="attack">編輯會留下多少訊號</Heading>
+          <Heading id="attack">改多少會洗掉訊號</Heading>
 
-          <Figure caption="圖 6：複製不改變 token；局部編輯只破壞部分位置；整篇改寫會重新 sample 大量 token。">
+          <Figure caption="圖 6：複製不改變 token；局部編輯只破壞部分位置；整篇改寫會重新抽選大量 token。">
             <FigAttack />
           </Figure>
 
@@ -1126,16 +1110,16 @@ for _ in range(max_new_tokens):
 
           <SubHeading>局部修改</SubHeading>
           <p>
-            若使用長度 <InlineMath math="k" /> 的滑動窗口，每處 token 替換會直接影響附近約{" "}
-            <InlineMath math="k" /> 個位置。刪除、插入和移動句子則還會改變 token 對齊，影響範圍更難估。
+            若規則只看最近 <InlineMath math="k" /> 個 token，每次替換會直接影響附近約{" "}
+            <InlineMath math="k" /> 個位置。刪除、插入和移動句子的影響則更難估。
           </p>
           <p>
-            只要大部分原序列保留，剩餘位置仍可提供證據；是否還過門檻取決於原文長度、修改位置與 detector 設計。
+            只要大部分原文保留，剩下的位置仍可提供證據；最後驗不驗得到，還要看原文長度、修改位置與驗證規則。
           </p>
 
           <SubHeading>整篇改寫、翻譯、丟給另一個模型重寫</SubHeading>
           <p>
-            這類操作會重新 sample 大量 token。新序列沒有遵循原本的 secret pattern，
+            這類操作會重新抽選大量 token。新文字沒有遵循原本的 hash 偏好，
             留下的訊號主要來自未被改寫的片段。
           </p>
           <p>
@@ -1144,8 +1128,8 @@ for _ in range(max_new_tokens):
         </FadeIn>
 
         <FadeIn>
-          <Heading id="tradeoff">三個一起拉扯的量</Heading>
-          <p>Watermark 的參數最後都在調整三件事：</p>
+          <Heading id="tradeoff">最後就是三個取捨</Heading>
+          <p>浮水印的強度最後都在調整三件事：</p>
 
           <Figure caption="圖 7：偏得越強通常越好驗、越耐修改，但生成品質也越可能受到影響。">
             <FigTradeoff />
@@ -1153,19 +1137,18 @@ for _ in range(max_new_tokens):
 
           <ul className="my-3 list-disc space-y-1.5 pl-5">
             <li>
-              <strong>Detectability</strong>：多短的文章驗得出來。
+              <strong>好不好驗</strong>：多短的文章就能看出訊號。
             </li>
             <li>
-              <strong>Robustness</strong>：被改過之後還剩多少證據。
+              <strong>耐不耐修改</strong>：文字改過之後還剩多少訊號。
             </li>
             <li>
-              <strong>Quality</strong>：為了 watermark，輸出分布被拉走多少。
+              <strong>生成品質</strong>：為了浮水印，選字機率被改動多少。
             </li>
           </ul>
           <p>
-            在 green list 例子中，<InlineMath math="\delta" /> 越大，命中率越高，短文較容易過門檻，
-            被改掉一部分後也可能保留訊號；但生成分布會離原模型更遠。<InlineMath math="\delta" /> 越小，
-            對輸出的影響越低，代價是需要更長的文字。
+            Green 組的加分越大，訊號越容易累積，修改後也比較可能留得住；
+            但模型選字受到的影響也越大。加分越小，品質影響越低，就需要更長的文字才能驗。
           </p>
         </FadeIn>
 
@@ -1173,14 +1156,14 @@ for _ in range(max_new_tokens):
           <Heading id="closing">我目前的理解</Heading>
           <p>
             我現在會把文字浮水印想成一套帶 secret 的抽樣規則。模型遇到幾個都合理的 token 時，
-            對其中一部分稍微加權；detector 用同一把 secret 重建規則，再看整段文字命中了多少次。
+            對其中一部分稍微加分；驗證工具用同一個 secret 重建規則，再看整段文字命中了多少次。
           </p>
           <p>
             單次選擇看不出異常，累積到長文才有判斷力。局部編輯會損失部分命中，整篇重寫則可能讓訊號消失。
             即使驗到，也只能說文字可能經過該系統，不能證明作者身分。
           </p>
           <Guess>
-            Green list、sliding window 與本文中的參數都只是理解用的模型，不是 Claude 實作的逆向結果。
+            Green / red 分組、最近幾個 token 的 hash 規則與本文數字都只是理解用的模型，不是 Claude 實作的逆向結果。
             Anthropic 公開技術文件後再回來核對。
           </Guess>
         </FadeIn>
@@ -1197,7 +1180,7 @@ for _ in range(max_new_tokens):
               >
                 How Claude marks AI-generated content
               </a>
-              {" "}— Anthropic 官方說明，本文第一節的事實來源。
+              {" "}— Anthropic 官方說明，本文功能與限制的事實來源。
             </li>
             <li>
               <a
@@ -1208,7 +1191,7 @@ for _ in range(max_new_tokens):
               >
                 A Watermark for Large Language Models
               </a>
-              {" "}(Kirchenbauer et al., ICML 2023) — green list、<InlineMath math="\delta" /> bias、z-score 檢定的原始論文。
+              {" "}(Kirchenbauer et al., ICML 2023) — green / red 分組與統計驗證的原始論文。
             </li>
             <li>
               <a
@@ -1219,7 +1202,7 @@ for _ in range(max_new_tokens):
               >
                 Scalable watermarking for identifying large language model outputs
               </a>
-              {" "}(Dathathri et al., Nature 2024) — SynthID-Text 與 tournament sampling，Gemini 的實際部署經驗。
+              {" "}(Dathathri et al., Nature 2024) — SynthID-Text 的論文與實際部署經驗。
             </li>
             <li>
               <a
@@ -1241,14 +1224,14 @@ for _ in range(max_new_tokens):
               >
                 A Survey of Text Watermarking in the Era of Large Language Models
               </a>
-              {" "}— 想看全景的話，這篇 survey 把各家做法的分類整理得不錯。
+              {" "}— 想繼續看其他做法時，這篇整理得很完整。
             </li>
           </ul>
         </FadeIn>
 
         <FadeIn>
           <div className="mt-12 flex flex-wrap gap-2 text-xs">
-            {["LLM Watermark", "Token Sampling", "PRF", "Statistical Detection", "Anthropic"].map((tag) => (
+            {["AI", "文字浮水印", "Hash", "機率統計", "Anthropic"].map((tag) => (
               <span key={tag} className="tag text-text-muted">
                 {tag}
               </span>
