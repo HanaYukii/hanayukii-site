@@ -74,7 +74,7 @@ export const metadata: Metadata = {
 
 function Navbar() {
   const links = [
-    { href: "/", label: "Home" },
+    { href: "/#work", label: "Work" },
     { href: "/blog", label: "Blog" },
     { href: "/about", label: "About Me", shortLabel: "About" },
   ];

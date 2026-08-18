@@ -71,7 +71,7 @@ const projects: Record<Lang, Project[]> = {
     {
       period: "2026 –",
       name: "Jabiko",
-      blurb: "和朋友做的 JLPT 自習網站，從動詞變化練到 N1 文法，會自動盯錯題複習，打開就能用。",
+      blurb: "我做的 JLPT 自習網站，從動詞變化練到 N1 文法，會自動盯錯題複習，打開就能用。",
       links: [
         { label: "jabiko.pages.dev", href: "https://jabiko.pages.dev/" },
         { label: "介紹", href: "/blog/jabiko-jlpt-app" },
@@ -88,7 +88,7 @@ const projects: Record<Lang, Project[]> = {
     {
       period: "2026 –",
       name: "Jabiko",
-      blurb: "A JLPT self-study site I built with a friend — from verb conjugation up to N1 grammar, with automatic spaced review of missed questions.",
+      blurb: "A JLPT self-study site I built — from verb conjugation up to N1 grammar, with automatic spaced review of missed questions.",
       links: [
         { label: "jabiko.pages.dev", href: "https://jabiko.pages.dev/" },
         { label: "Write-up", href: "/blog/jabiko-jlpt-app" },
