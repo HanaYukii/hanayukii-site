@@ -8,13 +8,13 @@ import { articleMetadata } from "@/lib/seo";
 const href = "/blog/idol-lyrics-translation-series";
 
 export const metadata: Metadata = articleMetadata(href, {
-  title: "最近在整理偶像歌詞：從 SWEET STEADY 到蝦中 | 花雪 HanaYukii",
+  title: "最近在做偶像歌詞翻譯和歌曲整理 | 花雪 HanaYukii",
   description:
-    "從 SWEET STEADY 首次 Arena 公演前的一日一曲，到私立恵比寿中学的原點回歸夏日歌：最近這批中文歌詞翻譯怎麼開始，以及歌割、成員色與日文諧音為什麼比逐句翻譯更花時間。",
+    "從 SWEET STEADY 首次 Arena 公演前的一日一曲開始，慢慢把喜歡的偶像歌、歌割、日文小梗和現場片段整理下來。",
   openGraph: {
-    title: "最近在整理偶像歌詞：從 SWEET STEADY 到蝦中",
+    title: "最近在做偶像歌詞翻譯和歌曲整理",
     description:
-      "Arena 倒數的一日一曲，最後一路整理成中文翻譯、歌割、成員色與日文小梗都放進去的系列。",
+      "Arena 倒數的一日一曲，後來慢慢變成一個會繼續寫下去的偶像歌曲整理系列。",
     type: "article",
   },
 });
@@ -89,7 +89,7 @@ export default function IdolLyricsTranslationSeries() {
         </div>
 
         <h1 className="mb-3 text-3xl font-bold leading-tight sm:text-4xl">
-          最近在整理偶像歌詞：從 SWEET STEADY 到蝦中
+          最近在做偶像歌詞翻譯和歌曲整理
         </h1>
         <p className="mb-8 text-sm text-text-muted">2026-08-28</p>
       </FadeIn>
@@ -97,21 +97,24 @@ export default function IdolLyricsTranslationSeries() {
       <div className="prose-custom space-y-4 leading-relaxed text-text-muted [&_strong]:text-text">
         <FadeIn>
           <p>
-            八月大半的空閒時間都在翻偶像歌詞。起點很單純：SWEET STEADY
-            第一次 Arena 單獨公演前，想做一個倒數整理，一天一首，把中文翻譯、成員色、歌唱分配和現場 call
-            放在同一頁。至少到了 PIA ARENA MM 前，自己要複習也方便。
+            八月大半的空閒時間都拿去翻偶像歌詞了。
           </p>
           <p>
-            原本以為只會是幾篇短文，結果一路補了舊歌、新歌、MV、Live 和官方 Shorts。Arena
-            結束後，又拐回追了很多年的私立恵比寿中学，寫了一篇〈えびチリ、はじめました〉。現在回頭看，已經很像一個小型資料庫了。
+            一開始只是因為 SWEET STEADY 第一次 Arena
+            單獨公演快到了，想說一天整理一首，順便把中文翻譯、成員色、歌割（歌唱分配）和現場 call
+            放在一起，自己去 PIA ARENA MM 前也比較方便複習。
+          </p>
+          <p>
+            結果寫著寫著就停不下來。舊歌、新歌、MV、Live、Shorts 一路補，Arena
+            結束後又繞回追了很多年的私立恵比寿中学，寫了〈えびチリ、はじめました〉。現在看來，應該也不會只停在這兩團。
           </p>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="beyond-translation">最花時間的不是逐字翻譯</Heading>
+          <Heading id="beyond-translation">逐字翻譯反而不是最麻煩的</Heading>
           <p>
-            真正難處理的，通常是那些換成中文就會消失的東西：誰唱哪一句、call
-            到底該不該翻、名字怎麼藏在跨句的音節裡，還有歌詞、MV 動作和日文諧音怎麼接在一起。
+            實際做下去才發現，最容易卡住的都是那些中文一翻就不見的東西。誰唱哪句、call
+            要不要留原文、名字怎麼藏在音節裡，甚至 MV 裡一個動作到底有沒有在接歌詞的梗。
           </p>
           <p>
             像〈YAKIMOCHI〉把「イヤ」的尾音接到「きもち」，變成「やきもち」；副歌還讓成員一人唱一次「イヤ」。〈Melodies〉則把七個人的名字全藏進歌詞，而且都由本人唱出來。這些只看中文譯文很難察覺，所以我會把歌割、訪談或影像一起放進文章。
@@ -122,32 +125,33 @@ export default function IdolLyricsTranslationSeries() {
         </FadeIn>
 
         <FadeIn>
-          <Heading id="different-songs">每首歌不必寫成同一種文章</Heading>
+          <Heading id="different-songs">有梗就挖，沒有也不用硬寫</Heading>
           <p>
-            這批整理做到後來，我反而更確定不必每首都硬寫成歌詞研究。〈Melodies〉有名字、花束和二周年的脈絡，值得拆得很細；〈DASH!!!〉就是可愛、好喊、很有夏季音樂祭感，短短寫完反而更像那首歌。
+            寫到後來，也慢慢懶得每首都硬分析了。〈Melodies〉有名字、花束和二周年，一堆東西可以拆；〈DASH!!!〉就真的只是很可愛、很好喊，放在夏天現場一定很熱鬧。那就短短寫完也沒關係。
           </p>
           <p>
-            我現在比較喜歡讓文章跟著歌走。有明顯的文字遊戲就解釋，有適合的 MV
-            畫面就放一兩張；如果只是現場會很開心，也不用硬替它補出一套很深的意思。
+            有明顯的文字遊戲就解釋，有適合的 MV
+            畫面就放一兩張。沒有的話，也不用每首歌都硬找一個深層意義。
           </p>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="sweet-steady">SWEET STEADY 系列</Heading>
-          <div className="my-6 divide-y divide-border/60 rounded-xl border border-border bg-surface/30 px-5">
+          <Heading id="sweet-steady">先從 SWEET STEADY 開始</Heading>
+          <ul className="my-6 list-disc space-y-3 border-y border-border py-5 pl-5">
             {sweetSteadyPosts.map((post) => (
-              <a
-                key={post.url}
-                href={post.url}
-                target="_blank"
-                rel="noreferrer"
-                className="block py-4 transition-colors hover:text-accent"
-              >
-                <strong className="text-text">〈{post.title}〉</strong>
-                <span className="mt-1 block text-sm text-text-muted">{post.note}</span>
-              </a>
+              <li key={post.url}>
+                <a
+                  href={post.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-bold text-text transition-colors hover:text-accent"
+                >
+                  〈{post.title}〉
+                </a>
+                ：{post.note}
+              </li>
             ))}
-          </div>
+          </ul>
           <p>
             完整歌詞、成員色與影片都先放在巴哈。那邊的編輯器比較適合保留歌割顏色，也方便把同一首歌的 MV、Live 和 Shorts 排在一起。
           </p>
@@ -173,12 +177,15 @@ export default function IdolLyricsTranslationSeries() {
         </FadeIn>
 
         <FadeIn>
-          <Heading id="next">接下來</Heading>
+          <Heading id="next">接下來就慢慢寫</Heading>
           <p>
-            PIA 的倒數已經結束，不需要再逼自己一天一首。不過只要遇到一首歌，裡面有值得替中文讀者留下來的文字遊戲、成員故事或現場片段，我應該還是會繼續整理。
+            PIA 的倒數已經結束，之後當然不用再一天一首。不過這件事大概會繼續做下去，也不限定哪一團。遇到自己喜歡的歌，就把中文翻譯、歌割、歌詞裡的梗，或一些想留下來的現場和 MV 片段整理起來。
           </p>
           <p>
-            巴哈繼續放完整翻譯與歌割；這裡則偶爾記錄整理過程、日文筆記，以及那些翻完以後才發現原來藏得很深的地方。
+            有些可能只是完整歌詞翻譯，有些會像〈えびチリ〉一樣一路寫成歌曲整理文。反正喜歡什麼就慢慢寫什麼。
+          </p>
+          <p>
+            完整翻譯和歌割目前還是放巴哈；這邊就偶爾記一些整理過程、日文筆記，還有翻完以後才發現的東西。
           </p>
         </FadeIn>
       </div>

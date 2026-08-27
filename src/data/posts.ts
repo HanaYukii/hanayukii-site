@@ -25,10 +25,10 @@
 
 export const posts: Post[] = [
   {
-    title: "最近在整理偶像歌詞：從 SWEET STEADY 到蝦中",
+    title: "最近在做偶像歌詞翻譯和歌曲整理",
     date: "2026-08-28",
     summary:
-      "從 SWEET STEADY 首次 Arena 公演前的一日一曲，整理到蝦中的原點回歸夏日歌：記下這批中文翻譯怎麼開始，以及歌割、成員色與日文諧音為什麼比逐句翻譯更花時間。",
+      "從 SWEET STEADY 首次 Arena 公演前的一日一曲開始，慢慢把喜歡的偶像歌、歌割、日文小梗和現場片段整理下來。",
     tags: ["Idol", "Japanese", "Translation"],
     tagStyle: "text-accent",
     href: "/blog/idol-lyrics-translation-series",
