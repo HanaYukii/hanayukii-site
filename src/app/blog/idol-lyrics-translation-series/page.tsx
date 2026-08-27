@@ -10,11 +10,11 @@ const href = "/blog/idol-lyrics-translation-series";
 export const metadata: Metadata = articleMetadata(href, {
   title: "最近在翻偶像歌詞，結果越寫越多 | 花雪 HanaYukii",
   description:
-    "原本只是想替 SWEET STEADY 多留一點中文資料，在 Arena 前列幾首歌整理，結果寫著寫著停不下來，後來連蝦中的也一起寫了。",
+    "最近開始追 SWEET STEADY，想趁著有熱忱多補一些中文資料。原本只列幾首想寫的歌，最後整理成七篇，後來連蝦中的也一起寫了。",
   openGraph: {
     title: "最近在翻偶像歌詞，結果越寫越多",
     description:
-      "本來只想在 SWEET STEADY Arena 前列幾首歌，最後一路寫了七篇，又接著寫回蝦中。",
+      "最近開始追 SWEET STEADY，想替中文圈多補一些資料。原本只列幾首歌，最後整理成七篇，也在過程中更認識她們。",
     type: "article",
   },
 });
@@ -93,14 +93,13 @@ export default function IdolLyricsTranslationSeries() {
             八月大半的空閒時間都拿去翻偶像歌詞了。
           </p>
           <p>
-            一開始其實就是想推廣 SWEET STEADY。SS
-            在中文圈能找到的資料還是不多，我之前也整理過 Wiki。剛好第一次 Arena
-            單獨公演快到了，就想說先列幾首想寫的歌，一天整理一首，順便把中文翻譯、成員色、歌割（歌唱分配）和現場 call
+            SWEET STEADY 是我最近才開始追的團，現在很有熱忱，也想在中文圈多推廣她們一點。SS
+            能找到的中文資料還是不多，我之前也整理過 Wiki。剛好第一次 Arena
+            單獨公演快到了，就想說挑幾首歌，一天整理一首，順便把中文翻譯、成員色、歌割（歌唱分配）和現場 call
             都放在一起，自己去 PIA ARENA MM 前也可以複習。
           </p>
           <p>
-            本來真的只打算列幾首，結果寫著寫著就停不下來。舊歌、新歌、MV、Live、Shorts
-            一路補，回過神已經寫了七篇。
+            一開始列的真的不多。後來一邊整理，一邊又補了舊歌、新歌、MV、Live 和 Shorts，也在這個過程裡更認識她們，最後寫成了七篇。
           </p>
         </FadeIn>
 
