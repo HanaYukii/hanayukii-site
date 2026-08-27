@@ -94,12 +94,12 @@ export default function IdolLyricsTranslationSeries() {
           </p>
           <p>
             SWEET STEADY 是我最近才開始追的團，現在很有熱忱，也想在中文圈多推廣她們一點。SS
-            能找到的中文資料還是不多，我之前也整理過 Wiki。剛好第一次 Arena
+            能找到的中文資料還是不多，我之前也順手整理過 Wiki。剛好第一次 Arena
             單獨公演快到了，就想說挑幾首歌，一天整理一首，順便把中文翻譯、成員色、歌割（歌唱分配）和現場 call
             都放在一起，自己去 PIA ARENA MM 前也可以複習。
           </p>
           <p>
-            一開始列的真的不多。後來一邊整理，一邊又補了舊歌、新歌、MV、Live 和 Shorts，也在這個過程裡更認識她們，最後寫成了七篇。
+            一開始真的只列了幾首。後來一邊整理，一邊又補了舊歌、新歌、MV、Live 和 Shorts，也在這個過程裡更認識她們，最後寫成了七篇。
           </p>
         </FadeIn>
 
@@ -128,7 +128,7 @@ export default function IdolLyricsTranslationSeries() {
         <FadeIn>
           <Heading id="ebichu">然後又寫回蝦中</Heading>
           <p>
-            PIA 結束後，我又繞回追了很多年的蝦中。理由其實也差不多：私立恵比寿中学在日本活動了這麼久，在中文圈的知名度還是不高，能找到的中文資料也不多。
+            PIA 結束後，我又繞回追了很多年的蝦中。理由其實也差不多：私立恵比寿中学在日本活動這麼多年，中文圈的知名度還是不高，能找到的資料也有限。
           </p>
           <p>
             剛好那時候一直在聽
