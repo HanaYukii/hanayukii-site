@@ -149,6 +149,13 @@ export default function IdolLyricsTranslationSeries() {
             一天一首是為了趕在公演前寫完，之後不用這樣。不過這件事應該還是會繼續做，也不限定哪一團。
           </p>
           <p>
+            現在用 AI{" "}
+            <Link href="/blog/video-to-article-workflow" className={linkClass}>
+              抓字幕、整理逐字稿
+            </Link>
+            、剪片都很快，做這種推廣用的資源成本比以前低很多，弄起來也蠻有趣的。之後不一定只寫文章。
+          </p>
+          <p>
             每首歌能寫的本來就不一樣。有背景想講就多寫一點，單純可愛、好喊的歌就短短一篇。
           </p>
         </FadeIn>
