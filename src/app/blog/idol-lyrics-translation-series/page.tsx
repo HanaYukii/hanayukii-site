@@ -90,7 +90,7 @@ export default function IdolLyricsTranslationSeries() {
       <div className="prose-custom space-y-4 leading-relaxed text-text-muted [&_strong]:text-text">
         <FadeIn>
           <p>
-            八月大半的空閒時間都拿去翻偶像歌詞了。
+            八月花了一些時間整理推廣資源。
           </p>
           <p>
             SWEET STEADY 是最近才開始追的團，中文圈能找到的資料還很少，之前也順手整理過
