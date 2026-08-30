@@ -100,6 +100,9 @@ export default function IdolLyricsTranslationSeries() {
           <p>
             本來只列了幾首，後來舊歌、新歌、MV、Live、Shorts 一路補下去，寫完是七篇。
           </p>
+          <p>
+            整理的時候要一首一首去查背景，比單純在聽的時候多知道很多，也常常查著查著自己就先被打動了。
+          </p>
         </FadeIn>
 
         <FadeIn>
@@ -139,7 +142,7 @@ export default function IdolLyricsTranslationSeries() {
             >
               〈えびチリ、はじめました〉
             </a>
-            ，就從這首開始。原本想寫短一點，背景和梗補一補還是變得很長，寫到後來自己也哭了。
+            ，就從這首開始。原本想寫短一點，背景和梗補一補還是變得很長。這篇也花了不少眼淚寫。
           </p>
         </FadeIn>
 
