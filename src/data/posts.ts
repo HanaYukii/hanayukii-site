@@ -25,10 +25,10 @@
 
 export const posts: Post[] = [
   {
-    title: "最近在翻偶像歌詞，結果越寫越多",
+    title: "八月翻的偶像歌詞",
     date: "2026-08-28",
     summary:
-      "最近開始追 SWEET STEADY，想趁著有熱忱多補一些中文資料。原本只列幾首想寫的歌，最後整理成七篇，後來連蝦中的也一起寫了。",
+      "趕在 SWEET STEADY 第一次 Arena 公演前一天翻一首，把中文翻譯、成員色、歌割和現場 call 整理成七篇，公演結束後又寫了一篇蝦中。",
     tags: ["Idol", "Japanese", "Translation"],
     tagStyle: "text-accent",
     href: "/blog/idol-lyrics-translation-series",

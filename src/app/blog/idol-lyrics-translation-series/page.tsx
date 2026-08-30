@@ -8,13 +8,13 @@ import { articleMetadata } from "@/lib/seo";
 const href = "/blog/idol-lyrics-translation-series";
 
 export const metadata: Metadata = articleMetadata(href, {
-  title: "最近在翻偶像歌詞，結果越寫越多 | 花雪 HanaYukii",
+  title: "八月翻的偶像歌詞 | 花雪 HanaYukii",
   description:
-    "最近開始追 SWEET STEADY，想趁著有熱忱多補一些中文資料。原本只列幾首想寫的歌，最後整理成七篇，後來連蝦中的也一起寫了。",
+    "趕在 SWEET STEADY 第一次 Arena 公演前一天翻一首，把中文翻譯、成員色、歌割和現場 call 整理成七篇，公演結束後又寫了一篇蝦中。",
   openGraph: {
-    title: "最近在翻偶像歌詞，結果越寫越多",
+    title: "八月翻的偶像歌詞",
     description:
-      "最近開始追 SWEET STEADY，想替中文圈多補一些資料。原本只列幾首歌，最後整理成七篇，也在過程中更認識她們。",
+      "趕在 SWEET STEADY 第一次 Arena 公演前一天翻一首，寫成七篇，公演結束後又補了一篇蝦中。",
     type: "article",
   },
 });
@@ -82,7 +82,7 @@ export default function IdolLyricsTranslationSeries() {
         </div>
 
         <h1 className="mb-3 text-3xl font-bold leading-tight sm:text-4xl">
-          最近在翻偶像歌詞，結果越寫越多
+          八月翻的偶像歌詞
         </h1>
         <p className="mb-8 text-sm text-text-muted">2026-08-28</p>
       </FadeIn>
@@ -93,18 +93,17 @@ export default function IdolLyricsTranslationSeries() {
             八月大半的空閒時間都拿去翻偶像歌詞了。
           </p>
           <p>
-            SWEET STEADY 是我最近才開始追的團，現在很有熱忱，也想在中文圈多推廣她們一點。SS
-            能找到的中文資料還是不多，我之前也順手整理過 Wiki。剛好第一次 Arena
-            單獨公演快到了，就想說挑幾首歌，一天整理一首，順便把中文翻譯、成員色、歌割（歌唱分配）和現場 call
-            都放在一起，自己去 PIA ARENA MM 前也可以複習。
+            SWEET STEADY 是最近才開始追的團，中文圈能找到的資料還很少，之前也順手整理過
+            Wiki。剛好第一次 Arena 單獨公演快到了，就想說一天翻一首，把中文翻譯、成員色、歌割（歌唱分配）和現場
+            call 放在同一篇，自己去 PIA ARENA MM 之前也可以拿來複習。
           </p>
           <p>
-            一開始真的只列了幾首。後來一邊整理，一邊又補了舊歌、新歌、MV、Live 和 Shorts，也在這個過程裡更認識她們，最後寫成了七篇。
+            本來只列了幾首，後來舊歌、新歌、MV、Live、Shorts 一路補下去，寫完是七篇。
           </p>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="sweet-steady">結果變成七篇</Heading>
+          <Heading id="sweet-steady">SWEET STEADY 的七篇</Heading>
           <ul className="my-6 list-disc space-y-3 border-y border-border py-5 pl-5">
             {sweetSteadyPosts.map((post) => (
               <li key={post.url}>
@@ -120,18 +119,18 @@ export default function IdolLyricsTranslationSeries() {
             ))}
           </ul>
           <p>
-            完整翻譯和歌割目前都放在巴哈。歌割要保留成員色，現場 call
-            也會照原樣留著，那邊比較適合排這些東西。這邊就先記一下我八月到底在忙什麼。
+            完整翻譯和歌割都放在巴哈。歌割要標成員色，現場 call
+            也照原樣留著，那邊排版比較好處理。
           </p>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="ebichu">然後又寫回蝦中</Heading>
+          <Heading id="ebichu">蝦中</Heading>
           <p>
-            PIA 結束後，我又繞回追了很多年的蝦中。理由其實也差不多：私立恵比寿中学在日本活動這麼多年，中文圈的知名度還是不高，能找到的資料也有限。
+            公演結束後又繞回追了很多年的蝦中。理由差不多：私立恵比寿中学在日本活動十幾年，中文圈的知名度還是不高，資料一樣少。
           </p>
           <p>
-            剛好那時候一直在聽
+            那陣子一直在聽
             <a
               href="https://home.gamer.com.tw/artwork.php?sn=6387976"
               target="_blank"
@@ -140,20 +139,17 @@ export default function IdolLyricsTranslationSeries() {
             >
               〈えびチリ、はじめました〉
             </a>
-            ，就想說也來整理一篇。本來沒打算寫那麼長，結果背景和梗越補越多，最後也寫到掉了不少眼淚。
+            ，就從這首開始。原本想寫短一點，背景和梗補一補還是變得很長，寫到後來自己也哭了。
           </p>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="next">接下來就慢慢寫</Heading>
+          <Heading id="next">接下來</Heading>
           <p>
-            PIA 的倒數已經結束，之後當然不用再一天一首。不過這件事大概還是會繼續做，也不限定哪一團。
+            一天一首是為了趕在公演前寫完，之後不用這樣。不過這件事應該還是會繼續做，也不限定哪一團。
           </p>
           <p>
-            每首歌能寫的本來就不一樣，不一定每首背後都有那麼多故事。有東西想講就多寫一點，單純可愛、好喊的歌就短短寫完。反正喜歡什麼就慢慢寫什麼。
-          </p>
-          <p>
-            完整翻譯和歌割還是放巴哈。這邊就偶爾記一下最近又寫了什麼。
+            每首歌能寫的本來就不一樣。有背景想講就多寫一點，單純可愛、好喊的歌就短短一篇。
           </p>
         </FadeIn>
       </div>
