@@ -158,6 +158,9 @@ export default function IdolLyricsTranslationSeries() {
           <p>
             每首歌能寫的本來就不一樣。有背景想講就多寫一點，單純可愛、好喊的歌就短短一篇。
           </p>
+          <p>
+            八月也去了不少現場，零星的紀錄先發在 Threads，之後再整理成文章。跑場的部分先休息到十二月。
+          </p>
         </FadeIn>
       </div>
 
