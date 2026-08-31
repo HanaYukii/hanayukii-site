@@ -27,8 +27,9 @@ export const posts: Post[] = [
   {
     title: "八月翻的偶像歌詞",
     date: "2026-08-28",
+    updated: "2026-08-31",
     summary:
-      "趕在 SWEET STEADY 第一次 Arena 公演前一天翻一首，把中文翻譯、成員色、歌割和現場 call 整理成七篇，公演結束後又寫了一篇蝦中。",
+      "趕在 SWEET STEADY 第一次 Arena 公演前一天翻一首，把中文翻譯、成員色、歌割和現場 call 整理成七篇，公演結束後又接著寫了三篇蝦中。",
     tags: ["Idol", "Japanese", "Translation"],
     tagStyle: "text-accent",
     href: "/blog/idol-lyrics-translation-series",

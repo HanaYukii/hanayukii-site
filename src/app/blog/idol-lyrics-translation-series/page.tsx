@@ -10,11 +10,11 @@ const href = "/blog/idol-lyrics-translation-series";
 export const metadata: Metadata = articleMetadata(href, {
   title: "八月翻的偶像歌詞 | 花雪 HanaYukii",
   description:
-    "趕在 SWEET STEADY 第一次 Arena 公演前一天翻一首，把中文翻譯、成員色、歌割和現場 call 整理成七篇，公演結束後又寫了一篇蝦中。",
+    "趕在 SWEET STEADY 第一次 Arena 公演前一天翻一首，把中文翻譯、成員色、歌割和現場 call 整理成七篇，公演結束後又接著寫了三篇蝦中。",
   openGraph: {
     title: "八月翻的偶像歌詞",
     description:
-      "趕在 SWEET STEADY 第一次 Arena 公演前一天翻一首，寫成七篇，公演結束後又補了一篇蝦中。",
+      "趕在 SWEET STEADY 第一次 Arena 公演前一天翻一首，寫成七篇，公演結束後又補了三篇蝦中。",
     type: "article",
   },
 });
@@ -60,6 +60,21 @@ const sweetSteadyPosts = [
   },
 ];
 
+const ebichuPosts = [
+  {
+    title: "えびチリ、はじめました",
+    url: "https://home.gamer.com.tw/artwork.php?sn=6387976",
+  },
+  {
+    title: "スーパーブルー",
+    url: "https://home.gamer.com.tw/artwork.php?sn=6388918",
+  },
+  {
+    title: "Family Complex",
+    url: "https://home.gamer.com.tw/artwork.php?sn=6390528",
+  },
+];
+
 export default function IdolLyricsTranslationSeries() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
@@ -101,7 +116,7 @@ export default function IdolLyricsTranslationSeries() {
             本來只列了幾首，後來舊歌、新歌、MV、Live、Shorts 一路補下去，寫完是七篇。
           </p>
           <p>
-            整理的時候要一首一首去查背景，比單純在聽的時候多知道很多，也常常查著查著自己就先被打動了。
+            整理的時候要一首一首去查背景，也在這個過程裡更認識她們。
           </p>
         </FadeIn>
 
@@ -128,22 +143,27 @@ export default function IdolLyricsTranslationSeries() {
         </FadeIn>
 
         <FadeIn>
-          <Heading id="ebichu">蝦中</Heading>
+          <Heading id="ebichu">蝦中的三篇</Heading>
           <p>
-            公演結束後又繞回追了很多年的蝦中。理由差不多：私立恵比寿中学在日本活動十幾年，中文圈的知名度還是不高，資料一樣少。
+            公演結束後又繞回追了很多年的蝦中。理由差不多：私立恵比寿中学在日本活動十幾年，中文圈的知名度還是不高，能找到的資料也不多。
           </p>
           <p>
-            那陣子一直在聽
-            <a
-              href="https://home.gamer.com.tw/artwork.php?sn=6387976"
-              target="_blank"
-              rel="noreferrer"
-              className={linkClass}
-            >
-              〈えびチリ、はじめました〉
-            </a>
-            ，就從這首開始。原本想寫短一點，背景和梗補一補還是變得很長。這篇也花了不少眼淚寫。
+            那陣子一直在聽〈えびチリ、はじめました〉，就從這首開始。後來又接著整理了兩首，蝦中也寫成三篇。
           </p>
+          <ul className="my-6 list-disc space-y-3 border-y border-border py-5 pl-5">
+            {ebichuPosts.map((post) => (
+              <li key={post.url}>
+                <a
+                  href={post.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-bold text-text transition-colors hover:text-accent"
+                >
+                  〈{post.title}〉
+                </a>
+              </li>
+            ))}
+          </ul>
         </FadeIn>
 
         <FadeIn>
@@ -159,7 +179,7 @@ export default function IdolLyricsTranslationSeries() {
             、剪片都很快，做這種推廣用的資源成本比以前低很多，弄起來也蠻有趣的。之後不一定只寫文章。
           </p>
           <p>
-            每首歌能寫的本來就不一樣。有背景想講就多寫一點，單純可愛、好喊的歌就短短一篇。
+            每首歌能寫的本來就不一樣，不一定都有那麼多故事。有東西想講就多寫一點，單純可愛、好喊的歌就短短寫完。
           </p>
           <p>
             八月也去了不少現場，零星的紀錄先發在 Threads，之後再整理成文章。跑場的部分先休息到十二月。
