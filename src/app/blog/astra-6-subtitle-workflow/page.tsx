@@ -9,7 +9,7 @@ import { articleMetadata } from "@/lib/seo";
 
 const href = "/blog/astra-6-subtitle-workflow";
 const title = "用 Astra 6 當單人字幕組";
-const description = "最近用 Codex 裡的 Astra 6 做偶像影片字幕：轉錄、翻譯、對時、成員色，再到封面與上傳。記一下實際怎麼分工，以及最容易卡住的地方。";
+const description = "受同好 UP 主鼓勵，用 Astra 6 幫自己喜歡的 live 上字幕。AI 自動處理大部分流程，人工標色、審稿與校對，還有一起做出來的歌割校對介面。";
 
 export const metadata: Metadata = articleMetadata(href, {
   title: `${title} | 花雪 HanaYukii`,
@@ -18,7 +18,7 @@ export const metadata: Metadata = articleMetadata(href, {
     title,
     description,
     type: "article",
-    images: [{ url: "/images/astra-subtitles/famien-subtitles.jpg", width: 1920, height: 1080, alt: "FAMIEN 中日雙語成員色字幕成品" }],
+    images: [{ url: "/images/astra-subtitles/sweet-steady-live.jpg", width: 1920, height: 1080, alt: "SWEET STEADY 中日雙語成員色字幕成品" }],
   },
 });
 
@@ -41,35 +41,35 @@ export default function AstraSubtitleWorkflow() {
 
       <div className="prose-custom space-y-4 text-text-muted leading-relaxed [&_strong]:text-text">
         <FadeIn>
-          <p>最近除了翻偶像歌詞，也開始幫 live 和訪談上字幕。從蝦中、TEAM SHACHI 到 SWEET STEADY，越做越像在經營單人字幕組。主要是在 Codex 裡用 Astra 6，把轉錄、翻譯、對時、字幕排版到輸出的工作接起來，我再邊看邊改。</p>
-          <p>最方便的是可以直接講需求。「這句太早出現，往後四秒」「中文再大一點」「這段是紅色」，它就去改檔案、重生預覽。連校對用的小網頁都可以順手做出來。</p>
+          <p>最近除了翻偶像歌詞，也受到同好 UP 主鼓勵，開始幫 live 和訪談上字幕。主要還是做自己喜歡的部分，從蝦中、TEAM SHACHI 到 SWEET STEADY，把想重看的片段做成中日雙語。</p>
+          <p>前面用 Sol 5.6 也有在做，換到 Astra 6 後，我的體感是聰明很多、快很多，整個工作流也更順。現在有一些基礎知識，做單人字幕組真的很容易。不過想把品質拉上去，反覆審稿、調整和重做，也蠻燒 token 的。</p>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="workflow">現在大概怎麼做</Heading>
-          <p>先把影片準備好。歌曲有完整歌詞就拿來對時間，之前文章整理過的翻譯和歌割也能沿用；訪談則先用 Whisper 跑轉錄，再讓 Astra 6 按上下文修句子、翻成中文。它負責串工具和整理結果，最後用 FFmpeg 把字幕燒進影片。</p>
-          <p>接著做一個校對頁，播放器旁邊列日文、中文、時間和人名。我可以邊看畫面邊選成員，標完匯出，再接回字幕檔。剛開始還要一直往下捲才能選，後來就叫它把目前句子的控制項拉到播放器下面。</p>
-          <p>成員色是我很想保留的部分：誰唱就上誰的顏色，合唱用全員的處理，句子中間換人也能分段。有官方歌割就直接用，不用每支都從頭認一次。繁體、簡體和純日文版也能從同一份資料輸出。</p>
-          <Figure caption="FAMIEN 成品：同一句裡也能依歌割換色，中文一起對應。">
-            <Image src="/images/astra-subtitles/famien-subtitles.jpg" alt="えびチリ現場的日文與簡體中文字幕，句內以不同成員色呈現" width={1920} height={1080} sizes="(max-width: 768px) 100vw, 720px" className="h-auto w-full" />
+          <Heading id="workflow">大部分流程都可以交給 AI</Heading>
+          <p>準備好影片後，轉錄、翻譯、對時間、字幕排版到輸出，大部分都可以自動化。歌曲有完整歌詞就直接拿來對時；訪談轉錄完，也能讓 AI 根據上下文先修一輪。之前文章整理過的翻譯和歌割，都可以繼續沿用。</p>
+          <p>人工主要在標色、審稿和校對。我會補人名、團體背景、現場改詞，再看字幕有沒有太早出現、字太小或停留太短。繁體、簡體和純日文版則從同一份資料輸出。</p>
+          <Figure caption="SWEET STEADY〈ファンファーレ〉的成品，中日字幕一起套用成員色。">
+            <Image src="/images/astra-subtitles/sweet-steady-live.jpg" alt="SWEET STEADY 成員演唱時，畫面下方顯示紫色中日字幕" width={1920} height={1080} sizes="(max-width: 768px) 100vw, 720px" className="h-auto w-full" />
           </Figure>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="review">最麻煩的還是多人講話</Heading>
-          <p>輪流發言比較好做，一群人搶話、笑著講、哭著講就很容易出錯。人名、暱稱也常被轉成奇怪的字。可以重跑一次轉錄、拿兩版對照，再看原片字幕和前後文，但兩版一樣也不代表一定對。</p>
-          <p>我的日文也沒有好到每句都能校正，所以不會硬留所有內容。聽得清楚、只是不知道誰說的，就先用白色；不確定在講什麼的句子就略過。成員和團體背景我比較熟的部分，再補給它。</p>
-          <Figure caption="Respect Stage 的 MC，左上角補團名與發言者，下面保留中日雙語。">
-            <Image src="/images/astra-subtitles/respect-mc.jpg" alt="ukka 葵るり發言的字幕成品，左上角標示團體及人名" width={1920} height={1080} sizes="(max-width: 768px) 100vw, 720px" className="h-auto w-full" />
-          </Figure>
+          <Heading id="review-page">連歌割校對介面也一起做</Heading>
+          <p>最讓我驚艷的是審核頁。它會直接做一個能操作的校對網頁。播放器旁邊列出每句日文、中文、時間和成員，點句子就能跳到對應片段，邊聽邊選人，也能複選合唱、修改文字或略過不確定的句子。</p>
+          <p>AI 先填好初步判斷，我再修正，標完匯出就能接回字幕製作。像「這句是藍紫」「副歌是全員」，不必自己進字幕檔逐行改。這套介面和標記資料也有留下來，下一首還能接著用。</p>
+          <p>隨著前面幾支作品累積下來，AI 也持續調整整套流程。有些優化我根本沒想到，它就先做出來了，不用每次重新交代一遍。這是這幾天用下來特別有感的地方。</p>
         </FadeIn>
 
         <FadeIn>
-          <Heading id="presentation">字再大一點，裝飾少一點</Heading>
-          <p>後面花不少時間在字體、大小和顯示時間。電腦上看還行的字，放到手機就太小；一閃而過的人名和補充文字，也常要再拉長。這些通常看一版就知道要怎麼改。</p>
-          <p>封面也試過很多種。這次 FAMIEN 一開始做得太超現實，後來又試把多人近景拼到遠景上，還是很怪。最後就選原片有舞台、人潮和噴火的遠景，加小一點的歌名。成員雖然小，但比較有那場 live 的感覺。</p>
-          <p>目前最滿意的是，之前整理過的歌詞、歌割和排版可以一路接著用。下一支通常只要換素材、對時間，再修現場改詞和 MC。多人綜藝先少做一點，還是先把想看的幾首 live 做完。</p>
-          <p className="text-sm">截圖取自本次製作的字幕成品；演出畫面來自 <a className="prose-link" href="https://www.youtube.com/watch?v=Xagr2OZXuwc">FAMIEN 2026 特別編集版</a>與 <a className="prose-link" href="https://www.youtube.com/watch?v=pleH9S-7AKQ">TEAM SHACHI Respect Stage</a>。</p>
+          <Heading id="quality">想做好，還是得仔細看</Heading>
+          <p>多人搶話、笑著講或哭著講，轉錄還是比較容易錯，人名和暱稱也常需要修。可以讓 AI 做兩次轉錄、對照上下文初修，之後人工再仔細聽、逐句校對，品質還能往上拉。</p>
+          <p>我的日文也沒有好到每句都能確認。聽得清楚、只是不知道誰說的，就先用白色；內容真的不確定，就不硬補。自己熟悉的成員和演出背景，在這裡很有幫助。</p>
+          <Figure caption="TEAM SHACHI〈晴れ晴れ〉，保留完整演出畫面，在下方放雙語字幕。">
+            <Image src="/images/astra-subtitles/harebare-live.jpg" alt="TEAM SHACHI 四位成員搭肩演唱晴れ晴れ，舞台下方顯示雙語字幕" width={1920} height={1080} sizes="(max-width: 768px) 100vw, 720px" className="h-auto w-full" />
+          </Figure>
+          <p>字體、版面和封面也會來回試幾版。需求可以直接講，「中文再大一點」「這句晚四秒」，讓它改完再看。現在就先把自己喜歡的幾首 live 慢慢做完。</p>
+          <p className="text-sm">截圖取自本次製作的字幕成品；演出畫面來自 <a className="prose-link" href="https://www.youtube.com/watch?v=TMiP2m4xPh4">SWEET STEADY TIF2026 HOT STAGE</a>與 <a className="prose-link" href="https://www.youtube.com/watch?v=jBgRsToJGBM">TEAM SHACHI 最終SHOW</a>。</p>
         </FadeIn>
       </div>
       <RelatedPosts href={href} />
