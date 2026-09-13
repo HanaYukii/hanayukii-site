@@ -25,6 +25,14 @@
 
 export const posts: Post[] = [
   {
+    title: "用 Astra 6 當單人字幕組",
+    date: "2026-09-13",
+    summary: "用 Codex 裡的 Astra 6 做偶像影片字幕，從轉錄、翻譯、歌割校對到成員色與輸出，也記一下多人搶話和封面試錯。",
+    tags: ["AI", "Idol", "Translation"],
+    tagStyle: "text-primary",
+    href: "/blog/astra-6-subtitle-workflow",
+  },
+  {
     title: "八月翻的偶像歌詞",
     date: "2026-08-28",
     updated: "2026-08-31",
