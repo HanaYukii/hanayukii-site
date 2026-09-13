@@ -58,6 +58,11 @@ export default function AstraSubtitleWorkflow() {
           <Heading id="review-page">連歌割校對介面也一起做</Heading>
           <p>最讓我驚艷的是審核頁。它會直接做一個能操作的校對網頁。播放器旁邊列出每句日文、中文、時間和成員，點句子就能跳到對應片段，邊聽邊選人，也能複選合唱、修改文字或略過不確定的句子。</p>
           <p>AI 也會先根據畫面和上下文初步標色，正確率同樣讓我很驚艷，很多句子可以直接沿用。我再修正剩下的部分，標完匯出就能接回字幕製作。像「這句是藍紫」「副歌是全員」，不必自己進字幕檔逐行改。這套介面和標記資料也有留下來，下一首還能接著用。</p>
+          <Figure caption="〈マジ感謝〉的實際校對頁：看影片、選成員色，也能逐句修正時間與文字。">
+            <a href="/images/astra-subtitles/lyric-review-interface.png" target="_blank" rel="noopener noreferrer" aria-label="開啟歌割校對介面原尺寸截圖">
+              <Image src="/images/astra-subtitles/lyric-review-interface.png" alt="マジ感謝歌割校對網頁，上方播放器下可選紅藍紫綠與全員，下方列出逐句時間、翻譯及修改選項" width={1400} height={1932} sizes="(max-width: 768px) 100vw, 720px" className="h-auto w-full" />
+            </a>
+          </Figure>
           <p>隨著前面幾支作品累積下來，AI 也持續調整整套流程。有些優化我根本沒想到，它就先做出來了，不用每次重新交代一遍。這是這幾天用下來特別有感的地方。</p>
         </FadeIn>
 
