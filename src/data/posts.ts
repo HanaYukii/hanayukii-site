@@ -25,6 +25,15 @@
 
 export const posts: Post[] = [
   {
+    title: "C++ memory_order_relaxed：計數器與完成旗標的差別",
+    date: "2026-09-27",
+    summary:
+      "用兩個有執行緒的小例子理解 relaxed：只讀統計數字，和看到完成旗標後讀另一份資料，需要的保證有什麼不同？",
+    tags: ["C++", "Concurrency"],
+    tagStyle: "text-primary",
+    href: "/blog/cpp-atomic-relaxed",
+  },
+  {
     title: "用 Astra 6 當單人字幕組",
     date: "2026-09-13",
     summary: "受同好 UP 主鼓勵，幫自己喜歡的 live 上字幕。AI 處理大部分流程，人工標色、審稿與校對，也順手做了歌割校對介面。",
