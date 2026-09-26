@@ -81,7 +81,7 @@ export default function Home() {
           </p>
           <p>
             <Link className="prose-link" href="/blog/jabiko-jlpt-app">Jabiko 開發筆記 →</Link>
-            <span className="ml-2">JLPT 自習網站，暫停開發。</span>
+            <span className="ml-2">JLPT 自習網站。</span>
           </p>
         </div>
       </section>
