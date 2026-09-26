@@ -7,7 +7,7 @@ import RelatedPosts from "@/components/RelatedPosts";
 import { articleMetadata } from "@/lib/seo";
 
 const href = "/blog/cpp-atomic-relaxed";
-const title = "C++ memory_order_relaxed：計數器與完成旗標的差別";
+const title = "什麼時候能用 memory_order_relaxed？";
 const description =
   "用兩個有執行緒的小例子理解 relaxed：只讀統計數字，和看到完成旗標後讀另一份資料，需要的保證有什麼不同？";
 

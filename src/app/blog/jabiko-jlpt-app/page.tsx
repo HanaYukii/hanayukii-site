@@ -9,11 +9,11 @@ import RelatedPosts from "@/components/RelatedPosts";
 export const metadata: Metadata = articleMetadata("/blog/jabiko-jlpt-app", {
   title: "Jabiko：JLPT 自習網站 | 花雪 HanaYukii",
   description:
-    "我做的 JLPT 自習網站，包含分章練習、題庫、文型資料庫和錯題複習。",
+    "近期做的 JLPT 自習網站，包含分章練習、題庫、文型資料庫和錯題複習。",
   openGraph: {
     title: "Jabiko：JLPT 自習網站",
     description:
-      "我做的 JLPT 自習網站，包含分章練習、題庫、文型資料庫和錯題複習。",
+      "近期做的 JLPT 自習網站，包含分章練習、題庫、文型資料庫和錯題複習。",
     type: "article",
   },
 });
@@ -50,7 +50,7 @@ export default function JabikoJlptApp() {
           Jabiko：JLPT 自習網站
         </h1>
         <p className="mb-8 text-text-muted">
-          Jabiko 是我做的 JLPT（日本語能力試驗）自習網站，
+          Jabiko 是近期做的 JLPT（日本語能力試驗）自習網站，
           從五十音、動詞變化這些基礎，一路練到 N1 的文法、單字與漢字讀音。打開{" "}
           <a
             href="https://jabiko.app/"

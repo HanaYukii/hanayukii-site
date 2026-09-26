@@ -7,11 +7,11 @@ import PostJsonLd from "@/components/PostJsonLd";
 import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/video-to-article-workflow", {
-  title: "把 YouTube 影片變成逐字稿，再整理成文章 | 花雪 HanaYukii",
+  title: "抓 YouTube 字幕，整理成文章 | 花雪 HanaYukii",
   description:
     "一套實際跑過的 YouTube 轉錄流程：先抓現成字幕，沒有才用 yt-dlp 下載音訊並交給 Whisper；包含會員影片、時間區段、常見錯誤與整理 prompt。",
   openGraph: {
-    title: "把 YouTube 影片變成逐字稿，再整理成文章",
+    title: "抓 YouTube 字幕，整理成文章",
     description:
       "先抓字幕，沒有才下載音訊跑 Whisper；從網址到逐字稿、筆記與文章的完整流程。",
     type: "article",
@@ -59,7 +59,7 @@ export default function VideoToArticleWorkflow() {
           </span>
         </div>
         <h1 className="mb-4 text-4xl font-bold">
-          把 YouTube 影片變成逐字稿，再整理成文章
+          抓 YouTube 字幕，整理成文章
         </h1>
         <p className="mb-2 text-sm text-text-muted">2026-07-22</p>
         <p className="mb-8 text-text-muted">

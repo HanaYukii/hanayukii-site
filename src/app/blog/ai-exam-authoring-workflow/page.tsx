@@ -7,11 +7,11 @@ import PostJsonLd from "@/components/PostJsonLd";
 import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/ai-exam-authoring-workflow", {
-  title: "用 multi agent AI 出 JLPT 考題：交叉審查與品質閘 | 花雪 HanaYukii",
+  title: "讓 AI 出 JLPT 題目，再互相抓錯 | 花雪 HanaYukii",
   description:
-    "我怎麼讓 subagent 和 Codex 平行出題、互相審查，再用 lint、dry-run 和讀音驗證擋掉近義雙解。",
+    "讓 subagent 和 Codex 平行出題、互相審查，再用 lint、dry-run 和讀音驗證擋掉近義雙解。",
   openGraph: {
-    title: "用 multi agent AI 出 JLPT 考題：交叉審查與品質閘",
+    title: "讓 AI 出 JLPT 題目，再互相抓錯",
     description:
       "subagent 和 Codex 平行出題、互相審查，再用自動檢查擋掉近義雙解。",
     type: "article",
@@ -59,7 +59,7 @@ export default function AiExamAuthoringWorkflow() {
           </span>
         </div>
         <h1 className="mb-4 text-4xl font-bold">
-          用 multi agent AI 出 JLPT 考題：交叉審查與品質閘
+          讓 AI 出 JLPT 題目，再互相抓錯
         </h1>
         <p className="mb-8 text-text-muted">
           我在維護一個 JLPT（日本語能力試驗）學習網站{" "}

@@ -9,7 +9,7 @@ import RelatedPosts from "@/components/RelatedPosts";
 import { restaurantOrderingBody } from "@/data/articles/restaurantOrdering";
 
 const HREF = "/blog/japanese-restaurant-ordering-phrases";
-const TITLE = "日本店員到底在問什麼？從點餐、加購到結帳的實用回答";
+const TITLE = "去日本點餐，店員問什麼、怎麼回";
 const DESCRIPTION =
   "從進店、點餐、套餐與袋子一路到結帳，整理日本餐廳、咖啡店和便利商店常見問句、自然回答與店規注意事項。";
 

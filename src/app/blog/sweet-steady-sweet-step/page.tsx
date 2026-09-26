@@ -9,7 +9,7 @@ import RelatedPosts from "@/components/RelatedPosts";
 import { sweetStepBody } from "@/data/articles/sweetStep";
 
 const HREF = "/blog/sweet-steady-sweet-step";
-const TITLE = "從歌詞學日文系列 SWEET STEADY - SWEET STEP：在 ありのまま 裡找真正的自己";
+const TITLE = "跟著 SWEET STEP 學日文";
 const DESCRIPTION =
   "從 SWEET STEADY〈SWEET STEP〉學 ありのまま、強がる、素直、口上常見詞與偶像歌裡的細膩語感。";
 

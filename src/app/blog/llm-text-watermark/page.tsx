@@ -9,11 +9,11 @@ import PostJsonLd from "@/components/PostJsonLd";
 import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/llm-text-watermark", {
-  title: "Claude 文字浮水印：從選字機率理解原理 | 花雪 HanaYukii",
+  title: "文字浮水印怎麼藏進 AI 回答？ | 花雪 HanaYukii",
   description:
     "先從 LLM 如何替下一個 token 分配機率講起，再用 green / red 分組解釋文字浮水印如何留下統計訊號，以及局部修改為什麼不一定會洗掉它。",
   openGraph: {
-    title: "Claude 文字浮水印：從選字機率理解原理",
+    title: "文字浮水印怎麼藏進 AI 回答？",
     description:
       "LLM 每次替候選 token 算機率；浮水印只要偷偷偏一點，長文裡就會累積成可辨識的統計訊號。",
     type: "article",
@@ -767,7 +767,7 @@ export default function LlmTextWatermark() {
           </span>
         </div>
         <h1 className="mb-2 text-4xl font-bold">
-          Claude 文字浮水印：從選字機率理解原理
+          文字浮水印怎麼藏進 AI 回答？
         </h1>
         <p className="mb-8 text-sm text-text-muted">2026-08-13</p>
       </FadeIn>

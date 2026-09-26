@@ -7,11 +7,11 @@ import PostJsonLd from "@/components/PostJsonLd";
 import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/cp-career-memoir", {
-  title: "我的競賽程式生涯回顧 | 花雪 HanaYukii",
+  title: "一路打競賽到現在 | 花雪 HanaYukii",
   description:
     "從一份太難的計概作業開始刷題，後來拿到 ICPC Gold，也在離 World Finals 只差一點 penalty 的地方停下來。",
   openGraph: {
-    title: "我的競賽程式生涯回顧",
+    title: "一路打競賽到現在",
     description:
       "從一份太難的計概作業開始刷題，到 ICPC Gold 與差一點進 World Finals。",
     type: "article",
@@ -48,7 +48,7 @@ export default function CpCareerMemoir() {
           </span>
         </div>
         <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
-          我的競賽程式生涯回顧
+          一路打競賽到現在
         </h1>
         <p className="mb-2 text-sm text-text-muted">持續優化中</p>
         <p className="mb-8 text-text-muted">

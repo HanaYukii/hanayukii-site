@@ -9,7 +9,7 @@ import RelatedPosts from "@/components/RelatedPosts";
 import { tasteExpressionsBody } from "@/data/articles/tasteExpressions";
 
 const HREF = "/blog/japanese-taste-texture-expressions";
-const TITLE = "日本人吃東西不只說「おいしい」：味道、口感與吃後感的實用日文";
+const TITLE = "除了おいしい，還能怎麼形容味道？";
 const DESCRIPTION =
   "整理あっさり、こってり、サクサク、もちもち等味道與口感日文，也收錄吃完拉麵後對店員說的自然句子。";
 

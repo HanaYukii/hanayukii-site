@@ -9,7 +9,7 @@ import RelatedPosts from "@/components/RelatedPosts";
 import { choSaikyoBody } from "@/data/articles/choSaikyo";
 
 const HREF = "/blog/cho-saikyo-tokimeki";
-const TITLE = "從〈超最強〉學日文：偶像把『推し活』唱成一首歌";
+const TITLE = "跟著〈超最強〉學推し活日文";
 const DESCRIPTION =
   "從超ときめき♡宣伝部〈超最強〉學推し活、布教、トレカ、レス、尊い、過去一等偶像歌常見日文，理解かわいい call 和推し活的雙向循環。";
 

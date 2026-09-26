@@ -25,13 +25,14 @@
 
 export const posts: Post[] = [
   {
-    title: "C++ memory_order_relaxed：計數器與完成旗標的差別",
+    title: "什麼時候能用 memory_order_relaxed？",
     date: "2026-09-27",
     summary:
       "用兩個有執行緒的小例子理解 relaxed：只讀統計數字，和看到完成旗標後讀另一份資料，需要的保證有什麼不同？",
     tags: ["C++", "Concurrency"],
     tagStyle: "text-primary",
     href: "/blog/cpp-atomic-relaxed",
+    hot: true,
   },
   {
     title: "用 Astra 6 當單人字幕組",
@@ -52,7 +53,7 @@ export const posts: Post[] = [
     href: "/blog/idol-lyrics-translation-series",
   },
   {
-    title: "Claude 文字浮水印：從選字機率理解原理",
+    title: "文字浮水印怎麼藏進 AI 回答？",
     date: "2026-08-13",
     summary:
       "先從 LLM 如何替下一個 token 分配機率講起，再用 green / red 分組解釋文字浮水印如何留下統計訊號，以及局部修改為什麼不一定會洗掉它。",
@@ -61,7 +62,7 @@ export const posts: Post[] = [
     href: "/blog/llm-text-watermark",
   },
   {
-    title: "把 YouTube 影片變成逐字稿，再整理成文章",
+    title: "抓 YouTube 字幕，整理成文章",
     date: "2026-07-22",
     updated: "2026-07-23",
     summary:
@@ -109,7 +110,7 @@ export const posts: Post[] = [
     href: "/blog/abc467g-many-sweets",
   },
   {
-    title: "日本店員到底在問什麼？從點餐、加購到結帳的實用回答",
+    title: "去日本點餐，店員問什麼、怎麼回",
     date: "2026-07-13",
     summary:
       "從進店、點餐、套餐與袋子一路到結帳，整理日本餐廳、咖啡店和便利商店常見問句、自然回答與店規注意事項。",
@@ -118,7 +119,7 @@ export const posts: Post[] = [
     href: null,
   },
   {
-    title: "日本人吃東西不只說「おいしい」：味道、口感與吃後感的實用日文",
+    title: "除了おいしい，還能怎麼形容味道？",
     date: "2026-07-13",
     summary:
       "整理あっさり、こってり、サクサク、もちもち等味道與口感日文，也收錄吃完拉麵後對店員說的自然句子。",
@@ -136,7 +137,7 @@ export const posts: Post[] = [
     href: null,
   },
   {
-    title: "從歌詞學日文系列 SWEET STEADY - SWEET STEP：在 ありのまま 裡找真正的自己",
+    title: "跟著 SWEET STEP 學日文",
     date: "2026-07-06",
     summary:
       "從 SWEET STEADY〈SWEET STEP〉學 ありのまま、強がる、素直、口上常見詞與偶像歌裡的細膩語感。",
@@ -145,7 +146,7 @@ export const posts: Post[] = [
     href: null,
   },
   {
-    title: "從〈超最強〉學日文：偶像把『推し活』唱成一首歌",
+    title: "跟著〈超最強〉學推し活日文",
     date: "2026-07-06",
     summary:
       "從超ときめき♡宣伝部〈超最強〉學推し活、布教、トレカ、レス、尊い、過去一等偶像歌常見日文，理解かわいい call 和推し活的雙向循環。",
@@ -157,17 +158,16 @@ export const posts: Post[] = [
     title: "Jabiko：JLPT 自習網站",
     date: "2026-06-24",
     summary:
-      "我做的 JLPT 自習網站，從基礎變化一路練到 N1，答錯的題目會自動排進複習。這篇記錄目前的練習模式和設計。",
+      "近期做的 JLPT 自習網站，從基礎變化一路練到 N1，答錯的題目會自動排進複習。這篇記錄目前的練習模式和設計。",
     tags: ["AI", "Frontend"],
     tagStyle: "text-primary",
     href: "/blog/jabiko-jlpt-app",
-    hot: true,
   },
   {
-    title: "用 multi agent AI 出 JLPT 考題：交叉審查與品質閘",
+    title: "讓 AI 出 JLPT 題目，再互相抓錯",
     date: "2026-06-24",
     summary:
-      "我怎麼讓 subagent 和 Codex 平行出題、互相審查，再用 lint、dry-run 和讀音驗證擋掉近義雙解。",
+      "讓 subagent 和 Codex 平行出題、互相審查，再用 lint、dry-run 和讀音驗證擋掉近義雙解。",
     tags: ["AI", "Software Engineering"],
     tagStyle: "text-primary",
     href: "/blog/ai-exam-authoring-workflow",
@@ -309,7 +309,6 @@ export const posts: Post[] = [
     tags: ["Competitive Programming"],
     tagStyle: "text-primary",
     href: "/blog/online-judge-guide",
-    hot: true,
   },
   {
     title: "LeetCode 2463 Minimum Total Distance Traveled",
@@ -322,10 +321,10 @@ export const posts: Post[] = [
     href: "/blog/lc-2463",
   },
   {
-    title: "我的競賽程式生涯回顧",
+    title: "一路打競賽到現在",
     date: "2026-04-14",
     summary:
-      "從計概作業太難開始刷題，一路打到 ICPC Gold。回頭記錄大學競賽、出國比賽，以及這段經歷後來怎麼影響我的工作。",
+      "從計概作業太難開始刷題，一路打到 ICPC 金牌。記下大學比賽、出國參賽，以及後來工作上用到的東西。",
     tags: ["Competitive Programming", "Personal"],
     tagStyle: "text-accent",
     href: "/blog/cp-career-memoir",
@@ -437,7 +436,7 @@ export const posts: Post[] = [
     title: "HFT 面試的六道 C++ 效能題",
     date: "2026-03-31",
     summary:
-      "我親身參與的某知名 Crypto / HFT 公司 C++ 面試，涵蓋 string 傳遞、lambda 捕獲、Order Book 設計等六道效能分析題。",
+      "一場 Crypto / HFT 公司的 C++ 面試，涵蓋 string 傳遞、lambda 捕獲、Order Book 設計等六道效能分析題。",
     tags: ["C++", "Interview", "HFT"],
     tagStyle: "text-primary",
     href: "/blog/cpp-interview-performance-analysis",
