@@ -54,7 +54,7 @@ export default function CodexCallClaude() {
           <Link href="/blog/claude-call-codex" className="prose-link">
             讓 Claude Code 呼叫 Codex
           </Link>
-          」。現在我自己大多待在 Codex，手上又有每月 200 美元的 Claude Max
+          」。現在大多待在 Codex，手上又有每月 200 美元的 Claude Max
           方案，就也想把方向反過來：遇到獨立的讀 code、查錯或 review，交給
           Claude 跑完，再把精簡結果帶回 Codex 判斷和收尾。
         </p>
@@ -64,7 +64,7 @@ export default function CodexCallClaude() {
         <FadeIn>
           <Heading id="headless">正確入口是 claude -p</Heading>
           <p>
-            我原本在上一篇末尾寫成 <code>claude mcp serve</code>，這裡先更正。
+            上一篇末尾原本寫成 <code>claude mcp serve</code>，這裡先更正。
             Anthropic 的
             <a
               href="https://code.claude.com/docs/en/mcp#use-claude-code-as-an-mcp-server"
@@ -111,7 +111,7 @@ export default function CodexCallClaude() {
         <FadeIn>
           <Heading id="skill">做成 Codex skill</Heading>
           <p>
-            我把這段包成一個 user-scope 的 Codex skill，原始碼放在
+            這段包成一個 user-scope 的 Codex skill，原始碼放在
             <a
               href="https://github.com/HanaYukii/hanayukii-site/tree/master/codex-skills/delegate-to-claude"
               target="_blank"
@@ -144,12 +144,12 @@ export default function CodexCallClaude() {
           <p>
             目前 skill 只允許 Read、Glob、Grep。原生 Windows 下這些讀取工具不是
             path-bound，所以只會用在可信任、沒有敏感內容的 repo，而且讀取前會先確認是否同意
-            把程式碼送到 Anthropic。我主要會派完整一點的 code review、讀陌生 module、找
+            把程式碼送到 Anthropic。主要會派完整一點的 code review、讀陌生 module、找
             failing test 的可能原因，或請另一個模型給 second opinion；修改和最後驗證仍留在
             Codex。
           </p>
           <p>
-            我刻意沒有開 Edit 或 Bash。Claude Code 的
+            這裡刻意不開 Edit 或 Bash。Claude Code 的
             <a
               href="https://code.claude.com/docs/en/sandboxing"
               target="_blank"
@@ -158,7 +158,7 @@ export default function CodexCallClaude() {
             >
               OS-level sandbox
             </a>
-            目前只支援 macOS 和 Linux。真的需要 Claude 動手時，我會另外準備隔離的
+            目前只支援 macOS 和 Linux。真的需要 Claude 動手時，會另外準備隔離的
             worktree，而不是讓兩個 agent 搶同一份 working tree。
           </p>
         </FadeIn>
@@ -193,7 +193,7 @@ export default function CodexCallClaude() {
           <Heading id="billing">額度怎麼算</Heading>
           <p>
             如果環境裡有 <code>ANTHROPIC_API_KEY</code>，Claude Code 會優先走 API
-            計費；我的 wrapper 偵測到時會先拒絕，避免以為在吃 Max 額度，結果另外收到 API
+            計費；這個 wrapper 偵測到時會先拒絕，避免以為在吃 Max 額度，結果另外收到 API
             帳單。沒有 API key 時就沿用本機的 Claude 訂閱登入。
           </p>
           <p>
@@ -212,7 +212,7 @@ export default function CodexCallClaude() {
           </p>
           <p>
             這套做法比較像把一部分工作移到 Claude 的額度，不是讓 token 消失；Claude 回傳的
-            內容最後仍會進 Codex context。所以我會把 task 切得完整一點，也要求只回結論、檔案
+            內容最後仍會進 Codex context。所以會把 task 切得完整一點，也要求只回結論、檔案
             和行號。這樣才真的有派出去的意義。
           </p>
         </FadeIn>

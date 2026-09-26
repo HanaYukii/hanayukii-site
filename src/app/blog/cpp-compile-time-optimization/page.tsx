@@ -68,7 +68,7 @@ export default function CppCompileTimeOptimization() {
           C++ 編譯期可以做的五件事
         </h1>
         <p className="mb-8 text-text-muted">
-          我自己在意的不是語法炫不炫，而是哪些東西真的值得提早到編譯期做。
+          重點是哪些東西值得提早到編譯期做。
           這篇挑五個最常用、也最有感的點來講。
         </p>
       </FadeIn>
@@ -538,10 +538,10 @@ index & 4095   →  and 指令   ← 1 cycle`}</Code>
 
         {/* ============ Summary ============ */}
         <FadeIn>
-          <Heading id="summary">我自己最常用的幾個點</Heading>
+          <Heading id="summary">先用這幾個就好</Heading>
           <div className="space-y-4">
             <p>
-              我平常不會為了「看起來很 compile-time」硬寫一堆 template trick。
+              平常不會為了「看起來很 compile-time」硬寫一堆 template trick。
               平常常用的就是這幾種：<code>constexpr</code> 常數、
               <code>constexpr</code> 小函數、<code>static_assert</code>，
               還有 <code>if constexpr</code> / <code>requires</code> 這種能直接把分支剪掉的工具。

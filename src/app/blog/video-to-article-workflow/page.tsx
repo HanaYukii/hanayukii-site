@@ -64,7 +64,7 @@ export default function VideoToArticleWorkflow() {
         <p className="mb-2 text-sm text-text-muted">2026-07-22</p>
         <p className="mb-8 text-text-muted">
           不必把影片完整播放一遍再錄音。先檢查 YouTube 有沒有字幕；沒有的話，
-          直接下載音訊交給 Whisper。這篇把我實際跑過的 Windows 指令、會員影片的處理方式、
+          直接下載音訊交給 Whisper。這篇把實際跑過的 Windows 指令、會員影片的處理方式、
           常見錯誤，以及逐字稿接到筆記和文章的流程放在一起。
         </p>
       </FadeIn>
@@ -265,7 +265,7 @@ yt-dlp --list-subs $url`}</Code>
         <FadeIn>
           <Heading id="example">這次實測</Heading>
           <p>
-            我用 2026 年 7 月 22 日公開的{" "}
+            測試用的是 2026 年 7 月 22 日公開的{" "}
             <a href="https://www.youtube.com/watch?v=G-owM38MEvI" target="_blank" rel="noreferrer" className="text-primary hover:underline">
               「えびチリ、はじめました」MV 幕後影片
             </a>{" "}
@@ -282,7 +282,7 @@ yt-dlp --list-subs $url`}</Code>
           </Callout>
           <p className="mt-4">
             這類幕後花絮有多人同時說話、笑聲、遠距離收音和背景音樂，逐字稿一定要視為草稿。
-            我也試過 CPU small：不到一分鐘就跑完，但重複與誤聽明顯，不能直接使用。
+            也試過 CPU small：不到一分鐘就跑完，但重複與誤聽明顯，不能直接使用。
             人名、歌名和重疊對話仍要回到時間碼人工確認；模型大、輸出看起來流暢，也不代表每一句都是真的。
           </p>
         </FadeIn>
@@ -290,7 +290,7 @@ yt-dlp --list-subs $url`}</Code>
         <FadeIn>
           <Heading id="organize">從逐字稿到文章</Heading>
           <p>
-            我會把原始輸出、整理稿和最後文章分開。原始稿不修改，之後才有辦法回頭核對：
+            原始輸出、整理稿和最後文章分開存。原始稿不修改，之後才有辦法回頭核對：
           </p>
           <Code lang="text">{`VIDEO_ID/
 ├── source.url       # 影片網址與基本資料
@@ -321,7 +321,7 @@ yt-dlp --list-subs $url`}</Code>
           <Heading id="article">最後才改成文章</Heading>
           <p>
             公開文章尤其容易把摘要寫成講者原話。涉及人物評論、財經或技術判斷時，數字、日期、
-            引述與因果關係都要逐項查證。這也是我在{" "}
+            引述與因果關係都要逐項查證。這也是在{" "}
             <Link href="/blog/kol-bull-market-amplifier" className="text-primary hover:underline">
               KOL 言論要拆解不能照單全收
             </Link>{" "}

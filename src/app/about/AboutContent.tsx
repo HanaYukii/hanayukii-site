@@ -65,13 +65,13 @@ const projects: Record<Lang, Project[]> = {
     {
       period: "2024 –",
       name: "Polkadot JAM Protocol",
-      blurb: "Web3 Foundation 的 JAM contest 參賽隊，repo 核心成員（95★）；我主要寫實作和文件。",
+      blurb: "Web3 Foundation 的 JAM contest 參賽隊，repo 核心成員（95★）；主要寫實作和文件。",
       links: [{ label: "GitHub", href: "https://github.com/New-JAMneration/JAM-Protocol" }],
     },
     {
       period: "2026 –",
       name: "Jabiko",
-      blurb: "我做的 JLPT 自習網站，從動詞變化練到 N1 文法，會自動盯錯題複習，打開就能用。",
+      blurb: "近期做的 JLPT 自習網站，從動詞變化練到 N1 文法，會自動盯錯題複習，打開就能用。",
       links: [
         { label: "jabiko.pages.dev", href: "https://jabiko.pages.dev/" },
         { label: "介紹", href: "/blog/jabiko-jlpt-app" },
@@ -290,7 +290,7 @@ export default function AboutContent() {
           <h2 className="mb-5 text-2xl font-bold">Contact</h2>
           <p className="text-sm leading-relaxed text-text-muted">
             {lang === "zh"
-              ? "什麼都可以聊。我的經驗能幫上忙就幫，也想跟你學點東西。"
+              ? "什麼都可以聊。有能幫上忙的地方就聊聊，也想跟你學點東西。"
               : "Happy to talk about anything — I'll share what I know if it helps, and I'd like to learn from you too."}
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-3">

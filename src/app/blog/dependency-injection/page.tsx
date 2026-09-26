@@ -66,7 +66,7 @@ export default function DependencyInjection() {
           搞懂 Dependency Injection
         </h1>
         <p className="mb-8 text-text-muted">
-          我自己比較不把 DI 當成某種架構信仰，而是把它當成很務實的問題：
+          DI 可以先當成一個很務實的問題：
           你的 business logic 到底有沒有被 DB、cache、HTTP client 這些東西綁死。
           這篇就從這個角度講。
         </p>
@@ -81,13 +81,13 @@ export default function DependencyInjection() {
             {[
               { id: "item1", title: "DI 處理的是依賴怎麼進來" },
               { id: "item2", title: "沒有 DI 時，test 為什麼會越寫越痛苦" },
-              { id: "item3", title: "我最常用的做法：Constructor Injection" },
+              { id: "item3", title: "先用 Constructor Injection" },
               { id: "item4", title: "再往下一層：用 abstraction 隔開實作" },
               { id: "item5", title: "不同語言其實差不多" },
               { id: "item6", title: "Container 什麼時候才需要" },
               { id: "item7", title: "DI 在測試裡最容易看出效果" },
               { id: "item8", title: "幾個很常見的反模式" },
-              { id: "summary", title: "最後我自己的判斷方式" },
+              { id: "summary", title: "什麼時候需要 DI？" },
             ].map((item, i) => (
               <a
                 key={item.id}
@@ -111,7 +111,7 @@ export default function DependencyInjection() {
             {[
               { id: "item1", title: "DI 處理的是依賴怎麼進來" },
               { id: "item2", title: "沒有 DI 時，test 為什麼會越寫越痛苦" },
-              { id: "item3", title: "我最常用的做法：Constructor Injection" },
+              { id: "item3", title: "先用 Constructor Injection" },
               { id: "item4", title: "再往下一層：用 abstraction 隔開實作" },
               { id: "item5", title: "不同語言其實差不多" },
               { id: "item6", title: "Container 什麼時候才需要" },
@@ -137,7 +137,7 @@ export default function DependencyInjection() {
           <Heading id="item1">DI 處理的是依賴怎麼進來</Heading>
 
           <p>
-            我對 Dependency Injection（DI）的定義很簡單：
+            Dependency Injection（DI）的意思很簡單：
           </p>
           <Callout>
             <strong>不要自己建立 dependency，讓外部傳進來。</strong>
@@ -291,7 +291,7 @@ struct OrderService {
 
         {/* ============ Item 3 ============ */}
         <FadeIn>
-          <Heading id="item3">我最常用的做法：Constructor Injection</Heading>
+          <Heading id="item3">先用 Constructor Injection</Heading>
 
           <SubHeading>改造：把依賴從外部傳入</SubHeading>
           <Code lang="rust">{`// ✅ Constructor Injection：依賴從外部傳入
@@ -1049,16 +1049,16 @@ struct OrderService {
 
         {/* ============ Summary ============ */}
         <FadeIn>
-          <Heading id="summary">最後我自己的判斷方式</Heading>
+          <Heading id="summary">什麼時候需要 DI？</Heading>
           <div className="space-y-4">
             <p>
               如果一個 class 會碰 DB、queue、cache、第三方 API 這種跨邊界的東西，
-              我通常都會先把 dependency 從外部傳進來。不是因為 DI 比較潮，
-              而是因為這樣測試比較好寫，改實作時也比較不痛。
+              通常先把 dependency 從外部傳進來，
+              這樣測試比較好寫，改實作時也比較不痛。
             </p>
             <p>
               反過來說，如果只是純函數、value object，或根本沒有替換需求的東西，
-              我通常不會硬抽 interface。DI 解的是耦合，不是拿來增加樣板。
+              通常就不用硬抽 interface。DI 解的是耦合，不是拿來增加樣板。
             </p>
             <ul className="list-inside list-disc space-y-2 text-sm">
               <li>先用 constructor injection，通常就夠了。</li>

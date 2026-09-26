@@ -88,7 +88,7 @@ export default function OnlineJudgeGuide() {
 
         <FadeIn>
           <p>
-            這份列表沿用我以前家教教材的順序，收的是自己用過、教學也會帶到的主流 Online Judge。從入門到競賽向都有，後面也補了幾個 slides 原本沒列的平台。
+            這份列表沿用以前家教教材的順序，收的是自己用過、教學也會帶到的主流 Online Judge。從入門到競賽向都有，後面也補了幾個 slides 原本沒列的平台。
           </p>
           <p>
             適合想入坑 CP，或是已經在練但不知道下一步該去哪的人。
@@ -174,7 +174,7 @@ export default function OnlineJudgeGuide() {
             認真練 CP 就 Codeforces，沒什麼好挑。題目品質、editorial、社群活躍度都非常強，幾乎是現代 CP 最重要的主戰場。
           </p>
           <p>
-            日常比賽偏構造題、思維題比較多（像我寫過的{" "}
+            日常比賽偏構造題、思維題比較多（像之前寫過的{" "}
             <Link href="/blog/cf2217f" className="prose-link">把區間博弈轉成 Nim</Link>{" "}
             就是典型），這類題目的缺點是技巧比較不容易直接套到其他題上，搭配 AtCoder ABC 後段題或 CSES 補經典技巧會比較平衡。
           </p>
@@ -299,7 +299,7 @@ export default function OnlineJudgeGuide() {
             嚴格說 Vjudge 不是 OJ，是個 virtual judge，把 POJ、HDU、ZOJ、Codeforces、AtCoder、UVa、SPOJ 等十幾個 OJ 的題目聚合在一起，可以透過同一個介面整理跟提交多個 OJ 的題目。
           </p>
           <p>
-            最大的價值是組訓練 contest：可以混合不同 OJ 的題目開私人比賽，這在 ICPC team 訓練時超實用。我們以前也是用 Vjudge 開模擬賽。如果想刷中國系 OJ 的題目，從 Vjudge 進來體驗會比直接用 POJ 的網頁好太多。
+            最大的價值是組訓練 contest：可以混合不同 OJ 的題目開私人比賽，這在 ICPC team 訓練時超實用。以前練 ICPC 也是用 Vjudge 開模擬賽。如果想刷中國系 OJ 的題目，從 Vjudge 進來體驗會比直接用 POJ 的網頁好太多。
           </p>
         </FadeIn>
 
@@ -314,7 +314,7 @@ export default function OnlineJudgeGuide() {
             <li><strong>Meta Hacker Cup</strong> — Google 系列收掉之後，這幾乎是大廠裡僅存還在辦的全球性 CP 大賽。題目風格偏實作跟極端測資，門檻不低</li>
           </ul>
           <p>
-            提一下是因為這些比賽當年很多人靠它累積知名度跟拿到 offer，包括我自己也是因為 Kick Start 成績被 Google 邀請過。可惜這條路現在大部分都走不通了。
+            當年很多人靠這些比賽累積知名度跟拿到 offer，自己也因為 Kick Start 成績收到過 Google 的邀請。可惜這條路現在大部分都走不通了。
           </p>
         </FadeIn>
 
@@ -322,7 +322,7 @@ export default function OnlineJudgeGuide() {
         <FadeIn>
           <Heading id="how-to-choose">怎麼選</Heading>
           <p>
-            依目標，我大概會這樣建議：
+            依目標，可以這樣選：
           </p>
           <ul className="list-inside list-disc space-y-2 text-sm">
             <li><strong>剛學程式 / 高中生入門</strong>：GreenJudge → ZeroJudge → AtCoder ABC</li>
@@ -331,7 +331,7 @@ export default function OnlineJudgeGuide() {
             <li><strong>純興趣 / 數學味</strong>：AtCoder + Project Euler</li>
           </ul>
           <p>
-            我自己的習慣：Codeforces 是日常主練場，AtCoder 補品質高的思維題，LeetCode 偶爾打 weekly 維持手感。其他幾個是教學或補特定主題才會用。
+            平常的習慣是：Codeforces 是日常主練場，AtCoder 補品質高的思維題，LeetCode 偶爾打 weekly 維持手感。其他幾個是教學或補特定主題才會用。
           </p>
         </FadeIn>
 

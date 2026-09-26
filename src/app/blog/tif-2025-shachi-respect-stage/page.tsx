@@ -123,12 +123,12 @@ export default function Tif2025ShachiRespectStage() {
             Stage 拿來再看了一次。
           </p>
           <p>
-            去年 TIF 那幾天我其實也在日本，但比較熟的只有蝦中。她們排在早上，只為了那一場特地過去又覺得有點麻煩，最後就沒去
+            去年 TIF 那幾天其實也在日本，但比較熟的只有蝦中。她們排在早上，只為了那一場特地過去又覺得有點麻煩，最後就沒去
             TIF。雖然多年前常聽 SHACHI，2025
             年也有跟追星塵的朋友聊到她們，但一直沒有真的把歌找回來聽。當時對近況的印象差不多只有「今年要解散了」。
           </p>
           <p>
-            年底去了〈俺のえびシャチライブ ～THE FINAL～〉，不過直到那場以前，我都沒有特別找過
+            年底去了〈俺のえびシャチライブ ～THE FINAL～〉，不過直到那場以前，都沒有特別找過
             SHACHI 的影片來看。SHACHI 解散後找影片時，才偶然發現原來她們去年的 TIF
             除了自己的 HOT STAGE，後面還有這場 Respect Stage。
           </p>
@@ -174,7 +174,7 @@ export default function Tif2025ShachiRespectStage() {
             ，最後還是用〈沸き曲〉收尾。
           </p>
           <p>
-            我很喜歡這個順序。先讓她們把自己的最後一場 HOT STAGE 唱完，35
+            很喜歡這個順序。先讓她們把自己的最後一場 HOT STAGE 唱完，35
             分鐘後再到 SMILE GARDEN，和一路認識的後輩一起唱。SHACHI 從 2012 年就開始上
             TIF，最後幾年未必是最熱門的名字，但同一天能有自己的 HOT STAGE 和一場
             Respect Stage，也看得出她們在這個祭典裡累積的位置。台上那些關係也不是最後一年才突然湊出來的。
@@ -250,7 +250,7 @@ export default function Tif2025ShachiRespectStage() {
         <FadeIn>
           <p>
             另外，看到
-            TIFアイドル連合的名單時，我也想過，如果蝦中派妹組來參加，應該會很不錯。讓新一代成員以後輩身分向前輩致意，本來就很適合。而且
+            TIFアイドル連合的名單時，也想過，如果蝦中派妹組來參加，應該會很不錯。讓新一代成員以後輩身分向前輩致意，本來就很適合。而且
             <MemberName color={memberColors.emma}>桜井えま</MemberName>
             以前還說過，自己在研究生時期的第一次舞台，就是替 SHACHI
             伴舞。

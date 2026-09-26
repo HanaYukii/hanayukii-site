@@ -9,11 +9,11 @@ import RelatedPosts from "@/components/RelatedPosts";
 export const metadata: Metadata = articleMetadata("/blog/reset-influence-analysis", {
   title: "區塊鏈日報 RESET 活動心得 | 花雪 HanaYukii",
   description:
-    "朋友剛好多一張票，我就去看了 RESET。整場安排得很完整，也讓我重新想了一次內容、敘事和影響力怎麼綁在一起。",
+    "朋友剛好多一張票，就去看了 RESET。整場安排得很完整，也重新想了一次內容、敘事和影響力怎麼綁在一起。",
   openGraph: {
     title: "區塊鏈日報 RESET 活動心得",
     description:
-      "朋友剛好多一張票，我就去看了 RESET。整場安排得很完整，也讓我重新想了一次內容、敘事和影響力怎麼綁在一起。",
+      "朋友剛好多一張票，就去看了 RESET。整場安排得很完整，也重新想了一次內容、敘事和影響力怎麼綁在一起。",
     type: "article",
   },
 });
@@ -72,8 +72,8 @@ export default function ResetInfluenceAnalysis() {
             {[
               { id: "context", title: "為什麼會來" },
               { id: "structure", title: "現場大概怎麼進行" },
-              { id: "good", title: "我覺得做得好的地方" },
-              { id: "questionable", title: "有些地方我還是有保留" },
+              { id: "good", title: "做得好的地方" },
+              { id: "questionable", title: "有些地方還是有保留" },
               { id: "reflection", title: "回頭看自己" },
             ].map((item, i) => (
               <a
@@ -96,14 +96,14 @@ export default function ResetInfluenceAnalysis() {
           <Heading id="context">為什麼會來</Heading>
           <div className="space-y-4">
             <p>
-              朋友剛好多一張票，我想說去看看應該也會有收穫，就到了這場 RESET 從心啟動。
-              個人成長和心靈課程這種內容我也有點好奇。平常幾個大的幣圈頻道我都有看，區塊鏈日報算是我很熟的一個。
+              朋友剛好多一張票，想說去看看應該也會有收穫，就到了這場 RESET 從心啟動。
+              個人成長和心靈課程這種內容也有點好奇。平常幾個大的幣圈頻道都有看，區塊鏈日報算是很熟的一個。
             </p>
             <p>
               活動做得很完整，內容和橋段看得出花了不少時間。
             </p>
             <p>
-              以前不只看投資頻道，很多事情我都很容易把別人的話照單全收，不太會拆背後的邏輯和動機。
+              以前不只看投資頻道，很多事情都很容易把別人的話照單全收，不太會拆背後的邏輯和動機。
               現在還是覺得他的頻道有不少值得學的觀念，只是一定得自己消化。
             </p>
             <p>
@@ -146,11 +146,11 @@ export default function ResetInfluenceAnalysis() {
 
         {/* ============ 好的部分 ============ */}
         <FadeIn>
-          <Heading id="good">我覺得做得好的地方</Heading>
+          <Heading id="good">做得好的地方</Heading>
           <div className="space-y-4">
             <p>
               主題排得很順，現場很好跟，也容易記。
-              裡面不少處世原則我原本就在頻道聽過，和他長期的內容很一致。
+              裡面不少處世原則原本就在頻道聽過，和他長期的內容很一致。
             </p>
             <p>
               他很會用自己和身邊人的經歷帶內容，現場氣氛也掌握得很好。
@@ -161,7 +161,7 @@ export default function ResetInfluenceAnalysis() {
 
         {/* ============ 存疑的部分 ============ */}
         <FadeIn>
-          <Heading id="questionable">有些地方我還是有保留</Heading>
+          <Heading id="questionable">有些地方還是有保留</Heading>
           <div className="space-y-4">
             <p>
               有些段落把重點放在「靠選擇改變人生」，但家庭背景、運氣、行業差異和個人條件，沒有被談得那麼多。
@@ -171,10 +171,10 @@ export default function ResetInfluenceAnalysis() {
               整場在經營氛圍跟群體歸屬感上也下了不少功夫。
               語感偏成功學跟 sales 風格，對創業跟業務的人很有效，但不算是中性分享。
             </p>
-            <h3 className="mt-6 mb-2 text-lg font-bold text-warm">比內容更讓我注意的事</h3>
+            <h3 className="mt-6 mb-2 text-lg font-bold text-warm">更值得注意的是講法</h3>
             <p>
-              我最後最在意的，其實不是哪一條原則，而是他怎麼把這些不算新鮮的道理講得有力量。
-              故事比道理容易記，短句適合在社群流動，現場的群體感又讓內容更有重量。這套能力我是真的佩服。
+              最後最在意的，其實不是哪一條原則，而是他怎麼把這些不算新鮮的道理講得有力量。
+              故事比道理容易記，短句適合在社群流動，現場的群體感又讓內容更有重量。這套能力確實佩服。
             </p>
           </div>
         </FadeIn>
@@ -189,12 +189,12 @@ export default function ResetInfluenceAnalysis() {
               只要不是靠傷害別人賺錢，沒有必要一看到 sales 就先貼負面標籤。
             </p>
             <p>
-              我會把這場當成講者提供的一套框架：有用的留下，不合的就放著，不用整包吞。
+              這場可以當成講者提供的一套框架：有用的留下，不合的就放著，不用整包吞。
               散場後再把幾個當下沒想清楚的地方慢慢拆開，最後留下適合自己的版本。
             </p>
 
             <div className="my-2 rounded-xl border border-primary/20 bg-primary/5 p-6">
-              <p>最後分享一句現場我很喜歡的歌詞：</p>
+              <p>最後分享一句現場很喜歡的歌詞：</p>
               <p className="mt-2 text-lg font-bold text-text">
                 弱者抱著舊地圖，找新大陸。              </p>
               <p className="mt-2 text-sm">

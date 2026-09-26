@@ -214,7 +214,7 @@ modify(c, x):
         <FadeIn>
           <Heading id="pitfalls">幾個容易誤解的點</Heading>
           <p>
-            這題我在 merge-sort tree 跟 descent 之間卡了不少來回，整理當時的誤解：
+            這題在 merge-sort tree 跟 descent 之間卡了不少來回，整理當時的誤解：
           </p>
           <ul className="ml-6 mt-2 list-disc space-y-2">
             <li>

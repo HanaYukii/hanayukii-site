@@ -80,7 +80,7 @@ export default function UkkaFinalChapter() {
           </p>
           <p>
             跟去年看 TEAM SHACHI Final 完全是兩種感覺。
-            但 SHACHI 不是這篇的主角，我想先說 ukka 的故事。
+            先說 ukka 的故事。
           </p>
         </section>
       </FadeIn>
@@ -90,11 +90,11 @@ export default function UkkaFinalChapter() {
           <p>
             超とき宣（超ときめき♡宣伝部）有一首〈画面越しのエンジェル〉，
             唱著「永永永遠のエンジェル、令令令和にときめいて」。
-            底下有一則留言我印象很深：
+            底下有一則留言印象很深：
             「令和にときめいてるのは平成から頑張ってきたからだよね」。
           </p>
           <p>
-            我第一個想到的卻是：ukka 不也是從平成一路努力過來的嗎？
+            第一個想到的卻是：ukka 不也是從平成一路努力過來的嗎？
           </p>
           <p>
             とき宣 跟 ukka 同屬 Stardust、2015 年同期出道（ukka 當年還叫 桜エビ〜ず），
@@ -155,11 +155,11 @@ export default function UkkaFinalChapter() {
           </div>
 
           <p>
-            大概就是從這場開始，我才真的開始追 ukka。
+            大概就是從這場開始，才真的開始追 ukka。
           </p>
           <p>
             （同場還有 <M color={C.suu}>涼海すう</M>，整場表現都很突出，又超級可愛，
-            也是那時候認識的，開啟了我推高貓的契機。雖然最後一關可能因為身高吃虧、
+            也是那時候認識的，成了開始推高貓的契機。雖然最後一關可能因為身高吃虧、
             加上太謹慎，最後甚至沒能進前三。）
           </p>
         </section>
@@ -193,7 +193,7 @@ export default function UkkaFinalChapter() {
           <p>說真的，沒有 <M color={C.rina}>りな</M>，我大概不會這麼快開始注意 ukka。</p>
           <p>
             那場預選会，<M color={C.rina}>りな</M> 的應援成員裡其實就有{" "}
-            <M color={C.ruri}>葵るり</M>。當時我對 ukka 幾乎一無所知，
+            <M color={C.ruri}>葵るり</M>。當時對 ukka 幾乎一無所知，
             只知道她站在旁邊幫 <M color={C.rina}>りな</M> 加油，
             不知道兩人是四年半前一起加入的同期，從那時候一起走到現在。
           </p>
@@ -243,8 +243,8 @@ export default function UkkaFinalChapter() {
             幾個月後宣布解散，再聽時，原本寫給未來的句子卻都像在道別。
           </p>
           <p>
-            或許這也是為什麼 Final 之後，我反而更常回去聽它。
-            要選一首最喜歡的 ukka 歌，我會選〈Aonity〉。
+            或許這也是為什麼 Final 之後，反而更常回去聽它。
+            要選一首最喜歡的 ukka 歌，會選〈Aonity〉。
           </p>
         </section>
       </FadeIn>
@@ -270,7 +270,7 @@ export default function UkkaFinalChapter() {
             <M color={C.emma}>えま</M> 跟 <M color={C.rina}>りな</M>{" "}
             本來就有交情，<M color={C.emma}>えま</M> blog 寫過幾次跟{" "}
             <M color={C.rina}>りな</M> 吃飯。
-            「她們關係好」這件事我早就知道——
+            「她們關係好」這件事早就知道——
             但其實兩人也只有在這場真正同台過。
           </p>
           <p>
@@ -290,7 +290,7 @@ export default function UkkaFinalChapter() {
           <p>2026/5/24。</p>
           <p>
             整場很多催淚回顧橋段。看到一半才突然意識到：
-            我自己認識的 ukka，從一開始就已經是最後一章了。
+            熟悉的 ukka，從一開始就已經是最後一章了。
           </p>
           <p>
             大家都還想繼續往前，才更讓人不甘心。
@@ -306,10 +306,10 @@ export default function UkkaFinalChapter() {
       <FadeIn>
         <section className="space-y-4 leading-relaxed text-text-muted">
           <p>有件很有趣的事。</p>
-          <p>我熟的 ukka 幾乎都是新歌。</p>
+          <p>熟悉的 ukka 幾乎都是新歌。</p>
           <p>
             Final 那天很多人在老歌前奏一下就開始歡呼，
-            我反而常常是第一次認真現場聽到。
+            反而常常是第一次認真在現場聽到。
             〈Re:RAY〉、〈Aonity〉這些歌，才是我腦海裡最先浮現的 ukka。
             最喜歡的是〈Aonity〉。
           </p>
@@ -328,8 +328,8 @@ export default function UkkaFinalChapter() {
             連歌詞意境都有點像，都在唱一路走過的那段長長的歷史。
           </p>
           <p>
-            單看歌，我未必說得出哪首比較好。但〈晴れ晴れ〉還是更有感觸，
-            大概是因為我陪 SHACHI 走過更長的時間。
+            單看歌，未必說得出哪首比較好。但〈晴れ晴れ〉還是更有感觸，
+            大概是因為陪 SHACHI 走過更長的時間。
             聽〈晴れ晴れ〉，腦中會浮現 チームしゃちほこ 時代、武道館、橫濱 Arena、
             名古屋城 Final 那些畫面。
           </p>
@@ -380,7 +380,7 @@ export default function UkkaFinalChapter() {
             現在好多了，看這些的角度，可能也不太一樣了。
           </p>
           <p>
-            去年年底宣布解散前，我還跟朋友聊到 ukka，
+            去年年底宣布解散前，還跟朋友聊到 ukka，
             說明年想找機會多看幾場。沒想到那時候已經離結尾不遠了。
           </p>
           <p>
@@ -394,7 +394,7 @@ export default function UkkaFinalChapter() {
           </p>
           <p>
             至少現在，還不用把這次當成最後一次見面。
-            要是哪天又有新的舞台、新的故事，我大概還是會想去看。
+            要是哪天又有新的舞台、新的故事，大概還是會想去看。
           </p>
         </section>
       </FadeIn>

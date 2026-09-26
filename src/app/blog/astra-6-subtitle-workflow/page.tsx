@@ -42,13 +42,13 @@ export default function AstraSubtitleWorkflow() {
       <div className="prose-custom space-y-4 text-text-muted leading-relaxed [&_strong]:text-text">
         <FadeIn>
           <p>最近除了翻偶像歌詞，也受到同好 UP 主鼓勵，開始幫 live 和訪談上字幕。主要還是做自己喜歡的部分，從蝦中、TEAM SHACHI 到 SWEET STEADY，把想重看的片段做成中日雙語。</p>
-          <p>前面用 Sol 5.6 也有在做，換到 Astra 6 後，我的體感是聰明很多、快很多，整個工作流也更順。現在有一些基礎知識，做單人字幕組真的很容易。不過想把品質拉上去，反覆審稿、調整和重做，也蠻燒 token 的。</p>
+          <p>前面用 Sol 5.6 也有在做，換到 Astra 6 後，用起來覺得聰明很多、快很多，整個工作流也更順。現在有一些基礎知識，做單人字幕組真的很容易。不過想把品質拉上去，反覆審稿、調整和重做，也蠻燒 token 的。</p>
         </FadeIn>
 
         <FadeIn>
           <Heading id="workflow">大部分流程都可以交給 AI</Heading>
-          <p>準備好影片後，轉錄、翻譯、對時間、字幕排版到輸出，大部分都可以自動化。歌曲有完整歌詞就直接拿來對時；訪談轉錄完，也能讓 AI 根據上下文先修一輪。轉錄加上 AI 初修後的正確率，其實已經讓我很驚豔。之前文章整理過的翻譯和歌割，也都可以繼續沿用。</p>
-          <p>人工主要在標色、審稿和校對。我會補人名、團體背景、現場改詞，再看字幕有沒有太早出現、字太小或停留太短。繁體、簡體和純日文版則從同一份資料輸出。</p>
+          <p>準備好影片後，轉錄、翻譯、對時間、字幕排版到輸出，大部分都可以自動化。歌曲有完整歌詞就直接拿來對時；訪談轉錄完，也能讓 AI 根據上下文先修一輪。轉錄加上 AI 初修後的正確率，已經比預期好很多。之前文章整理過的翻譯和歌割，也都可以繼續沿用。</p>
+          <p>人工主要在標色、審稿和校對。補上人名、團體背景、現場改詞，再看字幕有沒有太早出現、字太小或停留太短。繁體、簡體和純日文版則從同一份資料輸出。</p>
           <Figure caption="SWEET STEADY〈ファンファーレ〉的成品，中日字幕一起套用成員色。">
             <Image src="/images/astra-subtitles/sweet-steady-live.jpg" alt="SWEET STEADY 成員演唱時，畫面下方顯示紫色中日字幕" width={1920} height={1080} sizes="(max-width: 768px) 100vw, 720px" className="h-auto w-full" />
           </Figure>
@@ -56,20 +56,20 @@ export default function AstraSubtitleWorkflow() {
 
         <FadeIn>
           <Heading id="review-page">連歌割校對介面也一起做</Heading>
-          <p>最讓我驚豔的是審核頁。它會直接做一個能操作的校對網頁。播放器旁邊列出每句日文、中文、時間和成員，點句子就能跳到對應片段，邊聽邊選人，也能複選合唱、修改文字或略過不確定的句子。</p>
-          <p>AI 也會先根據畫面和上下文初步標色，正確率同樣讓我很驚豔，很多句子可以直接沿用。我再修正剩下的部分，標完匯出就能接回字幕製作。像「這句是藍紫」「副歌是全員」，不必自己進字幕檔逐行改。這套介面和標記資料也有留下來，下一首還能接著用。</p>
+          <p>最意外的是審核頁。它會直接做一個能操作的校對網頁。播放器旁邊列出每句日文、中文、時間和成員，點句子就能跳到對應片段，邊聽邊選人，也能複選合唱、修改文字或略過不確定的句子。</p>
+          <p>AI 也會先根據畫面和上下文初步標色，正確率也比預期好，很多句子可以直接沿用。剩下的部分再手動修正，標完匯出就能接回字幕製作。像「這句是藍紫」「副歌是全員」，不必自己進字幕檔逐行改。這套介面和標記資料也有留下來，下一首還能接著用。</p>
           <Figure caption="〈始まりの合図〉的歌割校對頁，可以邊看影片、讀翻譯，邊選成員。">
             <a href="/images/astra-subtitles/ss-lyric-review-interface.png" target="_blank" rel="noopener noreferrer" aria-label="開啟歌割校對介面原尺寸截圖">
               <Image src="/images/astra-subtitles/ss-lyric-review-interface.png" alt="SWEET STEADY 歌割校對網頁，播放器下方顯示日文、繁體中文翻譯和成員選項" width={1400} height={1814} sizes="(max-width: 768px) 100vw, 720px" className="h-auto w-full" />
             </a>
           </Figure>
-          <p>隨著前面幾支作品累積下來，AI 也持續調整整套流程。有些優化我根本沒想到，它就先做出來了，不用每次重新交代一遍。這是這幾天用下來特別有感的地方。</p>
+          <p>隨著前面幾支作品累積下來，AI 也持續調整整套流程。有些優化原本沒想到，它就先做出來了，不用每次重新交代一遍。這是這幾天用下來特別有感的地方。</p>
         </FadeIn>
 
         <FadeIn>
           <Heading id="quality">想做好，還是得仔細看</Heading>
           <p>多人搶話、笑著講或哭著講，轉錄還是比較容易錯，人名和暱稱也常需要修。可以讓 AI 做兩次轉錄、對照上下文初修，之後人工再仔細聽、逐句校對，品質還能往上拉。</p>
-          <p>我的日文也沒有好到每句都能確認。聽得清楚、只是不知道誰說的，就先用白色；內容真的不確定，就不硬補。自己熟悉的成員和演出背景，在這裡很有幫助。</p>
+          <p>日文也沒有好到每句都能確認。聽得清楚、只是不知道誰說的，就先用白色；內容真的不確定，就不硬補。自己熟悉的成員和演出背景，在這裡很有幫助。</p>
           <p>字體、版面和封面也會來回試幾版。需求可以直接講，「中文再大一點」「這句晚四秒」，讓它改完再看。現在就先把自己喜歡的幾首 live 慢慢做完。</p>
           <p className="text-sm">截圖取自字幕成品與歌割校對頁；演出畫面來自 <a className="prose-link" href="https://www.youtube.com/watch?v=TMiP2m4xPh4">SWEET STEADY TIF2026 HOT STAGE</a>與 <a className="prose-link" href="https://www.youtube.com/watch?v=IH8PAy_-388">SWEET STEADY 兩週年 live</a>。</p>
         </FadeIn>

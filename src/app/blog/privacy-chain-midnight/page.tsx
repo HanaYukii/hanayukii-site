@@ -388,8 +388,8 @@ contract AgeVerification {
             </table>
           </div>
           <p>
-            我會把它們粗略分成：Monero 偏極致隱私，Zcash 偏可選隱私，
-            Midnight 偏合約層的可程式化隱私。對我來說，Midnight 比較像給開發者用的隱私工具箱，這也是它最有意思的地方。
+            粗略來看：Monero 偏極致隱私，Zcash 偏可選隱私，
+            Midnight 偏合約層的可程式化隱私。感覺比較像給開發者用的隱私工具箱，這也是它最有意思的地方。
             但它也還很早，技術方向清楚，不代表生態和採用一定跟得上。
           </p>
         </div>

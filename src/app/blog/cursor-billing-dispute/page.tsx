@@ -113,13 +113,13 @@ export default function CursorBillingDispute() {
         </FadeIn>
 
         <FadeIn>
-          <Heading id="my-take">我的看法</Heading>
+          <Heading id="my-take">兩個想不通的地方</Heading>
           <p>
-            不是要爭這筆錢，對方有解釋權，認賠就認賠。但有兩件事我想不通：
+            不是要爭這筆錢，對方有解釋權，認賠就認賠。但有兩件事想不通：
           </p>
           <ol className="list-inside list-decimal space-y-2 text-sm">
             <li>已付費的 seat 沒有任何人能用，但繼續被收錢——這個設計在 SaaS 圈算正常嗎？</li>
-            <li>Slack、GitHub、Notion、Claude Team、ChatGPT Business 我所知都是 capacity-based，移除成員後 seat 可以重新分配。Cursor 是我目前知道唯一 identity-based 的。</li>
+            <li>Slack、GitHub、Notion、Claude Team、ChatGPT Business 據了解都是 capacity-based，移除成員後 seat 可以重新分配。目前知道採 identity-based 的只有 Cursor。</li>
           </ol>
           <p>
             而且不只我這個 case。論壇上、GitHub issue、Trustpilot 都能找到類似的 billing 爭議，Trustpilot 評分 1.7/5，主要負評都跟 billing 有關。2025 年 6 月 CEO 也曾為 usage-based billing 風波公開道歉過，但結構性問題顯然沒解。
@@ -129,7 +129,7 @@ export default function CursorBillingDispute() {
         <FadeIn>
           <Heading id="conclusion">這次學到的事</Heading>
           <p>
-            公司繳了一波學費。雖然我們規模不大，這幾個月累積下來也付了破萬美金的訂閱費。受到這樣的對待，心裡真的不平衡。
+            公司繳了一波學費。雖然公司規模不大，這幾個月累積下來也付了破萬美金的訂閱費。受到這樣的對待，心裡真的不平衡。
           </p>
           <p>
             選 Cursor 年繳是完全錯誤的決定，既然 seat 設計這麼硬，就不應該綁一年。如果回到當下，會直接走月繳。

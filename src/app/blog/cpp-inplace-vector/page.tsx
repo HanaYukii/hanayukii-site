@@ -382,7 +382,7 @@ const T* end() const noexcept { return ptr(size_); }`}</Code>
         <Heading id="move">Step 4 - Rule of Five</Heading>
 
         <p className="mb-4 text-text-muted">
-          因為我們手動管理物件生命週期，compiler 生成的 default copy/move 是 <strong>bitwise copy storage_</strong> -
+          因為這裡手動管理物件生命週期，compiler 生成的 default copy/move 是 <strong>bitwise copy storage_</strong> -
           這對 non-trivial type 是 UB。必須手寫 Rule of Five：
         </p>
 
@@ -450,7 +450,7 @@ inplace_vector& operator=(inplace_vector&& other) noexcept(
         <KeyPoint title="noexcept 條件式">
           move constructor 的 noexcept 取決於 T 的 move constructor。
           如果 T 的 move 不是 noexcept（例如某些自訂type），
-          我們的 inplace_vector 的 move 也不能是 noexcept。
+          這個 inplace_vector 的 move 也不能是 noexcept。
           這影響 <code>std::vector&lt;inplace_vector&gt;</code> 在 realloc 時會用 move 還是 copy。
         </KeyPoint>
       </FadeIn>

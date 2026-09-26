@@ -330,7 +330,7 @@ export default function Idol2025() {
           </p>
           <p>
             剛好有搭到えま生誕可以第一次參加她們的 one-man live，各種氛圍都好可愛。
-            我臉盲還不會認成員，這場只認得出 momona 跟すう。
+            臉盲還不會認成員，這場只認得出 momona 跟すう。
             整場氛圍很完整，曲風也正中我喜歡的那種可愛又帶點青春感的路線，結果回去後就一路加推到東山了。
           </p>
         </div>
@@ -357,7 +357,7 @@ export default function Idol2025() {
           <p>
             因為高嶺のなでしこ開始聽了很多 HoneyWorks，剛好可以搭到場來 mona 的現場。
             就是很有 mona 感覺的一場歡樂輕鬆的表演。
-            各種有趣的契機串起來的結果，於是我在 TrySail 改主推夏川了。
+            各種有趣的契機串起來的結果，於是在 TrySail 改主推夏川了。
           </p>
         </div>
       </FadeIn>

@@ -994,7 +994,7 @@ green 組 = hash(secret, 最近 k 個 token)
         <FadeIn>
           <Heading id="resync">改幾個字為什麼不會整篇失效</Heading>
           <p>
-            我一開始卡在這裡：中間改掉一個 token，後面的 hash 輸入不是會全部改變嗎？
+            一開始卡在這裡：中間改掉一個 token，後面的 hash 輸入不是會全部改變嗎？
           </p>
           <p>如果每一步都拿前面整段文字去 hash，這個擔心完全正確：</p>
           <BlockMath math="s_t = H(K, x_1, x_2, \ldots, x_{t-1})" />
@@ -1153,9 +1153,9 @@ green 組 = hash(secret, 最近 k 個 token)
         </FadeIn>
 
         <FadeIn>
-          <Heading id="closing">我目前的理解</Heading>
+          <Heading id="closing">目前的理解</Heading>
           <p>
-            我現在會把文字浮水印想成一套帶 secret 的抽樣規則。模型遇到幾個都合理的 token 時，
+            目前把文字浮水印理解成一套帶 secret 的抽樣規則。模型遇到幾個都合理的 token 時，
             對其中一部分稍微加分；驗證工具用同一個 secret 重建規則，再看整段文字命中了多少次。
           </p>
           <p>

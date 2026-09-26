@@ -8,11 +8,11 @@ import PostJsonLd from "@/components/PostJsonLd";
 import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/cpp-interview-performance-analysis", {
-  title: "我在 Crypto/HFT 公司的 C++ 效能面試 | 花雪 HanaYukii",
+  title: "HFT 面試的六道 C++ 效能題 | 花雪 HanaYukii",
   description:
     "這場 Crypto / HFT C++ 面試幾乎不問 LeetCode，六題都在問 copy、move、allocation 和資料結構取捨。",
   openGraph: {
-    title: "我在 Crypto/HFT 公司的 C++ 效能面試",
+    title: "HFT 面試的六道 C++ 效能題",
     description:
       "這場 Crypto / HFT C++ 面試幾乎不問 LeetCode，六題都在問 copy、move、allocation 和資料結構取捨。",
     type: "article",
@@ -102,12 +102,12 @@ export default function CppInterviewPerformanceAnalysis() {
         </div>
 
         <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
-          我在 Crypto/HFT 公司的 C++ 效能面試
+          HFT 面試的六道 C++ 效能題
         </h1>
         <p className="mb-2 text-sm text-text-muted">2026-03-31</p>
         <p className="mb-8 text-text-muted">
           在 HFT 場景效能是最優先的，這些寫法上的差異平常不太會特別注意。
-          題目經過改寫，分析是我事後整理的。
+          題目經過改寫，分析是事後整理的。
         </p>
       </FadeIn>
 

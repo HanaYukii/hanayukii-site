@@ -62,9 +62,9 @@ export default function AiExamAuthoringWorkflow() {
           讓 AI 出 JLPT 題目，再互相抓錯
         </h1>
         <p className="mb-8 text-text-muted">
-          我在維護一個 JLPT（日本語能力試驗）學習網站{" "}
+          先前做了 JLPT（日本語能力試驗）學習網站{" "}
           <Link href="/blog/jabiko-jlpt-app" className="prose-link">Jabiko</Link>
-          ，題庫一直在長。
+          ，需要持續擴充題庫。
           前端不太是問題，麻煩的是考題要能一直加，而且品質不能跟著掉。
         </p>
       </FadeIn>
@@ -127,7 +127,7 @@ export default function AiExamAuthoringWorkflow() {
         {/* ============ multi agent 交叉驗證 ============ */}
         <FadeIn>
           <Heading id="cross-validation">multi agent 交叉驗證</Heading>
-          <p>我的做法是讓兩個不同來源的 AI 代理平行出題、再互相審：</p>
+          <p>做法是讓兩個不同來源的 AI 代理平行出題、再互相審：</p>
           <ul className="my-4 list-inside list-disc space-y-2">
             <li>
               <strong>出題</strong>：subagent（Claude）和 codex（OpenAI 的 CLI）
@@ -157,7 +157,7 @@ export default function AiExamAuthoringWorkflow() {
         <FadeIn>
           <Heading id="prompt-engineering">把命題知識寫進 prompt</Heading>
           <p>
-            光靠互審還不夠。能在第一輪就避掉的，我直接寫進出題 prompt：
+            光靠互審還不夠。能在第一輪就避掉的，直接寫進出題 prompt：
           </p>
           <ul className="my-4 list-inside list-disc space-y-2">
             <li>
@@ -197,7 +197,7 @@ export default function AiExamAuthoringWorkflow() {
             </li>
             <li>
               <strong>drift guard</strong>：首頁的題數是硬編碼的（為了首頁輕量）。
-              我寫了一個測試，題庫一變、那個數字沒同步，CI 就直接爆紅。
+              這裡加了一個測試，題庫一變、那個數字沒同步，CI 就直接爆紅。
             </li>
           </ul>
           <Callout>
@@ -219,7 +219,7 @@ export default function AiExamAuthoringWorkflow() {
 codex exec --skip-git-repo-check "$(cat prompt.txt)" < /dev/null`}</Code>
           <p>
             兩邊都輸出結構化 JSON，格式一致才好機器比對；codex 偶爾用日文寫解說，整併時統一轉繁中。
-            「多一顆引擎當 second source」這個做法，我在
+            「多一顆引擎當 second source」這個做法，在
             「<Link href="/blog/claude-call-codex" className="prose-link">讓 Claude Code 呼叫 Codex</Link>」
             寫得更細。
           </p>
@@ -228,7 +228,7 @@ codex exec --skip-git-repo-check "$(cat prompt.txt)" < /dev/null`}</Code>
         {/* ============ 讓加題變成可持續的 loop ============ */}
         <FadeIn>
           <Heading id="sustainability">讓加題變成可持續的 loop</Heading>
-          <p>我不想把出題當成一次性的大工程，而是讓它變成可以一直跑的 loop：</p>
+          <p>出題流程做成可以反覆跑的 loop：</p>
           <ul className="my-4 list-inside list-disc space-y-2">
             <li>
               <strong>拆批</strong>：GitHub 上開一個父議題，底下拆 N1、N2、N3 子議題，
@@ -259,7 +259,7 @@ codex exec --skip-git-repo-check "$(cat prompt.txt)" < /dev/null`}</Code>
         {/* ============ 實際留下的做法 ============ */}
         <FadeIn>
           <Heading id="takeaways">實際留下的做法</Heading>
-          <p>流程跑過幾輪後，我留下四條規則：</p>
+          <p>流程跑過幾輪後，留下四條規則：</p>
           <ul className="my-4 list-inside list-disc space-y-2">
             <li>異質的 multi agent 交叉驗證，比單一模型自審強——盲點不一致，才補得起來。</li>
             <li>能寫死的規則就寫成 lint 跟 test，AI 出的題才放得了量，review 也少盯很多。</li>

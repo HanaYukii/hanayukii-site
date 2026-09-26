@@ -9,7 +9,7 @@ import RelatedPosts from "@/components/RelatedPosts";
 export const metadata: Metadata = articleMetadata("/blog/documentation-ai-era", {
   title: "文件在 AI 時代的價值 | 花雪 HanaYukii",
   description:
-    "我把 Design Doc、README 與 review checklist 看成可重用的 context：先把方向和限制寫清楚，團隊、未來的自己與 AI 才不用重新猜。",
+    "把 Design Doc、README 與 review checklist 當成可重用的 context：先把方向和限制寫清楚，團隊、未來的自己與 AI 才不用重新猜。",
   openGraph: {
     title: "文件在 AI 時代的價值",
     description:
@@ -69,7 +69,7 @@ export default function DocumentationAiEra() {
               { id: "approval", title: "Design Doc 也是 alignment 與 approval 的紀錄" },
               { id: "iteration", title: "AI 讓文件快速迭代，但別什麼都怪 AI" },
               { id: "review", title: "同一套做法也能用在 code review" },
-              { id: "leverage", title: "我現在怎麼看文件" },
+              { id: "leverage", title: "文件寫到什麼程度才夠？" },
             ].map((item, i) => (
               <a
                 key={item.id}
@@ -114,7 +114,7 @@ export default function DocumentationAiEra() {
             腦中的設計通常很模糊。一旦要寫成文件，就會被迫說清楚：問題是什麼、goal / non-goal 在哪、有哪些方案、trade-off 是什麼、哪些事情還沒決定。設計討論完整再開始動工，整體效率反而比較高。
           </p>
           <p>
-            我自己常常是寫到一半，才發現設計裡哪些地方其實還沒想清楚。這層價值跟 AI 無關，但很容易被忽略。
+            常常寫到一半，才發現設計裡哪些地方其實還沒想清楚。這層價值跟 AI 無關，但很容易被忽略。
           </p>
         </FadeIn>
 
@@ -188,7 +188,7 @@ export default function DocumentationAiEra() {
             這些 checklist 本身也是文件。把團隊在意的標準寫下來，AI 才知道要用什麼角度 review。
           </p>
           <p>
-            我會把這三件事分開：文件交代 context，review 找問題，測試守住最基本的 correctness。
+            這三件事分開看：文件交代 context，review 找問題，測試守住最基本的 correctness。
           </p>
           <p>
             AI review code 的流程其實可以另外寫一篇，會牽涉到 prompt、多工具、多輪檢查跟測試怎麼串起來。這篇先暫停在這裡。
@@ -196,15 +196,15 @@ export default function DocumentationAiEra() {
         </FadeIn>
 
         <FadeIn>
-          <Heading id="leverage">我現在怎麼看文件</Heading>
+          <Heading id="leverage">文件寫到什麼程度才夠？</Heading>
           <p>
             文件現在多了一個會直接讀它、照著它工作的使用者：AI。這讓 Design Doc、README 和 checklist 更常被實際用到，而不只是在 review 時交差。
           </p>
           <p>
-            我寫文件，一方面是把當下的思考留下來，另一方面也是讓之後接手的人或工具不用重新考古。
+            寫文件，一方面是把當下的思考留下來，另一方面也是讓之後接手的人或工具不用重新考古。
           </p>
           <p>
-            現在我比較在意的，不是文件寫得像不像正式規格，而是它能不能把問題、限制、決定和未決事項講清楚。這些寫清楚，人比較好接手，AI 也少猜。
+            現在比較在意的，不是文件寫得像不像正式規格，而是它能不能把問題、限制、決定和未決事項講清楚。這些寫清楚，人比較好接手，AI 也少猜。
           </p>
         </FadeIn>
 

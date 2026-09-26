@@ -60,7 +60,7 @@ export default function ClaudeCallCodex() {
             codex-plugin-cc
           </a>
           ，裝了之後可以在同一個 Claude Code session 裡直接叫 Codex 來做 code
-          review、對抗式審查，或把卡住的任務整包丟給它（rescue）。我的用法是 Claude
+          review、對抗式審查，或把卡住的任務整包丟給它（rescue）。這裡用 Claude
           主導，需要第二個模型檢查時再交給 Codex。
         </p>
       </FadeIn>
@@ -168,7 +168,7 @@ model_reasoning_effort = "high"`}</Code>
             裝好後不一定要記指令，直接用講的就行：叫 Claude 開個 subagent
             把工作委派給 Codex——例如「開個 subagent 讓 Codex review 這份
             diff」，或丟個 task 過去（code review、查 failing test、試修 bug
-            之類）。我主要把它當 <strong>second source</strong>，拿來和 Claude
+            之類）。主要把它當 <strong>second source</strong>，拿來和 Claude
             自己的結果交叉比對。
           </p>
           <p>想要明確指令，也可以直接打：</p>
@@ -236,7 +236,7 @@ model_reasoning_effort = "high"`}</Code>
             這一段原本把 <code>claude mcp serve</code> 寫成讓 Codex 委派任務給 Claude
             的方式，後來實測才發現不對：它暴露的是 Claude Code 的 tools，不會跑一輪
             Claude 模型。真的要把工作交給 Claude，入口是 <code>claude -p</code>。安裝成
-            Codex skill、權限和額度上的細節，我另外整理在「
+            Codex skill、權限和額度上的細節，另外整理在「
             <Link href="/blog/codex-call-claude" className="prose-link">
               讓 Codex 呼叫 Claude Code
             </Link>
