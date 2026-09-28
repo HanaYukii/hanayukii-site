@@ -1,5 +1,5 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
@@ -36,28 +36,7 @@ export default function PrivacyChainMidnight() {
     <article className="prose-custom mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/privacy-chain-midnight" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-primary">
-            Web3
-          </span>
-          <span className="tag text-xs font-medium text-sky">
-            Privacy
-          </span>
-          <span className="tag text-xs font-medium text-accent">
-            ZK-SNARKs
-          </span>
-        </div>
-        <h1 className="mb-2 text-4xl font-bold">
-          隱私鏈技術入門：Midnight Network
-        </h1>
-        <p className="mb-8 text-sm text-text-muted">2026-04-06</p>
+        <ArticleHeader href="/blog/privacy-chain-midnight" />
       </FadeIn>
 
       <FadeIn delay={0.05}>

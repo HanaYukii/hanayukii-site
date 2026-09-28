@@ -1,5 +1,5 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
@@ -81,30 +81,7 @@ export default function CppInterviewPerformanceAnalysis() {
       <PostJsonLd href="/blog/cpp-interview-performance-analysis" />
       <FadeIn>
         {/* Back link */}
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        {/* Header */}
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-sky">
-            C++
-          </span>
-          <span className="tag text-xs font-medium text-primary">
-            Performance
-          </span>
-          <span className="tag text-xs font-medium text-warm">
-            Interview
-          </span>
-        </div>
-
-        <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
-          HFT 面試的六道 C++ 效能題
-        </h1>
-        <p className="mb-2 text-sm text-text-muted">2026-03-31</p>
+        <ArticleHeader href="/blog/cpp-interview-performance-analysis" />
         <p className="mb-8 text-text-muted">
           在 HFT 場景效能是最優先的，這些寫法上的差異平常不太會特別注意。
           題目經過改寫，分析是事後整理的。

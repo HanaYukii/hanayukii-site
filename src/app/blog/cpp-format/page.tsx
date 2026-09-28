@@ -1,5 +1,5 @@
+import ArticleHeader from "@/components/ArticleHeader";
 ﻿import type { Metadata } from "next";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import Code from "@/components/CodeBlock";
 import { articleMetadata } from "@/lib/seo";
@@ -31,24 +31,7 @@ export default function CppFormat() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/cpp-format" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-sky">
-            C++
-          </span>
-          <span className="tag text-xs font-medium text-primary">
-            C++20
-          </span>
-        </div>
-        <h1 className="mb-4 text-4xl font-bold">
-          C++20 的 std::format 語法整理
-        </h1>
+        <ArticleHeader href="/blog/cpp-format" />
         <p className="mb-8 text-text-muted">
           排版字串時，比起 <code>printf</code> 的 <code>%</code> 或 iostream 的{" "}
           <code>&lt;&lt;</code>，<code>std::format</code> 的格式跟參數分離得比較清楚，

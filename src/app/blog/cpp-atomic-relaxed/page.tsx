@@ -1,5 +1,5 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import Code from "@/components/CodeBlock";
 import PostJsonLd from "@/components/PostJsonLd";
@@ -7,9 +7,9 @@ import RelatedPosts from "@/components/RelatedPosts";
 import { articleMetadata } from "@/lib/seo";
 
 const href = "/blog/cpp-atomic-relaxed";
-const title = "什麼時候能用 memory_order_relaxed？";
+const title = "C++ atomic 用法入門";
 const description =
-  "用兩個有執行緒的小例子理解 relaxed：只讀統計數字，和看到完成旗標後讀另一份資料，需要的保證有什麼不同？";
+  "從多人加同一個計數器開始，認識 atomic、load、store 與 fetch_add，再比較 relaxed 計數和 release／acquire 交接資料。";
 
 export const metadata: Metadata = articleMetadata(href, {
   title: `${title} | 花雪 HanaYukii`,
@@ -30,27 +30,55 @@ export default function CppAtomicRelaxed() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href={href} />
       <FadeIn>
-        <Link href="/blog" className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary">
-          &larr; Back to Blog
-        </Link>
-        <div className="mb-4 flex flex-wrap gap-2">
-          {["C++", "Concurrency"].map((tag) => (
-            <span key={tag} className="tag text-xs font-medium text-primary">{tag}</span>
-          ))}
-        </div>
-        <h1 className="mb-3 text-3xl font-bold leading-tight sm:text-4xl">{title}</h1>
-        <p className="mb-8 text-sm text-text-muted">2026-09-27</p>
+        <ArticleHeader href="/blog/cpp-atomic-relaxed" />
       </FadeIn>
 
       <div className="prose-custom space-y-4 leading-relaxed text-text-muted [&_strong]:text-text">
         <FadeIn>
+          <p>
+            多個執行緒共用一個計數器時，普通的 <code>count++</code> 不能直接拿來用。
+            先認識 <code>std::atomic</code> 怎麼處理這件事，再看什麼時候能用 relaxed。
+          </p>
+          <Heading id="atomic">基本操作</Heading>
+          <p>
+            加一包含「讀取、加一、寫回」。假設 count 原本是 0，兩個執行緒都先讀到 0，
+            各自算出 1 再寫回，就可能把兩次加一算成一次。
+            這只是幫助理解衝突的示意；C++ 普通變數這樣讀寫會有 data race（資料競爭），
+            屬於未定義行為，結果不只可能少算。
+          </p>
+          <p>
+            <code>std::atomic&lt;int&gt;</code> 提供原子操作：對同一個 atomic 的其他原子操作來說，
+            一次操作不可分割。讀取不會拼到一半新值、一半舊值；原子加法也不會因為同時加一而漏算。
+          </p>
+          <Code lang="cpp">{`#include <atomic>
+
+int main() {
+    std::atomic<int> count{0};
+    count.store(10);             // 原子寫入：設成 10
+    int value = count.load();    // 原子讀取：讀到 10
+    int old = count.fetch_add(1); // 原子加一：變成 11，回傳舊值 10
+    ++count;                    // 也是原子加一：變成 12
+    // 此處依序執行，沒有其他執行緒同時修改。
+}`}</Code>
+          <p>
+            <code>fetch_add(1)</code> 把讀取、加一、寫回合成一次原子操作。
+            若寫成 <code>count.store(count.load() + 1)</code>，雖然讀寫各自都是原子的，
+            中間仍可能被其他執行緒插入更新，多個 writer 就可能漏算。這次沒有 count 本身的 data race，
+            但邏輯仍然錯了。
+          </p>
+          <Heading id="ordering">記憶體順序</Heading>
+          <p>
+            atomic 管的是這個值的存取；記憶體順序還決定能不能透過它同步其他資料。
+            不填參數時預設是 <code>memory_order_seq_cst</code>。先用預設寫對，
+            確認只需要這個 atomic 值本身時，再考慮 <code>memory_order_relaxed</code>。
+          </p>
           <p>
             一個執行緒更新封包數 rx，另一個每 10 ms 讀一次做監控。
             只有一個 writer，能把 <code>std::atomic&lt;uint64_t&gt;</code> 換成普通的 <code>uint64_t</code> 嗎？
           </p>
           <p>
             不能直接換。不同執行緒讀寫同一個普通變數，沒有鎖或其他同步，
-            就會有 data race（資料競爭），造成未定義行為。
+            就會有 data race，造成未定義行為。
             <strong>只有一個 writer、讀得很少，都不能取代同步。</strong>
           </p>
           <p>

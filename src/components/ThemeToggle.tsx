@@ -34,10 +34,10 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={switchTheme}
-      className="rounded-md border border-border bg-surface/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-text-muted transition-colors hover:border-primary hover:text-primary"
+      className="site-control border border-border bg-surface/60 px-2 text-text-muted hover:border-primary hover:text-primary"
       aria-label={`Switch to ${nextTheme} theme`}
     >
-      {currentTheme === "dark" ? "Dark" : "Paper"}
+      {currentTheme === "dark" ? "深色" : "紙色"}
     </button>
   );
 }

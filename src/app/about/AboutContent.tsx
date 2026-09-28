@@ -139,8 +139,8 @@ export default function AboutContent() {
             type="button"
             aria-pressed={lang === "zh"}
             onClick={() => setLang("zh")}
-            className={`rounded-md px-3 py-1 transition-all ${
-              lang === "zh" ? "bg-primary text-white" : "text-text-muted hover:text-text"
+            className={`site-control px-3 ${
+              lang === "zh" ? "bg-primary text-bg" : "text-text-muted hover:text-text"
             }`}
           >
             中文
@@ -149,8 +149,8 @@ export default function AboutContent() {
             type="button"
             aria-pressed={lang === "en"}
             onClick={() => setLang("en")}
-            className={`rounded-md px-3 py-1 transition-all ${
-              lang === "en" ? "bg-primary text-white" : "text-text-muted hover:text-text"
+            className={`site-control px-3 ${
+              lang === "en" ? "bg-primary text-bg" : "text-text-muted hover:text-text"
             }`}
           >
             English

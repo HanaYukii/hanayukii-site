@@ -1,3 +1,4 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
@@ -44,28 +45,7 @@ export default function UkkaFinalChapter() {
     <article className="prose-custom mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/ukka-final-chapter" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-accent">
-            Idol
-          </span>
-          <span className="tag text-xs font-medium text-accent">
-            Live
-          </span>
-          <span className="tag text-xs font-medium text-accent">
-            Life
-          </span>
-        </div>
-        <h1 className="mb-4 text-4xl font-bold">
-          ukka Final Chapter
-        </h1>
-        <p className="mb-8 text-sm text-text-muted">2026-05-25</p>
+        <ArticleHeader href="/blog/ukka-final-chapter" />
       </FadeIn>
 
       <FadeIn>

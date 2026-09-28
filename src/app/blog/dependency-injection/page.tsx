@@ -1,5 +1,5 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
@@ -44,27 +44,7 @@ export default function DependencyInjection() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/dependency-injection" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-primary">
-            Design Pattern
-          </span>
-          <span className="tag text-xs font-medium text-sky">
-            Software Engineering
-          </span>
-          <span className="tag text-xs font-medium text-accent">
-            Testing
-          </span>
-        </div>
-        <h1 className="mb-4 text-4xl font-bold">
-          搞懂 Dependency Injection
-        </h1>
+        <ArticleHeader href="/blog/dependency-injection" />
         <p className="mb-8 text-text-muted">
           DI 可以先當成一個很務實的問題：
           你的 business logic 到底有沒有被 DB、cache、HTTP client 這些東西綁死。

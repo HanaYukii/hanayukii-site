@@ -1,3 +1,4 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
@@ -31,24 +32,7 @@ export default function JabikoJlptApp() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/jabiko-jlpt-app" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-primary">
-            AI
-          </span>
-          <span className="tag text-xs font-medium text-sky">
-            Frontend
-          </span>
-        </div>
-        <h1 className="mb-4 text-4xl font-bold">
-          Jabiko：JLPT 自習網站
-        </h1>
+        <ArticleHeader href="/blog/jabiko-jlpt-app" />
         <p className="mb-8 text-text-muted">
           Jabiko 是近期做的 JLPT（日本語能力試驗）自習網站，
           從五十音、動詞變化這些基礎，一路練到 N1 的文法、單字與漢字讀音。打開{" "}

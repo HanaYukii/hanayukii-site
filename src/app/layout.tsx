@@ -6,6 +6,7 @@ import { Newsreader, Inter_Tight, JetBrains_Mono, Noto_Serif_TC } from "next/fon
 import { topics } from "@/data/topics";
 import ThemeToggle from "@/components/ThemeToggle";
 import Mark from "@/components/Mark";
+import NavLinks from "@/components/NavLinks";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -73,12 +74,6 @@ export const metadata: Metadata = {
 };
 
 function Navbar() {
-  const links = [
-    { href: "/#work", label: "Work" },
-    { href: "/blog", label: "Blog" },
-    { href: "/about", label: "About Me", shortLabel: "About" },
-  ];
-
   return (
     <nav className="sticky top-0 z-50 border-b border-border bg-surface/90 shadow-[0_1px_0_var(--nav-shadow)]">
       <div className="mx-auto flex max-w-4xl items-center justify-between gap-4 px-6 py-4">
@@ -94,23 +89,8 @@ function Navbar() {
             </span>
           </span>
         </Link>
-        <div className="flex min-w-0 items-center gap-3 sm:gap-6">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="relative text-xs font-medium text-text/60 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:content-[''] hover:text-text hover:after:scale-x-100 sm:text-sm"
-            >
-              {"shortLabel" in link ? (
-                <>
-                  <span className="sm:hidden">{link.shortLabel}</span>
-                  <span className="hidden sm:inline">{link.label}</span>
-                </>
-              ) : (
-                link.label
-              )}
-            </Link>
-          ))}
+        <div className="flex min-w-0 items-center gap-1 sm:gap-3">
+          <NavLinks />
           <ThemeToggle />
         </div>
       </div>

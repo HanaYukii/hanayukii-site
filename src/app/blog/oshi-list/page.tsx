@@ -1,3 +1,4 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
@@ -58,26 +59,10 @@ export default function OshiList() {
     <article className="prose-custom mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/oshi-list" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-accent">
-            Idol
-          </span>
-          <span className="tag text-xs font-medium text-accent">
-            Life
-          </span>
-        </div>
-        <h1 className="mb-4 text-4xl font-bold">推し清單</h1>
+        <ArticleHeader href="/blog/oshi-list" />
         <p className="mb-3 text-base text-accent/80">
           寫在剛看完 ukka 解散 live 的今天。
         </p>
-        <p className="mb-8 text-sm text-text-muted">2026-05-25</p>
       </FadeIn>
 
       {/* Stardust 起點 */}

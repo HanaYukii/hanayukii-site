@@ -1,3 +1,4 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
@@ -81,29 +82,7 @@ export default function CppSecretOptimizations1() {
       <PostJsonLd href="/blog/cpp-secret-optimizations-1" />
       <FadeIn>
         {/* Back link */}
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        {/* Header */}
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-sky">
-            C++
-          </span>
-          <span className="tag text-xs font-medium text-primary">
-            Performance
-          </span>
-          <span className="tag text-xs font-medium text-accent">
-            Memory
-          </span>
-        </div>
-        <h1 className="mb-4 text-4xl font-bold">
-          SSO 跟 Copy Elision：編譯器與標準庫做的事
-        </h1>
-        <p className="mb-2 text-sm text-text-muted">2026-03-31</p>
+        <ArticleHeader href="/blog/cpp-secret-optimizations-1" />
         <p className="mb-8 text-text-muted">
           短字串可能完全不碰 heap，回傳 local object 也不一定會產生 copy。
           這篇拆開看 SSO，以及 copy elision / NRVO 會在什麼情況下生效。

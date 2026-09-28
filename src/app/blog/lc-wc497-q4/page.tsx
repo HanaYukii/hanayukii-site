@@ -1,7 +1,6 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
-import PostMeta from "@/components/PostMeta";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { InlineMath, BlockMath } from "@/components/Math";
@@ -46,28 +45,7 @@ export default function LcWc497Q4() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/lc-wc497-q4" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-accent">
-            Competitive Programming
-          </span>
-          <span className="tag text-xs font-medium text-primary">
-            Number Theory
-          </span>
-          <span className="tag text-xs font-medium text-sky">
-            Segment Tree
-          </span>
-        </div>
-        <h1 className="mb-2 text-4xl font-bold">
-          LeetCode Weekly Contest 497 Q4 Good Subsequence Queries
-        </h1>
-        <PostMeta href="/blog/lc-wc497-q4" />
+        <ArticleHeader href="/blog/lc-wc497-q4" />
       </FadeIn>
 
       {/* TOC */}

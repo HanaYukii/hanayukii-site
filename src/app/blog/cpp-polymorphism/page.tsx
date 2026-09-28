@@ -1,5 +1,5 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import Code from "@/components/CodeBlock";
 import { articleMetadata } from "@/lib/seo";
@@ -31,24 +31,7 @@ export default function CppPolymorphism() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/cpp-polymorphism" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-sky">
-            C++
-          </span>
-          <span className="tag text-xs font-medium text-primary">
-            Performance
-          </span>
-        </div>
-        <h1 className="mb-4 text-4xl font-bold">
-          C++ 多型：靜態(template) vs 動態(virtual)
-        </h1>
+        <ArticleHeader href="/blog/cpp-polymorphism" />
         <p className="mb-8 text-text-muted">
           多型就是「同一個介面、不同行為」。C++ 有兩條路：
           <strong className="text-text">動態多型</strong>（<code>virtual</code>，執行期決定呼叫誰）跟{" "}

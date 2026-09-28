@@ -1,5 +1,5 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import Code from "@/components/CodeBlock";
 import { articleMetadata } from "@/lib/seo";
@@ -31,22 +31,7 @@ export default function CppReflection() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/cpp-reflection" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-sky">
-            C++
-          </span>
-          <span className="tag text-xs font-medium text-primary">
-            Reflection
-          </span>
-        </div>
-        <h1 className="mb-4 text-4xl font-bold">C++ 反射入門</h1>
+        <ArticleHeader href="/blog/cpp-reflection" />
         <p className="mb-8 text-text-muted">
           反射（reflection）就是程式在執行或編譯期「檢視自己」的能力——問一個值是什麼型別、
           一個 struct 有哪些欄位、一個 enum 有哪些名字。序列化、ORM、debug 印整包物件這些事，

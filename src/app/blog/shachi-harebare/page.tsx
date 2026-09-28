@@ -1,3 +1,4 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
@@ -149,31 +150,10 @@ export default function ShachiHarebare() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/shachi-harebare" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-accent">
-            Idol
-          </span>
-          <span className="tag text-xs font-medium text-accent">
-            Live
-          </span>
-          <span className="tag text-xs font-medium text-accent">
-            Life
-          </span>
-        </div>
-        <h1 className="mb-3 text-3xl font-bold leading-tight sm:text-4xl">
-          TEAM SHACHI 最終曲「晴れ晴れ」歌詞翻譯與心得
-        </h1>
+        <ArticleHeader href="/blog/shachi-harebare" />
         <p className="mb-3 text-base text-accent/80">
           寫給曾經一起走過一段路的人。
         </p>
-        <p className="mb-8 text-sm text-text-muted">2026-05-27</p>
       </FadeIn>
 
       <FadeIn>

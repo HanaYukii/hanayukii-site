@@ -1,5 +1,5 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
@@ -70,33 +70,7 @@ export default function CppInplaceVector() {
       <PostJsonLd href="/blog/cpp-inplace-vector" />
       <FadeIn>
         {/* Back link */}
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        {/* Header */}
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-sky">
-            C++
-          </span>
-          <span className="tag text-xs font-medium text-accent">
-            Interview
-          </span>
-          <span className="tag text-xs font-medium text-warm">
-            C++26
-          </span>
-          <span className="tag text-xs font-medium text-primary">
-            Memory
-          </span>
-        </div>
-
-        <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
-          手寫 inplace_vector（C++ 面試題）
-        </h1>
-        <p className="mb-2 text-sm text-text-muted">2026-03-31</p>
+        <ArticleHeader href="/blog/cpp-inplace-vector" />
         <p className="mb-8 text-text-muted">
           世界頂級量化交易公司的 C++ 面試，面試官劍橋畢業，要求現場從零實作一個 <code className="text-primary">inplace_vector</code>。
           不能用 STL container，自己管理記憶體、物件生命週期、alignment。

@@ -1,7 +1,6 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
-import PostMeta from "@/components/PostMeta";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { InlineMath } from "@/components/Math";
@@ -46,28 +45,7 @@ export default function Abc467gManySweets() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/abc467g-many-sweets" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-accent">
-            Competitive Programming
-          </span>
-          <span className="tag text-xs font-medium text-sky">
-            Segment Tree
-          </span>
-          <span className="tag text-xs font-medium text-primary">
-            Fenwick Tree
-          </span>
-        </div>
-        <h1 className="mb-2 text-4xl font-bold">
-          AtCoder ABC 467 G Many Sweets Problem
-        </h1>
-        <PostMeta href="/blog/abc467g-many-sweets" />
+        <ArticleHeader href="/blog/abc467g-many-sweets" />
       </FadeIn>
 
       <FadeIn delay={0.1}>

@@ -1,3 +1,4 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
@@ -31,24 +32,7 @@ export default function CodexCallClaude() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/codex-call-claude" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-sky">
-            AI
-          </span>
-          <span className="tag text-xs font-medium text-primary">
-            Tooling
-          </span>
-        </div>
-        <h1 className="mb-4 text-4xl font-bold">
-          讓 Codex 呼叫 Claude Code
-        </h1>
+        <ArticleHeader href="/blog/codex-call-claude" />
         <p className="mb-8 text-text-muted">
           前一篇寫的是「
           <Link href="/blog/claude-call-codex" className="prose-link">

@@ -1,5 +1,5 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import { articleMetadata } from "@/lib/seo";
@@ -38,28 +38,10 @@ export default function Idol2025() {
     <article className="prose-custom mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/idol-2025" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-warm">
-            Life
-          </span>
-          <span className="tag text-xs font-medium text-accent">
-            Idol
-          </span>
-        </div>
-        <h1 className="mb-4 text-4xl font-bold">
-          2025 偶像現場全紀錄
-        </h1>
+        <ArticleHeader href="/blog/idol-2025" />
         <p className="mb-2 text-lg text-text-muted">
           意外回歸星塵的一年
         </p>
-        <p className="mb-8 text-sm text-text-muted">2026-04-08</p>
       </FadeIn>
 
       {/* ── 前言 ── */}

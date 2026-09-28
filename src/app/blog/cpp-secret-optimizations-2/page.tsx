@@ -1,3 +1,4 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
@@ -79,33 +80,11 @@ export default function CppSecretOptimizations2() {
       <PostJsonLd href="/blog/cpp-secret-optimizations-2" />
       <FadeIn>
         {/* Back link */}
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        {/* Header */}
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-sky">
-            C++
-          </span>
-          <span className="tag text-xs font-medium text-primary">
-            Performance
-          </span>
-          <span className="tag text-xs font-medium text-accent">
-            Memory
-          </span>
-        </div>
-        <h1 className="mb-4 text-4xl font-bold">
-          Padding、Vtable、Smart Pointer 的成本
-        </h1>
+        <ArticleHeader href="/blog/cpp-secret-optimizations-2" />
         <p className="mb-4 text-text-muted">
           記憶體佈局與 object model：struct padding 如何浪費空間、virtual
           function 的真實代價、smart pointer 的隱藏成本。
         </p>
-        <p className="mb-8 text-sm text-text-muted">2026-03-31</p>
 
         {/* Part 1 link */}
         <Link

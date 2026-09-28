@@ -1,3 +1,4 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
@@ -31,24 +32,7 @@ export default function ClaudeCallCodex() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/claude-call-codex" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-sky">
-            AI
-          </span>
-          <span className="tag text-xs font-medium text-primary">
-            Tooling
-          </span>
-        </div>
-        <h1 className="mb-4 text-4xl font-bold">
-          讓 Claude Code 呼叫 Codex
-        </h1>
+        <ArticleHeader href="/blog/claude-call-codex" />
         <p className="mb-8 text-text-muted">
           OpenAI 官方出了個 Claude Code 外掛{" "}
           <a

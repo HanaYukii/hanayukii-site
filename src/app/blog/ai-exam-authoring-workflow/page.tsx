@@ -1,3 +1,4 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
@@ -43,24 +44,7 @@ export default function AiExamAuthoringWorkflow() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/ai-exam-authoring-workflow" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-primary">
-            AI
-          </span>
-          <span className="tag text-xs font-medium text-sky">
-            Software Engineering
-          </span>
-        </div>
-        <h1 className="mb-4 text-4xl font-bold">
-          讓 AI 出 JLPT 題目，再互相抓錯
-        </h1>
+        <ArticleHeader href="/blog/ai-exam-authoring-workflow" />
         <p className="mb-8 text-text-muted">
           先前做了 JLPT（日本語能力試驗）學習網站{" "}
           <Link href="/blog/jabiko-jlpt-app" className="prose-link">Jabiko</Link>

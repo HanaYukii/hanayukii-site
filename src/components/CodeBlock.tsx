@@ -25,7 +25,7 @@ export default function CodeBlock({
       setCopied(true);
       setTimeout(() => setCopied(false), 1600);
     };
-    navigator.clipboard.writeText(code).then(flash, () => {
+    const fallback = () => {
       // clipboard API 不可用時退回舊招
       const ta = document.createElement("textarea");
       ta.value = code;
@@ -38,20 +38,27 @@ export default function CodeBlock({
       } finally {
         ta.remove();
       }
-    });
+    };
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(code).then(flash, fallback);
+    } else {
+      fallback();
+    }
   };
 
   return (
     <div className="code-block group relative my-4 overflow-hidden rounded-lg border">
-      {lang && <div className="code-block-lang px-4 py-1.5 text-xs">{lang}</div>}
-      <button
-        type="button"
-        onClick={copy}
-        aria-label="Copy code"
-        className="code-block-copy absolute right-2 top-1 rounded-md px-2 py-0.5 font-mono text-[11px] opacity-0 transition-[opacity,background-color,color] duration-200 focus-visible:opacity-100 group-hover:opacity-100"
-      >
-        {copied ? "copied!" : "copy"}
-      </button>
+      <div className="code-block-lang flex min-h-11 items-center justify-between gap-3 px-4">
+        <span className="text-sm">{lang || "code"}</span>
+        <button
+          type="button"
+          onClick={copy}
+          aria-label="複製程式碼"
+          className="site-control code-block-copy px-3"
+        >
+          <span aria-live="polite">{copied ? "已複製" : "複製"}</span>
+        </button>
+      </div>
       <Highlight theme={themes.nightOwl} code={code} language={language}>
         {({ tokens, getLineProps, getTokenProps }) => (
           <pre className="overflow-x-auto p-4 text-sm leading-relaxed">

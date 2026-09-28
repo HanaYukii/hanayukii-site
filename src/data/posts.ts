@@ -25,10 +25,11 @@
 
 export const posts: Post[] = [
   {
-    title: "什麼時候能用 memory_order_relaxed？",
+    title: "C++ atomic 用法入門",
     date: "2026-09-27",
+    updated: "2026-09-28",
     summary:
-      "用兩個有執行緒的小例子理解 relaxed：只讀統計數字，和看到完成旗標後讀另一份資料，需要的保證有什麼不同？",
+      "從多人加同一個計數器開始，認識 atomic、load、store 與 fetch_add，再比較 relaxed 計數和 release／acquire 交接資料。",
     tags: ["C++", "Concurrency"],
     tagStyle: "text-primary",
     href: "/blog/cpp-atomic-relaxed",
@@ -278,7 +279,7 @@ export const posts: Post[] = [
     date: "2026-05-02",
     updated: "2026-07-22",
     summary:
-      "從 D 大、JAM 到 Google RSU，回頭看牛市怎麼放大個人魅力，預測為什麼是一種沒有強制平倉的槓桿，以及我自己在配置上的反思。",
+      "從 D 大、JAM 到 Google RSU，回頭看牛市怎麼放大個人魅力，以及當時配置太集中的問題。",
     tags: ["Life", "投資"],
     tagStyle: "text-accent",
     href: "/blog/kol-bull-market-amplifier",
@@ -296,7 +297,7 @@ export const posts: Post[] = [
     title: "文件在 AI 時代的價值",
     date: "2026-04-19",
     summary:
-      "以前不太想寫文件，現在卻常拿它當成團隊、AI 和未來自己共用的 context。整理我這幾年對文件 ROI 的看法。",
+      "把設計、限制和決定寫下來，讓團隊、AI 和之後接手的人少猜一點。整理文件在開發與 review 裡的用法。",
     tags: ["Software Engineering", "AI"],
     tagStyle: "text-primary",
     href: "/blog/documentation-ai-era",
@@ -344,7 +345,7 @@ export const posts: Post[] = [
     title: "區塊鏈日報 RESET 活動心得",
     date: "2026-04-12",
     summary:
-      "去年我是粉絲，今年我換了角度。一場心理成長活動背後的包裝、銷售設計，以及我自己的反思。",
+      "去看了一場心理成長活動，記下現場安排、內容包裝與銷售設計，也回頭想想平常怎麼看這類內容。",
     tags: ["Life", "觀察"],
     tagStyle: "text-accent",
     href: "/blog/reset-influence-analysis",
@@ -391,7 +392,7 @@ export const posts: Post[] = [
     title: "搞懂 Dependency Injection",
     date: "2026-04-06",
     summary:
-      "我想把這個很常被講得很玄的主題講清楚，所以直接用例子拆到夠細。",
+      "從外部傳入需要的物件，讓測試與替換實作更容易。用例子拆解 constructor injection 和 interface 的使用時機。",
     tags: ["Design Pattern", "Software Engineering"],
     tagStyle: "text-primary",
     href: "/blog/dependency-injection",

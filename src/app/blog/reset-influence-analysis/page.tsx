@@ -1,6 +1,6 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
@@ -31,26 +31,7 @@ export default function ResetInfluenceAnalysis() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/reset-influence-analysis" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-warm">
-            Life
-          </span>
-          <span className="tag text-xs font-medium text-primary">
-            觀察
-          </span>
-        </div>
-
-        <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
-          區塊鏈日報 RESET 活動心得
-        </h1>
-        <p className="mb-8 text-sm text-text-muted">2026-04-12</p>
+        <ArticleHeader href="/blog/reset-influence-analysis" />
 
         <div className="mb-8 overflow-hidden rounded-xl">
           <Image

@@ -1,5 +1,5 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import Figure from "@/components/Figure";
 import Code from "@/components/CodeBlock";
@@ -751,25 +751,7 @@ export default function LlmTextWatermark() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/llm-text-watermark" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-primary">
-            AI
-          </span>
-          <span className="tag text-xs font-medium text-sky">
-            Algorithm
-          </span>
-        </div>
-        <h1 className="mb-2 text-4xl font-bold">
-          文字浮水印怎麼藏進 AI 回答？
-        </h1>
-        <p className="mb-8 text-sm text-text-muted">2026-08-13</p>
+        <ArticleHeader href="/blog/llm-text-watermark" />
       </FadeIn>
 
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-primary [&_code]:text-sm">

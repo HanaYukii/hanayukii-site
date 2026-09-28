@@ -1,6 +1,6 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import Figure from "@/components/Figure";
 import PostJsonLd from "@/components/PostJsonLd";
@@ -31,12 +31,7 @@ export default function AstraSubtitleWorkflow() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href={href} />
       <FadeIn>
-        <Link href="/blog" className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary">&larr; Back to Blog</Link>
-        <div className="mb-4 flex flex-wrap gap-2">
-          {["AI", "Idol", "Translation"].map(tag => <span key={tag} className="tag text-xs font-medium text-primary">{tag}</span>)}
-        </div>
-        <h1 className="mb-3 text-3xl font-bold leading-tight sm:text-4xl">{title}</h1>
-        <p className="mb-8 text-sm text-text-muted">2026-09-13</p>
+        <ArticleHeader href="/blog/astra-6-subtitle-workflow" />
       </FadeIn>
 
       <div className="prose-custom space-y-4 text-text-muted leading-relaxed [&_strong]:text-text">

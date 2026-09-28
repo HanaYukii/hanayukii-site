@@ -1,3 +1,4 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
@@ -43,25 +44,7 @@ export default function VideoToArticleWorkflow() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/video-to-article-workflow" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-primary">
-            AI
-          </span>
-          <span className="tag text-xs font-medium text-sky">
-            Tooling
-          </span>
-        </div>
-        <h1 className="mb-4 text-4xl font-bold">
-          抓 YouTube 字幕，整理成文章
-        </h1>
-        <p className="mb-2 text-sm text-text-muted">2026-07-22</p>
+        <ArticleHeader href="/blog/video-to-article-workflow" />
         <p className="mb-8 text-text-muted">
           不必把影片完整播放一遍再錄音。先檢查 YouTube 有沒有字幕；沒有的話，
           直接下載音訊交給 Whisper。這篇把實際跑過的 Windows 指令、會員影片的處理方式、

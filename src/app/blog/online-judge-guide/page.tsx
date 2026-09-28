@@ -1,3 +1,4 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
@@ -39,22 +40,7 @@ export default function OnlineJudgeGuide() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/online-judge-guide" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-accent">
-            Competitive Programming
-          </span>
-        </div>
-        <h1 className="mb-2 text-4xl font-bold">
-          各大 Online Judge 介紹
-        </h1>
-        <p className="mb-8 text-sm text-text-muted">2026-04-29</p>
+        <ArticleHeader href="/blog/online-judge-guide" />
       </FadeIn>
 
       <FadeIn delay={0.05}>

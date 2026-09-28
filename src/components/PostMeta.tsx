@@ -12,7 +12,10 @@ export default function PostMeta({ href }: { href: string }) {
 
   return (
     <p className="mb-8 text-sm text-text-muted">
-      <time dateTime={post.date}>{post.date}</time>
+      <span className="inline-block">發布於 <time dateTime={post.date}>{post.date}</time></span>
+      {post.updated && post.updated !== post.date && (
+        <span className="inline-block"> · 更新於 <time dateTime={post.updated}>{post.updated}</time></span>
+      )}
       {post.occurred && (
         <>
           {" · 發生於 "}

@@ -1,5 +1,5 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import Code from "@/components/CodeBlock";
 import { articleMetadata } from "@/lib/seo";
@@ -31,24 +31,7 @@ export default function CppSpan() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/cpp-span" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-sky">
-            C++
-          </span>
-          <span className="tag text-xs font-medium text-primary">
-            C++20
-          </span>
-        </div>
-        <h1 className="mb-4 text-4xl font-bold">
-          C++20 的 std::span 應用整理
-        </h1>
+        <ArticleHeader href="/blog/cpp-span" />
         <p className="mb-8 text-text-muted">
           寫函式常常卡一個小問題：「一段連續的資料」要用什麼型別接？
           用 <code>vector</code> 的話 C array 傳不進來，

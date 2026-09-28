@@ -19,6 +19,7 @@ export function articleMetadata(href: string, base: Metadata): Metadata {
     ...(base.openGraph ?? {}),
   };
   if (post) {
+    og.title = post.title;
     og.publishedTime = new Date(post.date).toISOString();
     og.modifiedTime = new Date(post.updated ?? post.date).toISOString();
     og.authors = [`${SITE_URL}/about`];
@@ -33,6 +34,7 @@ export function articleMetadata(href: string, base: Metadata): Metadata {
 
   return {
     ...base,
+    ...(post ? { title: `${post.title} | ${AUTHOR}` } : {}),
     alternates: { canonical: href, ...(base.alternates ?? {}) },
     openGraph: og as unknown as Metadata["openGraph"],
     twitter: {

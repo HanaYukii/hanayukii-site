@@ -1,6 +1,6 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import Parallel from "@/components/Parallel";
 import { articleMetadata } from "@/lib/seo";
@@ -183,30 +183,12 @@ export default function IkiteRyaii() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/takaneko-ikite-ryaii" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-accent">
-            Idol
-          </span>
-          <span className="tag text-xs font-medium text-accent">
-            takaneko
-          </span>
-        </div>
-        <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
-          高嶺のなでしこ — 生きてりゃいい 歌詞翻譯
-        </h1>
+        <ArticleHeader href="/blog/takaneko-ikite-ryaii" />
         <p className="mb-2 text-base text-text-muted leading-relaxed">
           高嶺のなでしこ × エースコック はるさめキャンペーン
           <br />
           作詞・作曲：shito・中西／編曲：HoneyWorks／発売：2026-05-13
         </p>
-        <p className="mb-6 text-sm text-text-muted">2026-05-14</p>
 
         <div className="mb-12 aspect-video w-full overflow-hidden rounded-xl border border-border">
           <iframe

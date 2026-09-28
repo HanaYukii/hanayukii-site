@@ -1,3 +1,4 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
@@ -81,25 +82,7 @@ export default function IdolLyricsTranslationSeries() {
       <PostJsonLd href={href} />
 
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          {["Idol", "Japanese", "Translation"].map((tag) => (
-            <span key={tag} className="tag text-xs font-medium text-accent">
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        <h1 className="mb-3 text-3xl font-bold leading-tight sm:text-4xl">
-          八月翻的偶像歌詞
-        </h1>
-        <p className="mb-8 text-sm text-text-muted">2026-08-28</p>
+        <ArticleHeader href="/blog/idol-lyrics-translation-series" />
       </FadeIn>
 
       <div className="prose-custom space-y-4 leading-relaxed text-text-muted [&_strong]:text-text">

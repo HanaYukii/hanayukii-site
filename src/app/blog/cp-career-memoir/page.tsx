@@ -1,3 +1,4 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -32,24 +33,7 @@ export default function CpCareerMemoir() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/cp-career-memoir" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-accent">
-            Competitive Programming
-          </span>
-          <span className="tag text-xs font-medium text-warm">
-            Personal
-          </span>
-        </div>
-        <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
-          一路打競賽到現在
-        </h1>
+        <ArticleHeader href="/blog/cp-career-memoir" />
         <p className="mb-2 text-sm text-text-muted">持續優化中</p>
         <p className="mb-8 text-text-muted">
           一份太難的計概作業，把我推去刷題；沒想到一頭栽進去，程式競賽成了大學那幾年的重心。它帶我從素人一路打到 ICPC 金牌，也把我停在離 World Finals 只差一點 penalty 的地方。

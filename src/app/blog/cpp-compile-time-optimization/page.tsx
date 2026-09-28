@@ -1,5 +1,5 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
@@ -45,28 +45,7 @@ export default function CppCompileTimeOptimization() {
       <PostJsonLd href="/blog/cpp-compile-time-optimization" />
       <FadeIn>
         {/* Back link */}
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        {/* Header */}
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-sky">
-            C++
-          </span>
-          <span className="tag text-xs font-medium text-primary">
-            Performance
-          </span>
-          <span className="tag text-xs font-medium text-accent">
-            Compile-time
-          </span>
-        </div>
-        <h1 className="mb-4 text-4xl font-bold">
-          C++ 編譯期可以做的五件事
-        </h1>
+        <ArticleHeader href="/blog/cpp-compile-time-optimization" />
         <p className="mb-8 text-text-muted">
           重點是哪些東西值得提早到編譯期做。
           這篇挑五個最常用、也最有感的點來講。

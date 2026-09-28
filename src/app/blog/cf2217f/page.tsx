@@ -1,10 +1,9 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
 import RelatedPosts from "@/components/RelatedPosts";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
-import PostMeta from "@/components/PostMeta";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { InlineMath, BlockMath } from "@/components/Math";
@@ -46,34 +45,13 @@ export default function CF2217F() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/cf2217f" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-accent">
-            Competitive Programming
-          </span>
-          <span className="tag text-xs font-medium text-primary">
-            Game Theory
-          </span>
-          <span className="tag text-xs font-medium text-sky">
-            Digit DP
-          </span>
-        </div>
-        <h1 className="mb-2 text-4xl font-bold">
-          CF2217F Interval Game
-        </h1>
+        <ArticleHeader href="/blog/cf2217f" />
         <p className="mb-2 text-lg text-text-muted">
           Nim + XOR 加法恆等式 + Digit DP
         </p>
         <p className="mb-2 text-sm text-text-muted">
           第一眼以為要同時處理機率和區間；拆成 Nim 之後，就只剩 XOR 分佈的 counting。
         </p>
-        <PostMeta href="/blog/cf2217f" />
       </FadeIn>
 
       {/* TOC */}

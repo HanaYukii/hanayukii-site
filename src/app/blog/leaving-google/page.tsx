@@ -1,3 +1,4 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,25 +32,7 @@ export default function LeavingGoogle() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/leaving-google" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-primary">
-            Career
-          </span>
-          <span className="tag text-xs font-medium text-accent">
-            Personal
-          </span>
-        </div>
-        <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
-          離開 Google 半年後的轉職紀錄
-        </h1>
-        <p className="mb-2 text-sm text-text-muted">2026-04-06</p>
+        <ArticleHeader href="/blog/leaving-google" />
         <blockquote className="mb-8 border-l-2 border-primary pl-4 text-text-muted">
           這篇純粹回顧這幾年，無意批評任何人——遇到的人幾乎都很好，只是這個環境不適合當時的我。
         </blockquote>

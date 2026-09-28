@@ -1,5 +1,5 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import { articleMetadata } from "@/lib/seo";
@@ -31,28 +31,10 @@ export default function DocumentationAiEra() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/documentation-ai-era" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-primary">
-            Software Engineering
-          </span>
-          <span className="tag text-xs font-medium text-primary">
-            AI
-          </span>
-        </div>
-        <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
-          文件在 AI 時代的價值
-        </h1>
+        <ArticleHeader href="/blog/documentation-ai-era" />
         <p className="mb-2 text-base text-text-muted leading-relaxed">
           Design Doc、README 和 review checklist，現在也成了 AI 進 codebase 前最直接的 context。
         </p>
-        <p className="mb-8 text-sm text-text-muted">2026-05-03</p>
       </FadeIn>
 
       <FadeIn delay={0.1}>

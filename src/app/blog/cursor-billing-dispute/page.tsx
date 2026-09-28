@@ -1,5 +1,5 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import { articleMetadata } from "@/lib/seo";
@@ -31,25 +31,7 @@ export default function CursorBillingDispute() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/cursor-billing-dispute" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-warm">
-            雜談
-          </span>
-          <span className="tag text-xs font-medium text-warm">
-            SaaS
-          </span>
-        </div>
-        <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
-          Cursor Teams 年繳踩雷紀錄
-        </h1>
-        <p className="mb-8 text-sm text-text-muted">2026-04-29</p>
+        <ArticleHeader href="/blog/cursor-billing-dispute" />
       </FadeIn>
 
       <div className="prose-custom space-y-4 text-text-muted leading-relaxed [&_strong]:text-text">

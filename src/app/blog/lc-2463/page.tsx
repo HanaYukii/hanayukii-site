@@ -1,7 +1,6 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
-import PostMeta from "@/components/PostMeta";
 import ArticleIllustration from "@/components/ArticleIllustration";
 import Code from "@/components/CodeBlock";
 import { InlineMath } from "@/components/Math";
@@ -34,25 +33,7 @@ export default function Lc2463() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/lc-2463" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-accent">
-            Algorithm
-          </span>
-          <span className="tag text-xs font-medium text-accent">
-            DP
-          </span>
-        </div>
-        <h1 className="mb-2 text-4xl font-bold">
-          LeetCode 2463 Minimum Total Distance Traveled
-        </h1>
-        <PostMeta href="/blog/lc-2463" />
+        <ArticleHeader href="/blog/lc-2463" />
       </FadeIn>
 
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-primary [&_code]:text-sm">

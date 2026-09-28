@@ -1,6 +1,6 @@
+import ArticleHeader from "@/components/ArticleHeader";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { articleMetadata } from "@/lib/seo";
 import PostJsonLd from "@/components/PostJsonLd";
@@ -31,28 +31,10 @@ export default function KolBullMarketAmplifier() {
     <article className="mx-auto max-w-3xl px-6 py-16">
       <PostJsonLd href="/blog/kol-bull-market-amplifier" />
       <FadeIn>
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
-        >
-          &larr; Back to Blog
-        </Link>
-
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="tag text-xs font-medium text-warm">
-            Life
-          </span>
-          <span className="tag text-xs font-medium text-warm">
-            投資
-          </span>
-        </div>
-        <h1 className="mb-2 text-3xl font-bold leading-tight sm:text-4xl">
-          牛市放大效應與 KOL
-        </h1>
+        <ArticleHeader href="/blog/kol-bull-market-amplifier" />
         <p className="mb-2 text-base text-text-muted leading-relaxed">
           這波調整完倉位，回頭看 D 大、JAM 和以前領過的 Google RSU
         </p>
-        <p className="mb-8 text-sm text-text-muted">2026-05-02</p>
       </FadeIn>
 
       <FadeIn delay={0.1}>
