@@ -123,71 +123,37 @@ function Footer() {
 
   return (
     <footer className="relative z-10 border-t border-border bg-surface/65">
-      <div className="mx-auto max-w-4xl px-6 py-12">
-        <div className="grid gap-10 sm:grid-cols-3 sm:gap-12">
-          {/* Brand */}
-          <div>
-            <p className="mb-3 text-base font-bold text-text">
-              花雪 <span className="font-normal text-text/70">(HanaYukii)</span>
-            </p>
-            <p className="text-sm leading-relaxed text-text-muted">
-              隨興寫喜歡的 topic
-            </p>
-            <p className="mt-4 text-xs italic text-accent/80">
-              Starmine, still becoming.
-            </p>
-          </div>
-
-          {/* 主題 */}
-          <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-text/60">
-              主題
-            </p>
-            <ul className="space-y-2.5 text-sm">
-              {topics.map((topic) => (
-                <li key={topic.tag}>
-                  <Link
-                    href={`/blog?tag=${encodeURIComponent(topic.tag)}`}
-                    className="text-text-muted transition-colors hover:text-text"
-                  >
-                    {topic.footerLabel}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-text-muted transition-colors hover:text-primary"
-                >
-                  所有文章 &rarr;
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* 連絡 */}
-          <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-text/60">
-              連絡
-            </p>
-            <ul className="space-y-2.5 text-sm">
-              {contacts.map((c) => (
-                <li key={c.label}>
-                  <a
-                    href={c.href}
-                    target={c.external ? "_blank" : undefined}
-                    rel={c.external ? "noopener noreferrer" : undefined}
-                    className="text-text-muted transition-colors hover:text-text"
-                  >
-                    {c.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <div className="mx-auto max-w-4xl px-6 py-7 sm:py-8">
+        <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+          <Link href="/" className="inline-flex items-center gap-2 text-base font-semibold hover:text-primary">
+            <Mark className="h-4 w-4 text-accent" />
+            花雪 <span className="font-normal text-text-muted">HanaYukii</span>
+          </Link>
+          <p className="text-sm text-text-muted">隨興寫喜歡的東西</p>
         </div>
-
-        <div className="mt-12 flex flex-col gap-2 border-t border-border pt-6 text-xs text-text-muted sm:flex-row sm:justify-between">
+        <div className="grid gap-3 border-y border-border py-4">
+          <nav aria-label="頁尾文章分類" className="flex flex-wrap items-baseline gap-x-5 gap-y-1">
+            <span className="text-sm text-text-muted">文章</span>
+            {topics.map((topic) => (
+              <Link key={topic.tag} href={`/blog?tag=${encodeURIComponent(topic.tag)}`}
+                className="inline-flex min-h-9 items-center text-sm text-text-muted hover:text-primary">
+                {topic.footerLabel}
+              </Link>
+            ))}
+            <Link href="/blog" className="inline-flex min-h-9 items-center text-sm text-primary hover:underline">所有文章 →</Link>
+          </nav>
+          <nav aria-label="聯絡與訂閱" className="flex flex-wrap items-baseline gap-x-5 gap-y-1">
+            {contacts.map((contact) => (
+              <a key={contact.label} href={contact.href}
+                target={contact.external ? "_blank" : undefined}
+                rel={contact.external ? "noopener noreferrer" : undefined}
+                className="inline-flex min-h-9 items-center text-sm text-text-muted hover:text-primary">
+                {contact.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+        <div className="mt-4 flex flex-wrap justify-between gap-2 text-sm text-text-muted">
           <p>&copy; {new Date().getFullYear()} 花雪 HanaYukii</p>
           <p>Built with Next.js</p>
         </div>

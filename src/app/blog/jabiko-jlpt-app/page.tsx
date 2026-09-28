@@ -1,4 +1,5 @@
 import ArticleHeader from "@/components/ArticleHeader";
+import ArticleContents from "@/components/ArticleContents";
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
@@ -57,10 +58,7 @@ export default function JabikoJlptApp() {
       </FadeIn>
 
       <FadeIn delay={0.1}>
-        <nav className="my-10 border-y border-border py-5">
-          <p className="mb-3 text-xs font-bold uppercase tracking-wider text-text-muted">
-            功能一覽
-          </p>
+        <ArticleContents>
           <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2">
             {[
               { id: "home", title: "首頁總覽" },
@@ -87,7 +85,7 @@ export default function JabikoJlptApp() {
               </a>
             ))}
           </div>
-        </nav>
+        </ArticleContents>
       </FadeIn>
 
       <div className="prose-custom space-y-2 leading-relaxed text-text-muted [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-sm [&_code]:text-primary [&_strong]:text-text">

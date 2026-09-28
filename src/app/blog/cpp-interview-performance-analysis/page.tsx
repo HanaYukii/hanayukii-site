@@ -1,4 +1,5 @@
 import ArticleHeader from "@/components/ArticleHeader";
+import ArticleContents from "@/components/ArticleContents";
 import type { Metadata } from "next";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
@@ -90,8 +91,7 @@ export default function CppInterviewPerformanceAnalysis() {
 
       <FadeIn delay={0.1}>
         {/* TOC */}
-        <nav className="mb-12 rounded-lg border border-border bg-surface p-6">
-          <h2 className="mb-4 text-lg font-bold">這場面試怎麼出題</h2>
+        <ArticleContents>
           <ol className="space-y-2 text-sm">
             <li>
               <a href="#q1" className="text-text-muted hover:text-primary transition-colors">
@@ -124,7 +124,7 @@ export default function CppInterviewPerformanceAnalysis() {
               </a>
             </li>
           </ol>
-        </nav>
+        </ArticleContents>
       </FadeIn>
 
       {/* ======================== Q1 ======================== */}

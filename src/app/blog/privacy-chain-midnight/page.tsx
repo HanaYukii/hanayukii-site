@@ -1,4 +1,5 @@
 import ArticleHeader from "@/components/ArticleHeader";
+import ArticleContents from "@/components/ArticleContents";
 import type { Metadata } from "next";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
@@ -40,10 +41,7 @@ export default function PrivacyChainMidnight() {
       </FadeIn>
 
       <FadeIn delay={0.05}>
-        <nav className="mb-12 border-y border-border py-6">
-          <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
-            目錄
-          </p>
+        <ArticleContents>
           <div className="space-y-2">
             {[
               { id: "problem", title: "公鏈透明的問題" },
@@ -64,7 +62,7 @@ export default function PrivacyChainMidnight() {
               </a>
             ))}
           </div>
-        </nav>
+        </ArticleContents>
       </FadeIn>
 
       {/* ── 前言 ── */}

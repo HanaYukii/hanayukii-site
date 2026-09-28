@@ -1,4 +1,5 @@
 import ArticleHeader from "@/components/ArticleHeader";
+import ArticleContents from "@/components/ArticleContents";
 import type { Metadata } from "next";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
@@ -50,10 +51,7 @@ export default function LcWc497Q4() {
 
       {/* TOC */}
       <FadeIn delay={0.1}>
-        <nav className="mb-12 border-y border-border py-6">
-          <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
-            目錄
-          </p>
+        <ArticleContents>
           <div className="space-y-2">
             {[
               { id: "problem", title: "問題重述" },
@@ -73,7 +71,7 @@ export default function LcWc497Q4() {
               </a>
             ))}
           </div>
-        </nav>
+        </ArticleContents>
       </FadeIn>
 
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-primary [&_code]:text-sm">

@@ -1,4 +1,5 @@
 import ArticleHeader from "@/components/ArticleHeader";
+import ArticleContents from "@/components/ArticleContents";
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
@@ -44,10 +45,7 @@ export default function OnlineJudgeGuide() {
       </FadeIn>
 
       <FadeIn delay={0.05}>
-        <nav className="mb-12 border-y border-border py-6">
-          <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
-            Agenda
-          </p>
+        <ArticleContents>
           <div className="space-y-2">
             {[
               { id: "what-is-oj", title: "什麼是 Online Judge" },
@@ -67,7 +65,7 @@ export default function OnlineJudgeGuide() {
               </a>
             ))}
           </div>
-        </nav>
+        </ArticleContents>
       </FadeIn>
 
       <div className="prose-custom space-y-4 text-text-muted leading-relaxed [&_strong]:text-text">

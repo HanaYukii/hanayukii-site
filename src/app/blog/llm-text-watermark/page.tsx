@@ -1,4 +1,5 @@
 import ArticleHeader from "@/components/ArticleHeader";
+import ArticleContents from "@/components/ArticleContents";
 import type { Metadata } from "next";
 import FadeIn from "@/components/FadeIn";
 import Figure from "@/components/Figure";
@@ -855,10 +856,7 @@ export default function LlmTextWatermark() {
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <div className="mt-8 border-y border-border py-6">
-            <p className="mb-3 text-sm font-bold uppercase tracking-wider text-text-muted">
-              本文路線
-            </p>
+          <ArticleContents>
             <div className="space-y-2">
               {[
                 { id: "where", title: "LLM 平常怎麼選下一個 token" },
@@ -882,7 +880,7 @@ export default function LlmTextWatermark() {
                 </a>
               ))}
             </div>
-          </div>
+          </ArticleContents>
         </FadeIn>
 
         <FadeIn>

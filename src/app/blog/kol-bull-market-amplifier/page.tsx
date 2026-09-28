@@ -1,4 +1,5 @@
 import ArticleHeader from "@/components/ArticleHeader";
+import ArticleContents from "@/components/ArticleContents";
 import type { Metadata } from "next";
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
@@ -38,10 +39,7 @@ export default function KolBullMarketAmplifier() {
       </FadeIn>
 
       <FadeIn delay={0.1}>
-        <nav className="mb-12 border-y border-border py-6">
-          <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
-            這篇會寫到
-          </p>
+        <ArticleContents>
           <div className="space-y-2">
             {[
               { id: "d-as-case", title: "先從 D 大說起" },
@@ -61,7 +59,7 @@ export default function KolBullMarketAmplifier() {
               </a>
             ))}
           </div>
-        </nav>
+        </ArticleContents>
       </FadeIn>
 
       <div className="prose-custom space-y-4 text-text-muted leading-relaxed [&_strong]:text-text">

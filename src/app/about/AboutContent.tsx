@@ -128,12 +128,16 @@ const beyondCode: Record<Lang, { icon: string; title: string; text: string }[]> 
 export default function AboutContent() {
   const [lang, setLang] = useState<Lang>("zh");
 
-  const sectionClass = "mt-12 border-t border-border pt-10";
+  const sectionClass = "mt-8 border-t border-border pt-7 sm:mt-10 sm:pt-8";
 
   return (
-    <div lang={lang === "zh" ? "zh-Hant" : "en"} className="mx-auto max-w-3xl px-6 py-16">
+    <div lang={lang === "zh" ? "zh-Hant" : "en"} className="mx-auto max-w-3xl px-6 py-10 sm:py-12">
       {/* ── Lang Toggle ── */}
-      <div className="mb-8 flex justify-end">
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h1 className="text-4xl font-bold">{lang === "zh" ? "關於" : "About"}</h1>
+          <p className="mt-2 text-sm text-text-muted">継続は力なり</p>
+        </div>
         <div className="inline-flex rounded-md border border-border p-1 text-sm">
           <button
             type="button"
@@ -158,12 +162,6 @@ export default function AboutContent() {
         </div>
       </div>
 
-      {/* ── Header ── */}
-      <FadeIn>
-        <h1 className="mb-3 text-4xl font-bold">About Me</h1>
-        <p className="mb-12 text-text-muted">継続は力なり</p>
-      </FadeIn>
-
       {/* ── Intro ── */}
       <FadeIn>
         <section>
@@ -185,12 +183,12 @@ export default function AboutContent() {
 
       {/* ── Talk (prominent CTA, surfaced high) ── */}
       <FadeIn>
-        <div className="mt-8 flex flex-wrap items-center gap-4">
+        <div className="mt-6 flex flex-wrap items-center gap-3">
           <a
             href="https://calendly.com/islu245777/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110"
+            className="site-control bg-primary px-4 py-2 text-bg hover:brightness-110"
           >
             {lang === "zh" ? "預約 1:1 交流" : "Book a 1:1 chat"}
             <svg aria-hidden="true" className="h-3 w-3 opacity-70" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2">
@@ -206,7 +204,7 @@ export default function AboutContent() {
       {/* ── Competitive Programming ── */}
       <FadeIn>
         <section className={sectionClass}>
-          <h2 className="mb-5 text-2xl font-bold">Competitive Programming</h2>
+          <h2 className="mb-4 text-2xl font-bold">{lang === "zh" ? "程式競賽" : "Competitive Programming"}</h2>
           <ul className="max-w-lg border-y border-border/80 py-2">
             {cpBadges.map((badge) => (
               <li
@@ -227,11 +225,11 @@ export default function AboutContent() {
       {/* ── Projects ── */}
       <FadeIn>
         <section className={sectionClass}>
-          <h2 className="mb-5 text-2xl font-bold">Projects</h2>
+          <h2 className="mb-4 text-2xl font-bold">{lang === "zh" ? "專案" : "Projects"}</h2>
           <div className="space-y-5">
             {projects[lang].map((p) => (
-              <div key={p.name} className="flex gap-4">
-                <span className="w-24 shrink-0 pt-0.5 text-xs font-medium text-text-muted">{p.period}</span>
+              <div key={p.name} className="grid gap-1 sm:grid-cols-[6rem_1fr] sm:gap-4">
+                <span className="pt-0.5 text-sm font-medium tabular-nums text-text-muted">{p.period}</span>
                 <div className="min-w-0">
                   <h3 className="font-semibold">{p.name}</h3>
                   <p className="mt-1 text-sm leading-relaxed text-text-muted">{p.blurb}</p>
@@ -248,11 +246,11 @@ export default function AboutContent() {
       {/* ── Background ── */}
       <FadeIn>
         <section className={sectionClass}>
-          <h2 className="mb-5 text-2xl font-bold">Background</h2>
+          <h2 className="mb-4 text-2xl font-bold">{lang === "zh" ? "經歷" : "Background"}</h2>
           <div className="space-y-3">
             {background.map((item) => (
-              <div key={item.role} className="flex items-baseline gap-4">
-                <span className="w-24 shrink-0 text-xs font-medium text-text-muted">{item.period}</span>
+              <div key={item.role} className="grid gap-1 sm:grid-cols-[6rem_1fr] sm:items-baseline sm:gap-4">
+                <span className="text-sm font-medium tabular-nums text-text-muted">{item.period}</span>
                 <div className="min-w-0">
                   <span className="font-semibold">{item.role}</span>
                   <span className="text-text-muted"> · {item.place}</span>
@@ -271,7 +269,7 @@ export default function AboutContent() {
       {/* ── Beyond Code ── */}
       <FadeIn>
         <section className={sectionClass}>
-          <h2 className="mb-5 text-2xl font-bold">Beyond Code</h2>
+          <h2 className="mb-4 text-2xl font-bold">{lang === "zh" ? "平常喜歡的事" : "Beyond Code"}</h2>
           <ul className="space-y-3">
             {beyondCode[lang].map((item) => (
               <li key={item.title} className="text-sm leading-relaxed text-text-muted">
@@ -287,7 +285,7 @@ export default function AboutContent() {
       {/* ── Contact ── */}
       <FadeIn>
         <section className={sectionClass}>
-          <h2 className="mb-5 text-2xl font-bold">Contact</h2>
+          <h2 className="mb-4 text-2xl font-bold">{lang === "zh" ? "聯絡" : "Contact"}</h2>
           <p className="text-sm leading-relaxed text-text-muted">
             {lang === "zh"
               ? "什麼都可以聊。有能幫上忙的地方就聊聊，也想跟你學點東西。"
@@ -296,7 +294,7 @@ export default function AboutContent() {
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <a
               href="mailto:islu245777@gmail.com"
-              className="inline-flex items-center gap-1.5 rounded-md border border-border px-4 py-2 text-sm font-medium transition-all hover:border-primary hover:text-primary"
+              className="site-control max-w-full break-all border border-border px-3 py-2 hover:border-primary hover:text-primary"
             >
               islu245777@gmail.com
             </a>

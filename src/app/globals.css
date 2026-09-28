@@ -204,6 +204,23 @@ summary:focus-visible {
 .filter-link[aria-current="page"] { border-color: var(--color-primary); background: var(--color-primary); color: var(--color-bg); }
 .article-header time { font-variant-numeric: tabular-nums; }
 
+.article-contents .contents-hint::after { content: "展開"; }
+.article-contents[open] .contents-hint::after { content: "收合"; }
+.article-contents nav a {
+  display: flex;
+  align-items: baseline;
+  min-height: 40px;
+  padding: 0.5rem 0.75rem;
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.article-contents nav a:hover { background: color-mix(in srgb, var(--color-primary) 8%, transparent); }
+.article-contents nav code { font: inherit; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
 .prose-link {
   color: inherit;
   text-decoration-line: underline;

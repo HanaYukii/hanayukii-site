@@ -1,4 +1,5 @@
 import ArticleHeader from "@/components/ArticleHeader";
+import ArticleContents from "@/components/ArticleContents";
 import type { Metadata } from "next";
 import FadeIn from "@/components/FadeIn";
 import ArticleIllustration from "@/components/ArticleIllustration";
@@ -38,10 +39,7 @@ export default function DocumentationAiEra() {
       </FadeIn>
 
       <FadeIn delay={0.1}>
-        <nav className="mb-12 border-y border-border py-6">
-          <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
-            Agenda
-          </p>
+        <ArticleContents>
           <div className="space-y-2">
             {[
               { id: "why-hated", title: "以前文件 ROI 很差，所以大家討厭寫" },
@@ -63,7 +61,7 @@ export default function DocumentationAiEra() {
               </a>
             ))}
           </div>
-        </nav>
+        </ArticleContents>
       </FadeIn>
 
       <div className="prose-custom space-y-4 text-text-muted leading-relaxed [&_strong]:text-text">

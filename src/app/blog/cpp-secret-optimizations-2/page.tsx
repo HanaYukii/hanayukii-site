@@ -1,4 +1,5 @@
 import ArticleHeader from "@/components/ArticleHeader";
+import ArticleContents from "@/components/ArticleContents";
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
@@ -97,10 +98,7 @@ export default function CppSecretOptimizations2() {
 
       <FadeIn delay={0.1}>
         {/* TOC */}
-        <nav className="mb-12 border-y border-border py-6">
-          <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
-            Agenda
-          </p>
+        <ArticleContents>
           <div className="space-y-2">
             {[
               { id: "item3", title: "Struct Padding & Alignment - sizeof 不是你想的那樣" },
@@ -119,7 +117,7 @@ export default function CppSecretOptimizations2() {
               </a>
             ))}
           </div>
-        </nav>
+        </ArticleContents>
       </FadeIn>
 
       <div className="prose-custom space-y-2 text-text-muted leading-relaxed [&_strong]:text-text [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-primary [&_code]:text-sm">

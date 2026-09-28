@@ -1,4 +1,5 @@
 import ArticleHeader from "@/components/ArticleHeader";
+import ArticleContents from "@/components/ArticleContents";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -41,10 +42,7 @@ export default function CpCareerMemoir() {
       </FadeIn>
 
       <FadeIn delay={0.1}>
-        <nav className="mb-12 border-y border-border py-6">
-          <p className="mb-3 text-sm font-bold text-text-muted uppercase tracking-wider">
-            Agenda
-          </p>
+        <ArticleContents>
           <div className="space-y-2">
             {[
               { id: "high-school", title: "高中：錯過的起跑線" },
@@ -69,7 +67,7 @@ export default function CpCareerMemoir() {
               </a>
             ))}
           </div>
-        </nav>
+        </ArticleContents>
       </FadeIn>
 
       <div className="prose-custom space-y-4 text-text-muted leading-relaxed [&_strong]:text-text">
