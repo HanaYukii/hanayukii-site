@@ -39,6 +39,26 @@ export default function CppAtomicRelaxed() {
             多個執行緒共用一個計數器時，普通的 <code>count++</code> 不能直接拿來用。
             先認識 <code>std::atomic</code> 怎麼處理這件事，再看什麼時候能用 relaxed。
           </p>
+          <figure className="my-8 grid items-center gap-5 rounded-lg border border-border bg-surface/40 p-4 sm:grid-cols-[240px_1fr]">
+            <video
+              controls
+              playsInline
+              preload="none"
+              poster="/media/atomic-intro-preview/atomic-intro-v2-poster.png"
+              aria-label="C++ atomic 用法入門動畫"
+              className="mx-auto max-h-[70svh] w-full rounded-md bg-[#0b101b] sm:max-h-none"
+              style={{ aspectRatio: "9 / 16" }}
+            >
+              <source src="/media/atomic-intro-preview/atomic-intro-v2.mp4" type="video/mp4" />
+              <track kind="captions" src="/media/atomic-intro-preview/atomic-intro-v2.vtt" srcLang="zh-TW" label="繁體中文" />
+              瀏覽器不支援影片，可閱讀下方相同主題的圖文說明。
+            </video>
+            <figcaption>
+              <p className="mb-2 text-sm text-primary">動畫講解 · 2 分 30 秒</p>
+              <p className="text-base leading-relaxed text-text">用計數器與資料交接動畫，整理 atomic、relaxed 和 release／acquire 的差別。</p>
+              <p className="mt-3 text-sm text-text-muted">無配音，搭配字幕與輕音樂，可自行靜音。點播放才會載入影片，完整程式碼在下方。</p>
+            </figcaption>
+          </figure>
           <Heading id="atomic">基本操作</Heading>
           <p>
             加一包含「讀取、加一、寫回」。假設 count 原本是 0，兩個執行緒都先讀到 0，
