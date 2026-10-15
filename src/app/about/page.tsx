@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import AboutContent from "./AboutContent";
 
 const DESCRIPTION =
-  "花雪 HanaYukii：ex-Google 工程師、現任 AI 新創 Senior Staff Engineer，程式競賽 ICPC Gold／Codeforces IM，也做 Web3。";
+  "花雪 HanaYukii：ex-Google 工程師，目前在 AI 新創做技術研發，程式競賽 ICPC Gold／Codeforces IM，也做 Web3。";
 
 export const metadata: Metadata = {
   title: "About | 花雪 HanaYukii",
@@ -22,9 +22,8 @@ const personJsonLd = {
   name: "花雪 HanaYukii",
   alternateName: ["Erh-Hsuan Lu", "HanaYukii"],
   url: "https://hanayukii.dev",
-  jobTitle: "Senior Staff Engineer",
   description:
-    "Ex-Google engineer, Senior Staff Engineer at an AI startup, competitive programmer (ICPC Gold, Codeforces 2300+, LeetCode 2800+), Web3 protocol contributor.",
+    "Ex-Google engineer working in R&D at an AI startup, competitive programmer (ICPC Gold, Codeforces 2300+, LeetCode 2800+), Web3 protocol contributor.",
   knowsAbout: [
     "C++",
     "Systems Engineering",

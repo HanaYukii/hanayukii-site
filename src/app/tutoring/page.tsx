@@ -37,7 +37,7 @@ export default function Tutoring() {
             <li>交大資工學士 (2016–2020)</li>
             <li>交大資工碩士 (2020–2022)</li>
             <li>Google 軟體工程師 (2022–2025)</li>
-            <li>AI 新創 Senior Staff Engineer (2025–)</li>
+            <li>AI 新創技術研發 (2025–)</li>
           </ul>
         </section>
       </FadeIn>

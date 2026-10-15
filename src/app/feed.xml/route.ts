@@ -31,7 +31,7 @@ ${post.tags
   <channel>
     <title>花雪 HanaYukii</title>
     <link>${SITE_URL}/blog</link>
-    <description>Senior Staff Engineer, competitive programmer, and writer.</description>
+    <description>Engineer working in R&amp;D, competitive programmer, and writer.</description>
     <language>zh-TW</language>
     <lastBuildDate>${new Date(newest).toUTCString()}</lastBuildDate>
     <atom:link href="${SITE_URL}/feed.xml" rel="self" type="application/rss+xml"/>

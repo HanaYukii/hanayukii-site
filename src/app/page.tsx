@@ -26,7 +26,7 @@ export default function Home() {
         </h1>
         <p className="mt-3 text-sm italic text-accent/80">Starmine, still becoming.</p>
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-text-muted">
-          競賽程式出身，在 Google 待過三年，現在在 AI 新創做 Senior Staff Engineer。
+          競賽程式出身，在 Google 待過三年，現在在 AI 新創做技術研發。
           寫 C++、AI 工具，也寫偶像現場和翻譯。
         </p>
         <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm">
