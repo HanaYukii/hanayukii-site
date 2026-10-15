@@ -10,7 +10,7 @@ import RelatedPosts from "@/components/RelatedPosts";
 export const metadata: Metadata = articleMetadata("/blog/codex-call-claude", {
   title: "讓 Codex 呼叫 Claude Code | 花雪 HanaYukii",
   description:
-    "用 claude -p 把獨立的讀 code、查錯與 code review 交給 Claude Code，再做成 Codex skill 視情況自動委派。",
+    "用 claude -p 與 Codex skill 委派讀 code、查錯與 review，整理權限限制和額度注意事項。",
   openGraph: {
     title: "讓 Codex 呼叫 Claude Code",
     description:
@@ -34,174 +34,91 @@ export default function CodexCallClaude() {
       <FadeIn>
         <ArticleHeader href="/blog/codex-call-claude" />
         <p className="mb-8 text-text-muted">
-          前一篇寫的是「
-          <Link href="/blog/claude-call-codex" className="prose-link">
-            讓 Claude Code 呼叫 Codex
-          </Link>
-          」。現在大多待在 Codex，手上又有每月 200 美元的 Claude Max
-          方案，就也想把方向反過來：遇到獨立的讀 code、查錯或 review，交給
-          Claude 跑完，再把精簡結果帶回 Codex 判斷和收尾。
+          在 Codex 工作時，可以把獨立的讀 code、查錯或 review 交給 Claude Code，
+          再把結果帶回來驗證。反方向的設定見〈<Link href="/blog/claude-call-codex" className="prose-link">讓 Claude Code 呼叫 Codex</Link>〉。
         </p>
       </FadeIn>
-
-      <div className="prose-custom space-y-2 leading-relaxed text-text-muted [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-sm [&_code]:text-primary [&_strong]:text-text">
+      <div className="prose-custom space-y-2 leading-relaxed text-text-muted">
         <FadeIn>
-          <Heading id="headless">正確入口是 claude -p</Heading>
+          <Heading id="headless">用 claude -p 呼叫模型</Heading>
           <p>
-            上一篇末尾原本寫成 <code>claude mcp serve</code>，這裡先更正。
-            Anthropic 的
-            <a
-              href="https://code.claude.com/docs/en/mcp#use-claude-code-as-an-mcp-server"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="prose-link"
-            >
-              MCP 說明
-            </a>
-            寫得很清楚：它暴露的是 Claude Code 的 Read、Edit、LS 等 tools，並不會替
-            MCP client 跑一輪 Claude 模型。真的要把 task 交給 Claude，直接用
-            <a
-              href="https://code.claude.com/docs/en/headless"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="prose-link"
-            >
-              非互動模式
-            </a>
-            <code>claude -p</code> 就好。
+            先裝好 Claude Code 並完成登入。<code>claude -p</code> 會執行任務後結束；
+            <a href="https://code.claude.com/docs/en/mcp#use-claude-code-as-an-mcp-server" className="prose-link">claude mcp serve</a>
+            只提供工具，不會替 Codex 呼叫 Claude 模型。
           </p>
-          <Code lang="powershell">{`claude -p "請檢查這個 repo 的實作，只回傳具體問題、檔案與行號，不要修改檔案。" \`
-  --model sonnet \`
-  --effort low \`
-  --tools "Read,Glob,Grep" \`
-  --permission-mode dontAsk \`
-  --no-session-persistence \`
-  --output-format json`}</Code>
+          <p>在已同意將程式碼送到 Anthropic 的可信任 repo 裡執行。以下是 PowerShell 寫法：</p>
+          <Code lang="powershell">{[
+            'claude -p "檢查這個 repo，只回報具體問題、檔案與行號，不要修改檔案。"',
+            '  --model sonnet',
+            '  --tools "Read,Glob,Grep"',
+            '  --disallowedTools "mcp__*"',
+            '  --strict-mcp-config',
+            '  --setting-sources ""',
+            '  --settings \'{"disableAllHooks":true}\'',
+            '  --no-chrome',
+            '  --permission-mode dontAsk',
+            '  --no-session-persistence',
+            '  --output-format json',
+          ].join(" " + String.fromCharCode(96) + "\n")}</Code>
           <p>
-            <code>dontAsk</code> 讓超出權限的操作直接被拒絕，不會在背景等人回答；JSON
-            則方便 Codex 只取最後結果。完整參數可以看
-            <a
-              href="https://code.claude.com/docs/en/cli-usage"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="prose-link"
-            >
-              Claude Code CLI 文件
-            </a>
-            。
+            <code>dontAsk</code> 會拒絕需要詢問的操作，JSON 方便取出結果。
+            <code>--tools</code> 只限制內建工具，因此另外禁止 MCP 工具，並關掉一般設定來源、hooks 與 Chrome 整合。
+            參數詳見 <a href="https://code.claude.com/docs/en/cli-reference" className="prose-link">CLI 文件</a>。
           </p>
         </FadeIn>
-
         <FadeIn>
-          <Heading id="skill">做成 Codex skill</Heading>
+          <Heading id="skill">常用就包成 skill</Heading>
           <p>
-            這段包成一個 user-scope 的 Codex skill，原始碼放在
-            <a
-              href="https://github.com/HanaYukii/hanayukii-site/tree/master/codex-skills/delegate-to-claude"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="prose-link"
-            >
-              delegate-to-claude
-            </a>
-            。裝在 <code>$HOME/.agents/skills</code> 後，Codex 可以依 skill 的描述
-            隱式觸發，不需要每次重打一整串命令；這也是
-            <a
-              href="https://developers.openai.com/codex/skills/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="prose-link"
-            >
-              官方支援的 skill 路徑
-            </a>
-            。
+            現成的 <a href="https://github.com/HanaYukii/hanayukii-site/tree/master/codex-skills/delegate-to-claude" className="prose-link">delegate-to-claude</a>
+            包含 Python wrapper。將整個資料夾放到 <code>$HOME/.agents/skills/delegate-to-claude</code>，
+            保留 <code>SKILL.md</code> 與 <code>scripts</code>；需要本機 Python 3 和 Claude Code CLI。
           </p>
           <p>
-            它不是 Codex 的 native subagent，只是從 skill 裡啟動外部 Claude CLI，拿回
-            一份結果，再由 Codex 驗證。這個差別其實滿重要：兩邊不共享對話狀態，也不該同時
-            改同一批檔案。
+            裝好後可以對 Codex 說：「用 delegate-to-claude 檢查這份修改，已同意將這個 repo 的程式碼送到 Anthropic，只回報問題，不修改。」
+            路徑與載入方式見 <a href="https://learn.chatgpt.com/docs/build-skills" className="prose-link">Codex skill 文件</a>。
+          </p>
+          <p>
+            wrapper 另有執行逾時、回合上限和常見自訂認證環境檢查。
+            它啟動的是外部 CLI，不是 Codex 原生 subagent；不會自動共享這邊的對話，任務要交代清楚。
+          </p>
+          <Heading id="read-only">唯讀不等於隔離</Heading>
+          <p>
+            Read、Glob、Grep 不會把檔案存取範圍鎖在 repo 裡。只用於可信任、沒有敏感內容的工作，
+            不要把工具白名單當成安全沙箱，也不要讓兩邊同時修改同一批檔案。
+          </p>
+          <p>
+            Claude 的 <a href="https://code.claude.com/docs/en/sandboxing" className="prose-link">Bash sandbox</a>
+            支援 macOS、Linux、WSL2，不支援原生 Windows；檔案工具、MCP 和 hooks 不在這個 sandbox 裡。
+            worktree 能分開工作檔案，但不是安全隔離。
           </p>
         </FadeIn>
-
         <FadeIn>
-          <Heading id="read-only">先只開讀取權限</Heading>
+          <Heading id="test">結果仍要檢查</Heading>
           <p>
-            目前 skill 只允許 Read、Glob、Grep。原生 Windows 下這些讀取工具不是
-            path-bound，所以只會用在可信任、沒有敏感內容的 repo，而且讀取前會先確認是否同意
-            把程式碼送到 Anthropic。主要會派完整一點的 code review、讀陌生 module、找
-            failing test 的可能原因，或請另一個模型給 second opinion；修改和最後驗證仍留在
-            Codex。
+            適合交出去的是一段完整 review、陌生模組或失敗原因分析，不是每個小問題都多叫一次。
+            要求只回結論、檔案與行號，再由 Codex 核對；Claude 的回覆仍會占用 Codex context。
           </p>
           <p>
-            這裡刻意不開 Edit 或 Bash。Claude Code 的
-            <a
-              href="https://code.claude.com/docs/en/sandboxing"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="prose-link"
-            >
-              OS-level sandbox
-            </a>
-            目前只支援 macOS 和 Linux。真的需要 Claude 動手時，會另外準備隔離的
-            worktree，而不是讓兩個 agent 搶同一份 working tree。
+            先前曾用測試 repo 跑通，但當時的 token 數不代表現在的固定成本。
+            登入有問題時先用 <code>claude auth status</code> 檢查，再依{" "}
+            <a href="https://code.claude.com/docs/en/authentication" className="prose-link">認證文件</a>
+            處理，不要把所有 401 都當成憑證過期。
           </p>
-        </FadeIn>
-
-        <FadeIn>
-          <Heading id="test">實際跑了一次</Heading>
+          <Heading id="billing">確認走哪種額度</Heading>
           <p>
-            設定時先遇到一個小坑：<code>claude auth status</code> 明明顯示 Max，第一次
-            <code>claude -p</code> 卻回 401。重新跑
-            <code>claude auth login --claudeai</code> 後就正常了，應該只是本機快取的訂閱
-            credential 過期。登入方式可以查
-            <a
-              href="https://code.claude.com/docs/en/authentication"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="prose-link"
-            >
-              官方認證文件
-            </a>
-            。
+            訂閱登入與 API 認證是不同路徑。<code>claude -p</code> 在有 <code>ANTHROPIC_API_KEY</code> 時會採用 API key，
+            但還有優先級更高的雲端供應商或 gateway 設定；沒有這個變數，也不保證一定走訂閱。
+            wrapper 會拒絕多種常見自訂認證環境，仍應確認實際登入與計費來源。
           </p>
           <p>
-            synthetic repo 測試則正確讀出 Next.js、pnpm 與 build/test 指令，
-            過程沒有 permission denial。最初載入一般設定直接跑 <code>claude -p</code>，
-            最小的 Haiku 測試建立了 9,632 個 cache tokens；收緊 wrapper、關掉一般設定、
-            hooks、MCP 和 Chrome integration 後仍有 6,082 個。所以一句話能回答的小題不值得
-            特別派，整段 review、查錯或需要讀一批檔案時才比較合理。
+            依 <a href="https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan" className="prose-link">2026-10-07 官方更新</a>，
+            Agent SDK 與 <code>claude -p</code> 仍可使用訂閱額度；Max／Team 另有每月 API credits。
+            申領與使用條件看 <a href="https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans" className="prose-link">API credits 說明</a>，
+            不要把訂閱額度和 API credits 當成同一份。
           </p>
-        </FadeIn>
-
-        <FadeIn>
-          <Heading id="billing">額度怎麼算</Heading>
-          <p>
-            如果環境裡有 <code>ANTHROPIC_API_KEY</code>，Claude Code 會優先走 API
-            計費；這個 wrapper 偵測到時會先拒絕，避免以為在吃 Max 額度，結果另外收到 API
-            帳單。沒有 API key 時就沿用本機的 Claude 訂閱登入。
-          </p>
-          <p>
-            Anthropic 在 2026 年 7 月原本打算把 Agent SDK（包含 <code>claude -p</code>）
-            從訂閱額度拆出去，後來
-            <a
-              href="https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="prose-link"
-            >
-              暫停了這項變更
-            </a>
-            ，目前仍可使用方案內額度。JSON 裡的 <code>total_cost_usd</code> 是這次用量的
-            估算，不代表 Max 帳號又被加收一筆。
-          </p>
-          <p>
-            這套做法比較像把一部分工作移到 Claude 的額度，不是讓 token 消失；Claude 回傳的
-            內容最後仍會進 Codex context。所以會把 task 切得完整一點，也要求只回結論、檔案
-            和行號。這樣才真的有派出去的意義。
-          </p>
+          <p className="mt-6 text-sm text-text-muted">2026-10-15 依官方文件更新；本次未重新執行模型互呼測試。</p>
         </FadeIn>
       </div>
-
       <RelatedPosts href="/blog/codex-call-claude" />
     </article>
   );

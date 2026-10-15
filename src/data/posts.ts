@@ -75,8 +75,9 @@ export const posts: Post[] = [
   {
     title: "讓 Codex 呼叫 Claude Code",
     date: "2026-07-21",
+    updated: "2026-10-15",
     summary:
-      "用 claude -p 把獨立的讀 code、查錯與 code review 交給 Claude Code，再做成 Codex skill 視情況自動委派。",
+      "用 claude -p 與 Codex skill 委派讀 code、查錯與 review，整理權限限制和額度注意事項。",
     tags: ["AI", "Tooling"],
     tagStyle: "text-primary",
     href: "/blog/codex-call-claude",
