@@ -10,7 +10,7 @@ import RelatedPosts from "@/components/RelatedPosts";
 export const metadata: Metadata = articleMetadata("/blog/claude-call-codex", {
   title: "讓 Claude Code 呼叫 Codex | 花雪 HanaYukii",
   description:
-    "用官方的 codex-plugin-cc，在 Claude Code 裡直接叫 Codex 做 code review、對抗式審查、或把卡住的任務丟給它。完整安裝步驟、登入認證、設定，以及費用怎麼算。",
+    "用官方外掛在 Claude Code 裡呼叫 Codex：安裝、review、任務委派與額度注意事項。",
   openGraph: {
     title: "讓 Claude Code 呼叫 Codex",
     description:
@@ -34,200 +34,74 @@ export default function ClaudeCallCodex() {
       <FadeIn>
         <ArticleHeader href="/blog/claude-call-codex" />
         <p className="mb-8 text-text-muted">
-          OpenAI 官方出了個 Claude Code 外掛{" "}
-          <a
-            href="https://github.com/openai/codex-plugin-cc"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="prose-link"
-          >
-            codex-plugin-cc
-          </a>
-          ，裝了之後可以在同一個 Claude Code session 裡直接叫 Codex 來做 code
-          review、對抗式審查，或把卡住的任務整包丟給它（rescue）。這裡用 Claude
-          主導，需要第二個模型檢查時再交給 Codex。
+          在 Claude Code 裡用 OpenAI 官方的{" "}
+          <a href="https://github.com/openai/codex-plugin-cc" className="prose-link">codex-plugin-cc</a>
+          ，就能叫 Codex review、查 bug 或接手修改。Claude 負責主要工作，需要另一個模型檢查時再交出去。
         </p>
       </FadeIn>
-
-      <div className="prose-custom space-y-2 leading-relaxed text-text-muted [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-sm [&_code]:text-primary [&_strong]:text-text">
-        {/* 最省事裝法 */}
+      <div className="prose-custom space-y-2 leading-relaxed text-text-muted">
         <FadeIn>
-          <div className="my-2 rounded-r-lg border-l-2 border-warm/40 bg-surface/40 px-4 py-3">
-            <p>
-              <strong>最省事的方法</strong>：把這個 repo 連結{" "}
-              <a
-                href="https://github.com/openai/codex-plugin-cc"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="prose-link"
-              >
-                openai/codex-plugin-cc
-              </a>{" "}
-              丟給 Claude Code，請它讀 README 帶你裝——能自動跑的（裝 Codex CLI、檢查環境）它會幫你跑，
-              <code>/plugin</code> 那幾行 slash command 還是你自己貼。想完全照著做，看下面手動流程。
-            </p>
-          </div>
-        </FadeIn>
-
-        {/* 前置 */}
-        <FadeIn>
-          <Heading id="prereq">先準備兩樣東西</Heading>
-          <ul className="my-3 list-disc space-y-2 pl-6">
-            <li>
-              <strong>Node.js 18.18 或更新</strong>（<code>node -v</code> 檢查）。
-            </li>
-            <li>
-              <strong>一個能用 Codex 的帳號</strong>：ChatGPT 帳號（Free
-              或付費方案都行）或 OpenAI API key。怎麼付看{" "}
-              <a href="#cost" className="prose-link">
-                最後一段
-              </a>
-              。
-            </li>
-          </ul>
-        </FadeIn>
-
-        {/* 安裝 */}
-        <FadeIn>
-          <Heading id="install">安裝（四行指令）</Heading>
+          <Heading id="prereq">準備環境</Heading>
           <p>
-            下面四行都是在 <strong>Claude Code 裡</strong>輸入的 slash
-            command，一行一行貼：
+            先裝好 Claude Code、Node.js 18.18 以上，以及能使用 Codex CLI 的帳號或 OpenAI API key。
+            Free／Go 有 Codex 功能不代表所有入口都能用，CLI 資格請看{" "}
+            <a href="https://learn.chatgpt.com/docs/pricing" className="prose-link">目前方案說明</a>。
           </p>
-
-          <p className="mt-4">
-            <strong>1.</strong> 加入官方外掛市集：
-          </p>
-          <Code lang="text">{`/plugin marketplace add openai/codex-plugin-cc`}</Code>
-          <p>
-            <strong>2.</strong> 安裝外掛：
-          </p>
-          <Code lang="text">{`/plugin install codex@openai-codex`}</Code>
-          <p>
-            <strong>3.</strong> 重新載入外掛讓指令生效：
-          </p>
-          <Code lang="text">{`/reload-plugins`}</Code>
-
-          <p>
-            <strong>4.</strong> 跑設定精靈，它會檢查 Codex CLI 在不在：
-          </p>
-          <Code lang="text">{`/codex:setup`}</Code>
-          <p>
-            如果 <code>/codex:setup</code> 說找不到 Codex CLI，手動裝一次再回來：
-          </p>
-          <Code lang="bash">{`npm install -g @openai/codex`}</Code>
-        </FadeIn>
-
-        {/* 登入 */}
-        <FadeIn>
+          <Heading id="install">安裝外掛</Heading>
+          <p>以下在 Claude Code 裡逐行輸入：</p>
+          <Code lang="text">{" /plugin marketplace add openai/codex-plugin-cc\n/plugin install codex@openai-codex\n/reload-plugins\n/codex:setup".trim()}</Code>
+          <p>setup 會檢查 Codex CLI。若找不到，可以在終端機手動安裝：</p>
+          <Code lang="bash">{"npm install -g @openai/codex"}</Code>
           <Heading id="login">登入 Codex</Heading>
-          <p>
-            外掛沿用你本機的 Codex 登入：用過就自動接上，沒有就登入一次（
-            <code>!</code> 開頭是跑 shell 指令）：
-          </p>
-          <Code lang="bash">{`!codex login`}</Code>
-          <p>
-            會讓你選 <strong>ChatGPT 帳號</strong>（走方案內含額度）或{" "}
-            <strong>API key</strong>（走 API 按量計費）——兩條路的差別在最後一段。
-          </p>
+          <p>外掛沿用本機 Codex 登入。還沒登入的話，在終端機執行：</p>
+          <Code lang="bash">{"codex login"}</Code>
+          <p>使用 API key 時，改用 <code>codex login --with-api-key</code> 從標準輸入讀入金鑰，不要把金鑰貼進對話或提交進 repo。</p>
         </FadeIn>
-
-        {/* 設定 */}
         <FadeIn>
-          <Heading id="config">（選用）調設定</Heading>
+          <Heading id="usage">呼叫範例</Heading>
+          <p>檢查目前修改，放到背景跑：</p>
+          <Code lang="text">{"/codex:review --background\n/codex:status\n/codex:result"}</Code>
+          <p>檢查分支相對於 main 的變更，或指定想挑戰的設計：</p>
+          <Code lang="text">{"/codex:review --base main\n/codex:adversarial-review --base main 檢查快取失效與重試設計"}</Code>
           <p>
-            想固定用哪個模型、推理多深，在使用者層級的{" "}
-            <code>~/.codex/config.toml</code> 或專案根目錄的{" "}
-            <code>.codex/config.toml</code> 寫：
+            這兩種 review 都是唯讀。一般 review 不接受自訂重點；要指定風險或質疑設計，才用 adversarial review。
           </p>
-          <Code lang="toml">{`model = "gpt-5.4-mini"
-model_reasoning_effort = "high"`}</Code>
-          <p>不寫也能用，外掛會走預設值。</p>
+          <p>需要動手查錯、試修或接續上次任務，用 rescue：</p>
+          <Code lang="text">{"/codex:rescue 找出測試失敗原因，做最小修改並驗證\n/codex:rescue --resume 接著處理上一輪發現的問題"}</Code>
+          <p>
+            也可以直接對 Claude 說「請 Codex review 這份 diff」。委派修改時，別讓兩邊同時改同一批檔案；
+            背景工作可用 <code>/codex:cancel</code> 取消。
+          </p>
+          <p>
+            若想整段換到 Codex 繼續，用 <code>/codex:transfer</code>。
+            它會匯入目前對話並給出 <code>codex resume</code> 指令；需要支援 session import 的 Codex 版本。
+            這是移交對話，不是請 Codex 做完後回報。
+          </p>
         </FadeIn>
-
-        {/* 用法 */}
         <FadeIn>
-          <Heading id="usage">怎麼用：用講的就好</Heading>
+          <Heading id="config">模型先用預設</Heading>
           <p>
-            裝好後不一定要記指令，直接用講的就行：叫 Claude 開個 subagent
-            把工作委派給 Codex——例如「開個 subagent 讓 Codex review 這份
-            diff」，或丟個 task 過去（code review、查 failing test、試修 bug
-            之類）。主要把它當 <strong>second source</strong>，拿來和 Claude
-            自己的結果交叉比對。
+            不必先改設定檔。需要固定模型時，再從{" "}
+            <a href="https://learn.chatgpt.com/docs/models" className="prose-link">帳號與使用介面支援的模型</a>
+            選擇。舊範例的 <code>gpt-5.4-mini</code> 已退出 ChatGPT 登入的 Codex，不要再直接照抄；
+            API key 的模型供應另計。
           </p>
-          <p>想要明確指令，也可以直接打：</p>
-          <ul className="my-3 list-disc space-y-2 pl-6">
-            <li>
-              <code>/codex:review</code> — 標準 code review
-            </li>
-            <li>
-              <code>/codex:adversarial-review</code> — 對抗式審查，挑得更兇
-            </li>
-            <li>
-              <code>/codex:rescue</code> — 把任務整包委派給 Codex
-            </li>
-            <li>
-              <code>/codex:status</code>、<code>/codex:result</code>、{" "}
-              <code>/codex:cancel</code> — 看進度、拿結果、取消背景工作
-            </li>
-          </ul>
+          <Heading id="cost">額度與費用</Heading>
+          <p>
+            Claude 和 Codex 分別計算用量。Codex 用 ChatGPT 登入時走方案額度，用 API key 時走 OpenAI API 計費，
+            兩者分開。不要只憑「輕度／重度」決定哪種划算，先看自己的額度與任務量。
+          </p>
+          <p>
+            方案與可用入口以 <a href="https://learn.chatgpt.com/docs/pricing" className="prose-link">官方定價頁</a> 為準；
+            外掛最新指令看 <a href="https://github.com/openai/codex-plugin-cc" className="prose-link">README</a>。
+          </p>
+          <Heading id="reverse">反過來呼叫 Claude</Heading>
+          <p>
+            Codex 委派給 Claude 模型要用 <code>claude -p</code>，不是只暴露工具的 <code>claude mcp serve</code>。
+            範例與權限設定放在〈<Link href="/blog/codex-call-claude" className="prose-link">讓 Codex 呼叫 Claude Code</Link>〉。
+          </p>
+          <p className="mt-6 text-sm text-text-muted">2026-10-15 依官方文件更新；本次未重新執行模型互呼測試。</p>
         </FadeIn>
-
-        {/* 費用 */}
-        <FadeIn>
-          <Heading id="cost">費用怎麼算（怎麼付）</Heading>
-          <p>
-            Codex <strong>沒有獨立訂閱</strong>，付費走兩條路，登入時選哪種就走哪種：
-          </p>
-
-          <p className="mt-4">
-            <strong>A. 用 ChatGPT 帳號（方案內含額度）</strong>
-          </p>
-          <p>
-            Codex 已內含在每個 ChatGPT 方案裡（含 Free），不用另外買。輕度用 Plus
-            （$20）通常就夠，Pro（$100 起）額度高很多。額度依模型與任務大小變動，
-            最新以官方定價頁為準。
-          </p>
-
-          <p className="mt-4">
-            <strong>B. 用 API key（按 token 計費）</strong>
-          </p>
-          <p>
-            登入時改用 OpenAI API key，用量就走 OpenAI Platform 帳戶、按標準 API
-            token 計費，<strong>跟 ChatGPT 方案的額度分開</strong>。重度使用、
-            或想要可控、可報帳的帳單時選這個。
-          </p>
-
-          <p className="mt-4">
-            <strong>輕用挑 ChatGPT Plus 吃內含額度，重用或要帳單透明就用 API key</strong>。
-            最新價格以{" "}
-            <a
-              href="https://developers.openai.com/codex/pricing"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="prose-link"
-            >
-              官方定價頁
-            </a>{" "}
-            為準。
-          </p>
-        </FadeIn>
-
-        {/* 反過來 */}
-        <FadeIn>
-          <Heading id="reverse">反過來：讓 Codex 呼叫 Claude</Heading>
-          <p>
-            這一段原本把 <code>claude mcp serve</code> 寫成讓 Codex 委派任務給 Claude
-            的方式，後來實測才發現不對：它暴露的是 Claude Code 的 tools，不會跑一輪
-            Claude 模型。真的要把工作交給 Claude，入口是 <code>claude -p</code>。安裝成
-            Codex skill、權限和額度上的細節，另外整理在「
-            <Link href="/blog/codex-call-claude" className="prose-link">
-              讓 Codex 呼叫 Claude Code
-            </Link>
-            」。
-          </p>
-        </FadeIn>
-
       </div>
       <RelatedPosts href="/blog/claude-call-codex" />
     </article>
