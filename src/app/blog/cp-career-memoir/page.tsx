@@ -9,11 +9,11 @@ import PostJsonLd from "@/components/PostJsonLd";
 import RelatedPosts from "@/components/RelatedPosts";
 
 export const metadata: Metadata = articleMetadata("/blog/cp-career-memoir", {
-  title: "一路打競賽到現在 | 花雪 HanaYukii",
+  title: "程式競賽生涯回顧隨筆 | 花雪 HanaYukii",
   description:
     "從一份太難的計概作業開始刷題，後來拿到 ICPC Gold，也在離 World Finals 只差一點 penalty 的地方停下來。",
   openGraph: {
-    title: "一路打競賽到現在",
+    title: "程式競賽生涯回顧隨筆",
     description:
       "從一份太難的計概作業開始刷題，到 ICPC Gold 與差一點進 World Finals。",
     type: "article",

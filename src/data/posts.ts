@@ -322,7 +322,7 @@ export const posts: Post[] = [
     href: "/blog/lc-2463",
   },
   {
-    title: "一路打競賽到現在",
+    title: "程式競賽生涯回顧隨筆",
     date: "2026-04-14",
     summary:
       "從計概作業太難開始刷題，一路打到 ICPC 金牌。記下大學比賽、出國參賽，以及後來工作上用到的東西。",
