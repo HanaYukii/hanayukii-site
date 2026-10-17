@@ -25,6 +25,14 @@
 
 export const posts: Post[] = [
   {
+    title: "用 AI 剪新加坡旅行 Vlog",
+    date: "2026-10-18",
+    summary: "準備好照片和影片，讓 Claude、Codex 整理單場精華與整週旅行。記錄選段、補字卡、調整聲音，以及看完初版後怎麼修改。",
+    tags: ["AI", "Video", "Life"],
+    tagStyle: "text-accent",
+    href: "/blog/ai-vlog-notes",
+  },
+  {
     title: "SoraChi 製作筆記",
     date: "2026-10-18",
     summary: "有了 Jabiko 的經驗，再做 SoraChi 順了很多。記錄零基礎教材、雲朵角色與介面、本機進度，以及登入與私人回報的設計。",
