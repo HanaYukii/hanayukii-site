@@ -10,7 +10,7 @@ const href = "/blog/sorachi-guide";
 export const metadata: Metadata = articleMetadata(href, {
   title: "SoraChi：日文入門與使用說明 | 花雪 HanaYukii",
   description: "SoraChi 的五十音、基礎句型、旅遊常用語與練習怎麼用，以及如何保存學習進度。給零基礎、想學一點旅遊日文的人。",
-  openGraph: { images: [{ url: "/images/sorachi/home-current.jpg", width: 1280, height: 1428, alt: "SoraChi 首頁與四個學習入口" }] },
+  openGraph: { images: [{ url: "/images/sorachi/home-compact-20261018.jpg", width: 1280, height: 684, alt: "SoraChi 首頁與四個學習入口" }] },
 });
 
 function Heading({ id, children }: { id: string; children: React.ReactNode }) {
@@ -33,7 +33,7 @@ export default function SorachiGuide() {
       <ArticleHeader href={href} />
       <p className="mb-6 leading-relaxed text-text-muted">之前做了 Jabiko，但零基礎的朋友試了之後，覺得還是用不了。想到應該不少人也有類似的需求：想從頭學一點日文，或是去日本玩時看得懂、說得出幾個常用詞，不一定是為了考試。所以另外做了 SoraChi，從五十音和基礎句型開始，也能直接查旅遊常用語。</p>
       <a href="https://sorachi.app/" className="text-primary underline underline-offset-4">開啟 SoraChi →</a>
-      <Screenshot name="home-current" format="jpg" height={1428} alt="SoraChi 首頁：四隻雲朵吉祥物分別搭配五十音、基礎句型、旅遊常用語與基礎刷題">首頁把幾種用途分開，不用照固定順序走。</Screenshot>
+      <Screenshot name="home-compact-20261018" format="jpg" height={684} alt="SoraChi 首頁：四隻雲朵吉祥物分別搭配五十音、基礎句型、旅遊常用語與基礎刷題">首頁把幾種用途分開，不用照固定順序走。</Screenshot>
     </FadeIn>
     <div className="space-y-4 leading-relaxed text-text-muted [&_strong]:text-text [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-4">
       <FadeIn>
@@ -47,13 +47,13 @@ export default function SorachiGuide() {
       <FadeIn>
         <Heading id="kana">五十音：看字、聽讀音，再練習</Heading>
         <p>點進一組字，先看字卡和記憶提示，按喇叭聽讀音，再換下一張。基本字之後還有濁音、拗音，以及促音和長音的小課。</p>
-        <Screenshot name="kana" height={1282} alt="拗音しゃ字卡，附 sha 讀音、記憶提示與しゃしん例字">例如「しゃ」不是把「し」「や」分開念；提示會說明小字的作用，再用單字聽一次。</Screenshot>
+        <Screenshot name="kana-20261018" format="jpg" height={1272} alt="拗音しゃ字卡，附 sha 讀音、記憶提示與しゃしん例字">例如「しゃ」不是把「し」「や」分開念；提示會說明小字的作用，再用單字聽一次。</Screenshot>
         <p>看完可以做選擇題。之後回到五十音表，用「複習學過的字」做一小輪複習，答錯的字會優先出現。首頁的「五十音隨機練習」則是另一個入口：每輪五題，從基本內容練起，不記成績。</p>
       </FadeIn>
       <FadeIn>
         <Heading id="grammar">基礎句型：先看例句，再選要不要做題</Heading>
         <p>第一次建議照順序看，從介紹自己、問問題，慢慢到時間、地點和動作。每課把例句與學習重點分開，有需要再展開補充說明，不用一次讀完所有細節。</p>
-        <Screenshot name="grammar-current" format="jpg" height={1255} alt="疑問句教學：学生ですか，完整例句附漢字標音，再拆解詞語並說明か的用法">先看「学生ですか。」的完整例句與讀音，再看單字和句尾「か」的作用。</Screenshot>
+        <Screenshot name="grammar-20261018" format="jpg" height={1240} alt="疑問句教學：学生ですか，完整例句附漢字標音，再拆解詞語並說明か的用法">先看「学生ですか。」的完整例句與讀音，再看單字和句尾「か」的作用。</Screenshot>
         <p>看完說明可以直接完成，也可以做練習確認懂了沒；答錯時能回看說明。之後可接著上次的課繼續，學過幾課後再用小複習，把不同課的題目混著練。</p>
       </FadeIn>
       <FadeIn>
