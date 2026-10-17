@@ -31,7 +31,7 @@ export default function SorachiGuide() {
     <PostJsonLd href={href} />
     <FadeIn>
       <ArticleHeader href={href} />
-      <p className="mb-6 leading-relaxed text-text-muted">之前做了 Jabiko，但零基礎的朋友試了之後，覺得還是用不了。想到應該不少人也有類似的需求：想從頭學一點日文，或是去日本玩時看得懂、說得出幾個常用詞，不一定是為了考試。所以另外做了 SoraChi，從五十音和基礎句型開始，也能直接查旅遊常用語。</p>
+      <p className="mb-6 leading-relaxed text-text-muted">之前做了 Jabiko，但零基礎的朋友試了之後，覺得還是用不了。想到不少人可能也只是想學一點日文，去日本玩時能用上，不一定要考試，就另外做了 SoraChi。可以從五十音和基礎句型開始，也能直接查旅遊常用語。</p>
       <a href="https://sorachi.app/" className="text-primary underline underline-offset-4">開啟 SoraChi →</a>
       <Screenshot name="home-compact-20261018" format="jpg" height={684} alt="SoraChi 首頁：四隻雲朵吉祥物分別搭配五十音、基礎句型、旅遊常用語與基礎刷題">首頁把幾種用途分開，不用照固定順序走。</Screenshot>
     </FadeIn>
@@ -48,19 +48,19 @@ export default function SorachiGuide() {
         <Heading id="kana">五十音：看字、聽讀音，再練習</Heading>
         <p>點進一組字，先看字卡和記憶提示，按喇叭聽讀音，再換下一張。基本字之後還有濁音、拗音，以及促音和長音的小課。</p>
         <Screenshot name="kana-20261018" format="jpg" height={1272} alt="拗音しゃ字卡，附 sha 讀音、記憶提示與しゃしん例字">例如「しゃ」不是把「し」「や」分開念；提示會說明小字的作用，再用單字聽一次。</Screenshot>
-        <p>看完可以做選擇題。之後回到五十音表，用「複習學過的字」做一小輪複習，答錯的字會優先出現。首頁的「五十音隨機練習」則是另一個入口：每輪五題，從基本內容練起，不記成績。</p>
+        <p>看完可以做選擇題。之後回到五十音表，點「複習學過的字」，答錯的字會優先出現。只想隨手練幾題，也可以點首頁的「五十音隨機練習」：每輪五題，從基本內容練起，不記成績。</p>
       </FadeIn>
       <FadeIn>
         <Heading id="grammar">基礎句型：先看例句，再選要不要做題</Heading>
-        <p>第一次建議照順序看，從介紹自己、問問題，慢慢到時間、地點和動作。每課把例句與學習重點分開，有需要再展開補充說明，不用一次讀完所有細節。</p>
+        <p>第一次可以照順序看，從介紹自己、問問題，慢慢到時間、地點和動作。先看例句和旁邊的說明，想多了解一點再展開補充。</p>
         <Screenshot name="grammar-20261018" format="jpg" height={1240} alt="疑問句教學：学生ですか，完整例句附漢字標音，再拆解詞語並說明か的用法">先看「学生ですか。」的完整例句與讀音，再看單字和句尾「か」的作用。</Screenshot>
         <p>看完說明可以直接完成，也可以做練習確認懂了沒；答錯時能回看說明。之後可接著上次的課繼續，學過幾課後再用小複習，把不同課的題目混著練。</p>
       </FadeIn>
       <FadeIn>
         <Heading id="travel">旅遊常用語：先找情境，記關鍵字</Heading>
         <p>選情境，或用搜尋找需要的內容。每張卡先放關鍵字、讀音與意思，需要完整句子時再展開，不必一開始就背長句。</p>
-        <p>例如已經選好飲料，店員在確認冷熱時，回答「ホット」（熱的）或「アイス」（冰的）就能表達需求。先看清楚卡片寫的使用情境，再搭配語音練習。</p>
-        <p>常用的卡片可以收藏到「我的常用語」，出發前先整理好。這裡是查閱工具，閱讀和收藏都不計分。</p>
+        <p>例如選好飲料後，店員問要熱的還冰的，就可以回答「ホット」（熱的）或「アイス」（冰的）。卡片會寫什麼時候能這樣說，也可以按語音跟著念。</p>
+        <p>常用的卡片可以收藏到「我的常用語」，出發前先存好，要用時比較好找。查閱和收藏都不計分。</p>
       </FadeIn>
       <FadeIn>
         <Heading id="practice">想多練一點，再用基礎刷題</Heading>
@@ -75,7 +75,7 @@ export default function SorachiGuide() {
       </FadeIn>
       <FadeIn>
         <Heading id="feedback">有看不懂的地方，歡迎回報</Heading>
-        <p>各區頁首和頁尾都有「問題與建議」。填寫內容、完成驗證後就能直接送出，不用登入；回報只供網站管理者處理，不會公開。希望收到回覆時再填聯絡方式，也請避免填入密碼或其他敏感資料。</p>
+        <p>各區頁首和頁尾都有「問題與建議」，填完、通過驗證就能送出，不用登入。回報不會公開，只有網站管理者看得到。想收到回覆再留聯絡方式，不要填密碼或其他敏感資料。</p>
         <p className="mt-4">還在慢慢補內容。如果哪個說明對零基礎來說跳太快，或旅行時想查的詞找不到，都可以提出來。</p>
         <p className="mt-4">想看網站怎麼做，也另外寫了 <a href="/blog/sorachi-dev-notes">SoraChi 製作筆記</a>。</p>
         <p className="mt-4"><a href="https://sorachi.app/">到 SoraChi 試試看 →</a></p>
