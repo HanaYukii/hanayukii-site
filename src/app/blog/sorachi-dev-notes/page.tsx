@@ -12,7 +12,7 @@ const href = "/blog/sorachi-dev-notes";
 export const metadata: Metadata = articleMetadata(href, {
   title: "SoraChi 製作筆記 | 花雪 HanaYukii",
   description: "有了 Jabiko 的經驗，再做 SoraChi 順了很多。記錄零基礎教材、雲朵角色與介面、本機進度、Google 登入和私人回報的幾個設計決定。",
-  openGraph: { images: [{ url: "/images/sorachi/home-current.jpg", width: 1280, height: 1428, alt: "SoraChi 首頁與雲朵角色" }] },
+  openGraph: { images: [{ url: "/images/sorachi/home-compact-20261018.jpg", width: 1280, height: 684, alt: "SoraChi 首頁與雲朵角色" }] },
 });
 
 function Heading({ id, children }: { id: string; children: React.ReactNode }) {
@@ -32,8 +32,8 @@ export default function SorachiDevNotes() {
         <Heading id="interface">先把幾種用法分開</Heading>
         <p>首頁最後保留四張大圖：五十音、基礎句型、旅遊常用語和基礎刷題。每區用同一個雲朵角色搭配不同道具，再用淡紫、水色和杏橘區分。角色由 AI 生成，確定主角之後再以它為參考做變化；輸出成不同尺寸的 WebP，讓首頁和小圖示各取合適的圖片。</p>
         <figure className="my-6">
-          <Image src="/images/sorachi/home-current.jpg" width={1280} height={1428} alt="SoraChi 首頁，四個入口各有一張雲朵角色插圖與操作按鈕" sizes="(max-width: 768px) calc(100vw - 48px), 720px" className="h-auto w-full rounded-xl border border-border" />
-          <figcaption className="mt-2 text-sm">插圖保留足夠空間，學習和練習的按鈕放在下面。</figcaption>
+          <Image src="/images/sorachi/home-compact-20261018.jpg" width={1280} height={684} alt="SoraChi 首頁，四個入口各有一張雲朵角色插圖與操作按鈕" sizes="(max-width: 768px) calc(100vw - 48px), 720px" className="h-auto w-full rounded-xl border border-border" />
+          <figcaption className="mt-2 text-sm">桌面把角色和文字並排，四個入口能一起看見。</figcaption>
         </figure>
         <p>這裡改過幾次。一開始「開始學五十音」會直接進五題模式，按返回卻到五十音表，入口名稱和實際動作對不上。後來把看教材、隨機進一課、練題目分開，按鈕直接寫會發生什麼事。旅遊區則維持隨時能查，不要求完成課程，也不計分。</p>
       </FadeIn>
@@ -42,7 +42,7 @@ export default function SorachiDevNotes() {
         <p>對新手來說，畫面漂亮還不夠。有次把「我」「學生」拆成單字卡，外框卻寫「例句與意思」，看起來就像把句子裡的「は」「です」漏掉了。後來改成先放完整的目標句，再看單字與各部分的作用；單字、句型、動詞變化也各自標清楚。</p>
         <p>教材放在 <code>content.js</code>，顯示方式另外用 <code>lessonPresentation</code> 記錄。漢字與假名標音逐句整理，用網頁原生的 <code>ruby</code> 顯示；羅馬字和中文仍保留。畫面呈現漢字，朗讀沿用核對過的讀音，避免為了調整排版，同時改到題目或學習紀錄的版本。</p>
         <figure className="my-6">
-          <Image src="/images/sorachi/grammar-current.jpg" width={1280} height={1255} alt="SoraChi 疑問句課：例句、詞語拆解和學習重點分區呈現" sizes="(max-width: 768px) calc(100vw - 48px), 720px" className="h-auto w-full rounded-xl border border-border" />
+          <Image src="/images/sorachi/grammar-20261018.jpg" width={1280} height={1240} alt="SoraChi 疑問句課：例句、詞語拆解和學習重點分區呈現" sizes="(max-width: 768px) calc(100vw - 48px), 720px" className="h-auto w-full rounded-xl border border-border" />
           <figcaption className="mt-2 text-sm">例句與說明分區，利用底色和框線幫助閱讀。</figcaption>
         </figure>
         <p>每課也列出先備課程和新教的詞。檢查程式會找出題幹或答案用了哪些還沒教的詞，讓加題時有個提醒。不過這只能抓部分問題，日文自然不自然、說明是不是跳太快，仍要逐題看。五十音的例字也附中文和讀音，不能假設新手已經知道那些日文單字。</p>
