@@ -25,6 +25,14 @@
 
 export const posts: Post[] = [
   {
+    title: "SoraChi：日文入門與使用說明",
+    date: "2026-10-18",
+    summary: "給零基礎、想學一點旅遊日文的人。從五十音、基礎句型開始，也可以直接查常用語；整理各個入口與進度備份的用法。",
+    tags: ["Japanese", "Side Project"],
+    tagStyle: "text-primary",
+    href: "/blog/sorachi-guide",
+  },
+  {
     title: "C++ atomic 用法入門",
     date: "2026-09-27",
     updated: "2026-09-28",
