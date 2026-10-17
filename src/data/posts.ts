@@ -25,6 +25,14 @@
 
 export const posts: Post[] = [
   {
+    title: "SoraChi 製作筆記",
+    date: "2026-10-18",
+    summary: "有了 Jabiko 的經驗，再做 SoraChi 順了很多。記錄零基礎教材、雲朵角色與介面、本機進度，以及登入與私人回報的設計。",
+    tags: ["Web", "AI", "Side Project"],
+    tagStyle: "text-primary",
+    href: "/blog/sorachi-dev-notes",
+  },
+  {
     title: "SoraChi：日文入門與使用說明",
     date: "2026-10-18",
     summary: "給零基礎、想學一點旅遊日文的人。從五十音、基礎句型開始，也可以直接查常用語；整理各個入口與進度備份的用法。",
