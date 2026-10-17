@@ -51,7 +51,7 @@ export default function SorachiDevNotes() {
         <Heading id="reuse">從 Jabiko 帶過來的是哪些做法</Heading>
         <p>Jabiko 使用 React、TypeScript 和 Vite；SoraChi 目前保留純 HTML、CSS 和 JavaScript，直接由 GitHub Pages 提供。沒有把整個 Jabiko 搬過來，主要參考它把題池與畫面狀態分開、固定當次題序，以及檢查資料再匯入的做法。</p>
         <p>例如基礎刷題的題池和狀態轉移放在 <code>drill.js</code>，畫面只負責顯示和接收操作。重新整理後應該還是同一題、同一組選項；題庫新增題目時，也不該打亂正在做的一輪。每題有固定 ID 和內容版本，題目真的改了，才處理受影響的進行中練習。</p>
-        <p>目前刷題共有 200 題，其中一部分改寫自 Jabiko 的基礎自撰題，另外補上本站題目。挑選時先對照 SoraChi 已教的內容，沒有把 N5、N4 題庫整包放進來。題目變多和適合新手，是兩件需要分別確認的事。</p>
+        <p>目前刷題共有 230 題，其中一部分改寫自 Jabiko 的基礎自撰題，另外補上本站題目。挑選時先對照 SoraChi 已教的內容，沒有把 N5、N4 題庫整包放進來。題目變多和適合新手，是兩件需要分別確認的事。</p>
       </FadeIn>
       <FadeIn>
         <Heading id="storage">先保護本機進度，再接登入</Heading>
